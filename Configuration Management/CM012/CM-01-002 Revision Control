@@ -1,0 +1,86 @@
+---
+title: "Version Control"
+author: "David Ricart"
+project: "ProcessWiki"
+genre: "procedure"
+domains:
+    - Engineering
+    - Configuration Management
+---
+### Procedure
+# Version Control
+ ### References
+Number |  Title                                   |
+| ----- | --------------------------------------- |
+|CM-02-001| Set Up Permissions for Data Repositories |
+
+### Roles and Responsibilities
+| Role                    | Responsibility     |
+| ----------------------- | ------------------ |
+| Engineer|Checks out files, commits files, writes commit messages|
+| Approver  | Reviews and approves commits as required|
+| Configuration Manager | Monitors compliance with procedure and repository usage|
+### Purpose
+This document defines the procedure(s) to perform version control of engineering data.  
+### Definition
+**Version Control** is the practice of executing changes to data with **versions**. When an engineer modifies data in a version-controlled file repository, they create a new version, or snapshot of that data to be retained for recordkeeping purposes. Proper version control establishes a complete and legible change history. Versions contain the following metadata:
+* Who created the version
+* When they created it
+* Why and/or how they created it (Commit Message)
+
+Version Control is a common built-in feature of Digital Engineering Tools (DETs), such as PTC Creo, which engineers use to modify mechanical design files. DETs require the user to "check out" the file before making changes. Check outs prevent multiple users from overwriting or conflicting with each other's work. The file becomes "open for edits" once the new version is committed. 
+### When  to use Version Control
+
+Version control is required when using DETs.
+
+Version control is optional when using SharePoint to modify standard documents, such as Word, PDF, Excel, PPT, and Visio files.
+***
+**NOTE**  
+Version Control is required when using SharePoint to modify or manage files with natively modifiable engineering data, including analyses performed in excel sheets or test data reported in a Word document. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
+***
+Version Control is also useful for:
+
+* Managing collaboration. Version Control helps multiple engineers maintain awareness of changes as they work on the same files concurrently. Versioning keeps everyone on the same page as work progresses, and speeds up the onboarding process.
+- Simplifying re-work. When data must be reverted to a previous state, the commit messages in the version history help pinpoint the right version to restore.
+
+
+### Best Practices
+***
+#### Space out your changes
+Versions are considered smaller increments of change than other control methods like *revisions* or *baselines*. Since the goal of version control is to produce a comprehensible change history, you should limit the changes in a single version to a few significant changes or a handful of minor changes.
+
+A good rule of thumb when spacing out changes is the simplicity of your Commit Message. If you can't summarize the changes in 1-2 sentences, you may want to revert some of them, create a first new version, and then create a second new version with the remaining changes.
+
+#### Limit the amount of time a file is checked out
+
+Other users are locked out from file access when a user has checked it out. For this reason, you should aim to limit the amount of time that you check out files to a reasonable extent. You should not check out files unless you have sufficient time to complete the new version. If you check out a file, complete some work, and then are asked to work on a separate task, you should This practice is unprofessional towards teammates, slows down collaboration, and reduces the clarity of the change history (e.g., a version with only a few minor changes was checked out for 7 hours).
+
+
+Before committing, confirm that changes are correct, complete, and compatible with any related data (*i.e.*, nothing will break after you commit).  
+If you are committing a major change, you must include a Problem/Trouble Report ID in the Commit Message.
+### Procedure
+
+1. Open the file in the DET and check it out/lock for edits.  
+   
+2. Perform modifications to the data in accordance with the applicable processes. 
+   
+3. Write a Commit Message in 1-2 sentences that includes:   
+   a. Brief summary of the change  
+   b. Reference to location of changes (page/sheet/block/module/partNumber)  
+   c. Reference to Problem/Trouble Report (if applicable)
+
+4. Commit the changes to the DET server. 
+
+####  Approval
+
+Certain files may require a **commit approval step**. The commit request is sent to the Approver who reviews the changes.
+
+
+
+---
+**Document Control**
+
+* Document Number: CM-01-001
+* Effective Date: \[To be Assigned]
+* Owner: \[Configuration Manager]
+* Last Reviewed: \[To be Assigned]

@@ -78,7 +78,7 @@ At certain pivot points in development, (e.g. scope of work change, requirements
 
 4. Commit the changes to the DET server. 
 
-#### Version Control Approval
+##### Version Control Approval
 
 Certain files may require a **commit approval step**.  
 

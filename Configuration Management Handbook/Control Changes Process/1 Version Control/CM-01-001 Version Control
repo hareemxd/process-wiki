@@ -65,7 +65,7 @@ You should not check out files unless your immediate attention will be devoted t
 At certain pivot points in development, (e.g. scope of work change, requirements change), it may be necessary to create a new version with a substantial amount of change from the previous version. This is acceptable so long as the change history is still comprehensible and legibile, **and** the Commit Message for the major version includes an external record ID, such as a **Problem Report** or **Trouble Report**.
 
 
-### Procedure
+### Version Control Procedure
 
 1. Open the file in the DET and check it out/lock for edits.  
    
@@ -78,7 +78,7 @@ At certain pivot points in development, (e.g. scope of work change, requirements
 
 4. Commit the changes to the DET server. 
 
-#####  Approval
+#### Version Control Approval
 
 Certain files may require a **commit approval step**.  
 

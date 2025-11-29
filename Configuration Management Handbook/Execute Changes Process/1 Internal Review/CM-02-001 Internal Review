@@ -1,133 +1,83 @@
-**Procedure**  
-Peer Review Procedure for Controlled Engineering Data
------------------------------------------------------
+---
+title: " Engineering Internal Review"
+author: "David Ricart"
+project: "ProcessWiki"
+genre: "procedure"
+domains:
+    - Engineering
+    - Configuration Management
+---
+ ### Procedure
+ # Engineering Internal Review
+ ### References
+Number |  Title                                   |
+| ----- | --------------------------------------- |
 
-## **Applicable Domains:** Engineering, Configuration Management
+### Roles and Responsibilities
+| Role                    | Responsibility     |
+| ----------------------- | ------------------ |
+| Engineer|Modifies engineering data and initiates review activity|
+| Reviewer  | Reviews changes and provides feedback|
+| Configuration Manager | Monitors compliance with procedures
+### Purpose
+This document defines the procedure(s) and presents the common use cases and best practices to perform engineering internal reviews. 
+### Definition
+**Engineering Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. It is the foremost review in the overall change process that ensures work is consistent with the internal group's standards and is free of objective errors. Any issues discovered and resolved during this stage saves additional effort later during **Peer Review** and **CCB Review**, where resolution may consume more time and resources.  
 
-### 1. Purpose
+Internal reviews are often considered *informal* in nature, but certain efforts or projects may require some degree of formality even for basic reviews. In these instances, it is strongly recommended to use an **Internal Review Checklist** with specific criteria to guide the review activity.
+### When to perform Engineering Internal Review
 
-This document defines the procedure for conducting peer reviews of controlled engineering data. Peer reviews are critical quality control activities that support traceability, accountability, and early defect detection in engineering projects.
+Any changes to data must be internally reviewed prior to **Peer Review**.
+
+***
+NOTE  
+
+***
+Version Control is also useful for:
+
+* Managing collaboration. Version Control helps multiple engineers maintain awareness of changes as they work on the same files concurrently. Versioning keeps everyone on the same page as work progresses, and speeds up the onboarding process.
+- Simplifying re-work. When data must be reverted to a previous state, the commit messages in the version history help pinpoint the right version to restore.
+
+
+### Best Practices
+***
+#### Limit the number of changes in a version
+Versions are considered smaller increments of change than other control methods like **revisions** or **baselines**. Since the goal of version control is to produce a comprehensible change history, you should limit the changes in a single version to only a few significant changes or a handful of minor changes. This approach allows an independent reviewer to quickly grasp the evolution of the file.
+
+If you can't summarize the changes in 1-2 sentences in the commit message, the changes may be too complex or dense to be understood in the change history. Revert some of the changes, create a first new version, and then create a second new version with the remaining changes.
+
+#### Limit the amount of time a file is checked out
+
+You should not check out files unless your immediate attention will be devoted to completing the new version. Leaving a file in check-out status for many hours leaves teammates in the dark on your progress, and you may forget what work was left incomplete. Poor version control practice is unprofessional, slows down collaboration, and degrades the quality of the change history (e.g., a version with only a few typo fixes was checked out for 7 hours). Prioritize compl
+
+#### For major changes, add traceability to an external change record
+
+At certain pivot points in development, (e.g. scope of work change, requirements change), it may be necessary to create a new version with a substantial amount of change from the previous version. This is acceptable so long as the change history is still comprehensible and legibile, **and** the Commit Message for the major version includes an external record ID, such as a **Problem Report** or **Trouble Report**.
+
+
+### Version Control Procedure
+
+1. Open the file in the DET and check it out/lock for edits.  
+   
+2. Perform modifications to the data in accordance with the applicable processes. 
+   
+3. Write a Commit Message in 1-2 sentences that includes:   
+   a. Brief summary of the change  
+   b. Reference to location of changes (page/sheet/block/module/partNumber)  
+   c. Reference to Problem/Trouble Report (if applicable)
+
+4. Commit the changes to the DET server. 
+
+##### Version Control Approval
+
+Certain files may require a **commit approval step**.  
+
+1. Locate the file to be approved, in a notifications menu or inbox, or by manually searching the DET.
+2. Review the change history, the changes in the new version
+
 
 ---
-
-### 2. Revision History
-
----
-
-### 3. References
-
-| Document Number | Title                                |
-| --------------- | ------------------------------------ |
-| CM-01-002       | Version Control for Engineering Data |
-| CM-02-002       | Preserve Integrity           |
-| CM-01-001           | Approve Changes |
-| CM-PRF-001 | Peer Review Form (PRF) Template      |
-
----
-
-### 4. Scope
-
-This process applies to peer reviews conducted across all engineering data types and repositories, including documents, CAD, ECAD, system models, requirements, and source code. The process ensures peer review records are structured, role-driven, and integrity-preserving.
-
-Peer reviews are a critical step of the major change process, being functionally equivalent to an "item-level internal design review". Peer reviews should generally be limited to one major item revision and should be sequenced in a way that maintains configuration integrity. For example, a complex assembly revision should occur **only** afer any required revisions of its sub-assemblies have been released.
-
-For items/changes of sufficient complexity (e.g. multiple form-fit-function-interface changes to an assembly at multiple product levels), peer reviews should be coordinated between Engineering and Configuration Management with a Configuration Control Board review process.
-
----
-
-### 5. Procedure
-
-#### Step 1: Choose Appropriate Template
-
-* Select a Peer Review Form (PRF) template suited to the target repository or artifact type.
-
-  * Example: Use the SharePoint PRF template for documents in SharePoint.
-
-#### Step 2: Identify the Modified Data Under Review
-
-* In the PRF template, record the **part number** and **revision/increment number** for each data item under review.
-
-**Note**: Identification fields must be data-validated from a reference list to reduce risk of typographical errors (see CM-02-002).
-
-#### Step 3: Collect Data and Supporting Material
-
-* Gather all relevant modified files, the PRF sheet, and any reference documentation required by reviewers.
-* Upload all materials to a designated **shared folder**.
-
-#### Step 4: Identify Reviewers
-
-* Identify reviewers based on:
-
-  * The **Authorized Signature List (ASL)** if available, or
-  * **Manual assignment** by the data Owner or Engineering Lead.
-
-**Reviewer assignment guidance:**
-
-* Consider the **stage of the project lifecycle** (e.g., omit manufacturing review from early prototypes).
-* Consider the **artifact type** (e.g., schematics need electrical review).
-* Consider **system complexity** and **safety criticality** to determine needed domain participation.
-
-Reviewer assignments and general approval structure for a project should be detailed in a project Configuration Management Plan. See CM-01-001 Approve Changes.
-
-#### Step 5: Prepare Peer Review Record
-
-* Populate the PRF with:
-
-  * Configuration IDs (step 2)
-  * Reviewers (step 4)
-  * Change Description
-* Notify reviewers and Configuration Management that the review has been initiated.
-
-#### Step 6: CM Grants Reviewer Access
-
-* CM grants reviewers **edit access** to the PRF.
-* Access permissions must align with CM-02-001 Set Up Permissions for Data Repositories.
-
-#### Step 7: Reviewer Commenting
-
-* Reviewers analyze the data and enter comments directly into the PRF.
-* **Reviewer guidance:**
-
-  * Focus on the **modifications** made since the last version/revision.
-  * Prioritize feedback on **domain-specific elements** relevant to their role.
-  * Use clear, constructive language. Flag safety, performance, or compliance concerns.
-
-#### Step 8: Owner Responds to Comments
-
-* The data owner reviews each comment and records a **response**:
-
-  * Accept and implement change
-  * Reject with rationale
-  * Defer or clarify as needed
-* Data is modified as required to address valid feedback.
-
-#### Step 9: Owner Closes Comments
-
-* Once feedback is addressed, the owner **closes** each comment individually.
-* Closed comments should reflect completion and traceability of action.
-
-#### Step 10: Review Completion
-
-* The PRF status changes from **Open** to **Closed** once:
-
-  * All assigned reviewers have submitted at least one comment.
-  * All comments are reviewed and responded to.
-  * All comments are closed by the Owner.
-  * All necessary data updates have been made.
-
----
-
-### 6. Compliance
-
-* All peer reviews must follow this procedure to ensure integrity, consistency, and approval traceability.
-* CM must retain completed PRFs for audit and process verification.
-* Incomplete or improperly executed reviews are not valid for release or revision.
-
----
-
 **Document Control**
 
-* Document Number: CM-01-003
-* Effective Date: \[To be Assigned]
-* Owner: \[Configuration Manager]
-* Last Reviewed: \[To be Assigned]
+* Document Number: CM-01-001
+

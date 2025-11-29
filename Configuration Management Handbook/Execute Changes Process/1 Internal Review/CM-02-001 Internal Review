@@ -22,51 +22,28 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) and presents the common use cases and best practices to perform engineering internal reviews. 
 ### Definition
-**Engineering Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. It is the foremost review in the overall change process that ensures work is consistent with the internal group's standards and is free of objective errors. Any issues discovered and resolved during this stage saves additional effort later during **Peer Review** and **CCB Review**, where resolution may consume more time and resources.  
-
-Internal reviews are often considered *informal* in nature, but certain efforts or projects may require some degree of formality even for basic reviews. In these instances, it is strongly recommended to use an **Internal Review Checklist** with specific criteria to guide the review activity.
+**Engineering Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. It is the foremost review in the overall change process that ensures work is consistent with the internal group's standards (e.g. labeling, significant figures) and is free of objective errors. Internal reviews may be informal and conducted verbally or via email. However, for programs subject to rigorous quality or process requirements, it is strongly recommended to use an **Internal Review Checklist** with specific criteria to guide the review activity.
 ### When to perform Engineering Internal Review
 
-Any changes to data must be internally reviewed prior to **Peer Review**.
-
-***
-NOTE  
-
-***
-Version Control is also useful for:
-
-* Managing collaboration. Version Control helps multiple engineers maintain awareness of changes as they work on the same files concurrently. Versioning keeps everyone on the same page as work progresses, and speeds up the onboarding process.
-- Simplifying re-work. When data must be reverted to a previous state, the commit messages in the version history help pinpoint the right version to restore.
-
+Any changes to data must be internally reviewed prior to the data's submittal for **Peer Review**.
 
 ### Best Practices
 ***
-#### Limit the number of changes in a version
-Versions are considered smaller increments of change than other control methods like **revisions** or **baselines**. Since the goal of version control is to produce a comprehensible change history, you should limit the changes in a single version to only a few significant changes or a handful of minor changes. This approach allows an independent reviewer to quickly grasp the evolution of the file.
+#### Review artifacts should be under change control
+Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact. Data should be checked in and clearly identified to reviewers with a version or revision number. 
 
-If you can't summarize the changes in 1-2 sentences in the commit message, the changes may be too complex or dense to be understood in the change history. Revert some of the changes, create a first new version, and then create a second new version with the remaining changes.
+#### Submitted work should be ready for review
 
-#### Limit the amount of time a file is checked out
-
-You should not check out files unless your immediate attention will be devoted to completing the new version. Leaving a file in check-out status for many hours leaves teammates in the dark on your progress, and you may forget what work was left incomplete. Poor version control practice is unprofessional, slows down collaboration, and degrades the quality of the change history (e.g., a version with only a few typo fixes was checked out for 7 hours). Prioritize compl
-
-#### For major changes, add traceability to an external change record
-
-At certain pivot points in development, (e.g. scope of work change, requirements change), it may be necessary to create a new version with a substantial amount of change from the previous version. This is acceptable so long as the change history is still comprehensible and legibile, **and** the Commit Message for the major version includes an external record ID, such as a **Problem Report** or **Trouble Report**.
+You should only submit an artifact for review if you believe it is ready to be reviewed by a non-internal audience (e.g., during **Peer Review**). Do not submit artifacts with incomplete or inconsistent changes unless explicitly directed.
 
 
-### Version Control Procedure
+### Engineering Internal Review Procedure
 
-1. Open the file in the DET and check it out/lock for edits.  
+1. Engineer distributes the data to the reviewer(s).
    
-2. Perform modifications to the data in accordance with the applicable processes. 
+2. Reviewers review the data and provide feedback.
    
-3. Write a Commit Message in 1-2 sentences that includes:   
-   a. Brief summary of the change  
-   b. Reference to location of changes (page/sheet/block/module/partNumber)  
-   c. Reference to Problem/Trouble Report (if applicable)
-
-4. Commit the changes to the DET server. 
+3. Engineer makes updates based on feedback in a new version.
 
 ##### Version Control Approval
 

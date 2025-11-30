@@ -2,7 +2,7 @@
 title: "Schematic Review Checklist"
 author: "David Ricart"
 project: "ProcessWiki"
-genre: "checklist"
+genre: "template"
 domains:
     - Engineering
     - Configuration Management

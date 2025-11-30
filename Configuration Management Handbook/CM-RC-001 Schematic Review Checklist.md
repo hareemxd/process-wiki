@@ -45,7 +45,7 @@ Revision:
 | **CI-23** | Has the bill of materials been cross-checked against the schematic?                                 | ☐|☐|
 | **CI-24** | Have all known risks, open items, and mitigations been identified and documented?                   | ☐|☐|
 
-## Review Summary  
+# Review Summary  
 Notes:  
 
 

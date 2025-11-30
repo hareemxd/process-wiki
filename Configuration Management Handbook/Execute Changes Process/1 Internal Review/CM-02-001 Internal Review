@@ -1,5 +1,5 @@
 ---
-title: " Engineering Internal Review"
+title: "Engineering Internal Review"
 author: "David Ricart"
 project: "ProcessWiki"
 genre: "procedure"
@@ -22,7 +22,7 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) and presents the common use cases and best practices to perform engineering internal reviews. 
 ### Definition
-**Engineering Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. It is the foremost review in the overall change process that ensures work is consistent with the internal group's standards (e.g. labeling, significant figures) and is free of objective errors. Internal reviews may be informal and conducted verbally or via email. However, for programs subject to rigorous quality or process requirements, it is strongly recommended to use an **Internal Review Checklist** with specific criteria to guide the review activity.
+**Engineering Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. It is the foremost review in the overall change process that ensures work is consistent with the internal group's standards and is free of objective errors. Internal reviews may be informal and conducted verbally or via email. However, for programs subject to rigorous quality or process requirements, it is strongly recommended to use an **Internal Review Checklist** with specific criteria to guide the review activity.
 ### When to perform Engineering Internal Review
 
 Any changes to data must be internally reviewed prior to the data's submittal for **Peer Review**.
@@ -30,7 +30,7 @@ Any changes to data must be internally reviewed prior to the data's submittal fo
 ### Best Practices
 ***
 #### Review artifacts should be under change control
-Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact. Data should be checked in and clearly identified to reviewers with a version or revision number. 
+Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact. Data should clearly identified to reviewers with a version or revision number. 
 
 #### Submitted work should be ready for review
 
@@ -43,18 +43,11 @@ You should only submit an artifact for review if you believe it is ready to be r
    
 2. Reviewers review the data and provide feedback.
    
-3. Engineer makes updates based on feedback in a new version.
-
-##### Version Control Approval
-
-Certain files may require a **commit approval step**.  
-
-1. Locate the file to be approved, in a notifications menu or inbox, or by manually searching the DET.
-2. Review the change history, the changes in the new version
+3. Engineer makes updates based on feedback.
 
 
 ---
 **Document Control**
 
-* Document Number: CM-01-001
+* Document Number: CM-02-001
 

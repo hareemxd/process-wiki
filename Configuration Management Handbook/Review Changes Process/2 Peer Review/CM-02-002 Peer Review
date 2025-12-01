@@ -1,44 +1,41 @@
-**Procedure**  
-Peer Review Procedure for Controlled Engineering Data
------------------------------------------------------
-
-## **Applicable Domains:** Engineering, Configuration Management
-
-### 1. Purpose
-
-This document defines the procedure for conducting peer reviews of controlled engineering data. Peer reviews are critical quality control activities that support traceability, accountability, and early defect detection in engineering projects.
-
 ---
-
-### 2. Revision History
-
+title: "Peer Review"
+author: "David Ricart"
+project: "ProcessWiki"
+genre: "procedure"
+domains:
+    - Engineering
+    - Configuration Management
 ---
-
-### 3. References
+### Procedure
+# Peer Review
+### References
 
 | Document Number | Title                                |
 | --------------- | ------------------------------------ |
-| CM-01-002       | Version Control for Engineering Data |
-| CM-02-002       | Preserve Integrity           |
-| CM-01-001           | Approve Changes |
-| CM-PRF-001 | Peer Review Form (PRF) Template      |
+| CM-01-001       | Version Control for Engineering Data |
 
----
+### Purpose
 
-### 4. Scope
+This document defines the procedure(s) for conducting peer reviews of engineering data. 
+### Definition
+**Peer Review** is the practice of receiving and incorporating feedback from peers into your work. Peer Review is a formal change procedure that supports project management, product validation/verification, and quality assurance activities. Importantly, by bringing together key stakeholders, Peer Review verifies acceptance of the work across all engineering, administrative, and commercial perspectives.
 
-This process applies to peer reviews conducted across all engineering data types and repositories, including documents, CAD, ECAD, system models, requirements, and source code. The process ensures peer review records are structured, role-driven, and integrity-preserving.
+### When to use Peer Review
 
-Peer reviews are a critical step of the major change process, being functionally equivalent to an "item-level internal design review". Peer reviews should generally be limited to one major item revision and should be sequenced in a way that maintains configuration integrity. For example, a complex assembly revision should occur **only** afer any required revisions of its sub-assemblies have been released.
+*All changes* to engineering data and/or artifacts are subject to Peer Review before release or delivery. Peer Review is generally recommended for any deliverable effort regardless of technical nature, including proposal items (bids, BOEs, volumes) and vendor quotes.
 
-For items/changes of sufficient complexity (e.g. multiple form-fit-function-interface changes to an assembly at multiple product levels), peer reviews should be coordinated between Engineering and Configuration Management with a Configuration Control Board review process.
-
----
-
-### 5. Procedure
-
-#### Step 1: Choose Appropriate Template
-
+## Best Practices  
+### Owner  
+#### Use a template  
+#### Instruct reviewers on what to review  
+#### Communicate with reviewers  
+### Reviewer  
+#### Be critical  
+#### Communicate with owner  
+## Procedure  
+### Owner  
+1.   
 * Select a Peer Review Form (PRF) template suited to the target repository or artifact type.
 
   * Example: Use the SharePoint PRF template for documents in SharePoint.

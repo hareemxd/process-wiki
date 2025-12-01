@@ -23,37 +23,41 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) to perform revision control of engineering data.  
 ### Definition
-**Revision Control** is the practice of performing and recording changes to data with **revisions**. Revisions are considered major releases or *baselines* of individual artifacts. New revisions are driven by a range of events including design updates, supply chain issues, and scope/requirement changes. Engineering and Configuration Management collaborate to progress artifact revisions within the Product Lifecycle Management tool (PLM).
+**Revision Control** is the practice of performing and recording changes to data with **revisions**. Revisions are considered major releases or *baselines* of individual artifacts. New revisions are driven by a range of events including design updates, project transfers, and scope/requirement changes. Engineering and Configuration Management work together to release revisions within the Product Lifecycle Management tool (PLM).
 
 ### When to use Revision Control
 
-Version control is required when using DETs.
-
-Version control is optional when using SharePoint to modify standard documents, such as Word, PDF, Excel, PPT, and Visio files.
 ***
-**NOTE**  
-Version Control is required when using SharePoint to modify or manage files with natively modifiable engineering data, including analyses performed in excel sheets or test data reported in a Word document. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
-***
-Version Control is also useful for:
+**Note**  
+The following sections apply mostly to programs that reference fully baselined Technical Data Packages (TDPs).  
 
-* Managing collaboration. Version Control helps multiple engineers maintain awareness of changes as they work on the same files concurrently. Versioning keeps everyone on the same page as work progresses, and speeds up the onboarding process.
-- Simplifying re-work. When data must be reverted to a previous state, the commit messages in the version history help pinpoint the right version to restore.
+The procedures and best practices presented in this document may not apply to prototype or early development efforts.
+***
+
+Any visible changes to a drawing (DWG) file require a new revision, including:  
+* Notes
+* Bill of Materials
+* Reference Designators
+* Specifications
+* Callouts
+* Title block (contract number, proprietary or export markings, cage code)
+
+All design changes resulting in a new physical product definition (e.g., geometry, dimensions) require a new revision.
+
+Form Fit Function Interface (FFFI) changes require a new revision.
+
+One-for-one parts list updates (e.g., replacing an obsolete component with an FFF equivalent) require a new revision.
 
 
 ### Best Practices
 ***
-#### Space out your changes
-Versions are considered smaller increments of change than other control methods like *revisions* or *baselines*. Since the goal of version control is to produce a comprehensible change history, you should limit the changes in a single version to a few significant changes or a handful of minor changes.
-
-A good rule of thumb when spacing out changes is the simplicity of your Commit Message. If you can't summarize the changes in 1-2 sentences, you may want to revert some of them, create a first new version, and then create a second new version with the remaining changes.
-
-#### Limit the amount of time a file is checked out
-
-Other users are locked out from file access when a user has checked it out. For this reason, you should aim to limit the amount of time that you check out files to a reasonable extent. You should not check out files unless you have sufficient time to complete the new version. If you check out a file, complete some work, and then are asked to work on a separate task, you should This practice is unprofessional towards teammates, slows down collaboration, and reduces the clarity of the change history (e.g., a version with only a few minor changes was checked out for 7 hours).
+#### Maintain interchangeability
+New revisions of parts and assemblies should be compatible with existing design packages such that no distinction between them and previous revisions should be required on the manufacturing floor.
 
 
-Before committing, confirm that changes are correct, complete, and compatible with any related data (*i.e.*, nothing will break after you commit).  
-If you are committing a major change, you must include a Problem/Trouble Report ID in the Commit Message.
+#### Highlight changes
+When submitting for review and/or release, new revisions should contain *redlines* or some other visual feature that highlights the changes from the previous revision.
+
 ### Procedure
 
 1. Open the file in the DET and check it out/lock for edits.  
@@ -66,12 +70,6 @@ If you are committing a major change, you must include a Problem/Trouble Report 
    c. Reference to Problem/Trouble Report (if applicable)
 
 4. Commit the changes to the DET server. 
-
-####  Approval
-
-Certain files may require a **commit approval step**. The commit request is sent to the Approver who reviews the changes.
-
-
 
 ---
 **Document Control**

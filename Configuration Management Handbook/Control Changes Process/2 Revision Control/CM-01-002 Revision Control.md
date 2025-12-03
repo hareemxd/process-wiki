@@ -23,18 +23,18 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) to perform revision control of engineering data.  
 ### Definition
-**Revision Control** is the practice of performing and recording changes to data with **revisions**. Revisions are considered major releases or *baselines* of individual artifacts. New revisions are driven by a range of events including design updates, project transfers, and scope/requirement changes. Engineering and Configuration Management work together to release revisions within the Product Lifecycle Management tool (PLM).
+**Revision Control** is the practice of performing and recording changes to data with **revisions**.
+
+A revision is a specific configuration of a part, sub-assembly, or assembly. Revisions exist to record changes 
 
 ### When to use Revision Control
 
 ***
-**Note**  
-The following sections apply mostly to programs that reference fully baselined Technical Data Packages (TDPs).  
-
-The procedures and best practices presented in this document may not apply to prototype or early development efforts.
+**NOTE**  
+The following sections apply mostly to programs managing changes to an established Technical Data Package (TDP). Change control procedures and best practices may vary widely for early development and prototype efforts, and thus should be tailored and documented in a project Configuration Management Plan (CMP).
 ***
 
-Any visible changes to a drawing (DWG) file require a new revision, including:  
+Any changes to a drawing (DWG) file require a new revision, including:  
 * Notes
 * Bill of Materials
 * Reference Designators
@@ -44,16 +44,14 @@ Any visible changes to a drawing (DWG) file require a new revision, including:
 
 All design changes resulting in a new physical product definition (e.g., geometry, dimensions) require a new revision.
 
-Form Fit Function Interface (FFFI) changes require a new revision.
-
 One-for-one parts list updates (e.g., replacing an obsolete component with an FFF equivalent) require a new revision.
 
 
 ### Best Practices
 ***
-#### Maintain interchangeability
-New revisions of parts and assemblies should be compatible with existing design packages such that no distinction between them and previous revisions should be required on the manufacturing floor.
 
+#### Assess Where Used References for Impacts
+If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process.
 
 #### Highlight changes
 When submitting for review and/or release, new revisions should contain *redlines* or some other visual feature that highlights the changes from the previous revision.

@@ -6,8 +6,11 @@ genre: "procedure"
 domains:
     - Engineering
     - Configuration Management
+tags:
+    - Traceability
+    - Collaboration
 ---
-### Procedure
+
 # Version Control
  ### References
 Number |  Title                                   |
@@ -22,7 +25,7 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) and best practices to perform version control.  
 ### Definition
-**Version Control** is the practice of performing and recording changes to data with **versions**. Any modification to a file in a version-controlled repo creates a unique version of that file. Version control establishes a complete  **version history**; each version provides the following metadata:
+**Version Control** is the practice of performing and recording changes to data with **versions**. Any modification to a file in a version-controlled repo creates a unique version of that file. Version control establishes a complete  **version history**, each one storing these metadata:
 * Who created the version (**Owner**)
 * When they created it (**Commit Timestamp**)
 * Why they created it (**Commit Message**)
@@ -40,29 +43,17 @@ Version control is required when using DETs, including, but not limited to:
 
 Version control is optional when using SharePoint or SharePoint-supported apps (Word, Excel, etc.) to modify non-technical documents.
 ***
-**NOTE** 
+**NOTE**  
 In cases where SharePoint documents contain data that can be natively modified, Version Control is **still mandatory**. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
 ***
 Version Control is also useful for:
 
 * Collaboration. Versioning keeps everyone on the same page as work progresses, and a clean version history accelerates the onboarding process.
 - Re-work. When data must be reverted to a previous state, the commit messages in the version history help pinpoint the right version to restore.
+* Traceability. Version history documents why changes were made, making it easier to understand design decisions and facilitate audits.
 
-
-### Best Practices
-***
-#### Limit the number of changes in a version
-If you can't summarize the changes in one sentence, revert some of the changes, create a first new version, and then create a second new version with the remaining changes.
-
-#### Limit check out time
-
-Only check out files when you have time to complete the new version. Check in your work (or discard your check-out) when you are done.
-
-#### Add traceability for major updates
-
-For major updates, add a **Problem Report** or **Trouble Report** number to the commit message.
-
-
+### Version Control Procedure Map 
+![Flowchart showing the Version Control Procedure with five sequential steps: Step 1 - Open file in DET and check out/lock for edits; Step 2 - Perform modifications to data per applicable processes; Step 3 - Write commit message in 1-2 sentences including change summary, location reference, and Problem/Trouble Report if applicable; Step 4 - Check in the file; Step 5 - Submit for approval if required per CM-02-001. Arrows connect each step flowing left to right, depicting the linear workflow for version control in digital engineering tools.](/vcmap.png)
 ### Version Control Procedure
 
 1. Open the file in the DET and check it out/lock for edits.  
@@ -74,7 +65,7 @@ For major updates, add a **Problem Report** or **Trouble Report** number to the 
    b. Reference to location of changes (page/sheet/block/module/partNumber)  
    c. Reference to Problem/Trouble Report (if applicable)
 
-4. Commit the changes to the DET server. 
+4. Check in the file.
 
 ##### Version Control Approval
 

@@ -23,38 +23,38 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) to perform revision control of engineering data.  
 ### Definition
-**Revision Control** is the practice of performing and recording changes to data with **revisions**.
+**Revision Control** is the practice of documenting and releasing changes to data with **revisions**.
 
-A revision is a specific configuration of a part, sub-assembly, or assembly. Revisions exist to record changes 
+A revision is a unique instance of any item referenced by a part number that is controlled and released in a Product Lifecycle Management (PLM) tool. Because of their significance, revisions are reviewed by internal and external stakeholders prior to release.
 
 ### When to use Revision Control
 
 ***
 **NOTE**  
-The following sections apply mostly to programs managing changes to an established Technical Data Package (TDP). Change control procedures and best practices may vary widely for early development and prototype efforts, and thus should be tailored and documented in a project Configuration Management Plan (CMP).
+Revision Control applies only to changes executed within an established Program of Record (PoR) and Technical Data Package (TDP).
 ***
 
-Any changes to a drawing (DWG) file require a new revision, including:  
+Any changes to a drawing (DWG) file may initiate a new revision, including:  
+* Technical Specifications
 * Notes
-* Bill of Materials
+* Parts List
 * Reference Designators
-* Specifications
 * Callouts
 * Title block (contract number, proprietary or export markings, cage code)
 
-All design changes resulting in a new physical product definition (e.g., geometry, dimensions) require a new revision.
 
-One-for-one parts list updates (e.g., replacing an obsolete component with an FFF equivalent) require a new revision.
 
 
 ### Best Practices
 ***
 
+#### Conduct Peer Review
+Revisions must always be reviewed by at least one teammate prior to release. Peer Review can be implemented in PLM workflows or conducted informally. See **CM-02-002 Peer Review**.
 #### Assess Where Used References for Impacts
-If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process.
+If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process. Potential "suspect links" should be reported using Problem Reports. See **CM-02-002**
 
 #### Highlight changes
-When submitting for review and/or release, new revisions should contain *redlines* or some other visual feature that highlights the changes from the previous revision.
+When submitting your work for review and release, the draft of the new revision should contain *redlines* which highlight the changes from the previous revision.
 
 ### Procedure
 
@@ -72,7 +72,5 @@ When submitting for review and/or release, new revisions should contain *redline
 ---
 **Document Control**
 
-* Document Number: CM-01-001
-* Effective Date: \[To be Assigned]
-* Owner: \[Configuration Manager]
-* Last Reviewed: \[To be Assigned]
+* Document Number: CM-01-002
+

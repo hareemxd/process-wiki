@@ -7,34 +7,33 @@ domains:
     - Engineering
     - Configuration Management
 ---
-### Procedure
 # Revision Control
  ### References
 Number |  Title                                   |
 | ----- | --------------------------------------- |
-|CM-02-001| Set Up Permissions for Data Repositories |
+| CM-01-001 | Internal Review |
+|CM-02-002| Peer Review |
 
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
-| Owner|Checks out files, commits files, writes commit messages|
-| Approver  | Reviews and approves commits as required|
+| Owner| Identifies need for update, performs updates, initiates and oversees **Peer Review**|
 | Configuration Manager | Monitors compliance with procedure|
 ### Purpose
 This document defines the procedure(s) to perform revision control of engineering data.  
 ### Definition
 **Revision Control** is the practice of documenting and releasing changes to data with **revisions**.
 
-A revision is a unique instance of any item referenced by a part number that is controlled and released in a Product Lifecycle Management (PLM) tool. Because of their significance, revisions are reviewed by internal and external stakeholders prior to release.
+A revision is a unique instance of any item referenced by a part number that is controlled in a Product Lifecycle Management (PLM) tool. Revisions are reviewed by internal and external stakeholders prior to release.
 
 ### When to use Revision Control
 
-***
-**NOTE**  
-Revision Control applies only to changes executed within an established Program of Record (PoR) and Technical Data Package (TDP).
-***
 
-Any changes to a drawing (DWG) file may initiate a new revision, including:  
+>[!NOTE]  
+>Revision Control applies only to changes executed within an established Program of Record (PoR) and Technical Data Package (TDP).
+
+
+Any changes to a drawing (DWG) file must be implemented in a new revision, including:  
 * Technical Specifications
 * Notes
 * Parts List
@@ -42,32 +41,32 @@ Any changes to a drawing (DWG) file may initiate a new revision, including:
 * Callouts
 * Title block (contract number, proprietary or export markings, cage code)
 
-
-
-
-### Best Practices
+Form Fit Function (FFF) changes of parts or assemblies result in new **baselines**, not revisions, and are thus out of scope of this procedure.
 ***
+### Best Practices
 
+#### Associate Revisions with Problem/Trouble Reports
+Revisions should result from official notice or documentation of a required update. This notice may originate externally (e.g., customer observes a defect) or internally (e.g., supply chain identifies obsolescence issue). From the onset of the Revision Control procedure, the Owner of the change should reference a Problem/Trouble Report that clearly establishes the reason for the change.
 #### Conduct Peer Review
-Revisions must always be reviewed by at least one teammate prior to release. Peer Review can be implemented in PLM workflows or conducted informally. See **CM-02-002 Peer Review**.
+Draft revisions must be reviewed by at least one teammate prior to release. Peer Review can be implemented in PLM workflows or conducted informally. See **CM-02-002 Peer Review**.
 #### Assess Where Used References for Impacts
-If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process. Potential "suspect links" should be reported using Problem Reports. See **CM-02-002**
-
+If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process. Potential "suspect links" should be reported using Problem/Trouble Reports.
 #### Highlight changes
-When submitting your work for review and release, the draft of the new revision should contain *redlines* which highlight the changes from the previous revision.
-
+Draft revisions should contain *redlines* (visual indicators of change) to speed the review process.
+***
 ### Procedure
 
-1. Open the file in the DET and check it out/lock for edits.  
+1. Identify the reason for change and its supporting documentation.
    
-2. Perform modifications to the data in accordance with the applicable processes. 
+2. Create the draft revision by performing modifications to the data in accordance with the applicable processes.
    
-3. Write a Commit Message in 1-2 sentences that includes:   
-   a. Brief summary of the change  
-   b. Reference to location of changes (page/sheet/block/module/partNumber)  
-   c. Reference to Problem/Trouble Report (if applicable)
+3. Conduct **Internal Review**; see **CM-02-001**.
 
-4. Commit the changes to the DET server. 
+4. Conduct **Peer Review**; see **CM-02-002**
+
+5. Implement the new revision into the appropriate baselines; see **CM-01-003**.
+
+6. Submit the draft revision to Configuration Management for PLM release.
 
 ---
 **Document Control**

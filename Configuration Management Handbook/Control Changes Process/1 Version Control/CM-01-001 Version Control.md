@@ -53,7 +53,7 @@ Version Control is also useful for:
 * Traceability. Version history documents why changes were made, making it easier to understand design decisions and facilitate audits.
 
 ### Version Control Procedure Map 
-[placeholder]
+![Version Control Procedure Map](/vcmap.png)
 ### Version Control Procedure
 
 1. Open the file in the DET and check it out/lock for edits.  

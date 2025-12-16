@@ -15,7 +15,7 @@ tags:
  ### References
 Number |  Title                                   |
 | ----- | --------------------------------------- |
-|CM-02-001| Set Up Permissions for Data Repositories |
+|CM-02-001| Internal Review |
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |

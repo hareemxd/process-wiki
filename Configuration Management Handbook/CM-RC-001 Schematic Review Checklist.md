@@ -10,13 +10,13 @@ domains:
  
  # Schematic Review Checklist  
 
-Owner:  
+Owner:              ___________________
 
-Part Description:
+Part Description:   ___________________
 
-Part Number:  
+Part Number:        ___________________
 
-Revision:
+Revision:           ___________________
 | ID        | Review Question                                                                                     | Y| N|
 | --------- | --------------------------------------------------------------------------------------------------- | -|-|
 | **CI-1**  | Are all component reference designators unique, correct, and consistently labeled?                  | ☐|☐|
@@ -45,11 +45,11 @@ Revision:
 | **CI-24** | Have all known risks, open items, and mitigations been identified and documented?                   | ☐|☐|
 
 ## Review Summary  
-Notes:  
+Notes:  ___________________
 
 
 
-Date Review Completed: 
+Date Review Completed: ___________________
 
 
-Reviewer Signature:
+Reviewer Signature: ___________________

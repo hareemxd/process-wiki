@@ -67,7 +67,7 @@ Version Control is also useful for:
 
 4. Check in the file.
 
-##### Version Control Approval
+#### Version Control Approval
 
 Certain files may require a **commit approval step**. See **CM-02-001 Engineering Internal Review** for the appropriate procedures.
 

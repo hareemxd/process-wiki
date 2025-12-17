@@ -15,7 +15,7 @@ tags:
  ### References
 Number |  Title                                   |
 | ----- | --------------------------------------- |
-|CM-02-001| Internal Review |
+|CM-02-001| Set Up Permissions for Data Repositories |
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
@@ -25,7 +25,9 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) and best practices to perform version control.  
 ### Definition
-**Version Control** is the practice of performing and recording changes to data with **versions**. Any modification to a file in a version-controlled repo creates a unique version of that file. Version control establishes a complete  **version history**, each one storing these metadata:
+**Version Control** is the practice of performing and recording changes to data with **versions**.
+
+Any modification to a file in a version-controlled repo creates a unique version of that file. Version control establishes a complete  **version history**, each one storing these metadata:
 * Who created the version (**Owner**)
 * When they created it (**Commit Timestamp**)
 * Why they created it (**Commit Message**)
@@ -42,10 +44,10 @@ Version control is required when using DETs, including, but not limited to:
 * Software development environments (Git, Github, Bitbucket)
 
 Version control is optional when using SharePoint or SharePoint-supported apps (Word, Excel, etc.) to modify non-technical documents.
-
->[!NOTE]
->In cases where SharePoint documents contain data that can be natively modified, Version Control is **still mandatory**. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
-
+***
+**NOTE**  
+In cases where SharePoint documents contain data that can be natively modified, Version Control is **still mandatory**. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
+***
 Version Control is also useful for:
 
 * Collaboration. Versioning keeps everyone on the same page as work progresses, and a clean version history accelerates the onboarding process.
@@ -53,7 +55,7 @@ Version Control is also useful for:
 * Traceability. Version history documents why changes were made, making it easier to understand design decisions and facilitate audits.
 
 ### Version Control Procedure Map 
-![Version Control Procedure Map](/vcmap.png)
+![Flowchart showing the Version Control Procedure with five sequential steps: Step 1 - Open file in DET and check out/lock for edits; Step 2 - Perform modifications to data per applicable processes; Step 3 - Write commit message in 1-2 sentences including change summary, location reference, and Problem/Trouble Report if applicable; Step 4 - Check in the file; Step 5 - Submit for approval if required per CM-02-001. Arrows connect each step flowing left to right, depicting the linear workflow for version control in digital engineering tools.](/vcmap.png)
 ### Version Control Procedure
 
 1. Open the file in the DET and check it out/lock for edits.  
@@ -67,9 +69,9 @@ Version Control is also useful for:
 
 4. Check in the file.
 
-#### Version Control Approval
+##### Version Control Approval
 
-Certain files may require **Internal Review**; see **CM-02-001**.
+Certain files may require a **commit approval step**. See **CM-02-001 Engineering Internal Review** for the appropriate procedures.
 
 ---
 **Document Control**

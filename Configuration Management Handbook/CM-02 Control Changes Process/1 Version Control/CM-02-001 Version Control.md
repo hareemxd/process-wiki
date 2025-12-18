@@ -69,7 +69,9 @@ Version Control is also useful for:
 
 4. Check in the file.
 
-### Version Control Approval
+### Version Release
+
+A checked in version is considered an **Internal Release**. See **CM-02-003** for details on referencing versions in a project baseline.
 
 Certain files may require a teammate's review before release; see **CM-02-001  Internal Review**.
 

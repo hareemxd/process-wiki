@@ -27,12 +27,11 @@ This document defines the procedure(s) and best practices to perform version con
 ### Definition
 **Version Control** is the practice of performing and recording changes to data with **versions**.
 
-Any modification to a file in a version-controlled repo creates a unique version of that file. Version control establishes a complete  **version history**, each one storing these metadata:
+Version Control is a common feature of **Digital Engineering Tools**, as well as SharePoint. To perform edits, the engineer must "unlock" or "check out" the design files from a secure repository. After performing edits and sending or "committing" them back to the repository, the engineer creates a unique version with the following metadata:
 * Who created the version (**Owner**)
-* When they created it (**Commit Timestamp**)
-* Why they created it (**Commit Message**)
+* When they created it (**Timestamp**)
+* Why they created it (**Summary**)
 
-Version Control is a common feature of **Digital Engineering Tools** (DETs). DETs require the user to *check out* files before making changes. Check outs ensure only one person can make changes at a time. The file becomes available for another check-out once the new version is committed. 
 ### When to use Version Control
 
 Version control is required when using DETs, including, but not limited to:

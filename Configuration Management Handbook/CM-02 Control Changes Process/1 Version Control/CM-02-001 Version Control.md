@@ -43,10 +43,10 @@ Version control is required when using DETs, including, but not limited to:
 * Software development environments (Git, Github, Bitbucket)
 
 Version control is optional when using SharePoint or SharePoint-supported apps (Word, Excel, etc.) to modify non-technical documents.
-***
-**NOTE**  
-In cases where SharePoint documents contain data that can be natively modified, Version Control is **still mandatory**. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
-***
+
+>[!NOTE]  
+>In cases where SharePoint documents contain data that can be natively modified, Version Control is **still mandatory**. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
+
 Version Control is also useful for:
 
 * Collaboration. Versioning keeps everyone on the same page as work progresses, and a clean version history accelerates the onboarding process.
@@ -68,9 +68,11 @@ Version Control is also useful for:
 
 4. Check in the file.
 
-##### Version Control Approval
+### Version Release
 
-Certain files may require a **commit approval step**. See **CM-02-001 Engineering Internal Review** for the appropriate procedures.
+A checked in version is considered an **Internal Release**. See **CM-02-003** for details on referencing versions in a project baseline.
+
+Certain files may require a teammate's review before release; see **CM-02-001  Internal Review**.
 
 ---
 **Document Control**

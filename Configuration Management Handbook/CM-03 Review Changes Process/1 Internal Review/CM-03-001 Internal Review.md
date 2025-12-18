@@ -22,22 +22,18 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) to perform internal reviews. 
 ### Definition
-**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. This procedure ensures work complies with internal standards.
+**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. This procedure ensures work complies with internal standards. Internal Review focuses on objective errors that are simple to correct (e.g., typos, dangling connectors, noncompliances with style and design standards). Review of these items can be organized using an **Internal Review Checklist**; see **CM-RC-001 Schematic Review Checklist** for an example.  
 
-Internal Review can be informal (verbal or email) or formal, using an **Internal Review Checklist** with specific criteria. Checklists also provide a ready-made format for recording all review activity items. See **CM-RC-001 Schematic Review Checklist** for an example.  
-
-Each internal review activity should be recorded with the following data:
-* Part Number and Version/Revision
-* Date of review start and close
-* Review instructions
-* Findings
-* Resolutions
+Whether or not you use a checklist, each Internal Review activity should be recorded with the following information:
+* Owner and Reviewer names
+* Part Number and Revision
+* Findings and resolutions (any errors discovered and the steps taken to address them)
 ### When to perform Internal Review
 
 Any changes to data must be internally reviewed prior to the data's submittal for **Peer Review**.
 
 ### Best Practices
-***
+
 #### Review artifacts should be under change control
 Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact (review the wrong item, or incorporate findings into the wrong item). Data should be traceable with a version or revision number. 
 

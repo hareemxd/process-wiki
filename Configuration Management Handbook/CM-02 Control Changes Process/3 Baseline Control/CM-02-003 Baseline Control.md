@@ -7,6 +7,8 @@ Peer Review Procedure for Controlled Engineering Data
 ### 1. Purpose
 
 This document defines the procedure for conducting peer reviews of controlled engineering data. Peer reviews are critical quality control activities that support traceability, accountability, and early defect detection in engineering projects.
+### Purpose
+This Engineering Change Request (ECR) form is the first step of the change process to an established engineering baseline. The ECR is traced to the Problem Report documenting the driver of the change and sent to a Review Board for disposition.
 
 ---
 

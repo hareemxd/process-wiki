@@ -19,7 +19,7 @@ Number |  Title                                   |
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
-| Owner|Checks out files, commits files, writes commit messages|
+| Owner|Unlocks and locks files, performs edits, writes commit messages|
 | Approver  | Reviews and approves commits as required|
 | Configuration Manager | Monitors compliance with procedures
 ### Purpose
@@ -27,16 +27,16 @@ This document defines the procedure(s) and best practices to perform version con
 ### Definition
 **Version Control** is the practice of performing and recording changes to data with **versions**.
 
-Version Control is a common feature of **Digital Engineering Tools**, as well as SharePoint. To perform edits, the engineer must "unlock" or "check out" the design files from a secure repository. After performing edits and sending or "committing" them back to the repository, the engineer creates a unique version with the following metadata:
+Version Control is a common feature of **Digital Engineering Tools**, as well as SharePoint. To perform edits, the engineer must unlock design files from a secure repository. After performing edits and locking the file back into the repository, the engineer creates a unique version with the following metadata:
 * Who created the version (**Owner**)
 * When they created it (**Timestamp**)
-* Why they created it (**Summary**)
+* Change Summary (**Commit Message**)
 
 ### When to use Version Control
 
 Version control is required when using DETs, including, but not limited to:
 * PTC Creo
-* Altium (or a separate configuration tool like SVN)
+* SVN
 * Cameo Systems Modeler
 * IBM DOORS
 * ANSYS
@@ -57,14 +57,13 @@ Version Control is also useful for:
 ![Flowchart showing the Version Control Procedure with five sequential steps: Step 1 - Open file in DET and check out/lock for edits; Step 2 - Perform modifications to data per applicable processes; Step 3 - Write commit message in 1-2 sentences including change summary, location reference, and Problem/Trouble Report if applicable; Step 4 - Check in the file; Step 5 - Submit for approval if required per CM-02-001. Arrows connect each step flowing left to right, depicting the linear workflow for version control in digital engineering tools.](/vcmap.png)
 ### Version Control Procedure
 
-1. Open the file in the DET and check it out/lock for edits.  
+1. Unlock the file in the DET for edits.  
    
 2. Perform modifications to the data in accordance with the applicable processes. 
    
-3. Write a Commit Message in 1-2 sentences that includes:   
-   a. Brief summary of the change  
-   b. Reference to location of changes (page/sheet/block/module/partNumber)  
-   c. Reference to Problem/Trouble Report (if applicable)
+3. Write a Commit Message in 1-2 sentences that indicates:   
+   a. What changed with a location reference (block number)
+   c. Applicable **Problem Report**
 
 4. Check in the file.
 

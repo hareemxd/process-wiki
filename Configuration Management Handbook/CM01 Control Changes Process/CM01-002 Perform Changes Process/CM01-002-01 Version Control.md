@@ -32,6 +32,8 @@ Version Control is a common feature of **Digital Engineering Tools**, as well as
 * When they created it (**Timestamp**)
 * Change Summary (**Commit Message**)
 
+The **Commit Messages** form a **Version History**, which records complete traceability of changes.
+
 ### When to use Version Control
 
 Version control is required when using DETs, including, but not limited to:
@@ -47,12 +49,19 @@ Version control is optional when using SharePoint or SharePoint-supported apps (
 >[!NOTE]  
 >In cases where SharePoint documents contain data that can be natively modified, Version Control is **still mandatory**. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
 
-Version Control is also useful for:
+### Best Practices
 
-* Collaboration. Versioning keeps everyone on the same page as work progresses, and a clean version history accelerates the onboarding process.
-- Re-work. When data must be reverted to a previous state, the commit messages in the version history help pinpoint the right version to restore.
-* Traceability. Version history documents why changes were made, making it easier to understand design decisions and facilitate audits.
+#### Write clear summaries
 
+The **Version History** is only as valuable as the individual **Commit Messages**, so make sure your messages are clear and understandable to a wide audience (including non-engineers).
+
+#### Batch changes logically
+
+Traceability is harder to establish if a version contains changes spanning multiple pages or technical issues. Work one batch of changes at a time and capture each batch with its own version. 
+
+#### Limit unlock time
+
+Since your teammates cannot access files that you have locked out, you should only lock out files when you have enough uninterrupted time to complete a new version. Do not keep files unlocked for long periods of time. Revert changes and lock in the file if you don't have time to finish the version.
 ### Version Control Procedure Map 
 ![Flowchart showing the Version Control Procedure with five sequential steps: Step 1 - Open file in DET and check out/lock for edits; Step 2 - Perform modifications to data per applicable processes; Step 3 - Write commit message in 1-2 sentences including change summary, location reference, and Problem/Trouble Report if applicable; Step 4 - Check in the file; Step 5 - Submit for approval if required per CM-02-001. Arrows connect each step flowing left to right, depicting the linear workflow for version control in digital engineering tools.](/vcmap.png)
 ### Version Control Procedure

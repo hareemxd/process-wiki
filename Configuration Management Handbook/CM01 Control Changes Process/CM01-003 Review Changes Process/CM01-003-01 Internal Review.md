@@ -34,16 +34,16 @@ Any changes to data must be internally reviewed prior to the data's submittal fo
 
 ### Best Practices
 
-#### Review artifacts should be under change control
-Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact (review the wrong item, or incorporate findings into the wrong item). Data should be traceable with a version or revision number. 
+#### Use Configuration Management to Control Review Artifacts
+Data to be reviewed should be uniquely identified with a baseline identifier (version number, revision number, configuration number). Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact (review the wrong item, or incorporate findings into the wrong item).
 
-#### Submitted work should be ready for review
+#### Submit work that is ready for review
 
-You should only submit an artifact for review if you believe it is ready to be reviewed by a non-internal audience (e.g., during **Peer Review**). Do not submit artifacts with incomplete or inconsistent changes for review unless explicitly directed.
+You should only submit work for review if you believe it is ready to be reviewed by a non-internal audience (e.g., during **Peer Review**). Do not submit artifacts with incomplete or inconsistent changes for review unless explicitly directed.
 
 #### Provide instructions to reviewers
 
-Reviews are more effective when the reviewer knows what to look for. Ask reviewers to double-check specific items, tables, or sheets. Provide helpful context like, *these changes were driven by* [X].
+Reviews are more effective when the reviewer knows what to look for. You should ask reviewers to double-check specific items, tables, or sheets. Provide helpful context like, *these changes were driven by* [X].
 
 ### Internal Review Procedure
 

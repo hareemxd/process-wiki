@@ -53,7 +53,7 @@ Review Board members tasked with reviewing ECRs should use this procedure as ref
 
 #### Assign Class I to edge or ambiguous cases
 
-Sometimes, changes must be assessed with incomplete information (unknown external interface specification). Assigning Class I to these changes ensures that all potential FFF impacts are routed correctly. The Review Board can re-classify changes at a later stage.
+When you assess changes with incomplete information (unknown external interface specification), or if the class is difficult to determine, you should assign Class I to the change. This approach ensures that all potential FFF impacts are routed correctly.
 
 #### Analyze all functional characteristics
 

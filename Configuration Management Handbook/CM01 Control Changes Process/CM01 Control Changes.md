@@ -35,11 +35,11 @@ Engineering changes can vary from an updated torque value on a part drawing, to 
 
 #### Analyze Parts Lists, Where Used Lists, and Interfaces to fully scope change
 
-While a change such as a swapped cable may consist of a single redline on a Bill of Materials (BOM), the change itself (converting from RS232 to RS485) may drive updates to other parts or assemblies. Particularly when scoping changes to assemblies, review any sub-assembly drawings on the Parts List, and all **Where Used** references of the assembly. These details provide full context for analyzing the change.
+While a change such as a cable consists of only one redline to a Bill of Materials (BOM), the nature of the change (converting from RS232 to RS485) can drive updates to other parts or assemblies. Particularly when scoping changes to assemblies, you should review any sub-assembly drawings on the Parts List and all **Where Used** references of the assembly. These details provide full context for analyzing the change.
 
 #### High level changes take priority
 
-The further up a change occurs in a product structure, the higher priority it should be given due to downstream effects that interfere or obsolete lower level changes. The high-level definition of change should be settled on before attempting to resolve Class II or III changes beneath it.
+You should prioritize higher level changes due to downstream effects that could interfere with or obsolete lower level changes. The high-level definition of change should be settled on before attempting to resolve Class II or III changes beneath it.
 
 #### Lower level changes can be combined
 
@@ -51,9 +51,10 @@ Low level changes that do not conflict may be combined with higher level changes
 
 #### Identify release status of changes
 
-Some changes may require Customer approval before they can be implemented. Customer approval is achieved using **CM01-003-02 Peer Review**. Any changes approved by the customer and implemented are considered **External Release**
+**Internal releases** are those baselines which have not, and/or do not need to be reviewed by the customer prior to implementation.
 
-Some changes may not require Customer approval before implementation. These changes can remain in a state of **Internal Release** until delivered as part of a formal deliverable or milestone item, at which time they progress to **External Release** status.
+Any changes approved by the customer and implemented are considered **External Release**.
+
 
 **Document Control**
 

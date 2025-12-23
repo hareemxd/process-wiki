@@ -34,7 +34,7 @@ A revision is a unique instance of any item referenced by a part number that is 
 Revision Control applies only to changes executed within an established Program of Record (PoR) and Technical Data Package (TDP).
 ***
 
-Any changes to a drawing (DWG) file may initiate a new revision, including:  
+Any changes to a drawing (DWG) file will initiate a new revision, including:  
 * Technical Specifications
 * Notes
 * Parts List
@@ -50,8 +50,6 @@ Any changes to a drawing (DWG) file may initiate a new revision, including:
 
 #### Conduct Peer Review
 Revisions must always be reviewed by at least one teammate prior to release. Peer Review can be implemented in PLM workflows or conducted informally. See **CM-02-002 Peer Review**.
-#### Assess Where Used References for Impacts
-If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process. Potential "suspect links" should be reported using Problem Reports. See **CM-02-002**
 
 #### Highlight changes
 When submitting your work for review and release, the draft of the new revision should contain *redlines* which highlight the changes from the previous revision.

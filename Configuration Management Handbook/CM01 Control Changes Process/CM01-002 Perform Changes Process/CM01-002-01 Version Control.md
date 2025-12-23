@@ -27,7 +27,7 @@ This document defines the procedure(s) and best practices to perform version con
 ### Definition
 **Version Control** is the practice of performing and recording changes to data with **versions**.
 
-Version Control is a common feature of **Digital Engineering Tools**, as well as SharePoint. To perform edits, the engineer must unlock design files from a secure repository. After performing edits and locking the file back into the repository, the engineer creates a unique version with the following metadata:
+Version Control is a common feature of **Digital Engineering Tools**, as well as SharePoint. To perform edits, the engineer unlocks a file from a secure repository. After performing edits and locking the file back into the repository, the engineer creates a unique version with the following metadata:
 * Who created the version (**Owner**)
 * When they created it (**Timestamp**)
 * Change Summary (**Commit Message**)
@@ -80,7 +80,7 @@ Since your teammates cannot access files that you have locked out, you should on
 
 A checked in version is considered an **Internal Release**. See **CM-02-003** for details on referencing versions in a project baseline.
 
-Certain files may require a teammate's review before release; see **CM-02-001  Internal Review**.
+Certain files or repositories might enforce a teammate review upon locking; see **CM-02-001  Internal Review**.
 
 ---
 **Document Control**

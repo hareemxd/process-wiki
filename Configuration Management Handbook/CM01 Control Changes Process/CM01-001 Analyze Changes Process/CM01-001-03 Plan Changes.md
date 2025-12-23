@@ -35,11 +35,11 @@ Review Board members tasked with reviewing ECRs should use this procedure as ref
 
 ### Best Practices
 
-#### Prioritize Hardware, Test-Dependent Changes
-Items 
+#### Prioritize Test-Dependent Changes
+Changes involving items that are essential for testing (test configurations, test software) should be prioritized to support rapid development.
 
-#### Identify Opportunities to Defer or Split Changes
-
+#### Review Applicable Control Procedures
+You should reference **CM01-002 Perform Changes**, **CM01-003 Review Changes**, and their subordinate procedures to support change planning estimates.
 ### Plan Changes Procedure
 
 1. Identify the **Affected Items** of the change.

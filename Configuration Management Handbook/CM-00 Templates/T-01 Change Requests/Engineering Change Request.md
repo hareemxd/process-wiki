@@ -49,6 +49,15 @@ tags:
 
 ☐ Class III (Non-standard)
 
+#### Required Testing (if Class I)
+
+☐ Item-level (functional, bench)
+
+☐ System-level (integration, environmental)
+
+☐ N/A
+
+
 #### Priority
 
 ☐ High

@@ -26,7 +26,7 @@ Number |  Title                                   |
 This document defines the procedure(s) and best practices to scope engineering changes.
 
 ### Definition
-Change Scoping is the second step of the **Control Changes** process. Scoping identifies the Configuration Items affected by the change (**Affected Items**), as well as verification activities (testing, analysis) to ensure complete change definition.  
+Change Scoping is the second step of the **Control Changes** process. Scoping identifies the Configuration Items affected by the change (**Affected Items**), as well as verification activities (testing, analysis, documentation) to ensure the change is fully defined.  
 
 ### When to use Scope Changes
 Owners of changes must use this procedure when submitting Engineering Change Requests (ECRs). 
@@ -38,9 +38,9 @@ Review Board members tasked with reviewing ECRs should use this procedure as ref
 #### Review Parts Lists and Where Used References in PLM
 If a change impacts a part or assembly's interface or integration with existing designs, those impacts must be identified and documented as part of the change request process. 
 #### Review Product Baseline and Configuration Documentation
-Review all supporting documentation in the affected baselines, including interface control documents, wiring diagrams, functional diagrams, and safety/reliability analyses, to determine which artifacts within the baseline are potentially impacted by the change.  
+Review all supporting documentation in the affected baselines (system, assembly, revision, version), including interface control documents, wiring diagrams, functional diagrams, and safety/reliability analyses, to determine which artifacts within the baseline are potentially impacted.  
 #### For Class I, Describe Required Testing  
-FFF-impact updates usually require some level of testing to prove that the new part(s) meet existing requirements.
+FFF-impact changes, especially at the assembly level, may involve testing to fully verify the change.
 #### For Class II HW/SW, Describe Approach to Verify Interchangeability
 
 The approach may include simulation/modeling or analysis by extension to similar products. The Owner should describe the plan in the ECR.

@@ -26,12 +26,12 @@ Number |  Title                                   |
 This document defines the procedure(s) and best practices to classify engineering changes.
 
 ### Definition
-Change Classification is the first step of the **Control Changes** process. Classification routes the change to the appropriate resources for review and implementation. Classes are based on the **Form, Fit, Function** (FFF) impacts of the change.
+Change Classification is the first step of the **Control Changes** process. Classification routes the change to the appropriate resources for planning and implementation. Classes are based on the **Form, Fit, Function** (FFF) impacts of the change.
 
 
 | Class                    | Description     |
 | ----------------------- | ------------------ |
-| Class I "Major" |Form Fit Function design change|
+| Class I "Major" |Form Fit Function design change (hardware or software)|
 | Class II "Minor" | No FFF impact, Documentation only|
 | Class III "Admin" | No technical impact
 

@@ -26,7 +26,7 @@ Number |  Title                                   |
 This document defines the procedure(s) and best practices to classify engineering changes.
 
 ### Definition
-Change Classification is the first step of the **Control Changes** process. Classification routes the change to the appropriate resources for planning and implementation. Classes are based on the **Form, Fit, Function** (FFF) impacts of the change.
+Classification is the first step of the **Analyze Changes** process. Classification routes the **Engineering Change Request** (ECR) to the appropriate resources for planning and implementation. Classes are based on the **Form, Fit, Function** (FFF) impacts of the change. Changes with interchangeable items have zero FFF impact.
 
 
 | Class                    | Description     |
@@ -45,19 +45,19 @@ The definitions below are provided in **MIL-HDBK-61B**:
 | Interchangeable Item | A product which possesses such functional and physical attributes as to be equivalent in performance to another product of similar or identical purposes; and is capable of being exchanged for the other product without selection for fit or performance, and without alteration of the products themselves or of adjoining products, except for adjustment.
 
 ### When to use Classify Changes
-Owners of changes must use this procedure when submitting Engineering Change Requests (ECRs). 
+The Owner of the change must use this procedure when submitting Engineering Change Requests (ECRs). 
 
 Review Board members tasked with reviewing ECRs should use this procedure as reference.
 
 ### Best Practices
 
-#### Assign Class I to edge or ambiguous cases
+#### Class I in ambiguous cases
 
-When you assess changes with incomplete information (unknown external interface specification), or if the class is difficult to determine, you should assign Class I to the change. This approach ensures that all potential FFF impacts are routed correctly.
+You should assign Class I to changes that are being analyzed with missing information (unknown specifications). This approach ensures that all potential FFF impacts are routed correctly, and they can be re-classified at a later stage.
 
-#### Analyze all functional characteristics
+#### Holistic Analysis
 
-The engineer must consider all product characteristics that may impact performance, operation, or verification to design requirements. Interchangeable parts should be zero-impact on the part or larger system's compliance with all specifications.
+You should consider all product characteristics that may impact performance, operation, or verification to design requirements when assessing FFF impacts. Interchangeable parts should be zero-impact on the part or larger system's compliance with all specifications.
 
 
 ### Classify Changes Procedure Map
@@ -65,7 +65,7 @@ The engineer must consider all product characteristics that may impact performan
 
 ### Classify Changes Procedure
 
-The Owner should use the decision tree above to guide the classification activity.
+The Owner must use the decision tree above to guide the classification activity.
 
 1. Determine if the change includes any updates to hardware or software.  
    a. If yes, determine if the change has any FFF impacts.  

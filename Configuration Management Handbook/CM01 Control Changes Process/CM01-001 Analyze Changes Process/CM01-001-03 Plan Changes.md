@@ -26,20 +26,20 @@ Number |  Title                                   |
 This document defines the procedure(s) and best practices to plan engineering changes.
 
 ### Definition
-Change Planning is the third step of the **Control Changes** process. Planning determines implementation by assigning priority and release status of **Affected Items**.
+Planning is the third step of the **Analyze Changes** process. Planning creates an implementation roadmap for the changes by assigning priority and release states of the **Affected Items**.
 
 ### When to use Plan Changes
-Owners of changes must use this procedure when submitting Engineering Change Requests (ECRs). 
+The Owner of the change must use this procedure when submitting Engineering Change Requests (ECRs). 
 
 Review Board members tasked with reviewing ECRs should use this procedure as reference.
 
 ### Best Practices
 
-#### Prioritize Test-Dependent Changes
-Changes involving items that are essential for testing (test configurations, test software) should be prioritized to support rapid development.
+#### Prioritize Schedule Drivers
+You should prioritize the changes that significantly influence scheduled activities (production, procurement, testing).
 
 #### Review Applicable Control Procedures
-You should reference **CM01-002 Perform Changes**, **CM01-003 Review Changes**, and their subordinate procedures to support change planning estimates.
+You should reference **CM01-002 Perform Changes**, **CM01-003 Review Changes**, and their subordinate procedures, to support change planning estimates.
 ### Plan Changes Procedure
 
 1. Identify the **Affected Items** of the change.

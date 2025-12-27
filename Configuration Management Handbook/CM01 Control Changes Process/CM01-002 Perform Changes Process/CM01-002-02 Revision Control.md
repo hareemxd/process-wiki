@@ -43,7 +43,11 @@ See **CM01-004 Baseline Changes** for clarity on baselines and their change cont
 ### Best Practices
 
 
-#### Track progress of revisions with Problem Reports  
+#### Track progress of draft revisions with Version Control  
+
+When modifying CIs which are stored in a version-controlled repository, you should use **CM01-002-01 Version Control** as reference for establishing traceability of all changes.
+
+#### Track progress of draft revisions with Problem Reports  
 
 Revision-level changes will always be tied to a **Problem Report** (PR). You should leave comments on the PR to document your progress, as well as any related activities, such as **Peer Review** of the changes.
 

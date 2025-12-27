@@ -3,20 +3,20 @@
 - [[Home]]
 
 ### Templates
-- [[00-Templates]]
-  - [[00-T01-Change-Requests]]
-  - [[00-T02-Problem-Reports]]
-  - [[00-T03-Checklists]]
-  - [[00-T04-Document-Templates]]
+- [[00 Templates]]
+  - [[00-T01 Change Requests]]
+  - [[00-T02 Problem Reports]]
+  - [[00-T03 Checklists]]
+  - [[00-T04 Document Templates]]
 
 ### Control Changes Process
 - [[01-Control-Changes]]
 
 #### Analyze Changes
-- [[01-Analyze-Changes]]
-  - [[01-Analyze-Classify-Changes]]
-  - [[01-Analyze-Scope-Changes]]
-  - [[01-Analyze-Plan-Changes]]
+- [[01 Analyze Changes]]
+  - [[01-001 Classify Changes]]
+  - [[01-002 Scope Changes]]
+  - [[01-003 Plan Changes]]
 
 #### Perform Changes
 - [[02-Perform-Changes]]

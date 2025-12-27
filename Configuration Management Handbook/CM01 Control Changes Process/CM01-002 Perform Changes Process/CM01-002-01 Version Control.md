@@ -81,7 +81,7 @@ Do not keep files unlocked for long periods of time. Revert changes and lock in 
 2. Create a new version by performing modifications to the file in accordance with the applicable processes. 
    
 3. Write a **Commit Message** in 1-2 sentences that indicates:   
-   a. What changed with a location reference (page number, block number)
+   a. What changed with a location reference (page number, block number)  
    c. Associated **Problem Report**, if applicable
 
 4. Check in the file.
@@ -94,5 +94,5 @@ A checked in version is considered a **Preliminary Release**, which means that o
 * Test and Analysis
 * Customer Review  
 
-Versions  transition to an **External Release** once they undergo **Peer Review**, incorporation into a **Revision**, and are released in a **Product Lifecycle Management** tool (PLM); see **CM01-003-02 Peer Review**and **CM01-002-02 Revision Control**.
+Versions  transition to an **External Release** once they undergo **Peer Review**, incorporation into a **Revision**, and are released in a **Product Lifecycle Management** tool (PLM); see **CM01-003-02 Peer Review** and **CM01-002-02 Revision Control**.
 

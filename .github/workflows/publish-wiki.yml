@@ -2,11 +2,12 @@ name: Publish GitHub Wiki
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
     paths:
       - "wiki-export/**"
       - ".github/workflows/publish-wiki.yml"
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -25,24 +26,27 @@ jobs:
 
       - name: Clone wiki repo
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
         run: |
           REPO="${{ github.repository }}"
-          git clone "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.wiki.git" wiki
+          git clone "https://x-access-token:${WIKI_TOKEN}@github.com/${REPO}.wiki.git" wiki
 
       - name: Sync exported pages into wiki
         run: |
+          if [ ! -d "wiki-export" ]; then
+            echo "ERROR: wiki-export/ not found at repo root."
+            echo "Repo root contents:"
+            ls -la
+            exit 1
+          fi
           rsync -av --delete --exclude ".git" "wiki-export/" "wiki/"
 
       - name: Commit and push if changes exist
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
         run: |
           cd wiki
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
-            git commit -m "Publish wiki from ${GITHUB_SHA}"
-            git push
-          else
-            echo "No wiki changes to publish."
-          fi
+            git commit -m "Publish wiki from ${{ github.sha }}"
+            git push "https://x-access-token:${WIKI_TOKEN}@github.com/${{ github.repository }}.wiki._

@@ -35,7 +35,6 @@ jobs:
         run: |
           if [ ! -d "wiki-export" ]; then
             echo "ERROR: wiki-export/ not found at repo root."
-            echo "Repo root contents:"
             ls -la
             exit 1
           fi
@@ -45,8 +44,15 @@ jobs:
         env:
           WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
         run: |
+          set -euo pipefail
           cd wiki
+
+          git remote set-url origin "https://x-access-token:${WIKI_TOKEN}@github.com/${{ github.repository }}.wiki.git"
+
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Publish wiki from ${{ github.sha }}"
-            git push "https://x-access-token:${WIKI_TOKEN}@github.com/${{ github.repository }}.wiki._
+            git push origin HEAD:master
+          else
+            echo "No wiki changes to publish."
+          fi

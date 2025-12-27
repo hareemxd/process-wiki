@@ -7,7 +7,7 @@ domains:
     - Engineering
     - Configuration Management
 ---
-### Procedure
+
 # Revision Control
  ### References
 Number |  Title                                   |
@@ -37,13 +37,17 @@ Changes to a baselined **Configuration Item** are not usable by the company unti
 * Supply Chain needs a new revision of a parts list to order a replacement for an **End of Life** (EOL) component.  
 * Systems Engineering needs a new revision of a qualification test report to reference the test results in a Requirements Verification Matrix.
 
-see **CM01-004 Baseline Changes** for clarity on baselines and their change control requirements.
+See **CM01-004 Baseline Changes** for clarity on baselines and their change control requirements.
 
 
 ### Best Practices
 
 
-#### Track progress of revisions with Problem Reports  
+#### Track progress of draft revisions with Version Control  
+
+When modifying CIs which are stored in a version-controlled repository, you should use **CM01-002-01 Version Control** as reference for establishing traceability of all changes.
+
+#### Track progress of draft revisions with Problem Reports  
 
 Revision-level changes will always be tied to a **Problem Report** (PR). You should leave comments on the PR to document your progress, as well as any related activities, such as **Peer Review** of the changes.
 

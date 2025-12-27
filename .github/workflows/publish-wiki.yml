@@ -1,0 +1,48 @@
+name: Publish GitHub Wiki
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "wiki-export/**"
+      - ".github/workflows/publish-wiki.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout handbook repo
+        uses: actions/checkout@v4
+
+      - name: Configure git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Clone wiki repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="${{ github.repository }}"
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.wiki.git" wiki
+
+      - name: Sync exported pages into wiki
+        run: |
+          rsync -av --delete --exclude ".git" "wiki-export/" "wiki/"
+
+      - name: Commit and push if changes exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd wiki
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Publish wiki from ${GITHUB_SHA}"
+            git push
+          else
+            echo "No wiki changes to publish."
+          fi

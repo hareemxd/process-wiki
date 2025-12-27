@@ -38,14 +38,14 @@ Review Board members tasked with reviewing ECRs should use this procedure as ref
 #### Prioritize Schedule Drivers
 You should prioritize the changes that significantly influence scheduled activities (production, procurement, testing).
 
+#### Prioritize Higher Level Changes
+
+Changes to complex systems may include multiple **Affected Items** with parent-child relationships (interface control diagram provides the required definition for a wiring diagram). You should prioritize the higher level changes so the items that require their inputs are not subject to regression/re-work.
+
 #### Review Applicable Control Procedures
 You should reference **CM01-002 Perform Changes**, **CM01-003 Review Changes**, and their subordinate procedures, to support change planning estimates.
 ### Plan Changes Procedure
 
 1. Identify the **Affected Items** of the change.
 2. For each item, identify the current ("from") and future ("to") version, revision, or configuration numbers.
-
-**Document Control**
-
-* Document Number: CM01-001-02
 

@@ -17,58 +17,63 @@ Number |  Title                                   |
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
-| Owner|Checks out files, commits files, writes commit messages|
-| Approver  | Reviews and approves commits as required|
-| Configuration Manager | Monitors compliance with procedure|
+| Owner|Performs edits, participates in Peer Review, sends draft revision to Configuration Manager|
+| Configuration Manager | Verifies the draft revision and submits the resulting Engineering Change Order|
 ### Purpose
-This document defines the procedure(s) to perform revision control of engineering data.  
+This document defines the procedure(s) and best practices to perform revision control.  
 ### Definition
 **Revision Control** is the practice of performing and recording changes to data with **revisions**.
 
-A revision is a unique instance of any item referenced by a part number that is controlled in a Product Lifecycle Management (PLM) tool. Revisions. Because of their significance, revisions are reviewed by internal and external stakeholders prior to release.
+A revision is a unique instance of any **Configuration Item** (CI) that is released in a Product Lifecycle Management (PLM) tool. Revisions can only be created from **Engineering Change Orders** (ECOs). Because of their significance, revisions are reviewed by multiple internal and external stakeholders prior to release.
 
 ### When to use Revision Control
 
-***
-**NOTE**  
-Revision Control applies only to changes executed within an established Program of Record (PoR) and Technical Data Package (TDP).
-***
 
-Any changes to a drawing (DWG) file will initiate a new revision, including:  
-* Technical Specifications
-* Notes
-* Parts List
-* Reference Designators
-* Callouts
-* Title block (contract number, proprietary or export markings, cage code)
+>[!NOTE]
+>This procedure applies only to changes executed within an established **Program of Record** (PoR) and **Technical Data Package** (TDP). **Internal Research and Development** (IRAD) programs can develop their own procedures for creating and controlling revisions.
 
+Changes to a baselined **Configuration Item** are not usable by the company until released in a new revision. For example:
 
+* Supply Chain needs a new revision of a parts list to order a replacement for an **End of Life** (EOL) component.  
+* Systems Engineering needs a new revision of a qualification test report to reference the test results in a Requirements Verification Matrix.
+
+see **CM01-004 Baseline Changes** for clarity on baselines and their change control requirements.
 
 
 ### Best Practices
-***
 
-#### Conduct Peer Review
-Revisions must always be reviewed by at least one teammate prior to release. Peer Review can be implemented in PLM workflows or conducted informally. See **CM-02-002 Peer Review**.
+
+#### Track progress of revisions with Problem Reports  
+
+Revision-level changes will always be tied to a **Problem Report** (PR). You should leave comments on the PR to document your progress, as well as any related activities, such as **Peer Review** of the changes.
 
 #### Highlight changes
 When submitting your work for review and release, the draft of the new revision should contain *redlines* which highlight the changes from the previous revision.
 
 ### Procedure
 
-1. Open the file in the DET and check it out/lock for edits.  
+#### Owner
    
-2. Perform modifications to the data in accordance with the applicable processes. 
+1. Create a new draft revision by performing modifications to the data/document in accordance with the applicable processes. 
    
-3. Write a Commit Message in 1-2 sentences that includes:   
-   a. Brief summary of the change  
-   b. Reference to location of changes (page/sheet/block/module/partNumber)  
-   c. Reference to Problem/Trouble Report (if applicable)
+2. Conduct **Peer Review** in accordance with **CM01-003-02 Peer Review**.
+3. Submit the draft revision and **Peer Review Record** (PRR) to the Configuration Manager.  
 
-4. Commit the changes to the DET server. 
+#### Configuration Manager
 
----
-**Document Control**
+4. Verify the draft revision in accordance with [**blank**].  
+5. Configure and create a new ECO in PLM in accordance with [**blank**]. 
+6. Once ready, release the ECO.
 
-* Document Number: CM-01-002
+### Revision Release
+
+A draft revision is considered a **Preliminary Release**, which means that only the supervising individual, team, function, or department can access the draft revision and reference it in other locations. The revision transitions to an **Internal Release** once it is reviewed and released in a **Document Management System**; see **CM01-003-01 Internal Review**. At this point, the revision gains a level of authority, is accessible to all team members, and is considered acceptable for activities outside of Design Engineering, including but not limited to:  
+* Procurement for Development
+* Production for Development
+* Test and Analysis
+* Customer Review
+
+Revisions transition to an **External Release** once they undergo **Peer Review** and are released in PLM.
+
+
 

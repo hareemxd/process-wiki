@@ -24,7 +24,9 @@ Number |  Title                                   |
 ### Purpose
 This document defines the Change Control process for Engineering data.
 ### Definition
-Change Control is the process of managing changes to Engineering data. Change Control encompasses the required activities to analyze, perform, review, and baseline Engineering changes across all levels of the product and/or program.  
+Change Control is the process of managing changes to Engineering data. Change Control encompasses the required activities to analyze, perform, review, and baseline Engineering changes across all levels of the product and/or program.
+
+This process, including all subordinate documents in the **Configuration Management Handbook**, provides clear and useful methods to control engineering data across the complete product lifecycle. As a business activity, Change Control begins at Contract Award and ends at product obsolescence, and it is applicable to all programs and contracts.
 ### When to use Change Control
 This process must be followed whenever performing changes to Engineering data.
 
@@ -34,7 +36,7 @@ This process must be followed whenever performing changes to Engineering data.
 
 
 
-#### Define visibility (internal, external) of changes
+#### Define internal and external visibility of changes
 
 #### Use Templates
 
@@ -54,8 +56,3 @@ Changes must be analyzed from a holistic perspective, not in isolation, due to t
 
 #### Baseline the Change
 
-
-
-**Document Control**
-
-* Document Number: CM01

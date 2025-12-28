@@ -8,7 +8,7 @@ domains:
     - Configuration Management
 tags:
     - Traceability
-    - Collaboration
+    - Planning
 ---
 
 # Plan Changes

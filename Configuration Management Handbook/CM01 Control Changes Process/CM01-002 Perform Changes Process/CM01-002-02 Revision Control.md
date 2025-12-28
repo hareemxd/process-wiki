@@ -30,14 +30,14 @@ A revision is a unique instance of any **Configuration Item** (CI) that is relea
 
 
 >[!NOTE]
->This procedure applies only to changes executed within an established **Program of Record** (PoR) and **Technical Data Package** (TDP). **Internal Research and Development** (IRAD) programs can develop their own procedures for creating and controlling revisions.
+>This procedure applies only to changes executed within an established **Program of Record** (POR) and **Technical Data Package** (TDP). **Internal Research and Development** (IRAD) programs can develop their own procedures for creating and controlling revisions.
 
 Changes to a baselined **Configuration Item** are not usable by the company until released in a new revision. For example:
 
 * Supply Chain needs a new revision of a parts list to order a replacement for an **End of Life** (EOL) component.  
 * Systems Engineering needs a new revision of a qualification test report to reference the test results in a Requirements Verification Matrix.
 
-See **CM01-004 Baseline Changes** for clarity on baselines and their change control requirements.
+In general, the rules governing when to revise CIs are determined by the POR. See **CM01-004 Baseline Changes** for clarity on baselines and their change control requirements.
 
 
 ### Best Practices

@@ -8,7 +8,7 @@ domains:
     - Configuration Management
 tags:
     - Traceability
-    - Collaboration
+    - Identification
 ---
 
 # Classify Changes (Form Fit Function Analysis)
@@ -78,6 +78,4 @@ b. If no, determine if the change has any technical impacts.
 2. Record the classification in the ECR.
 
 
-**Document Control**
 
-* Document Number: CM01-001-01

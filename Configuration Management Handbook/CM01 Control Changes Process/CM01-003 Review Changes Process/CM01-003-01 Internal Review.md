@@ -6,6 +6,10 @@ genre: "procedure"
 domains:
     - Engineering
     - Configuration Management
+tags:
+    -Traceability
+    -Collaboration
+    -Verification
 ---
  # Internal Review
  ### References
@@ -22,11 +26,11 @@ Number |  Title                                   |
 ### Purpose
 This document defines the procedure(s) to perform internal reviews. 
 ### Definition
-**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. This procedure ensures work complies with internal standards. Internal Review focuses on objective errors that are simple to correct (e.g., typos, dangling connectors, noncompliances with style and design standards). Review of these items can be organized using an **Internal Review Checklist**; see **CM-RC-001 Schematic Review Checklist** for an example.  
+**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. This procedure ensures work complies with internal standards. Internal Review focuses on objective errors that are simple to correct (typos, dangling connectors, style problems). Review of these items can be organized using an **Internal Review Checklist**; see **CM-RC-001 Schematic Review Checklist** for an example.  
 
 Whether or not you use a checklist, each Internal Review activity should be recorded with the following information:
 * Owner and Reviewer names
-* Part Number and Revision
+* Part Number and Version/Revision/Configuration
 * Findings and resolutions (any errors discovered and the steps taken to address them)
 ### When to perform Internal Review
 
@@ -48,15 +52,14 @@ Reviews are more effective when the reviewer knows what to look for. You should 
 ### Internal Review Procedure
 
 #### Owner
-1. Perform modifications to data. If using a Digital Engineering Tool, check in your changes; see **CM-01-001 Version Control**.
+1. Perform modifications to data. If using a Digital Engineering Tool, check in your changes; see **CM01-002-01 Version Control**.
 2. Send a link to the modified data to (at least) one reviewer, as well as any review instructions.
 3. Resolve any review findings with the reviewer.
 #### Reviewer
 4. Review the data and record any findings.
 5. If there are no findings, notify the Owner that the review is complete.
 6. Send findings to the Owner.
----
+
 ### Document Control
 
-* Document Number: CM-02-001
 

@@ -1,5 +1,5 @@
 ---
-title: "Classify Changes"
+title: "Classify the Change"
 author: "David Ricart"
 project: "ProcessWiki"
 genre: "procedure"
@@ -11,7 +11,7 @@ tags:
     - Identification
 ---
 
-# Classify Changes (Form Fit Function Analysis)
+# Classify the Change
 ### References
 Number |  Title                                   |
 | ----- | --------------------------------------- |

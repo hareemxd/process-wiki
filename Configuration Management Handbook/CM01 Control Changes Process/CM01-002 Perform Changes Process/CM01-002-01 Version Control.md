@@ -28,7 +28,7 @@ This document defines the procedure(s) and best practices to perform version con
 ### Definition
 **Version Control** is the practice of performing and recording changes to data with **versions**.
 
-Version Control is a common feature of **Digital Engineering Tools**, as well as SharePoint. To perform edits, the engineer unlocks a file from a secure repository. After performing edits and locking the file back into the repository, the engineer creates a unique version with the following metadata:
+Version Control is a common feature of **Digital Engineering Tools** (DETs). DETs are digital platforms to store, secure, and modify engineering data files. To perform edits, the engineer unlocks a file from a secure repository. After performing edits and locking the file back into the repository, the engineer creates a unique version with the following metadata:
 * Who created the version (**Owner**)
 * When they created it (**Timestamp**)
 * Change Summary (**Commit Message**)
@@ -37,25 +37,20 @@ The **Commit Messages** form a **Version History**, which records complete trace
 
 ### When to use Version Control
 
-Version control is required when using DETs, including, but not limited to:
-* PTC Creo/Windchill
-* SVN
-* Cameo Systems Modeler
-* IBM DOORS
-* ANSYS
-* Software development repos (Github, Bitbucket)
+Version control is required when using DETs. The table below lists common examples and their associated file types.  
 
-The types of files/data that are controlled with Version Control include, but are not limited to:
-* 3D Models
-* Schematic, Layout, and Gerber files
-* Software
-* Requirements
-* System Models
+| Tool                    | Data Description| Native File Types     |
+| ----------------------- | --- |------------------ |
+| Windchill | 2D drawings and 3D models|dwg, prt, asm, stp |
+| Xpedition| Electronic Design |sch, pcb |
+| Cameo Systems Modeler | SysML Diagrams | mdzip|
+| DOORS | Object-level Requirements | dma |
+
 
 Version control is optional when using SharePoint or SharePoint-supported platforms (Word, Excel, etc.) to modify non-technical documents.
 
 >[!NOTE]  
->In cases where SharePoint documents contain data that can be natively modified, Version Control is still mandatory. Engineering and Configuration Management are responsible for identifying these documents so they can be stored in a separate version-controlled site.
+>Version control is optional when using SharePoint or SharePoint-supported platforms (Word, Excel, etc.). However, in cases where SharePoint hosts documents with natively modifiable data, Version Control is still mandatory.
 
 ### Best Practices
 

@@ -3,34 +3,34 @@
 - [[Home]]
 
 ### Templates
-
-- [[00-T01 Change Requests]]
-- [[00-T02 Problem Reports]]
-- [[00-T03 Checklists]]
-- [[00-T04 Document Templates]]
+- [[00-Templates]]
+  - [[00-T01-Change-Requests]]
+  - [[00-T02-Problem-Reports]]
+  - [[00-T03-Checklists]]
+  - [[00-T04-Document-Templates]]
 
 ### Control Changes Process
-- [CM01 Control Changes](https://github.com/hareemxd/process-wiki/blob/main/Configuration%20Management%20Handbook/CM01%20Control%20Changes%20Process/CM01%20Change%20Control.md)
+- [[01-Control-Change]]
 
 #### Analyze Changes
-
-- [[01-001 Classify Changes]]
-- [[01-002 Scope Changes]]
-- [[01-003 Plan Changes]]
+- [[01-Analyze-Changes]]
+  - [[01-Analyze-Detect-Change]]
+  - [[01-Analyze-Classify-Change]]
+  - [[01-Analyze-Plan-Change]]
 
 #### Perform Changes
-
-- [[02-001 Perform Version Control]]
-- [[02-002 Perform Revision Control]]
+- [[02-Perform-Changes]]
+  - [[02-Perform-Version-Control]]
+  - [[02-Perform-Revision-Control]]
 
 #### Review Changes
-
-- [[03-001  Internal Review]]
-- [[03-002 Peer Review]]
-- [[03-003 Configuration Control Board]]
+- [[03-Review-Changes]]
+  - [[03-Review-Internal-Review]]
+  - [[03-Review-Peer-Review]]
+  - [[03-Review-Configuration-Control-Board]]
 
 #### Baseline Changes
-
+- [[04-Baseline-Changes]]
 
 ### Governance
 - [[Governance]]

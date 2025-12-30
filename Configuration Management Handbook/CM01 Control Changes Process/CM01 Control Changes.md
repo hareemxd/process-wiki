@@ -29,15 +29,17 @@ Number |  Title                                   |
 | Engineering| Analyze, perform, review, and baseline changes|
 | Configuration Management | Control changes|
 ## Purpose
-This document defines the Level 2 **Change Control** process for company employees who manage, modify, or otherwise work with engineering data. The process facilitates alignment with the Configuration Change Management (CCM) function of the **Configuration Management Standard EIA-649C**. The Appendix includes a table of the CCM principles with reference to the applicable document(s) in the **Configuration Management Handbook CMH-01**.  
+This document defines the Level 2 **Control Changes** process for company employees who manage, modify, or otherwise work with engineering data. The process facilitates alignment with the **Configuration Change Management** (CCM) function of the **Configuration Management Standard EIA-649C**. The Appendix includes a table of the CCM principles with reference to the applicable document(s) in the **Configuration Management Handbook CMH-01**.  
 
 This document functions as a high-level guide for company employees and a roadmap to compliance with Corporate objectives. Employees should first read this process before reading the lower level procedures, to become familiar with the process inputs/outputs, involved stakeholders, handoffs, and objectives. This familiarity will improve your understanding of how the process integrates with our business activities, and will help you comprehend and tailor the constituent procedures to the specifics of your job.
 ## Definition
-Change Control is the process of managing changes to engineering data, encompassing the activities to analyze, perform, review, and baseline changes to all company products. This process is critical to establishing and maintaining **Traceability** and **Product Integrity** (the product is developed, tested, manufactured, delivered, and serviced as described in the approved configuration baseline). 
+The process encompasses the activities to analyze, perform, review, and implement changes to all company products. This process is critical to establishing and maintaining **Traceability** and **Product Integrity** (the product is developed, tested, manufactured, delivered, and serviced as described in the approved configuration baseline). 
 
 This process, including its constituent documents in **CMH-01**, provides clear methods to control engineering data across the complete product lifecycle. 
 ### When to use Change Control
-This process must be followed whenever performing changes to engineering data. Change Control begins at Contract Award and ends at product obsolescence, and it is applicable to all programs and contracts.
+This process must be followed whenever performing changes to engineering data from Contract Award to product obsolescence, and it is applicable to all programs and contracts.  
+
+
 
 ## Best Practices  
 

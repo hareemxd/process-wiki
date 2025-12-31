@@ -43,9 +43,6 @@ In general, the rules governing when and how to revise CIs are determined by con
 
 ### Best Practices
 
-
-#### Maintain open line of communication with Approval Authority
-
 #### Track progress of draft revisions with Version Control  
 
 When modifying CIs which are stored in a version-controlled repository, you should use **CM01-002-01 Version Control** as reference for establishing traceability of all changes.

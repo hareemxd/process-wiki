@@ -22,11 +22,13 @@ domains:
 ### Purpose
 This document defines the procedure(s) and best practices to perform revision control and supports compliance to the company's QMS.  
 ### Definition
-**Revision Control** is the practice of performing and recording changes to data with **revisions**. This procedure presents an iterative activity set that can be used to make changes to data in a controlled fashion.
+**Revision Control** is the practice of performing and recording changes to data with **revisions**. A new revision indiciates a major update to a baselined **Configuration Item** (CI) in a Product Lifecycle Management tool (PLM) that is released for use by all company functions (Manufacturing, Supply).
 
-A revision is a baseline of a **Configuration Item** (CI) in a Product Lifecycle Management tool (PLM) that is released for use by all company functions (Manufacturing, Supply) . Revisions are executed with **Engineering Change Orders** and always require internal and external review before release. The person or organization responsible for approving new revisions and the commitment of resources is known as the **Approving Authority**, and can be either an internal entity (Project Engineer, Program Manager) or external entity (Customer).
+> [!NOTE] 
+> At a minimum, Class I revisions must undergo **Internal Review**, **Peer Review**, and **Configuration Management Review** prior to release.
 
- **Internal Review** (and **Peer Review**, if applicable to the product/project) checks the technical aspects of change (*can we do it?*) and the business tradeoff (*should we do it?*). 
+ >[!NOTE] 
+ >At a minimum, Class II revisions must undergo **Internal Review** and **Change Board Review** prior to release.
  
  Revision Control ensures quality and timely updates to baselined CIs to support project execution.
 
@@ -73,12 +75,12 @@ When submitting your work for review and release, the draft of the new revision 
 5. Configure and create a new ECO in PLM in accordance with [**blank**]. 
 6. Once ready, release the ECO.
 
-### Revision Release
+### Revision Release States and Control Scheme
 
-| Term  | Definition                                     |
-| ----- | --------------------------------------- |
-|Preliminary Release| A draft revision stored in an Engineering workspace (Digital Engineering Tool, SharePoint). Access restricted to Owner and/or their team |
-|Internal Release| A revision reviewed per **CM01-003-01 Internal Review** and released in a **Document Management System**. Read access granted to entire organization |
-| External Release | A revision reviewed per **CM01-003-02 Peer Review** and/or **CM01-003-03 Configuration Control** and released in PLM. |
+| State  | Scheme |Definition                                     |
+| ----- | ---|--------------------------------------- |
+|Preliminary Release| Revision A to Revision A.1|A draft revision stored in an Engineering workspace (Digital Engineering Tool, SharePoint). Access restricted to Owner and/or their team. |
+|Internal Release| Revision A to Revision B|A revision reviewed per **CM01-003-01 Internal Review** and released in a **Document Management System**. Internal use only. |
+| External Release | Revision A to Revision B|A revision  released in PLM. |
 
 

@@ -10,7 +10,7 @@ domains:
 
 # Revision Control
  ### References
-Number |  Title                                   |
+| Number |  Title                                   |
 | ----- | --------------------------------------- |
 |CM-02-001| Set Up Permissions for Data Repositories |
 
@@ -24,22 +24,25 @@ This document defines the procedure(s) and best practices to perform revision co
 ### Definition
 **Revision Control** is the practice of performing and recording changes to data with **revisions**. This procedure presents an iterative activity set that can be used to make changes to data in a controlled fashion.
 
-A revision is a baseline of a **Configuration Item** (CI) in a Product Lifecycle Management tool (PLM) that is released for use by all company functions (Manufacturing, Supply) . Revisions are executed with **Engineering Change Orders** and always require internal and external review before release.
+A revision is a baseline of a **Configuration Item** (CI) in a Product Lifecycle Management tool (PLM) that is released for use by all company functions (Manufacturing, Supply) . Revisions are executed with **Engineering Change Orders** and always require internal and external review before release. The person or organization responsible for approving new revisions and the commitment of resources is known as the **Approving Authority**, and can be either an internal entity (Project Engineer, Program Manager) or external entity (Customer).
+
+ **Internal Review** (and **Peer Review**, if applicable to the product/project) checks the technical aspects of change (*can we do it?*) and the business tradeoff (*should we do it?*). 
+ 
+ Revision Control ensures quality and timely updates to baselined CIs to support project execution.
 
 ### When to use Revision Control
 
-Revision Control is required when performing modifications to be released in a new revision. Changes to a baselined **Configuration Item** are not usable by the company until released in a new revision. For example:
+Revision Control is required when performing modifications to be released in a new revision. Any identified changes to an approved baseline of a **Configuration Item** are not usable by the company until released in a new revision. For example:
 
-* Supply Chain needs a new revision of a parts list to order a replacement for an **End of Life** (EOL) component.  
+* Supply Chain needs a new revision of a parts list to procure a replacement for an **End of Life** (EOL) component.  
 * Systems Engineering needs a new revision of a qualification test report to reference the test results in a Requirements Verification Matrix.
 
 In general, the rules governing when and how to revise CIs are determined by contractual requirements.
 
-
 ### Best Practices
 
 
-####
+#### Maintain open line of communication with Approval Authority
 
 #### Track progress of draft revisions with Version Control  
 
@@ -50,7 +53,7 @@ When modifying CIs which are stored in a version-controlled repository, you shou
 Revision-level changes will always be tied to a **Problem Report** (PR). You should leave comments on the PR to document your progress, as well as any related activities, such as **Peer Review** of the changes.
 
 #### Highlight changes
-When submitting your work for review and release, the draft of the new revision should contain *redlines* which highlight the changes from the previous revision.
+When submitting your work for review and release, the draft of the new revision should contain redlines which highlight the changes from the previous revision.
 
 ### Procedure Map
 
@@ -58,10 +61,11 @@ When submitting your work for review and release, the draft of the new revision 
 
 #### Owner
    
-1. Create a new draft revision by performing modifications to the data/document in accordance with the applicable processes. 
+1. Notify the **Approving Authority** of the change and, if applicable, provide
+2. Create a new draft revision by performing modifications to the data/document in accordance with the applicable processes. 
    
-2. Conduct **Peer Review** in accordance with **CM01-003-02 Peer Review**.
-3. Submit the draft revision and **Peer Review Record** (PRR) to the Configuration Manager.  
+3. Conduct **Peer Review** in accordance with **CM01-003-02 Peer Review**.
+4. Submit the draft revision and **Peer Review Record** (PRR) to the Configuration Manager.  
 
 #### Configuration Manager
 
@@ -71,13 +75,10 @@ When submitting your work for review and release, the draft of the new revision 
 
 ### Revision Release
 
-A draft revision is considered a **Preliminary Release**, which means that only the supervising individual, team, function, or department can access the draft revision and reference it in other locations. The revision transitions to an **Internal Release** once it is reviewed and released in a **Document Management System**; see **CM01-003-01 Internal Review**. At this point, the revision gains a level of authority, is accessible to all team members, and is considered acceptable for activities outside of Design Engineering, including but not limited to:  
-* Procurement for Development
-* Production for Development
-* Test and Analysis
-* Customer Review
-
-Revisions transition to an **External Release** once they undergo **Peer Review** and are released in PLM.
-
+| Term  | Definition                                     |
+| ----- | --------------------------------------- |
+|Preliminary Release| A draft revision stored in an Engineering workspace (Digital Engineering Tool, SharePoint). Access restricted to Owner and/or their team |
+|Internal Release| A revision reviewed per **CM01-003-01 Internal Review** and released in a **Document Management System**. Read access granted to entire organization |
+| External Release | A revision reviewed per **CM01-003-02 Peer Review** and/or **CM01-003-03 Configuration Control** and released in PLM. |
 
 

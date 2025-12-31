@@ -24,14 +24,18 @@ Number |  Title                                   |
 | Reviewer  | Reviews changes and provides feedback|
 | Configuration Manager | Monitors compliance with procedures
 ### Purpose
-This document defines the procedure(s) to perform internal reviews. 
+This document defines the procedure(s) to perform internal reviews and supports compliance to the company's QMS. 
 ### Definition
-**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. This procedure ensures work complies with internal standards. Internal Review focuses on objective errors that are simple to correct (typos, dangling connectors, style problems). Review of these items can be organized using an **Internal Review Checklist**; see **CM-RC-001 Schematic Review Checklist** for an example.  
+**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work. This procedure ensures work complies with internal standards and is free of objective errors.  
 
-Whether or not you use a checklist, each Internal Review activity should be recorded with the following information:
-* Owner and Reviewer names
-* Part Number and Version/Revision/Configuration
-* Findings and resolutions (any errors discovered and the steps taken to address them)
+Internal Review fits into multiple types of workflows and the specific review tasks will differ according to the nature of the changes and product/project context. The common feature of the activity is that the Owner and Reviewer(s) are experienced with the product. This feature keeps the nature of Internal Reviews grounded in *simplicity*. The table below lists examples of activities that can constitute Internal Review.
+
+| Change Description                    | Function of Internal Review |
+| ----------------------- | ------------------ |
+| Class II End of Life Component Replacement | Checks Assembly drawing updates for completeness (updates to Notes, Parts Lists, Callouts, Reference Designators). Checks that Configuration Control is intact; no impacts to next-higher or interchangeability, changes traced to **Problem Report** and/or **Engineering Change Request**|
+| Class I New Schematic Design | Checks updated nets, connections, internal and external interfaces. Analyzes and critiques design decisions. Checks manufacturability and compliance to relevant specifications (derating)|
+| Class I System Requirements Specification Update | 
+
 ### When to perform Internal Review
 
 Any changes to data must be internally reviewed prior to the data's submittal for **Peer Review**.

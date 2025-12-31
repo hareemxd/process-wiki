@@ -77,13 +77,10 @@ Do not keep files unlocked for long periods of time. Revert changes and lock in 
 
 4. Check in the file.
 
-### Version Release
+### Version Release States
 
-A checked in version is considered a **Preliminary Release**, which means that only the supervising individual, team, function, or department can access the version and reference it in other locations. The version transitions to an **Internal Release** once it is reviewed and released in a **Document Management System**; see **CM01-003-01 Internal Review**. At this point, the version gains a level of authority, is accessible to all team members, and is considered acceptable for activities outside of Design Engineering, including but not limited to:
-* Procurement for Development
-* Production for Development
-* Test and Analysis
-* Customer Review  
-
-Versions  transition to an **External Release** once they undergo **Peer Review**, incorporation into a **Revision**, and are released in a **Product Lifecycle Management** tool (PLM); see **CM01-003-02 Peer Review** and **CM01-002-02 Revision Control**.
-
+| Term  | Definition                                     |
+| ----- | --------------------------------------- |
+|Preliminary Release| A version checked in to a DET repository. Access restricted to Owner and/or their team |
+|Internal Release| A version reviewed per **CM01-003-01 Internal Review** and released in a **Document Management System**. Read access granted to entire organization |
+| External Release | N/A |

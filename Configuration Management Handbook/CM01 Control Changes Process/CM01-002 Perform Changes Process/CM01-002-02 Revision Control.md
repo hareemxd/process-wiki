@@ -43,13 +43,6 @@ In general, the rules governing when and how to revise CIs are determined by con
 
 ### Best Practices
 
-#### Track progress of draft revisions with Version Control  
-
-When modifying CIs which are stored in a version-controlled repository, you should use **CM01-002-01 Version Control** as reference for establishing traceability of all changes.
-
-#### Track progress of draft revisions with Problem Reports  
-
-Revision-level changes will always be tied to a **Problem Report** (PR). You should leave comments on the PR to document your progress, as well as any related activities, such as **Peer Review** of the changes.
 
 #### Highlight changes
 When submitting your work for review and release, the draft of the new revision should contain redlines which highlight the changes from the previous revision.
@@ -60,11 +53,13 @@ When submitting your work for review and release, the draft of the new revision 
 
 #### Owner
    
-1. Notify the **Approving Authority** of the change and, if applicable, provide
-2. Create a new draft revision by performing modifications to the data/document in accordance with the applicable processes. 
-   
-3. Conduct **Peer Review** in accordance with **CM01-003-02 Peer Review**.
-4. Submit the draft revision and **Peer Review Record** (PRR) to the Configuration Manager.  
+1. Identify the CI to be revised and its current revision released in PLM.
+2. Access the CI and/or its constituents (part files of an assembly). 
+3. Create a draft revision:
+   a. Locate and update all instances of the revision number to the number post-release.
+   b. Perform modifications to the CI in accordance with the applicable processes. If modifying natives, batch the changes logically and trace them to a **Problem Report** in accordance with **CM01-002-01 Version Control**.
+4. Conduct the applicable reviews in accordance with **CM01-003 Review Changes**.
+5. Submit the draft revision to the Configuration Manager.  
 
 #### Configuration Manager
 
@@ -78,6 +73,6 @@ When submitting your work for review and release, the draft of the new revision 
 | ----- | ---|--------------------------------------- |
 |Preliminary Release| Revision A to Revision A.1|A draft revision stored in an Engineering workspace (Digital Engineering Tool, SharePoint). Access restricted to Owner and/or their team. |
 |Internal Release| Revision A to Revision B|A revision reviewed per **CM01-003-01 Internal Review** and released in a **Document Management System**. Internal use only. |
-| External Release | Revision A to Revision B|A revision  released in PLM. |
+| External Release | Revision A to Revision B|A revision released in PLM. |
 
 

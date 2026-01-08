@@ -12,13 +12,16 @@ domains:
  ### References
 | Number |  Title                                   |
 | ----- | --------------------------------------- |
-|CM-02-001| Set Up Permissions for Data Repositories |
+|CM01-002-01| Version Control |
+|CM01-003-01| Internal Review|
+|CM01-003| Review Changes|
 
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
 | Owner|Performs edits, participates in Peer Review, sends draft revision to Configuration Manager|
-| Configuration Manager | Verifies the draft revision and submits the resulting Engineering Change Order|
+| Configuration Manager | Verifies the draft revision, submits and releases the resulting Engineering Change Order|
+|Change Board | Verifies the ECO|
 ### Purpose
 This document defines the procedure(s) and best practices to perform revision control and supports compliance to the company's QMS.  
 ### Definition
@@ -40,32 +43,35 @@ Revision Control is required when performing modifications to be released in a n
 * Systems Engineering needs a new revision of a qualification test report to reference the test results in a Requirements Verification Matrix.
 
 In general, the rules governing when and how to revise CIs are determined by contractual requirements.
-
 ### Best Practices
 
+#### Define all attributes required by the Engineering Change Order process
 
+You should review [blank] to determine which attributes to define for your changes. ECOs must include all information required to implement the changes, including material dispositions, work packages, and effectivity dates. Defining these attributes early in the change process allows other stakeholders to fully verify the changes.
 #### Highlight changes
 When submitting your work for review and release, the draft of the new revision should contain redlines which highlight the changes from the previous revision.
 
 ### Procedure Map
-
+![Revision Control Map](/revcontrolmap1.png)
 ### Procedure
 
 #### Owner
    
 1. Identify the CI to be revised and its current revision released in PLM.
-2. Access the CI and/or its constituents (part files of an assembly). 
+2. Access the CI and/or its documentation (a drawing file, part files of an assembly). 
 3. Create a draft revision:
    a. Locate and update all instances of the revision number to the number post-release.
-   b. Perform modifications to the CI in accordance with the applicable processes. If modifying natives, batch the changes logically and trace them to a **Problem Report** in accordance with **CM01-002-01 Version Control**.
+   b. Perform modifications to the CI and/or its documentation in accordance with the applicable processes. If modifying natives, batch the changes logically and trace them to a **Problem Report**; see **CM01-002-01 Version Control**.
 4. Conduct the applicable reviews in accordance with **CM01-003 Review Changes**.
 5. Submit the draft revision to the Configuration Manager.  
 
 #### Configuration Manager
 
-4. Verify the draft revision in accordance with [**blank**].  
-5. Configure and create a new ECO in PLM in accordance with [**blank**]. 
-6. Once ready, release the ECO.
+4. Configure and create a new ECO in PLM in accordance with [**blank**]. 
+5. Verify the draft revision in accordance with [**blank**].  
+
+#### Change Board
+6. Verify the ECO.
 
 ### Revision Release States and Control Scheme
 

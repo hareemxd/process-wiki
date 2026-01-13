@@ -66,12 +66,12 @@ This procedure is initiated with a **Problem Report** (PR), the mechanism to det
    c. transfers the PR to Engineering.
 
 
-2. Engineering: 
+2. Engineering:   
    a. reviews the PR,  
    b. writes a **Change Justification**, and  
-   c. submits the PR to the **Level 1 Review Board**.
+   c. submits the PR to the **Change Board**.
 
-3. Upon approval, the Level 1 Review Board:   
+3. Upon approval, the Change Board:   
    a. reviews and approves the PR (state: **Closed**),    
    b. generates an **Engineering Change Request** (ECR) (status: **Open**) directly from the PR, and  
    c. transfers the ECR back to Engineering for further analysis.
@@ -89,12 +89,14 @@ Change Classification is based on the **Form, Fit, Function** (FFF) impacts of t
 1. Engineering:  
    a. reviews the ECR,  
    b. performs a Form Fit Function (FFF) analysis, and  
-   c. records the classification on the ECR (status: **InProgress**).
+   c. records the classification on the ECR, triggering status: **In Progress**.
 2. Configuration Management:  
-   a. verifies the FFF analysis and classification,  
-   b. submits the ECR to the **Approval Authority**,  
-   c. receives the Notice of Approval, and  
-   d. updates the ECR to status **Class Approved**.
+   a. verifies the FFF analysis and classification,  and
+   b. submits the ECR to the **Change Board**,  
+
+3. The Change Board:  
+   a. reviews the ECR, and  
+   b. updates the ECR to status **Class Approved** or **Class Rejected**.
 
 #### Responsibilities
 
@@ -107,10 +109,20 @@ This procedure is initiated when the ECR status transitions to **Class Approved*
     a. performs analysis to identify:
    * **Affected Items**: all items that will change within the scope of the ECR  
    * **Verification Activities**: test and analysis required to verify the change  
-   * **Implementation Plan**: the logical sequence and prioritization of the change
+   * **Implementation Plan**: sequence, prioritization, funding work package(s),and instructions to implement the change
    * **Schedule**: start and finish dates
   
-    b. updates the ECR.
+    b. updates the ECR to status **Pending Approval**.
+   
+2. The Change Board:  
+   a. reviews the plan in the ECR and sends it to the Customer for **Customer Approval**, or    
+   b. rejects the plan with feedback, which Engineering incorporates into the ECR for submittal.
+
+Customer Approval triggers status **Approved** and a workflow which generates an **Engineering Change Order** with status **Open** using the approved ECR as a template. The ECR is archived and the ECO replaces it as the primary vehicle of change.
+
+The open ECO triggers the activities described in **CM01-002 Perform Changes**.
+
+#### 
 
 #### Responsibilities
 

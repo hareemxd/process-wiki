@@ -1,0 +1,58 @@
+---
+title: "Peer Review"
+author: "David Ricart"
+project: "ProcessWiki"
+genre: "procedure"
+domains:
+    - Engineering
+    - Configuration Management
+tags:
+    -Traceability
+    -Collaboration
+    -Verification
+---
+ # Peer Review
+ ### References
+Number |  Title                                   |
+| ----- | --------------------------------------- |
+|CM-01-001| Version Control |
+### Roles and Responsibilities
+| Role                    | Responsibility     |
+| ----------------------- | ------------------ |
+| Owner|Modifies engineering data and initiates review|
+| Reviewer  | Reviews changes and provides feedback|
+| Configuration Manager | Monitors compliance with procedures
+### Purpose
+This document defines the procedure(s) to perform peer reviews and supports compliance to the company's QMS. 
+### Definition
+**Peer Review** is the practice of teammates reviewing each other's work.
+
+
+Across industries governed by ISO 9001, Peer Review is a routine process requirement prior to delivery. Completing a Peer Review means the changes are **Release Ready**. The review activity is structured to ensure work is complete, correct, and acceptable to all relevant stakeholders. Each review activity will differ based on the nature of the changes, any applicable requirements, and schedule and budget constraints.
+
+
+#### Objective
+ This procedure ensures work complies with internal standards and is ready for delivery and/or use by an external party (customer, vendor).
+### When to perform Peer Review
+
+
+
+### Best Practices
+
+
+
+
+### Peer Review Procedure
+
+#### Owner
+1. Perform modifications to data. If using a Digital Engineering Tool, check in your changes; see **CM01-002-01 Version Control**.
+2. Send a link to the modified data to (at least) one reviewer, as well as any review instructions.
+3. Resolve any review findings with the reviewer.
+#### Reviewer
+4. Review the data and record any findings.
+5. If there are no findings, notify the Owner that the review is complete.
+6. Send findings to the Owner.
+
+### Document Control
+
+

@@ -32,7 +32,8 @@ This document defines the procedure(s) and best practices to perform revision co
 
  >[!NOTE] 
  >At a minimum, Class II revisions must undergo **Internal Review** and **Change Board Review** prior to release.
- 
+
+ #### Objective
  Revision Control ensures quality and timely updates to baselined CIs to support project execution.
 
 ### When to use Revision Control

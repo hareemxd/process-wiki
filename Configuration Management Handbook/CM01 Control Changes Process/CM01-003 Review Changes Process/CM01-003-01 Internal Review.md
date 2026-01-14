@@ -24,19 +24,18 @@ Number |  Title                                   |
 | Reviewer  | Reviews changes and provides feedback|
 | Configuration Manager | Monitors compliance with procedures
 ### Purpose
-This document defines the procedure(s) to perform internal reviews and supports compliance to the company's QMS. 
+This document defines the procedure(s) to perform internal reviews and supports compliance to the company's Quality Management System. 
 ### Definition
-**Internal Review** is the practice of engineers of the same discipline, function, or team reviewing each other's work.
+**Internal Review** is the practice of teammates reviewing each other's work to ensure it is compliant with internal standards and free of mistakes.
 
-Internal Review fits into multiple types of workflows and the specific review tasks will differ according to the nature of the data, the changes, and project-specific details. Internal Reviews can vary in their technical nature and level of formality. The table below lists examples of activities that can constitute Internal Review.
+Internal Review focuses on the low-level details of the changes. Examples include the placement and nomenclature of schematic net labels or dimension labels, interference checks, and the treatment of significant figures. 
 
-| Description                    | Reviewer|Function of Internal Review |
-| ----------------------- | --- |------------------ |
-| Class II EOL Component | Project Engineer |Verifies no FFF impact. Checks Assembly drawing updates for completeness (updates to Notes, Parts Lists, Callouts, Reference Designators). Checks that Configuration Control is intact.|
-| Class I New Schematic | Electrical Engineer|Checks updated nets, connections, internal and external interfaces. Analyzes and critiques design decisions. Checks manufacturability and compliance to relevant specifications (derating)|
-| Class I System Requirements Update | Systems Engineer |Verifies requirements are clear, concise, complete, correct, valid and verifiable. 
+Commonly, Internal Review takes place between two engineers of the same discipline because both individuals are highly familiar with each other's work, hence the term *internal*. This practice ensures work is consistent *within disciplines* and does not contain any obvious flaws before progressing to the next stage. The output is a polished work product that is ready for higher level reviews.
+
+ Due to their simplicity, Internal Review activities can be structured with **Review Checklists**.
+
 #### Objective  
- This procedure ensures work complies with internal standards, is free of objective errors, and is ready for delivery and/or use to a wider internal audience.
+ This procedure ensures work complies with internal standards, is free of mistakes, and is ready for delivery to and/or use by a wider internal audience.
 
 ### When to perform Internal Review
 

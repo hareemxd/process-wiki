@@ -25,13 +25,7 @@ domains:
 ### Purpose
 This document defines the procedure(s) and best practices to perform revision control and supports compliance to the company's QMS.  
 ### Definition
-**Revision Control** is the practice of performing and recording changes to data with **revisions**. A new revision indiciates a major update to a baselined **Configuration Item** (CI) in a Product Lifecycle Management tool (PLM) that is released for use by all company functions (Manufacturing, Supply).
-
-> [!NOTE] 
-> At a minimum, Class I revisions must undergo **Internal Review**, **Peer Review**, and **Configuration Management Review** prior to release.
-
- >[!NOTE] 
- >At a minimum, Class II revisions must undergo **Internal Review** and **Change Board Review** prior to release.
+**Revision Control** is the practice of performing and recording changes to data with **revisions**. A new revision indiciates a major update to a baselined **Configuration Item** (CI) in a **Product Lifecycle Management** tool (PLM) that is released for use by all company functions (Manufacturing, Supply).
 
  #### Objective
  Revision Control ensures quality and timely updates to baselined CIs to support project execution.
@@ -60,8 +54,8 @@ When submitting your work for review and release, the draft of the new revision 
    
 1. Identify the CI to be revised and its current revision released in PLM.
 2. Access the CI and/or its documentation (a drawing file, part files of an assembly). 
-3. Create a draft revision:
-   a. Locate and update all instances of the revision number to the number post-release.
+3. Create a draft revision:  
+   a. Locate and update all instances of the revision number to the number post-release.  
    b. Perform modifications to the CI and/or its documentation in accordance with the applicable processes. If modifying natives, batch the changes logically and trace them to a **Problem Report**; see **CM01-002-01 Version Control**.
 4. Conduct the applicable reviews in accordance with **CM01-003 Review Changes**.
 5. Submit the draft revision to the Configuration Manager.  

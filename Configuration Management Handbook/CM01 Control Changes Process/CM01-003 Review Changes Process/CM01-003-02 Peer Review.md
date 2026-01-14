@@ -23,16 +23,17 @@ Number |  Title                                   |
 | Reviewer  | Reviews changes and provides feedback|
 | Configuration Manager | Monitors compliance with procedures
 ### Purpose
-This document defines the procedure(s) to perform peer reviews and supports compliance to the company's QMS. 
+This document defines the procedure(s) to perform peer reviews and supports compliance to the company's Quality Management System. 
 ### Definition
-**Peer Review** is the practice of teammates reviewing each other's work.
+**Peer Review** is the practice of teammates reviewing each other's work to ensure it is complete, compliant to all applicable standards, and ready for external use.
 
+The scope of Peer Review is normally broad, especially for changes to complex work products. Discussion topics during review include design tradeoffs, . The Owner may seek technical input from multiple stakeholders to fully verify the changes are **Release Ready**. 
 
 Across industries governed by ISO 9001, Peer Review is a routine process requirement prior to delivery. Completing a Peer Review means the work is **Release Ready**. The review activity is structured to ensure work is complete, correct, and acceptable to all relevant stakeholders.
 
 
 #### Objective
- This procedure ensures work complies with internal standards and is ready for delivery and/or use by an external party (customer, vendor).
+ This procedure ensures work is complete, compliant with all applicable standards, and ready for delivery and/or use by an external party.
 ### When to perform Peer Review
 
 

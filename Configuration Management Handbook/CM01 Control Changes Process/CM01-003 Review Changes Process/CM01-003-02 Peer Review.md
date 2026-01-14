@@ -28,7 +28,7 @@ This document defines the procedure(s) to perform peer reviews and supports comp
 **Peer Review** is the practice of teammates reviewing each other's work.
 
 
-Across industries governed by ISO 9001, Peer Review is a routine process requirement prior to delivery. Completing a Peer Review means the changes are **Release Ready**. The review activity is structured to ensure work is complete, correct, and acceptable to all relevant stakeholders. Each review activity will differ based on the nature of the changes, any applicable requirements, and schedule and budget constraints.
+Across industries governed by ISO 9001, Peer Review is a routine process requirement prior to delivery. Completing a Peer Review means the work is **Release Ready**. The review activity is structured to ensure work is complete, correct, and acceptable to all relevant stakeholders.
 
 
 #### Objective

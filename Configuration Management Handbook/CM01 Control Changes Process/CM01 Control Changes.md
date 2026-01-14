@@ -1,5 +1,5 @@
 ---
-title: "Change Control"
+title: "Control Changes"
 author: "David Ricart"
 project: "ProcessWiki"
 genre: "process"
@@ -33,10 +33,11 @@ This document defines the Level 2 **Control Changes** process for company employ
 
 This document functions as a high-level guide for company employees and a roadmap to compliance with Corporate objectives. Employees should first read this process before reading the lower level procedures, to become familiar with the process inputs/outputs, involved stakeholders, handoffs, and objectives. This familiarity will improve your understanding of how the process integrates with our business activities, and will help you comprehend and tailor the constituent procedures to the specifics of your job.
 ## Definition
-The process encompasses the activities to analyze, perform, review, and implement changes to all company products. This process is critical to establishing and maintaining **Traceability** and **Product Integrity** (the product is developed, tested, manufactured, delivered, and serviced as described in the approved configuration baseline). 
+The process encompasses the activities to analyze, perform, review, and implement changes to all company products. This process is critical to establishing and maintaining **Traceability** and **Product Integrity** (the product is developed, tested, manufactured, delivered, and serviced as described in the approved configuration baseline).  
 
-This process, including its constituent documents in **CMH-01**, provides clear methods to control engineering data across the complete product lifecycle. 
-### When to use Change Control
+### Objective
+This process, including its constituent documents in **CMH-01**, provides clear and compliant methods to control engineering data across the complete product lifecycle. 
+### When to use Control Changes
 This process must be followed whenever performing changes to engineering data from Contract Award to product obsolescence, and it is applicable to all programs and contracts.  
 
 

@@ -90,32 +90,41 @@ A review activity is only as valuable as the feedback provided by the reviewers.
 
 ### Mechanical Engineering
 
-Mechanical Engineering  review checks the following items:
-* drawing standard compliance; see [blank]
-* material selection standard compliance; see [blank]
-* physical configuration attributes (size, weight, volume, material)
-* environmental qualification aspects:
-  * Vibration, Shock, and Structural Deformation
-  * Acoustic/Structural Noise
-  * Material Ingress (Sand and Dust, Water, Humidity)
+Examples of Mechanical Engineering Review checks include:
+* Drawing standard compliance; see [blank]
+* Material selection standard compliance; see [blank]
+* Physical configuration attributes:
+  * Size
+  * Weight
+  * Volume
+  * Materials
+* Capability to meet environmental requirements:
+  * Vibration, shock, and structural deformation
+  * Acoustic/structural Noise
+  * Material ingress (sand and dust, water, humidity)
 
 ### Electrical Engineering
-Electrical Engineering review checks the following items:
-* schematic and layout standard compliance; see [blank]
-* electrical component selection standard compliance; see [blank]
-* electrical configuration attributes (power distribution, component derating)
-* environmental qualification aspects:  
-  * Electromagnetic Interference (Emissions, Susceptibility)
-  * Thermal Management
-  * Adverse Power Conditions (Inrush, Voltage Spike, Voltage Transients)
-### Software Engineering
+Examples of Electrical Engineering Review checks include:
+* Schematic and layout standard compliance; see [blank]
+* Electrical component selection standard compliance; see [blank]
+* Electrical configuration attributes:
+  * Power distribution
+  * Component derating
+* Capability to meet environmental requirements:  
+  * Electromagnetic Interference (EMI) (Emissions, Susceptibility)
+  * Thermal management
+  * Adverse power conditions (Inrush, Voltage Spike, Voltage Transients)
 
 ### Systems Engineering
-Systems Engineering review checks the following items:
-* requirements, system analysis, and system design standard compliance; see [blank]
-* requirements definition and traceability
-* system configuration attributes (interfaces, interchangeability, functional architecture, key characteristics)
-* system analysis:
+Examples of Systems Engineering Review checks include:
+* Requirements writing and management standard compliance; see [blank]
+* Requirements definition and traceability
+* System configuration attributes:
+  * Interfaces
+  * Interchangeability
+  * Functional architecture
+  * Key characteristics
+* System analysis:
   * Behavioral and Performance Analysis
   * Functional Hazard Analysis
   * Validation (correct system) and Verification (system is correct)
@@ -126,7 +135,21 @@ Systems Engineering review checks the following items:
 ### Speciality Engineering
 
 ### Configuration Management
-
+Examples of Configuration Management Review checks include:
+* Revision control:
+  * Revision block and signatures on front page
+  * Revision on subsequent pages
+  * Page-level revisions
+* Change attributes:
+  * Change Classification
+  * Source
+  * Change Board composition
+  * ECO workflow
+* Change Verification:
+  * ECO description matches the actual changes
+  * Documentation revisions match the ECO configuration
+* Traceability across **CM-01** activities 
+* Review Record
 ### Program Management
 
 ### Quality

@@ -36,41 +36,49 @@ This document provides a guide for company employees and a roadmap to compliance
 
 ## Definition
 
- Review is a cornerstone practice of the highly complex industries governed by ISO9001 that ensures work is complete and compliant prior to use (release, delivery). Reviews identify and fix mistakes, create critical knowledge which enhances the product (assumptions, risks, opportunities, design tradeoffs), and promote collaboration between company silos.  
+ Review is a cornerstone practice of the highly complex industries governed by ISO9001 that ensures work is complete and compliant prior to use (release, delivery). Reviews identify and fix mistakes, create valuable insights that enhance the product (assumptions, risks, opportunities, design tradeoffs), and promote collaboration between company silos.  
  
 To mandate their use, the company defines reviews as a Configuration Management process requirement to be conducted on all changes to engineering data.
 
 ### Review Activity Definition
-Review activities vary in format, in the list of reviewers, and in the level of detail/formality. Differences are based on specific circumstances (product criticality, scope/depth of changes, resource constraints) to ensure the review activity is *purpose-built*.  
+The ideal review activity is *purpose-built* with an **Objective Statement** that sets expectations for reviewers and explains the significance of the activity. A clearly defined objective keeps the team aligned and focused on the appropriate scope of work.
 
 For each review activity, Project Engineering or Configuration Management shall determine the following attributes:  
-* Objective Statement with scope and schedule defined (what, why, when)
-* Review activity materials (checklists, review forms)
+* Objective statement including:
+  * What is the artifact under review  
+  * What is the next stage for the artifact after review 
+  * What are the primary elements to review
+  * When should the review be completed
+* Review Materials (checklists, review forms)
+* Supporting technical materials (drawings, data, planning documents)
 * List of Reviewers
+
+Some or all of the above attributes should be documented in a **Review Record**.
 
 ### Approval  
 
-The output of a review activity is **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. The significance of an approval is based on the circumstances of the specific review activity. Generally, acceptance progresses the work toward its end state (release, delivery), and rejection regresses the work to a prior state. 
+The output of a review activity is **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. The significance of an approval is based on the review activity circumstances. Generally, acceptance progresses the work toward its end state (release, delivery), and rejection regresses the work to a prior state. Reviewers are the *gatekeepers* of work releases, and for this reason, they need to be aware of what it means to accept work during a review.
 
 Approvals shall be documented in a **Review Record** comprised of the following elements:
 * The reviewer's name
 * The approval status (**Accepted** or **Rejected**)  
 * The date of the approval  
 
-Similar to reviews, the act of approval can take many forms. Formal approvals shall be managed in a controlled digital environment such as a **Product Lifecycle Management** tool (PLM). The table below lists common examples of approvals of increasing formality.
+Similar to reviews activities, the act of approval can take many forms and is called by many different names (approve, sign off, verify). Formal approvals shall be managed in a controlled digital environment such as a **Product Lifecycle Management** tool (PLM). The table below lists common examples of approvals of increasing formality.
 
 
 | Work Under Review  | Approval     | Review Record|
 | ----------------------- | ------------------ | ---|
-| Functional Baseline draft | Customer verbally accepts the proposed baseline.| Design Review Meeting Minutes
+| Functional Baseline draft | Customer verbally agrees with the proposed baseline.| Design Review Meeting Minutes
 | Drawing Draft Revision| Reviewer emails Owner stating the work is ready to be submitted in an **Engineering Change Order** (ECO).|Email
-| Drawing ECO Revision | Reviewer approves ECO in PLM| PLM Report
+| Drawing ECO Revision | Reviewer approves an ECO in PLM.| PLM Report
+| Production Unit Delivery| Inspector verifies the delivered unit.| Contract Letter
 ### Objective
 
 This process, including its constituent documents in **CMH-01**, provides clear and compliant methods to review changes to engineering data across the complete product lifecycle. 
 
 ### When to use Review Changes
-
+This process must be followed whenever performing changes to engineering data from Contract Award to product obsolescence, and it is applicable to all programs and contracts.  
 #### Change Board
 
 Since customer approval is a common requirement to release ECOs, the company designates employees to communicate with customer **Points of Contact** (POCs) on a regular basis. All product/project development teams under contract must form a **Change Board** comprised of these individuals who are accountable for providing guidance to the customer throughout the change process. The table below lists common examples of functions in this role and their responsibilities.

@@ -1,3 +1,4 @@
+<!--
 ---
 title: "Internal Review"
 author: "David Ricart"
@@ -6,11 +7,12 @@ genre: "procedure"
 domains:
     - Engineering
     - Configuration Management
-tags:
-    -Traceability
-    -Collaboration
-    -Verification
+tags:  
+    -Traceability  
+    -Collaboration  
+    -Verification  
 ---
+-->
  # Internal Review
  ### References
 Number |  Title                                   |

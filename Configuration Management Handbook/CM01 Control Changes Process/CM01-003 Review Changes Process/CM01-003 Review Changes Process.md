@@ -14,6 +14,11 @@ domains:
 | ----- | --------------------------------------- |
 |CMH-01| Configuration Management Handbook |  
 |CM01| Control Changes |
+|CM-RC-001| Schematic Review Checklist|
+|CM-RC-002| Mechanical Drawing Review Checklist|
+|CM-RC-003| Requirements Review Checklist|
+|CM-RC-004| Configuration Management Review Checklist|
+|CM-RC-005| Component Selection Review Checklist
 |CM01-003-01| Internal Review |
 |CM01-003-02| Peer Review |
 
@@ -80,16 +85,16 @@ This process must be followed whenever performing changes to engineering data fr
 
 ## Review Guidelines
 
-The following sections describe the role of each domain in a review activity.
+The following sections describe the role of each domain in a review activity. The lists are illustrative and not exhaustive.
 
 ### Change Board
 
-The Change Board is the only domain that must review every change within their project scope.
+The Change Board is a unique domain that must review every PLM-released change within their project scope.
 
 
-Since **Customer Approval** is a common requirement to release ECOs, the company designates employees to communicate with customer **Points of Contact** (POCs) on a regular basis. All project teams under contract must form a **Change Board** comprised of these individuals who guide the customer through the change process. 
+Since **Customer Approval** is a common requirement to release ECOs, the company designates employees to communicate with **Points of Contact** (POCs) on a regular basis. All project teams under contract must form a **Change Board** comprised of these individuals who guide the customer through the change process. 
 
-Change Boards for certain programs, such as **Build-to-Prints** (BTPs) executing mostly minor changes, may consist of only one member with the required technical skill, project knowledge, and customer relationship. At the other extreme, Change Boards for safety-critical products may require participation from Speciality Engineering and Quality to provide technical support and process assurance.
+Change Boards for certain programs, such as **Build-to-Prints** (BTPs) executing mostly minor changes, may consist of only one member with the required technical skill, project knowledge, and customer relationship. At the other extreme, Change Boards for safety-critical products may require participation from Speciality Engineering and Quality to provide technical support and process assurance. Any domain with expertise (Supply, Manufacturing) can play a critical role in a Change Board.
 
 >[!NOTE]
 At least one member of a Change Board must be responsible for the financial aspects of changes. For 1-member boards, this role is typically performed by Project Engineering.
@@ -107,15 +112,14 @@ The table below lists common examples of functions in this role and their respon
 
 
 #### Internal Review
-* Drawing standard compliance; see [blank]
-* Material selection standard compliance; see [blank]
+* Drawing and material selection standard compliance; see **CM-RC-002 Mechanical Drawing Review Checklist**
 
 #### Peer Review
 * Physical configuration attributes:
   * Size
   * Weight
-  * Volume
   * Materials
+  * Physical interchangeability and modularity
 
 * Capability to meet environmental requirements:
   * Vibration, shock, and structural deformation
@@ -124,13 +128,14 @@ The table below lists common examples of functions in this role and their respon
 
 ### Electrical Engineering
 #### Internal Review
-* Schematic and layout standard compliance; see [blank]
-* Electrical component selection standard compliance; see [blank]
+* Schematic and layout standard compliance; see **CM-RC-001 Schematic Review Checklist**
+* Electrical component selection standard compliance; see **CM-RC-005 Component Selection Checklist**
 
 #### Peer Review
 * Electrical configuration attributes:
   * Power distribution
   * Component derating
+  * Electrical/Electronic interchangeability and modularity 
 
 * Capability to meet environmental requirements:  
   * Electromagnetic Interference (EMI) (Emissions, Susceptibility)
@@ -139,7 +144,7 @@ The table below lists common examples of functions in this role and their respon
 
 ### Systems Engineering
 #### Internal Review
-* Requirements writing and management standard compliance; see [blank]
+* Requirements writing and management standard compliance; see **CM-RC-003 Requirements Review Checklist**
 * Requirements definition and traceability
 
 #### Peer Review
@@ -162,13 +167,14 @@ The table below lists common examples of functions in this role and their respon
 ### Configuration Management
 
 #### Internal Review
-* Change Verification:
-  * Revision block and signatures on front page
+* Change Verification; see **CM-RC-004 Configuration Management Review Checklist**
+ <!-- * Revision block and signatures on front page
   * Revision on subsequent pages
   * Page-level revisions
   * ECO description matches the actual changes
   * Documentation revisions match the ECO configuration
   * Review Record is valid
+  * -->
 
 #### Peer Review
 * Change attributes:

@@ -51,19 +51,22 @@ When submitting your work for review and release, the draft of the new revision 
 ### Procedure
 
 #### Owner
-   
-1. Identify the CI to be revised and its current revision released in PLM.
-2. Access the CI and/or its documentation (a drawing file, part files of an assembly). 
-3. Create a draft revision:  
-   a. Locate and update all instances of the revision number to the number post-release.  
-   b. Perform modifications to the CI and/or its documentation in accordance with the applicable processes. If modifying natives, batch the changes logically and trace them to a **Problem Report**; see **CM01-002-01 Version Control**.
-4. Conduct the applicable reviews in accordance with **CM01-003 Review Changes**.
-5. Submit the draft revision to the Configuration Manager.  
+Working in the **InWork** ECO:
+1. Identify the CI and all comprising elements (prt, asm, dwg) to be revised.
+2. Access the materials identified above in their respective workspaces.
+3. Create a **Draft Revision**:  
+   a. Locate and update all instances of the **FromRev** to the **ToRev**.  
+   b. Make changes to the file in accordance with the ECO information and applicable work procedures.
+   c. For CIs comprised of multiple elements, make the above changes to the remaining elements.
+   d. Export and package together (ZIP) all elements of the CI. Name the package: [CI-Part-Number]-DRAFTRev[**ToRev**]
+
+4. Perform **Internal Review** and create a **Review Record**; see **CM01-003-01 Internal Review**.
+5. Submit the Draft Revision to the Configuration Manager.  
+
 
 #### Configuration Manager
 
-4. Configure and create a new ECO in PLM in accordance with [**blank**]. 
-5. Verify the draft revision in accordance with [**blank**].  
+4. Verify the Draft Revision in accordance with **CM01-003-01 Internal Review**. 
 
 #### Change Board
 6. Verify the ECO.

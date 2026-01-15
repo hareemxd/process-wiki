@@ -20,13 +20,13 @@ Number |  Title                                   |
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
 | Owner| Submits Change Request with initial scoping|
-| Reviewer  | Reviews and approves, modifies, or rejects scoping|
+| Change Board  | Reviews and approves, modifies, or rejects scoping|
 | Configuration Manager | Monitors compliance with procedures
 ### Purpose
 This document defines the procedure(s) and best practices to scope engineering changes.
 
 ### Definition
-Planning is the second step of the **Analyze the Change** process. The scoping activity starting point is the **Initiating Part Number** (IPN), documented in the originating **Problem Report**. By reviewing the IPN in the **Product Lifecycle Management** tool (PLM), the Owner identifies the **Configuration Items** (CIs) affected by the change (**Affected Items**), as well as expected verification activities (testing, analysis, documentation) to ensure the change is fully defined. The Owner documents the scoping activity in an **Engineering Change Request** (ECR).  
+Planning is the second step of the **Analyze the Change** process. The scoping activity starting point is the **Initiating Part Number** (IPN), documented in the **Engineering Change Request**. By reviewing the IPN in the **Product Lifecycle Management** tool (PLM), the Owner identifies the **Configuration Items** (CIs) affected by the change (**Affected Items**), as well as expected **Verification Activities** (testing, analysis, documentation) to ensure the change is fully defined. The Owner documents the scoping activity in the **Engineering Change Request** (ECR). The **Change Board** reviews and approves the ECR, automatically converting it to an ECO which will trigger the next set of procedures in the **Control Changes** process. 
 
 ### When to use Scope Changes
 The Owner of the change must use this procedure when submitting Engineering Change Requests (ECRs). 
@@ -52,9 +52,26 @@ Changes to complex systems may include multiple **Affected Items** with parent-c
 You should reference **CM01-002 Perform Changes**, **CM01-003 Review Changes**, and their subordinate procedures, to support change planning estimates.
 ### Plan the Change Procedure
 
-1. Identify the **Initiating Part Number** from the **Problem Report**. 
-2. Identify all CIs that are potentially impacted by the change to the **Initiating Part Number**.
-3. Document all identified CIs in the ECR.
-4. Describe any required testing or activities to verify interchangeability in the ECR.
-5. Identify the **Affected Items** of the change.
-6. For each item, identify the current ("from") and future ("to") version, revision, or configuration numbers.
+#### Owner
+
+Working in the **Class Approved** ECR:  
+1. Identify the **Initiating Part Number**.
+2. In PLM, identify and document all CIs impacted by the IPN (**Affected Items**) in the ECR.
+3. For each item, identify and document the current (**FromRev**) and future (**ToRev**) version, revision, and/or configuration numbers.
+4. Analyze and document potential **Verification Activities** required to fully define and implement the work.
+5. Confirm all the ECR details and press OK to convert to an **Engineering Change Proposal** of status **Pending Approval** (ECP).
+6. Submit the ECP to the **Change Board**.
+
+#### Change Board
+
+Working in the ECP:
+1. Review the ECP contents.
+2. Suggest and make changes if the Owner approves; see **CM01-003-01 Internal Review**.
+3. Devise and document an **Implementation Plan** including change sequence/priority, funding work packages, and material/manufacturing/supply instructions.
+4. Set a **Preliminary Schedule**: the start date is the date when **Customer Approval** is expected, and the end date is an estimate of when the ECP will be fully implemented.
+5. Submit the ECP to the Customer.
+   
+#### Configuration Management
+
+1. Receive the **Customer Approval** of the ECP.
+2. Convert the ECP to an **Engineering Change Order** (status **InWork**) with the **Customer Approval** attached and submit to the Owner.

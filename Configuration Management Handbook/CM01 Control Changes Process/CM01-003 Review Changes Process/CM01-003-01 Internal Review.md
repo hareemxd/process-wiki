@@ -33,12 +33,12 @@ This document defines the procedure(s) to perform internal reviews and supports 
 Internal Review focuses on *objective* aspects of work, such as schematic net label nomenclature, dimension sig-fig usage, and basic design principles. 
 
 >[!NOTE]
->For activities embedded in a workflow, Internal Reviews must be structured with **Review Checklists**; see **T-03 Checklists**.  
+>To utilize an Internal Review activity in a workflow, the activity must be structured with a **Review Checklist**; see **T-03 Checklists**.  
 >If the review activity is too complex or open-ended to be formatted as a checklist, you should use **CM01-003-02 Peer Review** instead of this procedure.
 
 Commonly, Internal Review takes place between two engineers of the same discipline because both individuals are familiar with each other's work and the applicable objective standards, hence the term *internal*. This practice ensures work is consistent *within disciplines* and does not contain any obvious flaws before progressing to the next stage. This first-pass review ensures that simple mistakes like typos or improper formats do not distract from more important review findings in later stages.
 
-Internal Review activities range in formality from spontaneous meetings to an assigned signoff in a **Product Lifecycle Management** tool (PLM) workflow. The appropriate level of formality depends entirely on the nature of the work. So long as the review is scoped to _objective_ findings (and ideally controlled with a checklist), Internal Review can be used in multiple workflows, or multiple times in the same workflow, to support compliance to the requirements of **Control Changes**.
+Internal Review activities range in formality from spontaneous meetings to an assigned signoff in a **Product Lifecycle Management** tool (PLM) workflow. The appropriate level of formality depends entirely on the nature of the work. So long as the review is scoped to _objective_ findings (and ideally structured with a checklist), Internal Review can be used in multiple workflows, or multiple times in the same workflow, to support compliance to the requirements of **Control Changes**.
 
 The variety of activities that are considered Internal Review is broad. The table below lists some workplace examples of increasing formality.
 
@@ -46,7 +46,7 @@ The variety of activities that are considered Internal Review is broad. The tabl
 |---|---|
 |Huddle| An impromptu meeting between peers to discuss work.|
 |Sanity check| A request for a peer to briefly review your work before it is presented, delivered, or otherwise used.|
-|Configuration Management Verification| A stage of the **Revision Control** workflow in PLM. The review is structured using a checklist.|
+|Configuration Management Verification| A PLM workflow stage. The review is structured using a checklist.|
 |Independent Review| Updates to safety-critical software must be reviewed using a safety checklist for process assurance.|
 
 #### Objective  
@@ -54,16 +54,19 @@ The variety of activities that are considered Internal Review is broad. The tabl
 
 ### When to perform Internal Review
 
-Any changes to data must be internally reviewed prior to the data's submittal for **Peer Review**.
+Any changes to data must be internally reviewed prior to the data's submittal on an ECO.
+
+>[!WARNING]
+All employees conducting or participating in Internal Review must create a written record of the activity. The record may be as simple as a few words in an email.
 
 ### Best Practices
 
 #### Use Configuration Management to Control Review Artifacts
 Data to be reviewed should be uniquely identified with a baseline identifier (version number, revision number, configuration number). Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact (review the wrong item, incorporate findings into the wrong item).
 
-#### Submit work that is ready for review
+#### Create a Review Record
 
-You should only submit work for review if you believe it is ready to be reviewed by a wider audience (**Peer Review**). Do not submit artifacts with incomplete or inconsistent changes for review unless explicitly directed.
+The **Review Record** is the proof that Internal Review occurred. 
 
 #### Provide instructions to reviewers
 
@@ -72,13 +75,13 @@ Reviews are more effective when the reviewer knows what to look for. You should 
 ### Internal Review Procedure
 
 #### Owner
-1. Perform modifications to data. If using a Digital Engineering Tool, check in your changes; see **CM01-002-01 Version Control**.
-2. Send a link or a copy of the modified data to (at least) one reviewer, as well as any review instructions.
-3. Resolve any review findings with the reviewer.
+After making changes:
+1. Send a link or a copy of the modified data to (at least) one reviewer, as well as any review instructions.
+2. Resolve any review findings with the reviewer.
 #### Reviewer
 1. Review the data and record any findings.
 2. Send findings to the Owner.
-3. If there are no findings, notify the Owner that the review is complete.
+3. If there are no findings, notify the Owner that you **Accept** the work.
 
 
 

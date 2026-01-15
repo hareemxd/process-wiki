@@ -36,16 +36,15 @@ This document provides a guide for company employees and a roadmap to compliance
 
 ## Definition
 
- Review is a cornerstone practice of the highly complex industries governed by ISO9001 that ensures work is complete and compliant prior to use (release, delivery). Reviews identify and fix mistakes, create valuable insights that enhance the product (assumptions, risks, opportunities, design tradeoffs), and promote collaboration between company silos.  
+ Review is a cornerstone practice of the highly complex industries governed by ISO9001 that ensures work is correct, complete, compliant, and feasible prior to use (release, delivery). Reviews identify and fix mistakes, create valuable insights that enhance the product (assumptions, risks, opportunities, design tradeoffs), verify feasibility, and promote collaboration between company silos.  
  
 To mandate their use, the company defines reviews as a Configuration Management process requirement to be conducted on all changes to engineering data.
 
 ### Review Activity Definition
 The ideal review activity is *purpose-built* with an **Objective Statement** that sets expectations for reviewers and explains the significance of the activity. A clearly defined objective keeps the team aligned and focused on the appropriate scope of work.
 
-For each review activity, Project Engineering or Configuration Management shall determine the following attributes:  
+For each review activity, Project Engineering or Configuration Management shall determine the following attributes and document them in a **Review Record**:  
 * Objective statement including:
-  * What is the artifact under review  
   * What is the next stage for the artifact after review 
   * What are the primary elements to review
   * When should the review be completed
@@ -59,7 +58,7 @@ Some or all of the above attributes should be documented in a **Review Record**.
 
 The output of a review activity is **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. The significance of an approval is based on the review activity circumstances. Generally, acceptance progresses the work toward its end state (release, delivery), and rejection regresses the work to a prior state. Reviewers are the *gatekeepers* of work releases, and for this reason, they need to be aware of what it means to accept work during a review.
 
-Approvals shall be documented in a **Review Record** comprised of the following elements:
+Approvals shall be documented in the Review Record by the following elements:
 * The reviewer's name
 * The approval status (**Accepted** or **Rejected**)  
 * The date of the approval  

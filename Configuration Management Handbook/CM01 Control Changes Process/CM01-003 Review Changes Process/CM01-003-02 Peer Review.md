@@ -36,7 +36,7 @@ Across industries governed by ISO 9001, Peer Review is a routine process require
  This procedure ensures work is complete, compliant with all applicable standards, and technically prepared for delivery and/or use by an external party.
 ### When to perform Peer Review
 
-
+Peer Review must be conducted on all Class I changes, and any work requiring the inputs of two engineering domains.
 
 ### Best Practices
 

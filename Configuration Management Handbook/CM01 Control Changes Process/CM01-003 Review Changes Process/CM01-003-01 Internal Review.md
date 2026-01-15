@@ -33,19 +33,20 @@ This document defines the procedure(s) to perform internal reviews and supports 
 Internal Review focuses on *objective* aspects of work, such as schematic net label nomenclature, dimension sig-fig usage, and basic design principles. 
 
 >[!NOTE]
->For formal process compliance, Internal Reviews must be structured with **Review Checklists**; see **T-03 Checklists**.  
+>For activities embedded in a workflow, Internal Reviews must be structured with **Review Checklists**; see **T-03 Checklists**.  
 >If the review activity is too complex or open-ended to be formatted as a checklist, you should use **CM01-003-02 Peer Review** instead of this procedure.
 
-Commonly, Internal Review takes place between two engineers of the same discipline because both individuals are familiar with each other's work and the applicable objective standards, hence the term *internal*. This practice ensures work is consistent *within disciplines* and does not contain any obvious flaws before progressing to the next stage.  
+Commonly, Internal Review takes place between two engineers of the same discipline because both individuals are familiar with each other's work and the applicable objective standards, hence the term *internal*. This practice ensures work is consistent *within disciplines* and does not contain any obvious flaws before progressing to the next stage. This first-pass review ensures that simple mistakes like typos or improper formats do not distract from more important review findings in later stages.
 
-Internal Review activities range in formality from spontaneous meetings to an assigned signoff in a **Product Lifecycle Management** tool (PLM) workflow. The appropriate level of formality depends entirely on the nature of the work.
+Internal Review activities range in formality from spontaneous meetings to an assigned signoff in a **Product Lifecycle Management** tool (PLM) workflow. The appropriate level of formality depends entirely on the nature of the work. So long as the review is scoped to _objective_ findings (and ideally controlled with a checklist), Internal Review can be used in multiple workflows, or multiple times in the same workflow, to support compliance to the requirements of **Control Changes**.
 
-Some example references to Internal Review include:
+The variety of activities that are considered Internal Review is broad. The table below lists some common workplace examples.
 
 | Term| Meaning|
 |---|---|
-|Huddle| An impromptu meeting between peers to discuss work|
-|Sanity check| A request for a peer to review your work
+|Huddle| An impromptu meeting between peers to discuss work.|
+|Sanity check| A request for a peer to briefly review your work before it is presented, delivered, or otherwise used.|
+|Configuration Management Verification| A stage of the **Revision Control** workflow in PLM. The review is structured using a checklist.|
 
 #### Objective  
  This procedure ensures work complies with internal standards, is free of mistakes, and is ready for delivery to and/or use by a wider internal audience.

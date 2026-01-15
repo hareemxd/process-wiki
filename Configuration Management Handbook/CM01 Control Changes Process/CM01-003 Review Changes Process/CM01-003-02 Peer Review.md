@@ -27,7 +27,7 @@ This document defines the procedure(s) to perform peer reviews and supports comp
 ### Definition
 **Peer Review** is the practice of teammates reviewing each other's work to ensure it is complete, compliant to all applicable standards, and ready for external use.
 
-The scope of Peer Review is normally broad, especially for changes to complex work products. Discussion topics during review include design tradeoffs, . The Owner may seek technical input from multiple stakeholders to fully verify the changes are **Release Ready**. 
+Peer Review  especially for changes to complex work products. Discussion topics include technical and financial feasibility, design tradeoffs, and test strategies. The Owner may seek technical input from multiple stakeholders to fully verify the changes are **Release Ready**. 
 
 Across industries governed by ISO 9001, Peer Review is a routine process requirement prior to delivery. Completing a Peer Review means the work is **Release Ready**. The review activity is structured to ensure work is complete, correct, and acceptable to all relevant stakeholders.
 

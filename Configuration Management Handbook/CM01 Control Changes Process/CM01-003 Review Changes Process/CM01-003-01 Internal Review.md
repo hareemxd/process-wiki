@@ -16,7 +16,7 @@ tags:
 Number |  Title                                   |
 | ----- | --------------------------------------- |
 |CM-01-001| Version Control
-|CM-RC-001| Schematic Review Checklist
+|T-03| Checklists|
 ### Roles and Responsibilities
 | Role                    | Responsibility     |
 | ----------------------- | ------------------ |
@@ -28,11 +28,22 @@ This document defines the procedure(s) to perform internal reviews and supports 
 ### Definition
 **Internal Review** is the practice of teammates reviewing each other's work to ensure it is compliant with internal standards and free of mistakes.
 
-Internal Review focuses on the low-level details of the changes. Examples include the placement and nomenclature of schematic net labels or dimension labels, interference checks, and the treatment of significant figures. 
+Internal Review focuses on *objective* aspects of work, such as schematic net label nomenclature, dimension sig-fig usage, and basic design principles. 
 
-Commonly, Internal Review takes place between two engineers of the same discipline because both individuals are highly familiar with each other's work, hence the term *internal*. This practice ensures work is consistent *within disciplines* and does not contain any obvious flaws before progressing to the next stage. The output is a polished work product that is ready for higher level reviews.
+>[!NOTE]
+>For formal process compliance, Internal Reviews must be structured with **Review Checklists**; see **T-03 Checklists**.  
+>If the review activity is too complex or open-ended to be formatted as a checklist, you should use **CM01-003-02 Peer Review** instead of this procedure.
 
- Due to their simplicity, Internal Review activities can be structured with **Review Checklists**.
+Commonly, Internal Review takes place between two engineers of the same discipline because both individuals are familiar with each other's work and the applicable objective standards, hence the term *internal*. This practice ensures work is consistent *within disciplines* and does not contain any obvious flaws before progressing to the next stage.  
+
+Internal Review activities range in formality from spontaneous meetings to an assigned signoff in a **Product Lifecycle Management** tool (PLM) workflow. The appropriate level of formality depends entirely on the nature of the work.
+
+Some example references to Internal Review include:
+
+| Term| Meaning|
+|---|---|
+|Huddle| An impromptu meeting between peers to discuss work|
+|Sanity check| A request for a peer to review your work
 
 #### Objective  
  This procedure ensures work complies with internal standards, is free of mistakes, and is ready for delivery to and/or use by a wider internal audience.

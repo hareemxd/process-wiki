@@ -63,7 +63,7 @@ This procedure is initiated with a **Problem Report** (PR), the mechanism to det
 
 1. Configuration Management (CM):   
    a. receives or creates the PR (status: **Open**),  
-   b. verifies the required attributes, and  
+   b. verifies the required attributes per **CM01-003 Review Changes**, and  
    c. transfers the PR to Engineering.
 
 
@@ -73,7 +73,7 @@ This procedure is initiated with a **Problem Report** (PR), the mechanism to det
    c. submits the PR to the **Change Board**.
 
 3. Upon approval, the Change Board:   
-   a. reviews and approves the PR (state: **Closed**),    
+   a. reviews and approves the PR (state: **InProgress**),    
    b. generates an **Engineering Change Request** (ECR) (status: **Open**) directly from the PR, and  
    c. transfers the ECR back to Engineering for further analysis.
 
@@ -107,17 +107,20 @@ This procedure is initiated when the ECR status transitions to **Class Approved*
 
 ##### Activity Flow
 1. Engineering:  
-    a. performs analysis to identify:
+    a. performs analysis to identify and document:
    * **Affected Items**: all items that will change within the scope of the ECR  
-   * **Verification Activities**: test and analysis required to verify the change  
-   * **Implementation Plan**: sequence, prioritization, funding work package(s),and instructions to implement the change
-   * **Schedule**: start and finish dates
-  
-    b. updates the ECR to status **Pending Approval**.
+   * **Verification Activities**: test and analysis required to verify the change    
+
+   b. converts the ECR to an **Engineering Change Proposal** (ECP) with status **Pending Approval**.
    
-2. The Change Board:  
-   a. reviews the plan in the ECR and sends it to the Customer for **Customer Approval**, or    
-   b. rejects the plan with feedback, which Engineering incorporates into the ECR for submittal.
+1. The Change Board:  
+   a. reviews and accepts the plan in the ECR,  
+   b. devises an **Implementation Plan** and **Preliminary Schedule**,  
+   c.  sends it to the Customer for **Customer Approval**
+
+
+>[!NOTE]
+For information about rejection flows and feedback loops, see **CM01-003 Review Changes**.
 
 Customer Approval triggers status **Approved** and a workflow which generates an **Engineering Change Order** with status **Open** using the approved ECR as a template. The ECR is archived and the ECO replaces it as the primary vehicle of change.
 

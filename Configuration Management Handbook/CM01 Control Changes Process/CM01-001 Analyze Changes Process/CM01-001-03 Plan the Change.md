@@ -59,7 +59,7 @@ Working in the **Class Approved** ECR:
 2. In PLM, identify and document all CIs impacted by the IPN (**Affected Items**) in the ECR.
 3. For each item, identify and document the current (**FromRev**) and future (**ToRev**) version, revision, and/or configuration numbers.
 4. Analyze and document potential **Verification Activities** required to fully define and implement the work.
-5. Confirm all the ECR details and press OK to convert to an **Engineering Change Proposal** of status **Pending Approval** (ECP).
+5. Confirm all the ECR details and press OK to convert to an **Engineering Change Proposal** (ECP) with status **Pending Approval**.
 6. Submit the ECP to the **Change Board**.
 
 #### Change Board

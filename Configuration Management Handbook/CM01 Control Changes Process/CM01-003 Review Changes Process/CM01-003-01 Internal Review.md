@@ -64,10 +64,6 @@ All employees conducting or participating in Internal Review must create a writt
 #### Use Configuration Management to Control Review Artifacts
 Data to be reviewed should be uniquely identified with a baseline identifier (version number, revision number, configuration number). Providing teammates with uncontrolled changes to review could lead to misidentification of the review artifact (review the wrong item, incorporate findings into the wrong item).
 
-#### Create a Review Record
-
-The **Review Record** is the proof that Internal Review occurred. 
-
 #### Provide instructions to reviewers
 
 Reviews are more effective when the reviewer knows what to look for. You should ask reviewers to double-check specific items, tables, or sheets. Provide helpful context like, *these changes were driven by* [X].

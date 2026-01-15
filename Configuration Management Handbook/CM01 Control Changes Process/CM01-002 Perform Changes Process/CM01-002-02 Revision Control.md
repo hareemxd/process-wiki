@@ -58,7 +58,7 @@ Working in the **InWork** ECO:
    a. Locate and update all instances of the **FromRev** to the **ToRev**.  
    b. Make changes to the file in accordance with the ECO information and applicable work procedures.
    c. For CIs comprised of multiple elements, make the above changes to the remaining elements.
-   d. Export and package together (ZIP) all elements of the CI. Name the package: [CI-Part-Number]-DRAFTRev[**ToRev**]
+   d. Export and package together (ZIP) all elements of the CI. Name the package: [CI-Part-Number]-Rev[**ToRev**]_DRAFT
 
 4. Perform **Internal Review** and create a **Review Record**; see **CM01-003-01 Internal Review**.
 5. Submit the Draft Revision to the Configuration Manager.  
@@ -66,17 +66,14 @@ Working in the **InWork** ECO:
 
 #### Configuration Manager
 
-4. Verify the Draft Revision in accordance with **CM01-003-01 Internal Review**. 
-
-#### Change Board
-6. Verify the ECO.
-
+4. Verify the Draft Revision in accordance with **CM01-003 Review Changes**. 
+5. Initiate the ECO in PLM.
 ### Revision Release States and Control Scheme
 
 | State  | Scheme |Definition                                     |
 | ----- | ---|--------------------------------------- |
 |Preliminary Release| Revision A to Revision A.1|A draft revision stored in an Engineering workspace (Digital Engineering Tool, SharePoint). Access restricted to Owner and/or their team. |
-|Internal Release| Revision A to Revision B|A revision reviewed per **CM01-003-01 Internal Review** and released in a **Document Management System**. Internal use only. |
+|Internal Release| Revision A to Revision B_Draft|A revision reviewed per **CM01-003-01 Internal Review** and submitted on an ECO. Internal use only. |
 | External Release | Revision A to Revision B|A revision released in PLM. |
 
 

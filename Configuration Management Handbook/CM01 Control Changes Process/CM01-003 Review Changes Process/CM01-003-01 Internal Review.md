@@ -54,7 +54,7 @@ The variety of activities that are considered Internal Review is broad. The tabl
 
 ### When to perform Internal Review
 
-Any changes to data must be internally reviewed prior to the data's submittal on an ECO.
+Any changes to data must undergo Internal Review prior to the data's submittal on an ECO.
 
 >[!WARNING]
 All employees conducting or participating in Internal Review must create a written record of the activity. The record may be as simple as a few words in an email.

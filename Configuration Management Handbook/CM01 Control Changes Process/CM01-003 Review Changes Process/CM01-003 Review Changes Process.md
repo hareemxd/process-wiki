@@ -45,22 +45,35 @@ This document provides a guide for company employees and a roadmap to compliance
  
 To mandate their use, the company defines reviews as a Configuration Management process requirement to be conducted on all changes to engineering data.
 
-### Review Activity Definition
-The ideal review activity is *purpose-built* with an **Objective Statement** that sets expectations for reviewers and explains the significance of the activity. A clearly defined objective keeps the team aligned and focused on the appropriate scope of work.
+The following subsections describe the general conduct of review activities.
 
-For each review activity, Project Engineering or Configuration Management shall determine the following attributes and document them in a **Review Record**:  
-* Objective statement including:
+### Objective Statement
+Review activities should be *purpose-built* with an **Objective Statement** that sets expectations for reviewers and explains the significance of the activity. A clearly defined objective keeps everyone aligned and focused on the appropriate scope of work.
+
+The Objective Statement includes the following details:  
   * What is the next stage for the artifact after review 
   * What are the primary elements to review
   * When should the review be completed
 * Links to Review Templates (checklists, review forms)
 * Supporting technical materials (drawings, data, planning documents)
-
 >[!NOTE]
 The Objective Statement should largely be copied or paraphrased from the initiating **Change Vehicle** (Problem Report, Engineering Change Request, Engineering Change Order).
+### Activity Roles
+Each review activity includes (minimally) two participants: the **Owner** and the **Reviewer**. A third role, **Quality Reviewer**, is included as required by product, program, or contractual requirements. The table below lists the formal definition of each role.
+
+| Role                    | Definition     |
+| ----------------------- | ------------------ |
+| Owner| Responsible for the work under review. The Owner completes the work, initiates the review activity, and resolves **Comments** with reviewers.|
+| Reviewer | Assigned to review the work. The Reviewer applies their domain expertise and/or familiarity with the work to make comments, resolve them with the Owner, and provide **Approval** of the work. |
+| Quality Reviewer| Responsible for verifying comment resolutions. The Quality Reviewer ensures the Owner incorporated feedback from reviewers as described in the **Review Record**.|
+
+### Review Record
+
+The Review Record is the artifact documenting the review activity.
+
 ### Approval  
 
-The output of a review activity is **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. The significance of an approval is based on the review activity circumstances. Generally, acceptance progresses the work toward its end state (release, delivery), and rejection regresses the work to a prior state. Reviewers are the *gatekeepers* of work releases, and for this reason, they need to be aware of what it means to accept work during a review.
+The output of a review activity is **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. The significance of an approval is based on the review activity circumstances. Generally, acceptance progresses the work toward its end state (release, delivery), and rejection regresses the work to a prior state. Reviewers are the *gatekeepers* of work releases, and for this reason, they need to be aware of what it means to accept work during a review activity.
 
 Approvals shall be documented in the Review Record by the following elements:
 * The reviewer's name

@@ -57,7 +57,7 @@ Working in the **InWork** ECO:
 3. Create a **Draft Revision**:  
    a. Locate and update all instances of the **FromRev** to the **ToRev**.  
    b. Make changes to the file in accordance with the ECO information and applicable work procedures.  
-   c. For CIs comprised of multiple elements, make the above changes to the remaining elements.
+   c. For CIs comprised of multiple elements, make the above changes to the remaining elements.  
    d. Export and package together (ZIP) all elements of the CI. Name the package: [CI Part Number]-Rev[**ToRev**]_DRAFT
 
 4. Perform **Internal Review** and create a **Review Record**; see **CM01-003-01 Internal Review**.

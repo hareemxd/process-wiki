@@ -41,7 +41,7 @@ This document provides a guide for company employees and a roadmap to compliance
 
 ## Definition
 
- Review is a cornerstone practice of the highly complex industries governed by ISO9001 that ensures work is correct, complete, compliant, and feasible prior to use (release, delivery). Reviews identify and fix mistakes, create valuable insights that enhance the product (assumptions, risks, opportunities, design tradeoffs), verify feasibility, and promote collaboration between company silos.  
+ Review is a cornerstone practice of ISO9001-governed industry that ensures work is correct, complete, compliant, and feasible prior to use (release, delivery). Reviews identify and fix mistakes, create valuable insights that enhance the product (assumptions, risks, opportunities, design tradeoffs), verify feasibility, and promote collaboration between company silos.  
  
 To mandate their use, the company defines reviews as a Configuration Management process requirement to be conducted on all changes to engineering data.
 
@@ -66,7 +66,32 @@ Each review activity includes (minimally) two participants: the **Owner** and th
 | Quality Reviewer| Responsible for verifying comment resolutions. The Quality Reviewer ensures the Owner incorporated feedback from reviewers as described in the **Review Record**.|
 
 ### Comments
+Reviewers write **Comments** to record their observations about the work under review.
 
+Comments, comment categories, and comment resolutions shall be documented in the **Review Record**.
+
+#### Comment Categories
+Generally, comments are categorized by the criticality of the issue(s) raised. The table below provides definitions of two categories.
+
+|Category| Definition|
+|---|---|
+|Major| Comment raises an issue related to technical content, including engineering, contractual, and financial aspects. |
+|Minor| Comment raises an issue not related to technical content. |
+
+#### Comment Resolution
+
+A comment is considered resolved once the issue it raised has been reasonably addressed. Typically, the **Owner** resolves comments by updating the work. Comments which are deemed out of scope or invalid/incorrect may be resolved without any work updates.  
+
+Formal review activities shall use **Comment Status** to track the progress of resolutions. The table below provides status definitions.
+
+|Status| Definition|
+|---|---|
+|Open| Comment has not been resolved.|
+|Closed| Comment has been resolved.|
+|Deferred| Resolution of the comment has been postponed to a future date.|
+
+>[!NOTE]
+Comments should be deferred for reasons related to schedule and cost only.
 
 ### Approval  
 
@@ -85,11 +110,11 @@ All review activities shall be documented with a Review Record containing the fo
 
 
 ### When to use Review Changes
-This process must be followed whenever performing changes to engineering data from Contract Award to product obsolescence, and it is applicable to all programs and contracts. 
+
 
 ## Review Domains
 
-The following sections describe the role of each domain in a review activity. The lists are illustrative and not exhaustive.
+The following sections describe the primary review elements of each domain. The lists are illustrative and not exhaustive.
 
 ### Change Board
 
@@ -172,13 +197,7 @@ The table below lists common examples of functions in this role and their respon
 
 #### Internal Review
 * Change Verification; see **CM-RC-004 Configuration Management Review Checklist**
- <!-- * Revision block and signatures on front page
-  * Revision on subsequent pages
-  * Page-level revisions
-  * ECO description matches the actual changes
-  * Documentation revisions match the ECO configuration
-  * Review Record is valid
-  * -->
+ 
 
 #### Peer Review
 * Change attributes:

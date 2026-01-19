@@ -45,21 +45,19 @@ This document provides a guide for company employees and a roadmap to compliance
  
 To mandate their use, the company defines reviews as a Configuration Management process requirement to be conducted on all changes to engineering data.
 
-The following subsections describe the general conduct of review activities.
+The following subsections describe the components and conduct of review activities.
 
 ### Objective Statement
-Review activities should be *purpose-built* with an **Objective Statement** that sets expectations for reviewers and explains the significance of the activity. A clearly defined objective keeps everyone aligned and focused on the appropriate scope of work.
+A review activity should be purpose-built with an **Objective Statement** that sets expectations for reviewers and explains the significance of the activity. A clearly defined objective keeps everyone aligned and focused on the appropriate scope of work.
 
 The Objective Statement includes the following details:  
-  * What is the next stage for the artifact after review 
-  * What are the primary elements to review
-  * When should the review be completed
-* Links to Review Templates (checklists, review forms)
-* Supporting technical materials (drawings, data, planning documents)
->[!NOTE]
-The Objective Statement should largely be copied or paraphrased from the initiating **Change Vehicle** (Problem Report, Engineering Change Request, Engineering Change Order).
+* Primary elements to review
+* **End Use** of the work (development activity, production unit)
+* Review activity closure date
+
+Formal review activities should be guided with an Objective Statement. The Statement may be omitted if all participants understand the expectations and significance of the activity.
 ### Activity Roles
-Each review activity includes (minimally) two participants: the **Owner** and the **Reviewer**. A third role, **Quality Reviewer**, is included as required by product, program, or contractual requirements. The table below lists the formal definition of each role.
+Each review activity includes (minimally) two participants: the **Owner** and the **Reviewer**. A third role, **Quality Reviewer**, is included as required by product, program, or contractual requirements. The table below provides the  definition of each role.
 
 | Role                    | Definition     |
 | ----------------------- | ------------------ |
@@ -67,36 +65,29 @@ Each review activity includes (minimally) two participants: the **Owner** and th
 | Reviewer | Assigned to review the work. The Reviewer applies their domain expertise and/or familiarity with the work to make comments, resolve them with the Owner, and provide **Approval** of the work. |
 | Quality Reviewer| Responsible for verifying comment resolutions. The Quality Reviewer ensures the Owner incorporated feedback from reviewers as described in the **Review Record**.|
 
-### Review Record
+### Comments
 
-The Review Record is the artifact documenting the review activity.
 
 ### Approval  
 
-The output of a review activity is **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. The significance of an approval is based on the review activity circumstances. Generally, acceptance progresses the work toward its end state (release, delivery), and rejection regresses the work to a prior state. Reviewers are the *gatekeepers* of work releases, and for this reason, they need to be aware of what it means to accept work during a review activity.
-
-Approvals shall be documented in the Review Record by the following elements:
-* The reviewer's name
-* The approval status (**Accepted** or **Rejected**)  
-* The date of the approval  
-
-Similar to reviews activities, the act of approval can take many forms and is called by many different names (approve, sign off, verify). Formal approvals shall be managed in a controlled digital environment such as a **Product Lifecycle Management** tool (PLM). The table below lists common examples of approvals of increasing formality and corresponding review levels.
+The goal of all review activities is to gain reviewer acceptance through their **Approval**, in which the Reviewer tells the Owner if they **Accept** or **Reject** the work. Acceptance progresses the work toward its End Use and rejection regresses the work to a prior state. 
 
 
-| Work Under Review  | Approval     | Review Record| Review Level|
-| ----------------------- | ------------------ | ---| ---|
-| Functional Baseline draft | Customer verbally agrees with the proposed baseline.| Design Review Meeting Form| Peer Review
-| Drawing Draft Revision| Reviewer emails Owner stating the work is ready to be submitted in an **Engineering Change Order** (ECO).|Email| Internal Review
-| Drawing ECO Revision | Reviewer approves an ECO in PLM.| PLM Report| Internal or Peer Review
-| Production Unit Delivery| Inspector verifies the delivered unit.| Contract Letter| Internal Review
-### Objective
+Review activities shall conclude only once all reviewers have provided  **Approval**.
+### Review Record
 
-This process, including its constituent documents in **CMH-01**, provides clear and compliant methods to review changes to engineering data across the complete product lifecycle. 
+The Review Record is the artifact documenting the review activity. Artifacts range in formality from an email between participants to a **Peer Review Form** (PRF) structured with a template.
+
+All review activities shall be documented with a Review Record containing the following data:
+* Participants (name and domain)
+* Activity closure date
+* **Approval** status of each reviewer
+
 
 ### When to use Review Changes
 This process must be followed whenever performing changes to engineering data from Contract Award to product obsolescence, and it is applicable to all programs and contracts. 
 
-## Review Guidelines
+## Review Domains
 
 The following sections describe the role of each domain in a review activity. The lists are illustrative and not exhaustive.
 
@@ -110,14 +101,14 @@ Since **Customer Approval** is a common requirement to release ECOs, the company
 Change Boards for certain programs, such as **Build-to-Prints** (BTPs) executing mostly minor changes, may consist of only one member with the required technical skill, project knowledge, and customer relationship. At the other extreme, Change Boards for safety-critical products may require participation from Speciality Engineering and Quality to provide technical support and process assurance. Any domain with expertise (Supply, Manufacturing) can play a critical role in a Change Board.
 
 >[!NOTE]
-At least one member of a Change Board must be responsible for the financial aspects of changes. For 1-member boards, this role is typically performed by Project Engineering.
+At least one member of a Change Board shall be responsible for the financial aspects of changes. For 1-member boards, this role is typically performed by Project Engineering.
 
 The table below lists common examples of functions in this role and their responsibilities.
 
 | Function                    | Responsibility     |
 | ----------------------- | ------------------ |
 | Project Engineer|Ensure changes are estimated, scheduled, and implemented correctly|
-| Program Manager| Ensures changes are implemented on plan (schedule/cost)|
+| Program Manager| Ensures changes are implemented on plan (schedule/cost) and per customer expectations|
 
  The Change Board is the primary customer interface in the Configuration Management process and ensures the customer understands and agrees to all technical and programmatic aspects of changes.  
 
@@ -197,6 +188,10 @@ The table below lists common examples of functions in this role and their respon
   
 * Traceability across **CM01** activities 
 ### Program Management
+
+#### Internal Review
+* Work alignment to customer preferences and expectations
+* Work alignment to program plan
 
 ### Quality
 

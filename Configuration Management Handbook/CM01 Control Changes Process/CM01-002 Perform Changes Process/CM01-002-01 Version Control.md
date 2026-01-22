@@ -72,7 +72,7 @@ Working in the **InWork** **Engineering Change Order**:
 1. Identify the **Configuration Item** (CI) and all comprising elements (prt, asm, stp, dwg) to be revised.
 2. Access the materials identified above in their respective workspaces.
 3. Create a new version:  
-   a.  Make changes to the file in accordance with the ECO information and applicable work procedures.
+   a. Make changes to the file in accordance with the ECO information and applicable work procedures.  
    b. Write a **Commit Message** in 1-2 sentences indicating:  
     * what changed with a location reference 
     * the associated ECO number.

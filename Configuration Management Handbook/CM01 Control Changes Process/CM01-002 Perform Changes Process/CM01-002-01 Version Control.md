@@ -15,7 +15,7 @@ tags:
  ### References
 Number |  Title                                   |
 | ----- | --------------------------------------- |
-|CM-02-001| Set Up Permissions for Data Repositories |
+|CM01-003-01| Internal Review |
 |MIL-HDBK-61B with Change 1| Configuration Management Guidance |  
 ### Roles and Responsibilities
 | Role                    | Responsibility     |

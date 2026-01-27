@@ -26,11 +26,12 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 
 
-:::{figure} /MBSE_Processes/PDSC%20Diagrams%20Meta%20Model.png
+:::{figure} /img/MBSE/PDSC Diagrams Meta Model.png
 :align: center
 :name: figure1
 
 Figure 1 Company Meta Model
+
 :::
 
 The Modeler should review [**Table 1**](`Table1`) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
@@ -118,7 +119,7 @@ Create elements by right-clicking in the containment tree.
 >[!NOTE]
 Customizations are located under **Other Blocks**; see [Figure 2](#figure2).
 
-:::{figure} /MBSE_Processes/PDSC customizations.png
+:::{figure} /img/MBSE/PDSC customizations.png
 :align: center
 :name: figure2
 
@@ -178,7 +179,7 @@ All external system and actor blocks should be the same size.
 #### Create Design Comments
 
 
-1. Select the element to attach a comment to, then select the anchor ![anchor](/MBSE_Processes/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
+1. Select the element to attach a comment to, then select the anchor ![anchor](/img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
 2. Right-click the note, then **Refactor > Convert To > Comment**.
 3. Right-click again, and under **Stereotype**, select a comment stereotype.
 4. Enter the comment in the text field.
@@ -191,7 +192,7 @@ All design comments should have an applied stereotype.
 
 1. Right-click the SoI **> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
 
-:::{figure} /MBSE_Processes/PDSC SOI Containment Tree.png
+:::{figure} /img/MBSE/PDSC SOI Containment Tree.png
 :align: center
 :name: figure3
 
@@ -200,7 +201,7 @@ Figure 3 Display System of Interest Documentation
 
 
 1. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
-2. Mouse over the comment and select the anchor ![anchor](/MBSE_Processes/Anchor.png), then select the PDSC block and connect the elements.
+2. Mouse over the comment and select the anchor ![anchor](/img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
 #### Create Relationships
 
@@ -210,13 +211,13 @@ Figure 3 Display System of Interest Documentation
 3. Right-click each new connector **> Specification > Multiplicity**, and set the correct value.
 
 >[!NOTE]
-the primary user should be assigned a multiplicity of **[1..*]**.
+The primary user should be assigned a multiplicity of **[1..*]**.
 
 #### Output
 
 [Figure 4](#figure5) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see [**Table 5**](#table5).
 
-:::{figure} /MBSE_Processes/PDSC BDD.png
+:::{figure} /img/MBSE/PDSC BDD.png
 :align: center
 :name: figure4
 
@@ -269,7 +270,7 @@ Connected ports should be horizontally aligned to the greatest possible extent. 
 4. Right-click each port **> Legend Item**, then assign the appropriate **Legend Item**.
 5. Position all port labels next to their ports and inside the owning block.
 
-:::{figure} /MBSE_Processes/PDSC Port Style.png
+:::{figure} /img/MBSE/PDSC Port Style.png
 :align: center
 :name: figure5
 
@@ -293,14 +294,12 @@ All connected ports must be typed by the same Interface Block.
 
 [Figure 6](#figure6) provides an example of a properly styled PDSC IBD. 
 
-:::{figure} /MBSE_Processes/PDSC IBD.png
+:::{figure} /img/MBSE/PDSC IBD.png
 :align: center
-:name: figure7
+:name: figure6
 
 Figure 6 Problem Domain System Context Internal Block Diagram
 :::
-
-
 
 
 ## References

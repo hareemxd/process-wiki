@@ -16,7 +16,7 @@ output:
 ## Purpose
 
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create structural diagrams in the *problem domain system context* (PDSC), the environment containing and surrounding the *system of interest* (SoI) during key activities. The SoI is the primary subject of the modeler's efforts, the system to be designed using the architectural definition realized in the system model.
-### Company SysML Meta Model
+## Company SysML Meta Model
 
 This Work Instruction addresses the **Problem Domain Black Box - Structure** space of the Company Meta Model; see [Figure 1](#figure1).
 
@@ -299,7 +299,6 @@ Problem Domain System Context Internal Block Diagram
 
 ## References
 
-## Opportunities and Risks
 
 ## Revision History
 

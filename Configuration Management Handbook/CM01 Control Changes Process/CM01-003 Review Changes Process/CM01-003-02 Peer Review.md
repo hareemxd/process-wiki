@@ -1,8 +1,8 @@
 ---
-title: "Peer Review"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "procedure"
+title: Peer Review
+author: David Ricart
+project: ProcessWiki
+genre: procedure
 domains:
     - Engineering
     - Configuration Management

@@ -1,8 +1,8 @@
 ---
-title: "Plan the Change"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "procedure"
+title: Plan the Change
+author: David Ricart
+project: ProcessWiki
+genre: procedure
 domains:
     - Engineering
     - Configuration Management

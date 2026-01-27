@@ -1,11 +1,14 @@
 ---
-title: "Review Changes"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "process"
+title: Review Changes
+author: David Ricart
+project: ProcessWiki
+genre: process
 domains:
     - Engineering
     - Configuration Management
+tags:
+    - Traceability
+    - Collaboration
 ---
 # Review Changes
  ## References  

@@ -1,8 +1,8 @@
 ---
-title: "Version Control"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "procedure"
+title: Version Control
+author: David Ricart
+project: ProcessWiki
+genre: procedure
 domains:
     - Engineering
     - Configuration Management

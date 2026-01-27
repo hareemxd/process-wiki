@@ -1,11 +1,14 @@
 ---
-title: "Control Changes"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "process"
+title: Control Changes
+author: David Ricart
+project: ProcessWiki
+genre: process
 domains:
     - Engineering
     - Configuration Management
+tags:
+    - Traceability
+    - Collaboration
 ---
 # Control Changes
  ## References  

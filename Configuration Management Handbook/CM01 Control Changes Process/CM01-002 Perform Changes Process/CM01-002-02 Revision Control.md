@@ -1,11 +1,14 @@
 ---
-title: "Revision Control"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "procedure"
+title: Revision Control
+author: David Ricart
+project: ProcessWiki
+genre: procedure
 domains:
     - Engineering
     - Configuration Management
+tags:
+    - Traceability
+    - Collaboration
 ---
 
 # Revision Control

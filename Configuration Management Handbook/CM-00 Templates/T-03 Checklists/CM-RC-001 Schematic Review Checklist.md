@@ -1,11 +1,13 @@
 ---
-title: "Schematic Review Checklist"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "checklist"
+title: Schematic Review Checklist
+author: David Ricart
+project: ProcessWiki
+genre: checklist
 domains:
     - Engineering
     - Configuration Management
+tags:
+    - Form
 ---
  
  # CM-RC-001 Schematic Review Checklist  

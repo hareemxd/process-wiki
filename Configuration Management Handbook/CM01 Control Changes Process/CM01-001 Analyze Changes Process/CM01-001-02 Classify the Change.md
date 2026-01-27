@@ -1,8 +1,8 @@
 ---
-title: "Classify the Change"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "procedure"
+title: Classify the Change
+author: David Ricart
+project: ProcessWiki
+genre: procedure
 domains:
     - Engineering
     - Configuration Management

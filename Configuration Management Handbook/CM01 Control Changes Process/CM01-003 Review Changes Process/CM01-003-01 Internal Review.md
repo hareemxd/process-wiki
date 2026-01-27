@@ -1,18 +1,17 @@
-<!--
 ---
-title: "Internal Review"
-author: "David Ricart"
-project: "ProcessWiki"
-genre: "procedure"
+title: Internal Review
+author: David Ricart
+project: ProcessWiki
+genre: procedure
 domains:
     - Engineering
     - Configuration Management
 tags:  
-    -Traceability  
-    -Collaboration  
-    -Verification  
+    - Traceability  
+    - Collaboration  
+    - Verification  
 ---
--->
+
  # Internal Review
  ### References
 Number |  Title                                   |

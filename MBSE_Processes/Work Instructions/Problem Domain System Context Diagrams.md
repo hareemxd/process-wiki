@@ -50,9 +50,9 @@ The Modeler should review {numref}`Table1` to ensure they have the required proc
 
 ## Roles and Responsibilities
 
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [**Table 2**](`Table2`) and functional areas are assigned roles in [**Table 3**](`Table3`).
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`Table3` and functional areas are assigned roles in {numref}`Table3`.
 
-```{list-table} **RACI Roles and Definitions**
+```{list-table} RACI Roles and Definitions
 :header-rows: 1
 :align: center
 :name: Table2
@@ -72,7 +72,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ```
 
-```{list-table} **Problem Domain System Context Diagrams RACI Chart**
+```{list-table} Problem Domain System Context Diagrams RACI Chart
 :header-rows: 1
 :align: center
 :name: Table3
@@ -215,7 +215,7 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 
 #### Output
 
-[Figure 4](#figure5) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see [**Table 5**](#table5).
+[Figure 4](#figure5) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`Table4`.
 
 :::{figure} /img/MBSE/PDSC BDD.png
 :align: center
@@ -224,10 +224,10 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 Problem Domain System Context Block Definition Diagram
 :::
 
-```{list-table} **Block Definition Diagram Review Checklist Items**
+```{list-table} Block Definition Diagram Review Checklist Items
 :header-rows: 1
 :align: center
-:name: table5
+:name: Table4
 
 * - Review Checklist Item
   - Description

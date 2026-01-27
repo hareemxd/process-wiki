@@ -7,9 +7,9 @@ domains:
     - Engineering
     - Configuration Management
 tags:
-    -Traceability
-    -Collaboration
-    -Verification
+    - Traceability
+    - Collaboration
+    - Verification
 ---
  # Peer Review
  ### References

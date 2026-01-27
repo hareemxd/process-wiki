@@ -1,6 +1,5 @@
 ---
 title: MBSE Work Instruction
-subject: Problem Domain System Context Diagrams
 project: MBSE Style Guide  
 genre: Work Instruction  
 metamodel_domain: Problem Domain Black Box  

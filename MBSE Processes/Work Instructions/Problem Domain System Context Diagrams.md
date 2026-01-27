@@ -1,9 +1,12 @@
 <!--
 ---
-title: "Problem Domain System Context Diagrams"
+title: "MBSE Work Instruction"
+subject: "Problem Domain System Context Diagrams"
 author: "David Ricart"
-project: "ProcessWiki"
-genre: "work instruction"
+project: "MBSE Style Guide"
+genre: "Work Instruction"
+metamodel_domain "Problem BB"
+metamodel_pillar: "Structure"
 domains:
     - Systems Engineering
 tags: 

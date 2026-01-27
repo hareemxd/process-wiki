@@ -34,9 +34,9 @@ Company Meta Model
 
 :::
 
-The Modeler should review [**Table 1**](`Table1`) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+The Modeler should review {numref}(`Table1`) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-```{list-table} **Table 1 Work Instruction Inputs**
+```{list-table} **Work Instruction Inputs**
 :header-rows: 1
 :name: Table1
 
@@ -110,7 +110,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 ## Terms
 
 
-## Problem Domain System Context Diagrams Procedure
+## Procedure
 ### Create Elements of Definition
 
 Create elements by right-clicking in the containment tree.

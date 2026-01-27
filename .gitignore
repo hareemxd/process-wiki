@@ -1,2 +1,4 @@
 /mkdocs.yml
 /Systems Engineering
+# MyST build outputs
+_build

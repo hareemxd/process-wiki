@@ -1,0 +1,15 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 5aaa97ae-b930-4771-b115-6c02eda574ee
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/hareemxd/process-wiki
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png

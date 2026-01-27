@@ -54,7 +54,6 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ```{list-table} RACI Roles and Definitions
 :header-rows: 1
-:align: center
 :name: Table2
 
 * - RACI Role
@@ -74,7 +73,6 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ```{list-table} Problem Domain System Context Diagrams RACI Chart
 :header-rows: 1
-:align: center
 :name: Table3
 
 * - Function
@@ -215,7 +213,7 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 
 #### Output
 
-[Figure 4](#figure5) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`Table4`.
+[Figure 4](#figure4) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`Table4`.
 
 :::{figure} /img/MBSE/PDSC BDD.png
 :align: center
@@ -226,7 +224,6 @@ Problem Domain System Context Block Definition Diagram
 
 ```{list-table} Block Definition Diagram Review Checklist Items
 :header-rows: 1
-:align: center
 :name: Table4
 
 * - Review Checklist Item

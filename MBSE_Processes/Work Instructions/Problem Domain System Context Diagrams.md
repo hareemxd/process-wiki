@@ -34,11 +34,11 @@ Company Meta Model
 
 :::
 
-The Modeler should review {ref}`Table1` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+The Modeler should review {numref}`Table1` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
 ```{list-table} Work Instruction Inputs
 :header-rows: 1
-:label: Table1
+:name: Table1
 
 * - Description
   - Reference

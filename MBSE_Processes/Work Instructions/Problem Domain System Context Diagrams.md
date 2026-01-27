@@ -50,7 +50,7 @@ The Modeler should review {numref}`Table1` to ensure they have the required proc
 
 ## Roles and Responsibilities
 
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`Table3` and functional areas are assigned roles in {numref}`Table3`.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`Table2` and functional areas are assigned roles in {numref}`Table3`.
 
 ```{list-table} RACI Roles and Definitions
 :header-rows: 1

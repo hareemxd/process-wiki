@@ -30,7 +30,7 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 :align: center
 :name: figure1
 
-Figure 1 Company Meta Model
+Company Meta Model
 
 :::
 
@@ -52,7 +52,7 @@ The Modeler should review [**Table 1**](`Table1`) to ensure they have the requir
 
 Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [**Table 2**](`Table2`) and functional areas are assigned roles in [**Table 3**](`Table3`).
 
-```{list-table} **Table 2 RACI Roles and Definitions**
+```{list-table} **RACI Roles and Definitions**
 :header-rows: 1
 :align: center
 :name: Table2
@@ -72,7 +72,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ```
 
-```{list-table} **Table 3 Problem Domain System Context Diagrams RACI Chart**
+```{list-table} **Problem Domain System Context Diagrams RACI Chart**
 :header-rows: 1
 :align: center
 :name: Table3
@@ -123,7 +123,7 @@ Customizations are located under **Other Blocks**; see [Figure 2](#figure2).
 :align: center
 :name: figure2
 
-Figure 2 Element Customizations
+Element Customizations
 :::
 
 ---
@@ -196,7 +196,7 @@ All design comments should have an applied stereotype.
 :align: center
 :name: figure3
 
-Figure 3 Display System of Interest Documentation
+Display System of Interest Documentation
 :::
 
 
@@ -221,10 +221,10 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 :align: center
 :name: figure4
 
-Figure 4 Problem Domain System Context Block Definition Diagram
+Problem Domain System Context Block Definition Diagram
 :::
 
-```{list-table} **Table 5 Block Definition Diagram Review Checklist Items**
+```{list-table} **Block Definition Diagram Review Checklist Items**
 :header-rows: 1
 :align: center
 :name: table5
@@ -298,7 +298,7 @@ All connected ports must be typed by the same Interface Block.
 :align: center
 :name: figure6
 
-Figure 6 Problem Domain System Context Internal Block Diagram
+Problem Domain System Context Internal Block Diagram
 :::
 
 

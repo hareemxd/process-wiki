@@ -25,24 +25,19 @@ domains:
 ### Purpose
 This document defines the procedure(s) and best practices to perform revision control and supports compliance to the company's QMS.  
 ### Definition
-**Revision Control** is the practice of performing and recording changes to data with **revisions**. A new revision indiciates a major update to a baselined **Configuration Item** (CI) in a **Product Lifecycle Management** tool (PLM) that is released for use by all company functions (Manufacturing, Supply).
+**Revision Control** is the practice of performing and recording changes to data with **revisions**. A new revision indiciates an update to a **Configuration Item** (CI) baseline released in a **Product Lifecycle Management** tool (PLM) for use by all company functions (Manufacturing, Supply).
 
  #### Objective
  Revision Control ensures quality and timely updates to baselined CIs to support project execution.
 
 ### When to use Revision Control
 
-Revision Control is required when performing modifications to be released in a new revision. Any identified changes to an approved baseline of a **Configuration Item** are not usable by the company until released in a new revision. For example:
+Revision Control is required when executing Class I and Class II changes to an approved CI baseline.
 
-* Supply Chain needs a new revision of a parts list to procure a replacement for an **End of Life** (EOL) component.  
-* Systems Engineering needs a new revision of a qualification test report to reference the test results in a Requirements Verification Matrix.
-
-In general, the rules governing when and how to revise CIs are determined by contractual requirements.
+>[!NOTE]
+>CI baselines are comprised of the CI itself (a uniquely identified collection of hardware and/or software) as well as all defining documentation (drawings, parts lists); see [blank].
 ### Best Practices
 
-#### Define all attributes required by the Engineering Change Order process
-
-You should review [blank] to determine which attributes to define for your changes. ECOs must include all information required to implement the changes, including material dispositions, work packages, and effectivity dates. Defining these attributes early in the change process allows other stakeholders to fully verify the changes.
 #### Highlight changes
 When submitting your work for review and release, the draft of the new revision should contain redlines which highlight the changes from the previous revision.
 

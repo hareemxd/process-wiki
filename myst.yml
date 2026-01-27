@@ -11,5 +11,5 @@ project:
 site:
   template: book-theme
   options:
-    show_authors: false
-    show_subjects: false
+    hide_authors: true
+    hide_subjects: true

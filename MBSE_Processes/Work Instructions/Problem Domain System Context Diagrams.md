@@ -1,5 +1,6 @@
 ---
-title: MBSE Work Instruction
+title: Problem Domain System Context Diagrams
+subtitle: MBSE Work Instruction
 project: MBSE Style Guide  
 genre: Work Instruction  
 metamodel_domain: Problem Domain Black Box  
@@ -12,11 +13,10 @@ output:
 ---
 
 
-# Problem Domain System Context Diagrams
-## Purpose
+# Purpose
 
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create structural diagrams in the *problem domain system context* (PDSC), the environment containing and surrounding the *system of interest* (SoI) during key activities. The SoI is the primary subject of the modeler's efforts, the system to be designed using the architectural definition realized in the system model.
-## Company SysML Meta Model
+# Company SysML Meta Model
 
 This Work Instruction addresses the **Problem Domain Black Box - Structure** space of the Company Meta Model; see [Figure 1](#figure1).
 
@@ -46,7 +46,7 @@ The Modeler should review {numref}`Table1` to ensure they have the required proc
 ```
 
 
-## Roles and Responsibilities
+# Roles and Responsibilities
 
 Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`Table2` and functional areas are assigned roles in {numref}`Table3`.
 
@@ -103,11 +103,11 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 ```
 
 
-## Terms
+# Terms
 
 
-## Procedure
-### Create Elements of Definition
+# Procedure
+## Create Elements of Definition
 
 Create elements by right-clicking in the containment tree.
 
@@ -124,16 +124,16 @@ Element Customizations
 
 ---
 
-#### Create Problem Domain System Context Block
+### Create Problem Domain System Context Block
 1. Right-click **System Context (Structure) > Create Element**.
 2. Open the element **Specification** and edit the **Documentation**. Write a brief description of the PDSC.
 
-#### Create System of Interest
+### Create System of Interest
 
 1. Right-click **System Context (Structure) > Create Element > System of Interest**.
 2. Open the element **Specification** and edit the **Documentation**. Write a brief description of the SoI.
 
-#### Create Actors
+### Create Actors
 
 
 1. Right-click **Actors > Create Element > Actor**.
@@ -141,7 +141,7 @@ Element Customizations
 3. Open the **Actor Descriptions** table and drag all actors into the table.
 4. In the top toolbar, select **Columns > Documentation**. A new column displaying the **Documentation** field is added to the table.
 
-#### Create External Systems
+### Create External Systems
  
 
 1. Under **Structure**, right-click **External Systems > Create Element > External System**.
@@ -151,12 +151,12 @@ Element Customizations
 
 ---
 
-### Create Block Definition Diagram
+## Create Block Definition Diagram
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.
 
 
-#### Layout the Diagram
+### Layout the Diagram
 
 
  1. Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**. Open the diagram.
@@ -172,7 +172,7 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 All external system and actor blocks should be the same size.
 
 
-#### Create Design Comments
+### Create Design Comments
 
 
 1. Select the element to attach a comment to, then select the anchor ![anchor](/img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
@@ -183,7 +183,7 @@ All external system and actor blocks should be the same size.
 >[!NOTE]
 All design comments should have an applied stereotype.
 
-#### Create System of Interest Documentation Comment
+### Create System of Interest Documentation Comment
 
 
 1. Right-click the SoI **> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
@@ -199,7 +199,7 @@ Display System of Interest Documentation
 1. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
 2. Mouse over the comment and select the anchor ![anchor](/img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
-#### Create Relationships
+### Create Relationships
 
 1. Create **Directed Aggregation** relationships from the PDSC block to each of the actors and external systems.
 2. Create a **Directed Composition** relationship from the PDSC block to the SoI block.
@@ -209,7 +209,7 @@ Display System of Interest Documentation
 >[!NOTE]
 The primary user should be assigned a multiplicity of **[1..*]**.
 
-#### Output
+### Output
 
 [Figure 4](#figure4) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`Table4`.
 
@@ -238,11 +238,11 @@ Problem Domain System Context Block Definition Diagram
 
 ```
 ---
-### Create Internal Block Diagram
+## Create Internal Block Diagram
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.
 
-#### Layout the Diagram
+### Layout the Diagram
 
 1. In the containment tree, right-click the PDSC block **> Create Diagram > SysML Internal Block Diagram > OK**. Cameo automatically adds all elements of definition to the new diagram.
 2. Drag the SoI block into the middle of the diagram and lengthen it to extend to the bottom of the screen.
@@ -253,7 +253,7 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 
 7. Drag the **Interface Types** legend into the top-left region.
 
-#### Create Connections and Ports
+### Create Connections and Ports
 
 1. Select a property (element) in the diagram, then select the **Proxy Port**. Create a new port on the inner side (close to the SoI).
 2. Select the SoI and create another port that will connect the SoI with the property port.
@@ -272,7 +272,7 @@ Connected ports should be horizontally aligned to the greatest possible extent. 
 Figure 5 Port Style
 :::
 
-#### Create Flows and Interfaces
+### Create Flows and Interfaces
 1. Identify and create elements to represent all types of information flowing between the SoI and external systems.
 2. Right-click **Logical Information Flows > Create Element > Flow Specification**.
 3. Drag the Flow Specification block onto the appropriate connector in the diagram.
@@ -285,7 +285,7 @@ All connected ports must be typed by the same Interface Block.
 6. Right-click **Logical Interface Types > Create Element > Interface Block**.
 7. Drag the Interface Block onto the appropriate port in the diagram.
 
-#### Output
+### Output
 
 [Figure 6](#figure6) provides an example of a properly styled PDSC IBD. 
 
@@ -297,19 +297,19 @@ Problem Domain System Context Internal Block Diagram
 :::
 
 
-## References
+# References
 
 
-## Revision History
+# Revision History
 
-## Appendix
+# Appendix
 
 
-### Actors Supplement
+## Actors Supplement
 Actors represent humans or human groups who interact with the SoI in the Problem Domain System Context. A common approach to designating actors is to consider them in terms of their *behaviors* and *needs* and how these characteristics may influence and/or interact with the SoI.
 
 
 
-### External Systems Supplement
+## External Systems Supplement
 
 External Systems are the systems that interact with the SoI in the Problem Domain. Common examples include power, networking, and thermal control systems, and structural systems such as mounts and cable harnesses. Identifying all external systems is critical to the definition of the SoI from a black box perspective.

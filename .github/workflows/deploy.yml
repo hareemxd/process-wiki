@@ -48,6 +48,14 @@ jobs:
       - name: Verify MBSE output
         run: |
           test -d "MBSE_Processes/_build/html" || (echo "MBSE build failed: no _build/html" && exit 1)
+      - name: Debug MBSE build output
+        run: |
+          echo "MBSE _build tree (depth 3):"
+          find "MBSE_Processes/_build" -maxdepth 3 -type d -print
+          echo "MBSE html tree (depth 3):"
+          find "MBSE_Processes/_build/html" -maxdepth 3 -type d -print || true
+          echo "Search for that image in built output:"
+          find "MBSE_Processes/_build/html" -type f -iname "PDSCDiagramsMetaModel.png" -print || true
 
       # -----------------------------
       # Build CM Handbook site

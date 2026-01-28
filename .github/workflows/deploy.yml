@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -22,19 +22,23 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install MyST
         run: npm install -g mystmd
 
-      # ---- Build MBSE ----
+      # -----------------------------
+      # Build MBSE site
+      # -----------------------------
       - name: Build MBSE (served at /mbse/)
         run: |
           export BASE_URL="/${{ github.event.repository.name }}/mbse"
@@ -43,64 +47,29 @@ jobs:
 
       - name: Verify MBSE output
         run: |
-          ls -la "MBSE_Processes" || true
-          ls -la "MBSE_Processes/_build" || true
-          ls -la "MBSE_Processes/_build/html" || true
-          test -d "MBSE_Processes/_build/html"
-      # ---- Build Handbook ----
+          test -d "MBSE_Processes/_build/html" || (echo "MBSE build failed: no _build/html" && exit 1)
+
+      # -----------------------------
+      # Build CM Handbook site
+      # -----------------------------
       - name: Build CM Handbook (served at /handbook/)
         run: |
           export BASE_URL="/${{ github.event.repository.name }}/handbook"
           cd "Configuration Management Handbook"
           myst build --html
+
       - name: Verify Handbook output
         run: |
-          ls -la "Configuration Management Handbook/_build" || true
-          ls -la "Configuration Management Handbook/_build/html" || true
-          test -d "Configuration Management Handbook/_build/html"
-      # ---- Assemble combined site ----
+          test -d "Configuration Management Handbook/_build/html" || (echo "Handbook build failed: no _build/html" && exit 1)
+
+      # -----------------------------
+      # Assemble combined Pages site
+      # -----------------------------
       - name: Assemble combined site
         run: |
           rm -rf _site
           mkdir -p _site/mbse _site/handbook
 
+          # Copy built MyST sites
           cp -a "MBSE_Processes/_build/html/." "_site/mbse/"
           cp -a "Configuration Management Handbook/_build/html/." "_site/handbook/"
-
-          # Landing page at the repo root
-          cat > _site/index.html <<'HTML'
-          <!doctype html>
-          <html>
-            <head>
-              <meta charset="utf-8" />
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
-              <title>Process Wiki</title>
-            </head>
-            <body>
-              <h1>Process Wiki</h1>
-              <ul>
-                <li><a href="./mbse/">MBSE Processes</a></li>
-                <li><a href="./handbook/">Configuration Management Handbook</a></li>
-              </ul>
-            </body>
-          </html>
-          HTML
-
-          # Ensure GitHub Pages doesn't try to run Jekyll
-          touch _site/.nojekyll
-
-      - name: Debug confirm images are in the Pages artifact
-        run: |
-          echo "=== _site/img/MBSE ==="
-          ls -la "_site/img/MBSE" || true
-          echo "=== find exact file ==="
-          find "_site/img" -type f -iname "PDSCDiagramsMetaModel.*" -print || true
-          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

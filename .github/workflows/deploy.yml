@@ -73,6 +73,18 @@ jobs:
           # Copy built MyST sites
           cp -a "MBSE_Processes/_build/html/." "_site/mbse/"
           cp -a "Configuration Management Handbook/_build/html/." "_site/handbook/"
+
+          # Force-copy images into the deployed output (does not depend on MyST bundling)
+          if [ -d "MBSE_Processes/img" ]; then
+            mkdir -p "_site/mbse/img"
+            cp -a "MBSE_Processes/img/." "_site/mbse/img/"
+          fi
+
+          if [ -d "Configuration Management Handbook/img" ]; then
+            mkdir -p "_site/handbook/img"
+            cp -a "Configuration Management Handbook/img/." "_site/handbook/img/"
+          fi
+
           # Root landing page
           cat > _site/index.html <<'HTML'
           <!doctype html>
@@ -92,8 +104,13 @@ jobs:
           </html>
           HTML
 
-          # Prevent Jekyll processing
           touch _site/.nojekyll
+      - name: Debug deployed images
+        run: |
+          echo "MBSE images:"
+          ls -la "_site/mbse/img/MBSE" || true
+          echo "Handbook images:"
+          ls -la "_site/handbook/img/CMH" || true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

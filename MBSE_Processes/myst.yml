@@ -8,3 +8,6 @@ project:
         - file: Work Instructions/Problem Domain System Context Diagrams.md
         - file: Work Instructions/Peer Review.md
         - file: Work Instructions/Teamwork Cloud Administrator.md
+
+site:
+  template: book-theme

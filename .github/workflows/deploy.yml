@@ -41,13 +41,23 @@ jobs:
           cd "MBSE_Processes"
           myst build --html
 
+      - name: Verify MBSE output
+        run: |
+          ls -la "MBSE_Processes" || true
+          ls -la "MBSE_Processes/_build" || true
+          ls -la "MBSE_Processes/_build/html" || true
+          test -d "MBSE_Processes/_build/html"
       # ---- Build Handbook ----
       - name: Build CM Handbook (served at /handbook/)
         run: |
           export BASE_URL="/${{ github.event.repository.name }}/handbook"
           cd "Configuration Management Handbook"
           myst build --html
-
+      - name: Verify Handbook output
+        run: |
+          ls -la "Configuration Management Handbook/_build" || true
+          ls -la "Configuration Management Handbook/_build/html" || true
+          test -d "Configuration Management Handbook/_build/html"
       # ---- Assemble combined site ----
       - name: Assemble combined site
         run: |

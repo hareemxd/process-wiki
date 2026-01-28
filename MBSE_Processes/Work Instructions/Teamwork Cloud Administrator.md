@@ -16,7 +16,7 @@ This Model Based Systems Engineering (MBSE) Work Instruction describes Teamwork 
 
 This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure1).
 
-:::{figure} /img/MBSE/peer review meta model.png
+:::{figure} /img/MBSE/peerreviewmetamodel.png
 :align: center
 :name: figure1
 
@@ -118,7 +118,7 @@ On the Teamwork Cloud homepage:
 1. Open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](/img/MBSE/Ellipses.png) to the right.
 2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure2).
 
-:::{figure} /img/MBSE/twc add roles general.png
+:::{figure} /img/MBSE/twcaddrolesgeneral.png
 :align: center
 :name: figure2
 

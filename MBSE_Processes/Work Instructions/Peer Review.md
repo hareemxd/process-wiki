@@ -17,7 +17,7 @@ This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the pr
 # Company SysML Meta Model
 This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure1).
 
-:::{figure} /img/MBSE/peer review meta model.png
+:::{figure} /img/MBSE/peerreviewmetamodel.png
 :align: center
 :name: figure1
 
@@ -126,7 +126,7 @@ In the Peer Review Project:
 1. Go to **Options > Project Usages**.
 2. On the left, right-click the original project **> Lock**.
 
-:::{figure} /img/MBSE/peer review lock customizations.png
+:::{figure} /img/MBSE/peerreviewlockcustomizations.png
 :align: center
 :name: figure2
 
@@ -165,7 +165,7 @@ In the Peer Review Project:
 
 The top result in [Figure 3](#figure3) is the Peer Review Content Diagram Template stored in the Naval Electronics Profile. If you don't see the template, check your project usages.
 
-:::{figure} /img/MBSE/peer review search.png
+:::{figure} /img/MBSE/peerreviewsearch.png
 :align: center
 :name: figure3
 
@@ -180,7 +180,7 @@ Search for Peer Review Content Diagram
 5. Drag elements you want to visualize from the smart package into the diagram screen.
 6. Use text headers and hierarchy to organize the content diagram; see [Figure 4](#figure4).
 
-:::{figure} /img/MBSE/peer review content diagram.png
+:::{figure} /img/MBSE/peerreviewcontentdiagram.png
 :align: center
 :name: figure4
 
@@ -204,7 +204,7 @@ In Cameo:
 6. Check that your options are configured per [Figure 5](#figure5).
 7. From **Scope**, copy the smart package name and paste to **Document name > Publish**.
 
-:::{figure} /img/MBSE/peer review publisher.png
+:::{figure} /img/MBSE/peerreviewpublisher.png
 :align: center
 :name: figure5
 
@@ -227,7 +227,7 @@ Reviewers are tasked with reviewing the artifact and identifying problems with c
 1. Open the artifact in Teamwork Cloud. Review the content diagram notes.
 2. Open an element in the diagram from the main screen or containment tree.
 
-:::{figure} /img/MBSE/peer review collaborator menu.png
+:::{figure} /img/MBSE/peerreviewcollaboratormenu.png
 :align: center
 :name: figure6
 
@@ -289,7 +289,7 @@ In the peer review content diagram:
 >[!Note]
 The activity documented in [Figure 7](#figure7) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity.
   
-:::{figure} /img/MBSE/peer review note.png
+:::{figure} /img/MBSE/peerreviewnote.png
 :align: center
 :name: figure7
 
@@ -304,7 +304,7 @@ Peer Review Start/Close Note
 7. Select the peer review artifact, then select the plus ![plus icon](/img/MBSE/Plus.png)**> OK**.
 8. Expand and configure your **Options** per [Figure 8](#figure8), then **Publish**.
 
-:::{figure} /img/MBSE/peer review publisher 2.png
+:::{figure} /img/MBSE/peerreviewpublisher2.png
 :align: center
 :name: figure8
 

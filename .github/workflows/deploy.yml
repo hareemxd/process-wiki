@@ -1,48 +1,89 @@
-# This file was created automatically with `myst init --gh-pages` 🪄 💚
-# Ensure your GitHub Pages settings for this repository are set to deploy with **GitHub Actions**.
+name: Deploy MBSE + CM Handbook (MyST) to GitHub Pages
 
-name: MyST GitHub Pages Deploy
 on:
   push:
-    # Runs on pushes targeting the default branch
     branches: [main]
-env:
-  # `BASE_URL` determines, relative to the root of the domain, the URL that your site is served from.
-  # E.g., if your site lives at `https://mydomain.org/myproject`, set `BASE_URL=/myproject`.
-  # If, instead, your site lives at the root of the domain, at `https://mydomain.org`, set `BASE_URL=''`.
-  BASE_URL: /${{ github.event.repository.name }}
+  workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
+
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20
+
       - name: Install MyST
         run: npm install -g mystmd
-      - name: Build HTML Assets
-        run: myst build --html
+
+      # ---- Build MBSE ----
+      - name: Build MBSE (served at /mbse/)
+        run: |
+          export BASE_URL="/${{ github.event.repository.name }}/mbse"
+          cd "MBSE_Processes"
+          myst build --html
+
+      # ---- Build Handbook ----
+      - name: Build CM Handbook (served at /handbook/)
+        run: |
+          export BASE_URL="/${{ github.event.repository.name }}/handbook"
+          cd "Configuration Management Handbook"
+          myst build --html
+
+      # ---- Assemble combined site ----
+      - name: Assemble combined site
+        run: |
+          rm -rf _site
+          mkdir -p _site/mbse _site/handbook
+
+          cp -a "MBSE_Processes/_build/html/." "_site/mbse/"
+          cp -a "Configuration Management Handbook/_build/html/." "_site/handbook/"
+
+          # Landing page at the repo root
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>Process Wiki</title>
+            </head>
+            <body>
+              <h1>Process Wiki</h1>
+              <ul>
+                <li><a href="./mbse/">MBSE Processes</a></li>
+                <li><a href="./handbook/">Configuration Management Handbook</a></li>
+              </ul>
+            </body>
+          </html>
+          HTML
+
+          # Ensure GitHub Pages doesn't try to run Jekyll
+          touch _site/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_build/html'
+          path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

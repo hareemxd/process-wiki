@@ -44,7 +44,12 @@ jobs:
           export BASE_URL="/${{ github.event.repository.name }}/mbse"
           cd "MBSE_Processes"
           myst build --html
-
+      - name: Copy MBSE static images into built site
+        run: |
+          if [ -d "MBSE_Processes/img" ]; then
+            mkdir -p "MBSE_Processes/_build/html/img"
+            cp -a "MBSE_Processes/img/." "MBSE_Processes/_build/html/img/"
+          fi
       - name: Verify MBSE output
         run: |
           test -d "MBSE_Processes/_build/html" || (echo "MBSE build failed: no _build/html" && exit 1)
@@ -65,6 +70,12 @@ jobs:
           export BASE_URL="/${{ github.event.repository.name }}/handbook"
           cd "Configuration Management Handbook"
           myst build --html
+      - name: Copy Handbook static images into built site
+        run: |
+          if [ -d "Configuration Management Handbook/img" ]; then
+            mkdir -p "Configuration Management Handbook/_build/html/img"
+            cp -a "Configuration Management Handbook/img/." "Configuration Management Handbook/_build/html/img/"
+          fi
 
       - name: Verify Handbook output
         run: |

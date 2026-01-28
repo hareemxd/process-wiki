@@ -303,6 +303,7 @@ Publish the Completed Peer Review Artifact
 :::
 
 ### Archive the Peer Review Artifact
+
 In Teamwork Cloud:
 1. Open your project, then open **Collaborator Files > Peer Reviews**.
 2. To the right, select ![ellipses icon](/img/MBSE/Ellipses.png) **> Move Resource**.

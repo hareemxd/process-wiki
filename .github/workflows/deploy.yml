@@ -73,3 +73,38 @@ jobs:
           # Copy built MyST sites
           cp -a "MBSE_Processes/_build/html/." "_site/mbse/"
           cp -a "Configuration Management Handbook/_build/html/." "_site/handbook/"
+          # Root landing page
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>Process Wiki</title>
+            </head>
+            <body>
+              <h1>Process Wiki</h1>
+              <ul>
+                <li><a href="./mbse/">MBSE Processes</a></li>
+                <li><a href="./handbook/">Configuration Management Handbook</a></li>
+              </ul>
+            </body>
+          </html>
+          HTML
+
+          # Prevent Jekyll processing
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Print deployed URL
+        run: |
+          echo "Deployed URL"
+          echo "${{ steps.deployment.outputs.page_url }}"

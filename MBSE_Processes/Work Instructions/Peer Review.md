@@ -97,9 +97,9 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 All peer reviews for a given program are contained in a separate project file so review comments do not clutter the system model.
 
 In Cameo:
-1. Go to **File > New Project**: Peer Reviews - <project name>. Open the new project.
+1. Go to **File > New Project**: `Peer Reviews - Project Name`. Open the new project.
 2. Go to **Options > Project Usages**.
-3. Select the plus ![plus icon](/img/MBSE/Plus.png) **> Use Server Project**.
+3. Select the ![plus icon](/img/MBSE/Plus.png) **> Use Server Project**.
 4. Locate and select the original project **> Next**.
 5. Select the most recent version **> Finish**.
 6. Close the window, then go to **Collaborate > Commit Changes to Server**.
@@ -131,29 +131,29 @@ Lock Project to Update Project Usage
 
 The Peer Review artifact consists of a *smart package*, a set of project elements created by the author, in the peer reviews project.
 
-1. Right-click the main model **> Create ELement > Smart Package**:
+1. Right-click the main model **> Create Element > Smart Package**: `yyyy-mm-dd review-artifact-name`
 
 ### Add Elements to Smart Package
 
-Add elements from the original project to the smart package by editing its **Specification**.
+Add review elements to the smart package by editing its **Specification**.
 
 >[!NOTE]
-You can drag and drop elements directly into the package, but this is not recommended for large projects whose containment trees are difficult to navigate.
+You can drag and drop elements directly into the package, but this is not recommended for projects with extensive containment trees.
 
 1. Right-click the smart package **> Specification**.
-2. Under **Content**, select the cell next to **Additional Elements**, then click the ellipses ![ellipses icon](/img/MBSE/Ellipses.png) to open a new window.
-3. Expand **Project Usages** to view the original project's containment tree.
-4. Select the elements to include in the peer review, then click the plus ![plus icon](/img/MBSE/Plus.png).
-5. Select **OK > Close** to confirm.
+2. Under **Content**, select the cell next to **Additional Elements**, then click the ![ellipses icon](/img/MBSE/Ellipses.png).
+3. Expand **Project Usages** to view the original project containment tree.
+4. Select the elements to include in the review activity, then click the ![plus icon](/img/MBSE/Plus.png).
+5. Select **OK > Close**.
 
 ### Create Peer Review Content Diagram
 
 The Peer Review Content Diagram contains instructions for reviewers and model IDs to ensure traceability between the review activity and the main model.
 
-1. In the Peer Review Project, select the search ![search icon](/img/MBSE/Search.png).
-2. Select **Any Element** and search for peer review.
+1. In the Peer Review Project, select the  ![search icon](/img/MBSE/Search.png).
+2. Select **Any Element** and search `peer review`.
 
-The top result shown in [Figure 3](#figure3) is the Peer Review Content Diagram Template stored in the Naval Electronics Profile model. If you don't see the template, check your **Project Usages**.
+The top result shown in [Figure 3](#figure3) is the Peer Review Content Diagram Template stored in the Naval Electronics Profile. If you don't see the template, check your **Project Usages**.
 
 :::{figure} /img/MBSE/peer review search.png
 :align: center
@@ -163,11 +163,11 @@ Search for Peer Review Content Diagram
 
 :::
 
-3. Select the template to locate it in the containment tree, then right-click and **Copy**, then right-click the smart package **> Paste**.
-4. Rename the new copy to match the smart package file name, plus CD.
+3. Select the template to locate it in the containment tree, then right-click the diagram **> Copy**, then right-click the smart package **> Paste**.
+4. Rename the new copy: `smart_package_name CD`.
 5. Update the activity information fields.
 6. Update the diagram's data markings as required.
-7. Select elements from the smart package to display as blocks in the diagram, and drag them into the screen.
+7. Drag elements you want to visualize from the smart package into the diagram screen.
 8. Organize the content diagram to generally match [Figure 4](#figure4).
 
 :::{figure} /img/MBSE/peer review content diagram.png
@@ -187,9 +187,9 @@ This step includes publishing the artifact to Cameo Collaborator, granting permi
 In Cameo:
 
 1. Go to **Tools > Cameo Collaborator > Publish**.
-2. Click the ellipses ![ellipses icon](/img/MBSE/Ellipses.png) next to **Category Name** to open the containment tree.
-3. Open the project category **> Collaborator Files > Peer Reviews OK**.
-4. Click the ellipses ![ellipses icon](/img/MBSE/Ellipses.png) next to **Scope** to open your project containment tree.
+2. Click the ![ellipses icon](/img/MBSE/Ellipses.png) next to **Category Name** to open the containment tree.
+3. Open the project category **> Collaborator Files > Peer Reviews > OK**.
+4. Click the ![ellipses icon](/img/MBSE/Ellipses.png) next to **Scope** to open your project containment tree.
 5. Select the smart package **>** ![plus icon](/img/MBSE/Plus.png) **> OK**.
 6. Check that your options are configured per [Figure 5](#figure5).
 7. From **Scope**, copy the smart package name and paste to **Document name > Publish**.
@@ -198,21 +198,21 @@ In Cameo:
 :align: center
 :name: figure5
 
-Peer Review Content Diagram
+Publish the Peer Review Artifact
 
 :::
 
 ### Grant Permissions to Reviewers in Teamwork Cloud
 
-When initiating a review activity, you must confirm that all reviewers have the **Review Contributor** role for the correct category(s). See [Teamwork Cloud Administrator Work Instruction](#references) for more detail.
+When initiating a review activity, you must confirm that all reviewers have the **Review Contributor** role for the correct category(s) enabled. See [Teamwork Cloud Administrator Work Instruction](#references) for more detail.
 
 ## Perform Peer Review in Cameo Collaborator
 
-This procedure describes the review, comment, and resolve portion of peer review activities.
+This procedure describes the review, comment, and resolve portion of the review activity.
 
 ### Review the Artifact in Cameo Collaborator
 
-Reviewers are tasked with reviewiewing the peer review artifact and identifying problems with comments.
+Reviewers are tasked with reviewing the artifact and identifying problems with comments.
 
 1. Open the artifact in Teamwork Cloud. Review the content diagram notes.
 2. Open an element in the diagram from the main screen or containment tree.
@@ -228,17 +228,85 @@ Cameo Collaborator Containment Tree
 #### Add comment
 
 1. In the element, click ![comment icon](/img/MBSE/comment.png) to the bottom right.
-2. Click anywhere in the diagram to open the **Graphical Comment** window and the top-left toolbar.
-3. Select the rectangle tool from the main toolbar. Click and drag to create a comment shape.
+2. Click anywhere in the diagram to open **Graphical Comment** and the top-left toolbar.
+3. Select ![rectangle tool icon](/img/MBSE/rectangle%20tool.png) from the main toolbar. Click and drag to create a comment shape.
 4. Locate it on or near whichever element(s) your comment is addressing.
-5. Select the shape, then select ![comment icon](/img/MBSE/comment.png) from the main toolbar
-6. Enter your name for the **Title**, then enter your comment in the **Comment** field **> Done**.
+5. Select the shape, then select ![comment icon](/img/MBSE/comment.png) from the main toolbar.
+6. Enter `your name` for the **Title**, then enter `your comment` in **Comment > Done**.
 
 ### Review Comments in Cameo Collaborator
 
+1. Open Teamwork Cloud **> Resources**. Navigate to the peer review artifact **> Open**.
+2. Select ![comment icon](/img/MBSE/comment.png) in the top-right. All comments on the artifact are displayed to the right.
+3. Select a comment to open the associated element.
 
+### Close Comments during the Peer Review Activity
 
+The author closes a comment when the identified problem has been corrected, or if they deem the comment invalid or out-of-scope for the activity. The moderator closes a comment once they verify the author has corrected the problem as described in the review comments.
 
+For valid comments:
+1. Update the model element in the original project to correct the problem.
+
+>[!Warning]
+Do not make changes to the peer review project or the original project in Cameo Collaborator.
+
+#### Close Comments in Cameo Collaborator
+
+1. Locate the comment in Cameo Collaborator and select [reply icon](/img/MBSE/reply.png)
+2. Enter `your reply` in **Comment** explaining the work you completed to address the problem, then **> Enter**.
+3. Click the checkbox next to the original comment (*not* the comment you just made) to close the comment.
+
+For invalid and out-of-scope comments:
+1. Locate the comment in Cameo Collaborator and select [reply icon](/img/MBSE/reply.png).
+2. Enter `your reply` in **Comment** explaining why the comment should be closed with no action taken.
+
+## Close Peer Review Activity
+The final step is to close the peer review activity.
+
+### Update Project Usage Reference for Review Close
+
+In Cameo, in the Peer Reviews Project:
+  1. Go to **Options > Project Usages**.
+  2. Right-click the original model **> Lock**, then right-click again and **Change Version**.
+  3. Select the correct version of the original model **> OK > OK**.
+  4. Go to **Collaborate > Commit Changes to Server**.
+
+### Publish Peer Review Artifact to Cameo Collaborator for Review Close
+
+In the peer review content diagram:
+1. Update the review start/close note with the correct version number (specifically, the version you chose for the updated **Project Usage**).
+
+>[!Note]
+The activity documented in [Figure 7](#figure7) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity.
+  
+:::{figure} /img/MBSE/peer review note.png
+:align: center
+:name: figure7
+
+Peer Review Start/Close Note
+
+:::
+
+3. Go to **Tools > Cameo Collaborator > Publish**.
+4. Select ![ellipses icon](/img/MBSE/Ellipses.png) by **Category Name** to open the containment tree.
+5. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.
+6. Select ![ellipses icon](/img/MBSE/Ellipses.png) by **Scope** to open your project containment tree.
+7. Select the peer review artifact, then select ![plus icon](/img/MBSE/Plus.png)**> OK**.
+8. Configure your **Options** per [Figure 8](#figure8), then **Publish**.
+
+:::{figure} /img/MBSE/peer review publisher 2.png
+:align: center
+:name: figure8
+
+Publish the Completed Peer Review Artifact
+
+:::
+
+### Archive the Peer Review Artifact
+In Teamwork Cloud:
+1. Open your project, then open **Collaborator Files > Peer Reviews**.
+2. To the right, select ![ellipses icon](/img/MBSE/Ellipses.png) **> Move Resource**.
+3. Under the project containment tree, select **Archived Peer Reviews > Move**. 
 # References
 # Revision History
 # Appendix

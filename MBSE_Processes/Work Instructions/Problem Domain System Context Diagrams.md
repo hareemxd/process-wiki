@@ -3,6 +3,7 @@ title: Problem Domain System Context Diagrams
 subtitle: MBSE Work Instruction
 project: MBSE Style Guide  
 genre: Work Instruction  
+document_number: MBSE-WI-003
 metamodel_domain: Problem Domain Black Box  
 metamodel_pillar: Structure  
 domains:  
@@ -105,6 +106,14 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 # Terms
 
+| Term | Definition |
+|---|---|
+| Problem Domain System Context| the environment containing and surrounding the system of interest during key activities.|
+| System of Interest| the primary subject of the modeler's efforts, the system to be designed using the architectural definition realized in the system model.|
+|Project Usage| a reference to a different project that provides access to that project's model elements|
+|Category| synonymous with *folder* in Teamwork Cloud|
+| Resource| synonymous with *file* in Teamwork Cloud|
+| Containment Tree| synonymous with *file directory* in Teamwork Cloud|
 
 # Procedure
 ## Create Elements of Definition
@@ -149,7 +158,6 @@ Element Customizations
 3.  Open the **External System Descriptions** table and drag all external systems into the table.
 4.  In the top toolbar, select **Columns > Documentation**. A new column displaying the **Documentation** field is added to the table.
 
----
 
 ## Create Block Definition Diagram
 
@@ -237,7 +245,7 @@ Problem Domain System Context Block Definition Diagram
 
 
 ```
----
+
 ## Create Internal Block Diagram
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.
@@ -301,6 +309,10 @@ Problem Domain System Context Internal Block Diagram
 
 
 # Revision History
+
+| Version|Revision|Date|Author|Change History|
+| ---|---|---|---|---|
+|ghp.1| - |01-28-2026| D. Ricart| First complete draft deployed to Github Pages using a MyST-powered site generator.|
 
 # Appendix
 

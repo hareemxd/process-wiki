@@ -3,12 +3,8 @@ project:
   title: MBSE Processes
   toc:
     - file: index.md
-
-- title: Work Instructions
-  children:
-    - title: System Context Diagrams
-      file: Work Instructions/Problem Domain System Context Diagrams.md
-    - title: Peer Review
-      file: Work Instructions/Peer Review.md
-    - title: Teamwork Cloud Admin
-      file: Work Instructions/Teamwork Cloud Administrator.md
+    - title: Work Instructions
+      children:
+        - file: Work Instructions/Problem Domain System Context Diagrams.md
+        - file: Work Instructions/Peer Review.md
+        - file: Work Instructions/Teamwork Cloud Administrator.md

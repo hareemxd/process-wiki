@@ -44,28 +44,19 @@ jobs:
           export BASE_URL="/${{ github.event.repository.name }}/mbse"
           cd "MBSE_Processes"
           myst build --html
-                - name: Copy MBSE images into theme public folder
-          run: |
-          mkdir -p "MBSE_Processes/_build/site/public/img"
-          cp -a "MBSE_Processes/img/." "MBSE_Processes/_build/site/public/img/"
 
-      - name: Copy MBSE static images into built site
-        run: |
-          if [ -d "MBSE_Processes/img" ]; then
-            mkdir -p "MBSE_Processes/_build/html/img"
-            cp -a "MBSE_Processes/img/." "MBSE_Processes/_build/html/img/"
-          fi
       - name: Verify MBSE output
         run: |
           test -d "MBSE_Processes/_build/html" || (echo "MBSE build failed: no _build/html" && exit 1)
+
       - name: Debug MBSE build output
         run: |
           echo "MBSE _build tree (depth 3):"
-          find "MBSE_Processes/_build" -maxdepth 3 -type d -print
+          find "MBSE_Processes/_build" -maxdepth 3 -type d -print || true
           echo "MBSE html tree (depth 3):"
           find "MBSE_Processes/_build/html" -maxdepth 3 -type d -print || true
-          echo "Search for that image in built output:"
-          find "MBSE_Processes/_build/html" -type f -iname "PDSCDiagramsMetaModel.png" -print || true
+          echo "Search for one known image name anywhere in MBSE_Processes:"
+          find "MBSE_Processes" -type f -iname "PDSCDiagramsMetaModel.png" -print || true
 
       # -----------------------------
       # Build CM Handbook site
@@ -75,13 +66,6 @@ jobs:
           export BASE_URL="/${{ github.event.repository.name }}/handbook"
           cd "Configuration Management Handbook"
           myst build --html
-          
-      - name: Copy Handbook static images into built site
-        run: |
-          if [ -d "Configuration Management Handbook/img" ]; then
-            mkdir -p "Configuration Management Handbook/_build/html/img"
-            cp -a "Configuration Management Handbook/img/." "Configuration Management Handbook/_build/html/img/"
-          fi
 
       - name: Verify Handbook output
         run: |
@@ -99,7 +83,8 @@ jobs:
           cp -a "MBSE_Processes/_build/html/." "_site/mbse/"
           cp -a "Configuration Management Handbook/_build/html/." "_site/handbook/"
 
-          # Force-copy images into the deployed output (does not depend on MyST bundling)
+          # Force-copy images into the deployed output so image paths can resolve at runtime.
+          # (Does not depend on MyST bundling.)
           if [ -d "MBSE_Processes/img" ]; then
             mkdir -p "_site/mbse/img"
             cp -a "MBSE_Processes/img/." "_site/mbse/img/"
@@ -129,14 +114,21 @@ jobs:
           </html>
           HTML
 
+          # Prevent Jekyll processing
           touch _site/.nojekyll
+
       - name: Debug deployed images
         run: |
-          echo "MBSE images:"
+          echo "MBSE images folder:"
+          ls -la "_site/mbse/img" || true
           ls -la "_site/mbse/img/MBSE" || true
-          echo "Handbook images:"
+          echo "Handbook images folder:"
+          ls -la "_site/handbook/img" || true
           ls -la "_site/handbook/img/CMH" || true
 
+      # -----------------------------
+      # Deploy to GitHub Pages
+      # -----------------------------
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

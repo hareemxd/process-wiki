@@ -29,7 +29,7 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 Company Meta Model
 
-:::
+
 
 The Modeler should review {numref}`Table1` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
@@ -122,12 +122,14 @@ Create elements by right-clicking in the containment tree.
 >[!NOTE]
 Customizations are located under **Other Blocks**; see [Figure 2](#figure2-pdsc).
 
-:::{figure} img/MBSE/PDSCcustomizations.png
+:::{figure} ../img/MBSE/PDSCcustomizations.png
 :align: center
 :name: figure2-pdsc
 
 Element Customizations
+
 :::
+
 
 ---
 

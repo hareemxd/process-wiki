@@ -16,7 +16,7 @@ This Model Based Systems Engineering (MBSE) Work Instruction describes Teamwork 
 
 This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure1).
 
-:::{figure} /img/MBSE/peerreviewmetamodel.png
+:::{figure} ../img/MBSE/peerreviewmetamodel.png
 :align: center
 :name: figure1
 
@@ -95,7 +95,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 ## Setup New Program Category in Teamwork Cloud
 
 1. Open **Resources > Naval Electronics**.
-2. To the bottom-right, select the **Create Category** plus ![plus icon](/img/MBSE/Plus.png) .
+2. To the bottom-right, select the **Create Category** plus ![plus icon](../img/MBSE/Plus.png) .
 3. Enter the `program name` **> Enter**.
 4. Open the new category and create two sub-categories called `Cameo Files` and `Collaborator Files`.
 5. Open **Collaborator Files** and create two sub-categories called `1. Peer Reviews`, `2. Archived Peer Reviews`, and `3. Other Collaborator Files`.
@@ -115,10 +115,10 @@ See the [Appendix](#appendix) for a complete list of permissions.
 ### Add Roles
 
 On the Teamwork Cloud homepage:
-1. Open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](/img/MBSE/Ellipses.png) to the right.
+1. Open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) to the right.
 2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure2).
 
-:::{figure} /img/MBSE/twcaddrolesgeneral.png
+:::{figure} ../img/MBSE/twcaddrolesgeneral.png
 :align: center
 :name: figure2
 

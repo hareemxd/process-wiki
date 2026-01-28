@@ -25,7 +25,7 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 
 
-:::{figure} /img/MBSE/PDSCDiagramsMetaModel.png
+:::{figure} ../img/MBSE/PDSCDiagramsMetaModel.png
 :align: center
 :name: figure1
 
@@ -124,7 +124,7 @@ Create elements by right-clicking in the containment tree.
 >[!NOTE]
 Customizations are located under **Other Blocks**; see [Figure 2](#figure2).
 
-:::{figure} /img/MBSE/PDSCcustomizations.png
+:::{figure} ../img/MBSE/PDSCcustomizations.png
 :align: center
 :name: figure2
 
@@ -183,7 +183,7 @@ All external system and actor blocks should be the same size.
 ### Create Design Comments
 
 
-1. Select the element to attach a comment to, then select the anchor ![anchor](/img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
+1. Select the element to attach a comment to, then select the anchor ![anchor](../img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
 2. Right-click the note, then **Refactor > Convert To > Comment**.
 3. Right-click again, and under **Stereotype**, select a comment stereotype.
 4. Enter the comment in the text field.
@@ -196,7 +196,7 @@ All design comments should have an applied stereotype.
 
 1. Right-click the SoI **> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
 
-:::{figure} /img/MBSE/PDSCSOIContainmentTree.png
+:::{figure} ../img/MBSE/PDSCSOIContainmentTree.png
 :align: center
 :name: figure3
 
@@ -205,7 +205,7 @@ Display System of Interest Documentation
 
 
 1. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
-2. Mouse over the comment and select the anchor ![anchor](/img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
+2. Mouse over the comment and select the anchor ![anchor](../img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
 ### Create Relationships
 
@@ -221,7 +221,7 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 
 [Figure 4](#figure4) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`Table4`.
 
-:::{figure} /img/MBSE/PDSCBDD.png
+:::{figure} ../img/MBSE/PDSCBDD.png
 :align: center
 :name: figure4
 
@@ -273,7 +273,7 @@ Connected ports should be horizontally aligned to the greatest possible extent. 
 4. Right-click each port **> Legend Item**, then assign the appropriate **Legend Item**.
 5. Position all port labels next to their ports and inside the owning block.
 
-:::{figure} /img/MBSE/PDSCPortStyle.png
+:::{figure} ../img/MBSE/PDSCPortStyle.png
 :align: center
 :name: figure5
 
@@ -297,7 +297,7 @@ All connected ports must be typed by the same Interface Block.
 
 [Figure 6](#figure6) provides an example of a properly styled PDSC IBD. 
 
-:::{figure} /img/MBSE/PDSCIBD.png
+:::{figure} ../img/MBSE/PDSCIBD.png
 :align: center
 :name: figure6
 

@@ -11,3 +11,6 @@ project:
 
 site:
   template: book-theme
+  options:
+    assets:
+      copy: false

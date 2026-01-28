@@ -44,6 +44,11 @@ jobs:
           export BASE_URL="/${{ github.event.repository.name }}/mbse"
           cd "MBSE_Processes"
           myst build --html
+                - name: Copy MBSE images into theme public folder
+          run: |
+          mkdir -p "MBSE_Processes/_build/site/public/img"
+          cp -a "MBSE_Processes/img/." "MBSE_Processes/_build/site/public/img/"
+
       - name: Copy MBSE static images into built site
         run: |
           if [ -d "MBSE_Processes/img" ]; then
@@ -70,6 +75,7 @@ jobs:
           export BASE_URL="/${{ github.event.repository.name }}/handbook"
           cd "Configuration Management Handbook"
           myst build --html
+          
       - name: Copy Handbook static images into built site
         run: |
           if [ -d "Configuration Management Handbook/img" ]; then

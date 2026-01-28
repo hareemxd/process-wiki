@@ -25,9 +25,7 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 
 
-:::{figure} ../img/MBSE/PDSCDiagramsMetaModel.png
-:align: center
-:name: figure1-pdsc
+![Figure 1](../img/MBSE/PDSCDiagramsMetaModel.png)
 
 Company Meta Model
 

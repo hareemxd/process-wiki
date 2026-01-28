@@ -89,6 +89,13 @@ jobs:
           # Ensure GitHub Pages doesn't try to run Jekyll
           touch _site/.nojekyll
 
+      - name: Debug confirm images are in the Pages artifact
+        run: |
+          echo "=== _site/img/MBSE ==="
+          ls -la "_site/img/MBSE" || true
+          echo "=== find exact file ==="
+          find "_site/img" -type f -iname "PDSCDiagramsMetaModel.*" -print || true
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

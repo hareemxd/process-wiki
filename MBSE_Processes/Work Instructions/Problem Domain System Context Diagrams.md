@@ -23,19 +23,19 @@ This Work Instruction addresses the **Problem Domain Black Box - Structure** spa
 
 In the Problem Domain, the SoI is modeled as a *black box*; only the external boundaries and connections are defined. The black box perspective helps the modeler identify the most fundamental SoI specifications: external interfaces, and the states, behaviors, and functions inferred from its inputs and outputs. Allocating these specifications to discrete objects within the SoI gives rise to structure in the system model.
 
-
-
-![Figure 1](../img/MBSE/PDSCDiagramsMetaModel.png)
+:::{figure} ../img/MBSE/PDSCDiagramsMetaModel.png
+:align: center
+:name: figure1-pdsc
 
 Company Meta Model
 
+:::
 
-
-The Modeler should review {numref}`Table1` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+The Modeler should review {numref}`table1-pdsc` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
 ```{list-table} Work Instruction Inputs
 :header-rows: 1
-:name: Table1
+:name: table1-pdsc
 
 * - Description
   - Reference
@@ -47,11 +47,11 @@ The Modeler should review {numref}`Table1` to ensure they have the required proc
 
 # Roles and Responsibilities
 
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`Table2` and functional areas are assigned roles in {numref}`Table3`.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`table2-pdsc` and functional areas are assigned roles in {numref}`table3-pdsc`.
 
 ```{list-table} RACI Roles and Definitions
 :header-rows: 1
-:name: Table2
+:name: table2-pdsc
 
 * - RACI Role
   - Definition
@@ -70,7 +70,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ```{list-table} Problem Domain System Context Diagrams RACI Chart
 :header-rows: 1
-:name: Table3
+:name: table3-pdsc
 
 * - Function
   - Role
@@ -183,7 +183,7 @@ All external system and actor blocks should be the same size.
 ### Create Design Comments
 
 
-1. Select the element to attach a comment to, then select the anchor ![anchor](img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
+1. Select the element to attach a comment to, then select the anchor ![anchor](../img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
 2. Right-click the note, then **Refactor > Convert To > Comment**.
 3. Right-click again, and under **Stereotype**, select a comment stereotype.
 4. Enter the comment in the text field.
@@ -196,16 +196,17 @@ All design comments should have an applied stereotype.
 
 1. Right-click the SoI **> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
 
-:::{figure} img/MBSE/PDSCSOIContainmentTree.png
+:::{figure} ../img/MBSE/PDSCSOIContainmentTree.png
 :align: center
 :name: figure3-pdsc
 
 Display System of Interest Documentation
+
 :::
 
 
 1. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
-2. Mouse over the comment and select the anchor ![anchor](img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
+2. Mouse over the comment and select the anchor ![anchor](../img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
 ### Create Relationships
 
@@ -219,18 +220,19 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 
 ### Output
 
-[Figure 4](#figure4-pdsc) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`Table4`.
+[Figure 4](#figure4-pdsc) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see {numref}`table4-pdsc`.
 
-:::{figure} img/MBSE/PDSCBDD.png
+:::{figure} ../img/MBSE/PDSCBDD.png
 :align: center
 :name: figure4-pdsc
 
 Problem Domain System Context Block Definition Diagram
+
 :::
 
 ```{list-table} Block Definition Diagram Review Checklist Items
 :header-rows: 1
-:name: Table4
+:name: table4-pdsc
 
 * - Review Checklist Item
   - Description
@@ -273,11 +275,12 @@ Connected ports should be horizontally aligned to the greatest possible extent. 
 4. Right-click each port **> Legend Item**, then assign the appropriate **Legend Item**.
 5. Position all port labels next to their ports and inside the owning block.
 
-:::{figure} img/MBSE/PDSCPortStyle.png
+:::{figure} ../img/MBSE/PDSCPortStyle.png
 :align: center
 :name: figure5-pdsc
 
 Figure 5 Port Style
+
 :::
 
 ### Create Flows and Interfaces
@@ -297,11 +300,12 @@ All connected ports must be typed by the same Interface Block.
 
 [Figure 6](#figure6-pdsc) provides an example of a properly styled PDSC IBD. 
 
-:::{figure} img/MBSE/PDSCIBD.png
+:::{figure} ../img/MBSE/PDSCIBD.png
 :align: center
 :name: figure6-pdsc
 
 Problem Domain System Context Internal Block Diagram
+
 :::
 
 

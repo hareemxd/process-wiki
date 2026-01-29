@@ -239,7 +239,7 @@ Cameo Collaborator Containment Tree
 
 1. In the element, click the comment tool ![comment icon](../img/MBSE/comment.png) to the bottom right.
 2. Click anywhere in the diagram to open **Graphical Comment** and the top-left toolbar.
-3. Select the rectangle tool ![rectangle tool icon](../img/MBSE/rectangle%20tool.png) from the main toolbar. Click and drag to create a comment shape.
+3. Select the rectangle tool ![rectangle tool icon](../img/MBSE/rectangletool.png) from the main toolbar. Click and drag to create a comment shape.
 4. Locate it on or near whichever element(s) your comment is addressing.
 5. Select the shape, then select the comment tool ![comment icon](../img/MBSE/comment.png) from the main toolbar.
 6. Enter `your name` in **Title** and `your comment` in **Comment > Done**.

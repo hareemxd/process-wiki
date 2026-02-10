@@ -42,21 +42,21 @@ jobs:
       - name: Build MBSE (served at /mbse/)
         run: |
           export BASE_URL="/${{ github.event.repository.name }}/mbse"
-          cd "MBSE Style Guide"
+          cd "MBSE_Style_Guide"
           myst build --html
 
       - name: Verify MBSE output
         run: |
-          test -d "MBSE Style Guide/_build/html" || (echo "MBSE build failed: no _build/html" && exit 1)
+          test -d "MBSE_Style_Guide/_build/html" || (echo "MBSE build failed: no _build/html" && exit 1)
 
       - name: Debug MBSE build output
         run: |
           echo "MBSE _build tree (depth 3):"
-          find "MBSE Style Guide/_build" -maxdepth 3 -type d -print || true
+          find "MBSE_Style_Guide/_build" -maxdepth 3 -type d -print || true
           echo "MBSE html tree (depth 3):"
-          find "MBSE Style Guide/_build/html" -maxdepth 3 -type d -print || true
-          echo "Search for one known image name anywhere in MBSE Style Guide:"
-          find "MBSE Style Guide" -type f -iname "PDSCDiagramsMetaModel.png" -print || true
+          find "MBSE_Style_Guide/_build/html" -maxdepth 3 -type d -print || true
+          echo "Search for one known image name anywhere in MBSE_Style_Guide:"
+          find "MBSE_Style_Guide" -type f -iname "PDSCDiagramsMetaModel.png" -print || true
 
       # -----------------------------
       # Build CM Handbook site
@@ -80,14 +80,14 @@ jobs:
           mkdir -p _site/mbse _site/handbook
 
           # Copy built MyST sites
-          cp -a "MBSE Style Guide/_build/html/." "_site/mbse/"
+          cp -a "MBSE_Style_Guide/_build/html/." "_site/mbse/"
           cp -a "Configuration Management Handbook/_build/html/." "_site/handbook/"
 
           # Force-copy images into the deployed output so image paths can resolve at runtime.
           # (Does not depend on MyST bundling.)
-          if [ -d "MBSE Style Guide/img" ]; then
+          if [ -d "MBSE_Style_Guide/img" ]; then
             mkdir -p "_site/mbse/img"
-            cp -a "MBSE Style Guide/img/." "_site/mbse/img/"
+            cp -a "MBSE_Style_Guide/img/." "_site/mbse/img/"
           fi
 
           if [ -d "Configuration Management Handbook/img" ]; then

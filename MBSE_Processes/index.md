@@ -28,4 +28,11 @@ Procedure to conduct peer review activities in Cameo Collaborator.
 
 Administration procedures for Teamwork Cloud.
 :::
+
+:::{card} Project Templates
+:link: ./Work Instructions/Project Templates
+:link-type: doc
+
+Provides templates for setting up and configuring SysML projects
+:::
 :::

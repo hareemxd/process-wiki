@@ -106,18 +106,21 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 ### Use the Naval Electronics Project Template
 
 In Cameo Systems Modeler:
+
 1. Go to **Collaborate > Login**. 
 2. Select a server, then **OK**, and enter `your username` and `password` **> Sign In**.
 3. Go to **Collaborate > Open Server Project**, then select **MBSE WG Style Guide Processes > Open**.
 
-After the project opens:
-4. Go to **File > Save Project As**. Select a local destination, enter `your project name`, then **Save**.
-5. Open the local project, then go to **File > Project Properties**.
-6. Select **More** and go to **Advanced**.
-7. Select **Reset IDs > OK** and **Reset Project ID > OK > OK** to confirm the property updates.
+After the project opens: 
+
+4. Go to **File > Save Project As**. Select a local destination, enter `your project name`, then **Save**.  
+5. Open the local project, then go to **File > Project Properties**.  
+6. Select **More** and go to **Advanced**.  
+7. Select **Reset IDs > OK** and **Reset Project ID > OK > OK** to confirm the property updates.  
 
 ### Upload New Project to Teamwork Cloud
 In the new project:
+
 1. Select **Collaborate > Add Project to Server**.
 2. Click the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) to open the *containment tree* and select a *category*.
 3. Select **More**, then uncheck **Maintain Mount Points**.
@@ -125,6 +128,7 @@ In the new project:
 
 ### Add the Naval Electronics Styles Project Usage
 In the new project:
+
 1. Select **Options > Project Usages**.
 2. Click the plus ![plus icon](../img/MBSE/Plus.png) **> Use Server Project**.
 3. Inside the **Naval Electronics** category, select **Naval Electronics Profile**.

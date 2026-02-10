@@ -8,6 +8,9 @@ metamodel_domain: not applicable
 metamodel_pillar: not applicable 
 domains:  
     - Systems Engineering  
+outputs:
+    - Naval Electronics Teamwork Cloud Category
+    - Naval Electronics Teamwork Cloud User Roles and Permissions
 ---
 
 # Purpose

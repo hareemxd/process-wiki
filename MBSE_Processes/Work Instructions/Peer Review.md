@@ -3,11 +3,14 @@ title: Peer Review
 subtitle: MBSE Work Instruction
 project: MBSE Style Guide  
 genre: Work Instruction
-document_number: MBSE-WI-002  
+document_number: MBSE-WI-003  
 metamodel_domain: not applicable
 metamodel_pillar: not applicable 
 domains:  
     - Systems Engineering  
+outputs:
+    - Peer Review Activity
+    - SysML Peer Review Artifact
 ---
 
 # Purpose

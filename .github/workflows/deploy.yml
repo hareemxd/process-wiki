@@ -107,7 +107,7 @@ jobs:
             <body>
               <h1>Process Wiki</h1>
               <ul>
-                <li><a href="./mbse/">MBSE Processes</a></li>
+                <li><a href="./mbse/">MBSE Style Guide</a></li>
                 <li><a href="./handbook/">Configuration Management Handbook</a></li>
               </ul>
             </body>

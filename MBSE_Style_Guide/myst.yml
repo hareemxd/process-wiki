@@ -5,10 +5,10 @@ project:
     - file: index.md
     - title: Work Instructions
       children:
-        - file: Work Instructions/Problem Domain System Context Diagrams.md
-        - file: Work Instructions/Peer Review.md
-        - file: Work Instructions/Teamwork Cloud Administrator.md
-        - file: Work Instructions/Project Templates.md
+        - file: "Work Instructions/Problem Domain System Context Diagrams.md"
+        - file: "Work Instructions/Peer Review.md"
+        - file: "Work Instructions/Teamwork Cloud Administrator.md"
+        - file: "Work Instructions/Project Templates.md"
 
 site:
   template: book-theme

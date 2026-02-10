@@ -95,6 +95,20 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 # Procedure
 
+## Setup the Work Environment
+
+>[!NOTE]
+This section mostly applies to non-administrative users.
+
+
+### Access Cameo Systems Modeler
+
+Submit an IT request for a Cameo Systems Modeler license.
+
+### Access Teamwork Cloud
+
+Contact a Teamwork Cloud Administrator (TCA).
+
 ## Setup New Program Category in Teamwork Cloud
 
 1. Open **Resources > Naval Electronics**.

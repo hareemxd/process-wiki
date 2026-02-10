@@ -21,6 +21,7 @@ This Work Instruction applies to all spaces of the company Meta Model; see [Figu
 
 :::{figure} ../img/MBSE/peerreviewmetamodel.png
 :align: center
+:width: 85%
 :name: figure1-twca
 
 Company Meta Model
@@ -137,6 +138,7 @@ On the Teamwork Cloud homepage:
 
 :::{figure} ../img/MBSE/twcaddrolesgeneral.png
 :align: center
+:width: 85%
 :name: figure2-twca
 
 Add Role to User in Teamwork Cloud
@@ -188,6 +190,7 @@ Reviewers need read/write access to their project's **Peer Reviews** category.
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
 |ghp.1| - |01-28-2026| D. Ricart| First complete draft deployed to Github Pages using a MyST-powered site generator.|
+|ghp.2| - |02-10-2026| D. Ricart| Updates to metadata (doc number, output) and figure directives to improve PDF export quality.|
 
 # Appendix
 

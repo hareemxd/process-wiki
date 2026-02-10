@@ -22,6 +22,7 @@ This Work Instruction applies to all spaces of the company Meta Model; see [Figu
 
 :::{figure} ../img/MBSE/peerreviewmetamodel.png
 :align: center
+:width: 85%
 :name: figure1-mbsepr
 
 Company Meta Model
@@ -131,6 +132,7 @@ In the Peer Review Project:
 
 :::{figure} ../img/MBSE/peerreviewlockcustomizations.png
 :align: center
+:width: 85%
 :name: figure2-mbsepr
 
 Lock Project to Update Project Usage
@@ -170,6 +172,7 @@ The top result in [Figure 3](#figure3-mbsepr) is the Peer Review Content Diagram
 
 :::{figure} ../img/MBSE/peerreviewsearch.png
 :align: center
+:width: 85%
 :name: figure3-mbsepr
 
 Search for Peer Review Content Diagram
@@ -185,6 +188,7 @@ Search for Peer Review Content Diagram
 
 :::{figure} ../img/MBSE/peerreviewcontentdiagram.png
 :align: center
+:width: 85%
 :name: figure4-mbsepr
 
 Peer Review Content Diagram
@@ -209,6 +213,7 @@ In Cameo:
 
 :::{figure} ../img/MBSE/peerreviewpublisher.png
 :align: center
+:width: 85%
 :name: figure5-mbsepr
 
 Publish the Peer Review Artifact
@@ -232,6 +237,7 @@ Reviewers are tasked with reviewing the artifact and identifying problems with c
 
 :::{figure} ../img/MBSE/peerreviewcollaboratormenu.png
 :align: center
+:width: 85%
 :name: figure6-mbsepr
 
 Cameo Collaborator Containment Tree
@@ -294,6 +300,7 @@ The activity documented in [Figure 7](#figure7-mbsepr) began with Version 1 of t
   
 :::{figure} ../img/MBSE/peerreviewnote.png
 :align: center
+:width: 85%
 :name: figure7-mbsepr
 
 Peer Review Start/Close Note
@@ -309,6 +316,7 @@ Peer Review Start/Close Note
 
 :::{figure} ../img/MBSE/peerreviewpublisher2.png
 :align: center
+:width: 85%
 :name: figure8-mbsepr
 
 Publish the Completed Peer Review Artifact
@@ -327,5 +335,6 @@ In Teamwork Cloud:
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
 |ghp.1| - |01-28-2026| D. Ricart| First complete draft deployed to Github Pages using a MyST-powered site generator.|
+|ghp.2| - |02-10-2026| D. Ricart| Updates to metadata (doc number, output) and figure directives to improve PDF export quality.|
 
 # Appendix

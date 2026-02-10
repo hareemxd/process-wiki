@@ -5,7 +5,7 @@ subtitle: Model-Based Systems Engineering
 
 ## Why This Guide Exists
 
-Modern engineering systems are no longer single products. They are **networks of hardware, software, people, processes, data, and constraints** that evolve over time. When those relationships are managed informally—or only in documents—projects become fragile, slow, and expensive to change.
+Modern engineering efforts focus on *systems*, not individual or disconnected products. A system is an **connected web of hardware, software, people, processes, data, and constraints** that evolves over time. When the relationships within a system are managed informally—or only in documents—projects become error-prone and difficult to manage.
 
 This style guide exists to establish **clear, consistent, and scalable practices** for applying *Model-Based Systems Engineering (MBSE)* across the system lifecycle. It defines how systems are modeled, how information is structured, and how engineering intent is preserved as systems grow and change.
 
@@ -15,11 +15,11 @@ This style guide exists to establish **clear, consistent, and scalable practices
 
 ### What Is a System
 
-A **system** is a set of interacting elements organized to achieve a purpose (see **Systems definition** reference).
+A **system** is a set of interacting elements organized to achieve a purpose.
 
 A useful way to think about this is with a familiar example:
 
-A **desktop computer and a monitor together form a system**. Each works independently, but the *capability you care about*—being able to see and use your computer—only exists when they interact correctly.
+A **desktop computer and a monitor together form a system**. Each works independently, but the *capability you care about*—a functioning computer—only exists when they interact correctly.
 
 If you’ve ever had to troubleshoot:
 - a loose or damaged cable
@@ -29,13 +29,21 @@ If you’ve ever had to troubleshoot:
 
 —you were already dealing with a **systems problem**. The issue wasn’t “the monitor” or “the computer” alone. It was the **interaction between them**.
 
-Now scale that idea up.
+The importance of the systems problem concept becomes clear when thinking about a common mode of transportation: aircraft.
 
-An aircraft is also a system—but instead of two elements, there are thousands. Instead of a single cable, there are countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**.
+A single aircraft is a system, which itself is comprised of *thousands* of systems. Instead of a single cable between computer and display, aircraft rely on countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**. 
+
+:::{figure} ../img/MBSE/aircraftsystems.png
+:align: center
+:name: figure1-mbsesghp
+
+Aircraft Systems
+
+:::
 
 That difference in scale—not a difference in kind—is why systems need their own engineering discipline.
 
-### Why Systems Require Their Own Engineering Discipline
+### Systems Engineering
 
 Traditional engineering disciplines focus on optimizing individual parts. Systems engineering exists because **successful systems depend on how parts work together**, not just how well they work individually.
 
@@ -53,28 +61,31 @@ Without this discipline, complexity accumulates silently—until it surfaces as 
 
 ### What Is System Modeling
 
-**System modeling** is the practice of representing a system using structured, formal models rather than relying solely on narrative documents and disconnected diagrams (see **System modeling definition** reference).
+**System modeling** is the practice of representing a system using structured, formal models rather than relying solely on textual documents that describe a system using language and static diagrams.
 
-In Model-Based Systems Engineering, the **model is the primary source of truth**. Documents, diagrams, and reports are derived from the model instead of being maintained separately.
+In Model-Based Systems Engineering, the **model is the primary source of truth**. Documents, diagrams, and reports are derived from the model instead of being created and maintained separately.
 
 A system model captures:
-- What the system is made of
-- What the system does
-- How parts interact
-- What constraints apply
-- How requirements relate to design decisions
+- What the system is made of (subsystems)
+- What the system does (functions)
+- How parts interact (interfaces)
+- Requirements (structure, performance, behavior)
 
-### Why Modeling Matters
+:::{figure} ../img/MBSE/car_bdd.png
+:align: center
+:name: figure2-mbsesghp
 
-Documents describe systems.  
-Models **constrain and connect** them.
+Block Definition Diagrams define the *composition* of a system. A vehicle is composed of Transmission, Engine, and Wheel (itself composed of Brake and Tire).
 
-When information lives only in text:
-- Relationships are implicit
-- Inconsistencies hide easily
-- Changes ripple unpredictably
+:::
 
-Models make relationships explicit. When something changes, its effects are visible immediately—before they turn into downstream problems.
+:::{figure} ../img/MBSE/acpower_ibd.png
+:align: center
+:name: figure3-mbsesghp
+
+Internal Block Diagrams define the *relationships* between elements within a system. One subsystem with an AC power socket and one subsystem with an AC power plug are connected with an AC power cord.
+
+:::
 
 ### Value Provided by System Modeling
 

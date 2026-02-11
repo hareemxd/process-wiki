@@ -5,7 +5,7 @@ subtitle: Model-Based Systems Engineering
 
 ## Why This Guide Exists
 
-Modern engineering efforts focus on *systems*, not individual or disconnected products. A system is an **connected web of hardware, software, people, processes, data, and constraints** that evolves over time. When the relationships within a system are managed informally—or only in documents—projects become error-prone and difficult to manage.
+Modern engineering efforts focus on *systems*, not individual or disconnected products. A system is an **interactive web of hardware, software, people, processes, and data** that evolves over time. When the relationships within a system are managed informally—or only in documents—projects become error-prone and difficult to manage.
 
 This style guide exists to establish **clear, consistent, and scalable practices** for applying *Model-Based Systems Engineering (MBSE)* across the system lifecycle. It defines how systems are modeled, how information is structured, and how engineering intent is preserved as systems grow and change.
 
@@ -17,9 +17,9 @@ This style guide exists to establish **clear, consistent, and scalable practices
 
 A **system** is a set of interacting elements organized to achieve a purpose.
 
-A useful way to think about this is with a familiar example:
+A useful way to think about this is with a familiar example.
 
-A **desktop computer and a monitor together form a system**. Each works independently, but the *capability you care about*—a functioning computer—only exists when they interact correctly.
+A **desktop computer and a monitor together form a system**. Each works independently, but only when connected and functioning do they create a functioning computer display.
 
 If you’ve ever had to troubleshoot:
 - a loose or damaged cable
@@ -27,11 +27,11 @@ If you’ve ever had to troubleshoot:
 - incompatible ports or adapters
 - a display that powers on but shows nothing
 
-—you were already dealing with a **systems problem**. The issue wasn’t “the monitor” or “the computer” alone. It was the **interaction between them**.
+—you already understand what a **systems problem** is. Some characteristic of the parts' **interactions** is the root of the issue.
 
 The importance of the systems problem concept becomes clear when thinking about a common mode of transportation: aircraft.
 
-A single aircraft is a system, which itself is comprised of *thousands* of systems. Instead of a single cable between computer and display, aircraft rely on countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**. 
+A single aircraft is a system, which itself is comprised of *thousands* of systems. Instead of a single cable between computer and monitor, aircraft rely on countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**. 
 
 :::{figure} ../img/MBSE/aircraftsystems.png
 :align: center
@@ -75,7 +75,7 @@ A system model captures:
 :align: center
 :name: figure2-mbsesghp
 
-Block Definition Diagrams define the *composition* of a system. A vehicle is composed of Transmission, Engine, and Wheel (itself composed of Brake and Tire).
+Block Definition Diagrams define the *composition* of a system. A vehicle is composed of the blocks Transmission, Engine, and Wheel (itself composed of Brake and Tire).
 
 :::
 
@@ -83,7 +83,7 @@ Block Definition Diagrams define the *composition* of a system. A vehicle is com
 :align: center
 :name: figure3-mbsesghp
 
-Internal Block Diagrams define the *relationships* between elements within a system. One subsystem with an AC power socket and one subsystem with an AC power plug are connected with an AC power cord.
+Internal Block Diagrams define the *relationships* between elements within a system. Models can impose design requirements through *specifications*. The diagram will throw an error if the modeler attempts to connect the blocks with a DC power cord.
 
 :::
 
@@ -93,13 +93,10 @@ Internal Block Diagrams define the *relationships* between elements within a sys
 Models provide a shared visual understanding of the system. Stakeholders can see structure and behavior without reading hundreds of pages.
 
 **Requirements Management**  
-Requirements are directly linked to system elements and behaviors, making traceability explicit and verifiable rather than inferred.
+Requirements are directly linked to system elements, structures, and behaviors, establishing clear traceability and verification methods.
 
 **Documentation Management**  
-Instead of manually synchronizing specifications, diagrams, and interface descriptions, models generate consistent outputs from a single authoritative source.
-
-**Change Impact Awareness**  
-When requirements or design assumptions change, models reveal what is affected—early enough to manage the change intentionally.
+Instead of manually synchronizing specifications, diagrams, and interface descriptions, models generate consistent outputs from a single authoritative source with built-in validation features.
 
 ---
 

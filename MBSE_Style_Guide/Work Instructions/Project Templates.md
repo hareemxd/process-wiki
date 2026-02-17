@@ -21,7 +21,6 @@ This Work Instruction applies to all spaces of the company Meta Model; see [Figu
 
 :::{figure} ../img/MBSE/peerreviewmetamodel.png
 :align: center
-:width: 85%
 :name: figure1-mbsepr
 
 Company Meta Model

@@ -21,7 +21,6 @@ This Work Instruction applies to all spaces of the company Meta Model; see [Figu
 
 :::{figure} ../img/MBSE/peerreviewmetamodel.png
 :align: center
-:width: 85%
 :name: figure1-twca
 
 Company Meta Model
@@ -138,7 +137,6 @@ On the Teamwork Cloud homepage:
 
 :::{figure} ../img/MBSE/twcaddrolesgeneral.png
 :align: center
-:width: 85%
 :name: figure2-twca
 
 Add Role to User in Teamwork Cloud
@@ -147,9 +145,9 @@ Add Role to User in Teamwork Cloud
 
 For each added role:
 
-3. Select **Assignments** to open the containment tree.
-4. Expand the tree, then apply permissions to specific categories or resources using the checkboxes.
-5. In the top left, click the back arrow &larr; , then click the arrow &rarr; in the top right to confirm.
+1. Select **Assignments** to open the containment tree.
+2. Expand the tree, then apply permissions to specific categories or resources using the checkboxes.
+3. In the top left, click the back arrow &larr; , then click the arrow &rarr; in the top right to confirm.
 
 
 #### Program Admin Roles

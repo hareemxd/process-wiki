@@ -25,7 +25,6 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 :::{figure} ../img/MBSE/PDSCDiagramsMetaModel.png
 :align: center
-:width: 85%
 :name: figure1-pdsc
 
 Company Meta Model
@@ -125,7 +124,6 @@ Customizations are located under **Other Blocks**; see [Figure 2](#figure2-pdsc)
 
 :::{figure} ../img/MBSE/PDSCcustomizations.png
 :align: center
-:width: 85%
 :name: figure2-pdsc
 
 Element Customizations
@@ -200,7 +198,6 @@ All design comments should have an applied stereotype.
 
 :::{figure} ../img/MBSE/PDSCSOIContainmentTree.png
 :align: center
-:width: 85%
 :name: figure3-pdsc
 
 Display System of Interest Documentation
@@ -227,7 +224,6 @@ The primary user should be assigned a multiplicity of **[1..*]**.
 
 :::{figure} ../img/MBSE/PDSCBDD.png
 :align: center
-:width: 85%
 :name: figure4-pdsc
 
 Problem Domain System Context Block Definition Diagram
@@ -281,7 +277,6 @@ Connected ports should be horizontally aligned to the greatest possible extent. 
 
 :::{figure} ../img/MBSE/PDSCPortStyle.png
 :align: center
-:width: 85%
 :name: figure5-pdsc
 
 Figure 5 Port Style
@@ -307,7 +302,6 @@ All connected ports must be typed by the same Interface Block.
 
 :::{figure} ../img/MBSE/PDSCIBD.png
 :align: center
-:width: 85%
 :name: figure6-pdsc
 
 Problem Domain System Context Internal Block Diagram

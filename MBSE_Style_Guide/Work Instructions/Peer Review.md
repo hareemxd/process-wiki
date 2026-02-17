@@ -22,7 +22,6 @@ This Work Instruction applies to all spaces of the company Meta Model; see [Figu
 
 :::{figure} ../img/MBSE/peerreviewmetamodel.png
 :align: center
-:width: 85%
 :name: figure1-mbsepr
 
 Company Meta Model
@@ -132,15 +131,14 @@ In the Peer Review Project:
 
 :::{figure} ../img/MBSE/peerreviewlockcustomizations.png
 :align: center
-:width: 85%
 :name: figure2-mbsepr
 
 Lock Project to Update Project Usage
 
 :::
 
-3. Right-click the original project again, then **Change Version > OK > OK**.
-4. Go to **Collaborate > Commit Changes to Server**.
+1. Right-click the original project again, then **Change Version > OK > OK**.
+2. Go to **Collaborate > Commit Changes to Server**.
 
 ### Create Smart Package
 
@@ -172,7 +170,6 @@ The top result in [Figure 3](#figure3-mbsepr) is the Peer Review Content Diagram
 
 :::{figure} ../img/MBSE/peerreviewsearch.png
 :align: center
-:width: 85%
 :name: figure3-mbsepr
 
 Search for Peer Review Content Diagram
@@ -188,7 +185,6 @@ Search for Peer Review Content Diagram
 
 :::{figure} ../img/MBSE/peerreviewcontentdiagram.png
 :align: center
-:width: 85%
 :name: figure4-mbsepr
 
 Peer Review Content Diagram
@@ -213,7 +209,6 @@ In Cameo:
 
 :::{figure} ../img/MBSE/peerreviewpublisher.png
 :align: center
-:width: 85%
 :name: figure5-mbsepr
 
 Publish the Peer Review Artifact
@@ -237,7 +232,6 @@ Reviewers are tasked with reviewing the artifact and identifying problems with c
 
 :::{figure} ../img/MBSE/peerreviewcollaboratormenu.png
 :align: center
-:width: 85%
 :name: figure6-mbsepr
 
 Cameo Collaborator Containment Tree
@@ -300,23 +294,21 @@ The activity documented in [Figure 7](#figure7-mbsepr) began with Version 1 of t
   
 :::{figure} ../img/MBSE/peerreviewnote.png
 :align: center
-:width: 85%
 :name: figure7-mbsepr
 
 Peer Review Start/Close Note
 
 :::
 
-3. Go to **Tools > Cameo Collaborator > Publish**.
-4. Select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) by **Category Name** to open the containment tree.
-5. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.
-6. Select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) by **Scope** to open your project containment tree.
-7. Select the peer review artifact, then select the plus ![plus icon](../img/MBSE/Plus.png)**> OK**.
-8. Expand and configure your **Options** per [Figure 8](#figure8-mbsepr), then **Publish**.
+1. Go to **Tools > Cameo Collaborator > Publish**.
+2. Select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) by **Category Name** to open the containment tree.
+3. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.
+4. Select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) by **Scope** to open your project containment tree.
+5. Select the peer review artifact, then select the plus ![plus icon](../img/MBSE/Plus.png)**> OK**.
+6. Expand and configure your **Options** per [Figure 8](#figure8-mbsepr), then **Publish**.
 
 :::{figure} ../img/MBSE/peerreviewpublisher2.png
 :align: center
-:width: 85%
 :name: figure8-mbsepr
 
 Publish the Completed Peer Review Artifact

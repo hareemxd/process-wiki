@@ -9,6 +9,12 @@ project:
         - file: "Work Instructions/Peer Review.md"
         - file: "Work Instructions/Teamwork Cloud Administrator.md"
         - file: "Work Instructions/Project Templates.md"
+    - title: Procedures
+      children:
+        - file: ""
+    - title: Processes
+      children:
+        -file: ""
 
 site:
   template: book-theme

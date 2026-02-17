@@ -163,18 +163,17 @@ Element Customizations
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.
 
+ 1. Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**, and enter `[project/system name] Problem Domain System Context`. 
 
 ### Layout the Diagram
 
-
- 1. Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**. Open the diagram.
-
-1. Drag the PDSC block into the middle of the diagram and lengthen it to extend to the bottom of the screen.
-2. Update the title to match the element name.
-
-3. Drag the SoI block onto the diagram above the PDSC block, all actors to the left, and all external systems to the right.
-4. Drag the **Actor Descriptions** table into the top-left region and  the **External System Descriptions** table into the top-right region.
-5. Use the **Align** tool in the top toolbar to organize, resize, and reposition elements to give the diagram a uniform style.
+In the diagram:  
+ 1. Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**, and enter `[project/system name] Problem Domain System Context`.  
+ 2. Drag the PDSC block into the middle of the diagram and lengthen it to extend to the bottom of the screen.  
+ 3. Update the title to match the element name.  
+ 4. Drag the SoI block onto the diagram above the PDSC block, all actors to the left, and all external systems to the right.  
+ 5. Drag the **Actor Descriptions** table into the top-left region and  the **External System Descriptions** table into the top-right region.  
+ 6. Use the **Align** tool in the top toolbar to organize, resize, and reposition elements to give the diagram a uniform style.  
 
 >[!NOTE]
 All external system and actor blocks should be the same size.

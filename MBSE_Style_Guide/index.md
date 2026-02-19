@@ -5,9 +5,9 @@ subtitle: Model-Based Systems Engineering
 
 ## Why This Guide Exists
 
-Modern engineering efforts focus on *systems*, not individual or disconnected products. A system is an **interactive web of hardware, software, people, processes, and data** that evolves over time. When the relationships within a system are managed informally—or only in documents—projects become error-prone and difficult to manage.
+Modern engineering efforts focus on *systems*, not individual or disconnected products. When the relationships within/without a system are defined or controlled informally, projects become difficult to manage and prone to cost/schedule overrun.
 
-This style guide exists to establish **clear, consistent, and scalable practices** for applying *Model-Based Systems Engineering (MBSE)* across the system lifecycle. It defines how systems are modeled, how information is structured, and how engineering intent is preserved as systems grow and change.
+This style guide exists to establish **clear, consistent, and scalable practices** for applying *Model-Based Systems Engineering (MBSE)* across the system lifecycle. It defines how systems are modeled, how information is structured, and how engineering intent is preserved as systems grow and change across the complete life cycle.
 
 ---
 
@@ -15,11 +15,11 @@ This style guide exists to establish **clear, consistent, and scalable practices
 
 ### What Is a System
 
-A **system** is a set of interacting elements organized to achieve a purpose.
+A **system** is a set of interacting elements (subsystems, products, services, processes, and people) organized to achieve a purpose.
 
 A useful way to think about this is with a familiar example.
 
-A **desktop computer and a monitor together form a system**. Each works independently, but only when connected and functioning do they create a functioning computer display.
+A **desktop computer and a monitor together form a system**. Each works independently, but only when connected and functioning do they create the user's need: a computer displayed on a monitor.
 
 If you’ve ever had to troubleshoot:
 - a loose or damaged cable
@@ -27,11 +27,11 @@ If you’ve ever had to troubleshoot:
 - incompatible ports or adapters
 - a display that powers on but shows nothing
 
-—you already understand what a **systems problem** is. Some characteristic of the parts' **interactions** is the root of the issue.
+—you already understand what a **systems problem** is. Some characteristic of the **interactions** between parts is the root of the issue.
 
 The importance of the systems problem concept becomes clear when thinking about a common mode of transportation: aircraft.
 
-A single aircraft is a system, which itself is comprised of *thousands* of systems. Instead of a single cable between computer and monitor, aircraft rely on countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**. 
+A single aircraft is a system, which itself is comprised of *hundreds* of subsystems. Instead of a single cable between computer and monitor, aircraft rely on countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**. 
 
 :::{figure} ../img/MBSE/aircraftsystems.png
 :align: center
@@ -41,19 +41,16 @@ Aircraft Systems
 
 :::
 
-That difference in scale—not a difference in kind—is why systems need their own engineering discipline.
 
 ### Systems Engineering
 
-Traditional engineering disciplines focus on optimizing individual parts. Systems engineering exists because **successful systems depend on how parts work together**, not just how well they work individually.
+Traditional engineering disciplines focus on optimizing individual parts. Systems engineering exists because successful systems depend on how parts interact with each other, their environments, the operators, and over time.
 
 Systems engineering addresses:
 - Interfaces and interactions
 - Trade-offs across competing constraints
 - End-to-end behavior, not just component performance
 - The full lifecycle, from concept through operation and change
-
-Without this discipline, complexity accumulates silently—until it surfaces as cost overruns, delays, or failures that are difficult to diagnose after the fact.
 
 ---
 

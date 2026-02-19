@@ -1,0 +1,17 @@
+$openssl = "C:\ProgramData\anaconda3\Library\bin\openssl.exe"
+$out = Join-Path $env:TEMP "repo_leaf.pem"
+
+# Get openssl output
+$txt = & $openssl s_client -showcerts -servername repo.anaconda.com -connect repo.anaconda.com:443 2>$null
+
+# Extract first PEM block
+$in = $false
+$buf = New-Object System.Collections.Generic.List[string]
+foreach ($line in $txt) {
+    if ($line -match "-----BEGIN CERTIFICATE-----") { $in = $true }
+    if ($in) { $buf.Add($line) }
+    if ($in -and $line -match "-----END CERTIFICATE-----") { break }
+}
+
+$buf | Set-Content -Encoding ascii $out
+Write-Host "Wrote $out"

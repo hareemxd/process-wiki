@@ -1,17 +1,15 @@
-$openssl = "C:\ProgramData\anaconda3\Library\bin\openssl.exe"
-$out = Join-Path $env:TEMP "repo_leaf.pem"
+$ca = "C:\Users\David.Ricart\certs\cacert_with_zscaler.pem"
 
-# Get openssl output
-$txt = & $openssl s_client -showcerts -servername repo.anaconda.com -connect repo.anaconda.com:443 2>$null
+$code = @"
+import ssl, socket
+host = "repo.anaconda.com"
+ctx = ssl.create_default_context(cafile=r"$ca")
+with socket.create_connection((host, 443), timeout=10) as s:
+    with ctx.wrap_socket(s, server_hostname=host) as ss:
+        print("TLS OK")
+        cert = ss.getpeercert()
+        print("SUBJECT:", cert.get("subject"))
+        print("ISSUER:", cert.get("issuer"))
+"@
 
-# Extract first PEM block
-$in = $false
-$buf = New-Object System.Collections.Generic.List[string]
-foreach ($line in $txt) {
-    if ($line -match "-----BEGIN CERTIFICATE-----") { $in = $true }
-    if ($in) { $buf.Add($line) }
-    if ($in -and $line -match "-----END CERTIFICATE-----") { break }
-}
-
-$buf | Set-Content -Encoding ascii $out
-Write-Host "Wrote $out"
+$code | & "C:\ProgramData\anaconda3\python.exe" -

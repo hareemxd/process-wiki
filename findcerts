@@ -1,21 +1,32 @@
-$code=@'
-import ssl, socket
-host="repo.anaconda.com"
-ctx=ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-ctx.check_hostname=False
-ctx.verify_mode=ssl.CERT_NONE
-with socket.create_connection((host,443),timeout=10) as s:
-    with ctx.wrap_socket(s,server_hostname=host) as ss:
-        chain = ss.get_unverified_chain()
-        print("chain_len=", len(chain))
-        for i, cert in enumerate(chain):
-            pem = ssl.DER_cert_to_PEM_cert(cert)
-            # write each cert to a temp file and decode using the built-in test decoder
-            import tempfile, pathlib
-            p = pathlib.Path(tempfile.gettempdir()) / f"c{i}.pem"
-            p.write_text(pem)
-            d = ssl._ssl._test_decode_cert(str(p))
-            print(f"[{i}] subject=", d.get("subject"))
-            print(f"[{i}] issuer =", d.get("issuer"))
-'@
-$code | & "C:\ProgramData\anaconda3\python.exe" -
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=RSTA-CA, DC=rsta, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA-5, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-5, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VSCM01P-CA, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-4, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-4, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA-4, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA-6, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-3, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-DAL1VSCM01P-CA, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-4, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA-1, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA-3, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=Leonardo DRS Root CA
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-4, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS05P-CA-2, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=core-FRD1VADCS03P-CA-2, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\Root CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=Leonardo DRS Enterprise Issuing CA, DC=core, DC=drs,...
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=RSTA-CA, DC=rsta, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=core-FRD1VSCM01P-CA, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=core-FRD1VADCS05P-CA-6, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=core-DAL1VSCM01P-CA, DC=core, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=Leonardo DRS Root CA
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=drsmaster-ca, DC=drs, DC=master
+Microsoft.PowerShell.Security\Certificate::LocalMachine\CA   CN=drsmaster-ca, DC=drs, DC=master

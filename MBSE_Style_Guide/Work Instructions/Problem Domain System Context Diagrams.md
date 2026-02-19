@@ -13,6 +13,7 @@ output:
     - Internal Block Diagram
 ---
 
+<!-- confluence-page-id:28573697 -->
 
 # Purpose
 

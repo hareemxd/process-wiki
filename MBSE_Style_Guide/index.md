@@ -135,34 +135,34 @@ Rather than treating modeling as a one-time design activity, the process treats 
 
 ### What to Read Next
 
-Start with **Work Instructions** in the left sidebar. If you prefer a jump list, use the cards below.
+Start with **Work_Instructions** in the left sidebar. If you prefer a jump list, use the cards below.
 
 :::{grid} 2
 :gutter: 2
 
 :::{card} Problem Domain System Context Diagrams
-:link: ./Work Instructions/Problem Domain System Context Diagrams
+:link: ./Work_Instructions/Problem Domain System Context Diagrams
 :link-type: doc
 
 Procedures to create structural diagrams representing a system's problem domain.
 :::
 
 :::{card} Peer Review
-:link: ./Work Instructions/Peer Review
+:link: ./Work_Instructions/Peer Review
 :link-type: doc
 
 Procedure to conduct peer review activities in Cameo Collaborator.
 :::
 
 :::{card} Teamwork Cloud Administrator
-:link: ./Work Instructions/Teamwork Cloud Administrator
+:link: ./Work_Instructions/Teamwork Cloud Administrator
 :link-type: doc
 
 Administration procedures for Teamwork Cloud.
 :::
 
 :::{card} Project Templates
-:link: ./Work Instructions/Project Templates
+:link: ./Work_Instructions/Project Templates
 :link-type: doc
 
 Templates for setting up and configuring SysML projects.

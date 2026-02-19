@@ -28,18 +28,18 @@ def emit_toctree(items, caption=None, maxdepth=2):
 # We'll overwrite index.md to include a generated toctree that matches myst.yml.
 root_title = data["project"].get("title", "Document")
 
-# Pull out the "Work Instructions" group from myst.yml
-work = next((x for x in toc if isinstance(x, dict) and x.get("title") == "Work Instructions"), None)
+# Pull out the "Work_Instructions" group from myst.yml
+work = next((x for x in toc if isinstance(x, dict) and x.get("title") == "Work_Instructions"), None)
 work_children = (work or {}).get("children", [])
 
 content = []
 content.append(f"# {root_title}")
 content.append("")
 if work_children:
-    content.append(emit_toctree(work_children, caption="Work Instructions", maxdepth=2))
+    content.append(emit_toctree(work_children, caption="Work_Instructions", maxdepth=2))
     content.append("")
 else:
-    content.append("> No Work Instructions entries found in myst.yml")
+    content.append("> No Work_Instructions entries found in myst.yml")
     content.append("")
 
 out_index.write_text("\n".join(content), encoding="utf-8")

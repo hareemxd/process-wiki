@@ -1,1 +1,1 @@
-& "C:\ProgramData\anaconda3\condabin\conda.bat" --no-rc create -n test python=3.11 -y --ssl-verify truststore
+cmd /c "set | findstr /I /C:CONDA_SSL_VERIFY /C:SSL_CERT_FILE /C:REQUESTS_CA_BUNDLE /C:CURL_CA_BUNDLE"

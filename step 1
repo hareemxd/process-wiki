@@ -1,1 +1,1 @@
-cmd /c "set | findstr /I /C:CONDA_SSL_VERIFY /C:SSL_CERT_FILE /C:REQUESTS_CA_BUNDLE /C:CURL_CA_BUNDLE"
+$good="C:\Users\David.Ricart\certs\cacert_with_zscaler.pem"; setx CONDA_SSL_VERIFY $good; setx SSL_CERT_FILE $good; setx REQUESTS_CA_BUNDLE $good; setx CURL_CA_BUNDLE $good

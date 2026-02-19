@@ -1,1 +1,1 @@
-$clean="$env:TEMP\clean_condarc"; "ssl_verify: truststore" | Set-Content -Encoding ascii $clean; $env:CONDARC=$clean; $env:CONDA_RC_FILES=$clean; & "C:\ProgramData\anaconda3\condabin\conda.bat" create -n test python=3.11 -y
+& "C:\ProgramData\anaconda3\condabin\conda.bat" --no-rc create -n test python=3.11 -y --ssl-verify truststore

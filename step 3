@@ -1,0 +1,7 @@
+$ca = "C:\Users\David.Ricart\certs\cacert_with_zscaler.pem"
+$env:CURL_CA_BUNDLE = $ca
+$env:SSL_CERT_FILE = $ca
+$env:REQUESTS_CA_BUNDLE = $ca
+$env:CONDA_SSL_VERIFY = $ca
+
+& "C:\ProgramData\anaconda3\Scripts\conda.exe" create -n _ssltest python=3.11 -vv

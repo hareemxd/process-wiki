@@ -1,0 +1,1 @@
+netsh winhttp show proxy & powershell -NoProfile -Command "gci env: | ? Name -match 'http_proxy|https_proxy|proxy' | ft -AutoSize"

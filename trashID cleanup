@@ -1,13 +1,9 @@
-Get-ChildItem ".\confluence" -Recurse -Filter *.md -File | ForEach-Object {
-  $t = Get-Content $_.FullName -Raw
-  $u = $t `
+Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
+    (Get-Content $_.FullName) `
+    -replace '&iuml;','ï' `
+    -replace '&eacute;','é' `
     -replace '&larr;','←' `
     -replace '&rarr;','→' `
-    -replace '&uarr;','↑' `
-    -replace '&darr;','↓' `
-    -replace '&nbsp;',' '
-  if ($u -ne $t) {
-    Set-Content -LiteralPath $_.FullName -Value $u -Encoding utf8
-    Write-Host "Replaced entities in:" $_.FullName
-  }
+    -replace '&mdash;','—' `
+    | Set-Content $_.FullName -Encoding utf8
 }

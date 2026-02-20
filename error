@@ -1,71 +1,76 @@
 (C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide>python -m md2conf --heading-anchors --keep-hierarchy --root-page 30113793 "docs"
-2026-02-20 10:37:00,287 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 10:37:01,863 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 10:37:03,056 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 10:37:03,057 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs
-2026-02-20 10:37:03,058 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs
-2026-02-20 10:37:03,062 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\index.md
-2026-02-20 10:37:03,088 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img
-2026-02-20 10:37:03,123 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\index.md
-2026-02-20 10:37:03,128 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\MBSE
-2026-02-20 10:37:03,147 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\MBSE\index.md
-2026-02-20 10:37:03,152 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions
-2026-02-20 10:37:03,153 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\index.md
-2026-02-20 10:37:03,170 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
-2026-02-20 10:37:03,192 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 10:37:03,218 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Project Templates.md
-2026-02-20 10:37:03,236 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 10:37:03,255 - INFO - process_directory [128] - Indexed 7 document(s)
-2026-02-20 10:37:03,417 - INFO - page_exists [321] - Checking if page exists with title: index [d680e8a854a7cbad6d49c445cba2eba]
-2026-02-20 10:37:04,100 - INFO - page_exists [321] - Checking if page exists with title: index [4c41a4dcf0a43fea4e457121deb93ed]
-2026-02-20 10:37:04,246 - INFO - create_page [277] - Creating page: index [4c41a4dcf0a43fea4e457121deb93ed]
-2026-02-20 10:37:05,175 - INFO - page_exists [321] - Checking if page exists with title: index [579587614aeaf2e845d6f7028584a0]
-2026-02-20 10:37:05,313 - INFO - create_page [277] - Creating page: index [579587614aeaf2e845d6f7028584a0]
-2026-02-20 10:37:07,115 - INFO - _has_changes [304] - Up-to-date page (matching checksum): 30244865
-2026-02-20 10:37:07,410 - INFO - _has_changes [324] - Detected page with updated content: 30408705
-2026-02-20 10:37:07,410 - INFO - update_page [262] - Updating page: 30408705
-2026-02-20 10:37:08,481 - INFO - _has_changes [324] - Detected page with updated content: 30441473
-2026-02-20 10:37:08,481 - INFO - update_page [262] - Updating page: 30441473
-2026-02-20 10:37:09,576 - INFO - _has_changes [304] - Up-to-date page (matching checksum): 30244865
-2026-02-20 10:37:09,651 - ERROR - _exception_hook [173] - Exception raised: ConversionError
-Traceback (most recent call last):
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1803, in __init__
-    converter.visit(self.root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 252, in visit
-    target = self.transform(source)
-             ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1576, in transform
-    return self._transform_github_alert(child)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 956, in _transform_github_alert
-    raise DocumentError(blockquote, "not a GitHub alert")
-md2conf.converter.DocumentError: not a GitHub alert
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
-    main()
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
-    publisher.process(item)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 320, in process
-    self.process_directory(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 337, in process_directory
-    self.factory.create(root_dir).process_directory(local_dir)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 130, in process_directory
-    self._process_items(root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 169, in _process_items
-    self._synchronize_page(path, ConfluencePageID(metadata.page_id))
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 176, in _synchronize_page
-    page_id, document = ConfluenceDocument.create(path, self.options, self.root_dir, self.site, self.page_metadata)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1735, in create
-    return page_id, ConfluenceDocument(path, document, options, root_dir, site_metadata, page_metadata)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1818, in __init__
-    raise ConversionError(f"failed to convert Markdown file: {path}") from ex
-md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
-ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
-DocumentError: not a GitHub alert
+2026-02-20 10:45:40,789 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 10:45:42,054 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 10:45:43,230 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 10:45:43,232 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs
+2026-02-20 10:45:43,232 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs
+2026-02-20 10:45:43,232 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\index.md
+2026-02-20 10:45:43,235 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img
+2026-02-20 10:45:43,241 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\index.md
+2026-02-20 10:45:43,246 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\MBSE
+2026-02-20 10:45:43,252 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\MBSE\index.md
+2026-02-20 10:45:43,256 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions
+2026-02-20 10:45:43,257 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\index.md
+2026-02-20 10:45:43,259 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
+2026-02-20 10:45:43,284 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 10:45:43,304 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Project Templates.md
+2026-02-20 10:45:43,307 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 10:45:43,326 - INFO - process_directory [128] - Indexed 7 document(s)
+2026-02-20 10:45:43,474 - ERROR - _exception_hook [173] - Exception raised: ClassValidationError
+  + Exception Group Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+  |     main()
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
+  |     publisher.process(item)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 320, in process
+  |     self.process_directory(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 337, in process_directory
+  |     self.factory.create(root_dir).process_directory(local_dir)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 130, in process_directory
+  |     self._process_items(root)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
+  |     self._synchronize_tree(root, self.options.root_page)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 138, in _synchronize_tree
+  |     topmost_id = self._get_topmost_id(tree.page_id, root_id.page_id if root_id is not None else None)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 154, in _get_topmost_id
+  |     return self.api.get_page_properties(str(page_id)).parentId
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_v2.py", line 240, in get_page_properties
+  |     return self._get(ConfluenceVersion.VERSION_2, path, ConfluencePageProperties)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 123, in _get
+  |     return self._get_impl(version, path, response_type, query=query)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 136, in _get_impl
+  |     return json_to_object(response_type, response.json())
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\serializer.py", line 53, in json_to_object
+  |     return _converter.structure(data, typ)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\converters.py", line 591, in structure
+  |     return self._structure_func.dispatch(cl)(obj, cl)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 64, in structure_ConfluencePageProperties        
+  |     if errors: raise __c_cve('While structuring ' + 'ConfluencePageProperties', errors, __cl)
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  | cattrs.errors.ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 10, in structure_ConfluencePageProperties      
+    |     res['status'] = __c_structure_status(o['status'], __c_type_status)
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\enums.py", line 36, in <lambda>
+    |     return lambda v, _: type(v)
+    |                         ^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 751, in __call__
+    |     return cls.__new__(cls, value)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 1170, in __new__
+    |     raise ve_exc
+    | ValueError: 'trashed' is not a valid ConfluenceStatus
+    | Structuring class ConfluencePageProperties @ attribute status
+    +------------------------------------
+ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)

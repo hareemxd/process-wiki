@@ -1,12 +1,268 @@
-$parent = 30113793
-$root = Resolve-Path -LiteralPath "."   # current directory
-$wi   = Join-Path $root "confluence\Work Instructions"
-
-if (-not (Test-Path -LiteralPath $wi)) {
-  throw "Folder not found: $wi"
-}
-
-Get-ChildItem -LiteralPath $wi -Recurse -Filter *.md -File | ForEach-Object {
-  Write-Host "Publishing:" $_.FullName
-  python -m md2conf --heading-anchors -r $parent "$($_.FullName)"
-}
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> $parent = 30113793
+>> $root = Resolve-Path -LiteralPath "."   # current directory
+>> $wi   = Join-Path $root "confluence\Work Instructions"
+>>
+>> if (-not (Test-Path -LiteralPath $wi)) {
+>>   throw "Folder not found: $wi"
+>> }
+>>
+>> Get-ChildItem -LiteralPath $wi -Recurse -Filter *.md -File | ForEach-Object {
+>>   Write-Host "Publishing:" $_.FullName
+>>   python -m md2conf --heading-anchors -r $parent "$($_.FullName)"
+>> }
+Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:22:24,503 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:22:24,840 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:22:25,128 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:22:25,132 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:22:25,132 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:22:25,298 - ERROR - _exception_hook [173] - Exception raised: ClassValidationError
+  + Exception Group Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+  |     main()
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
+  |     publisher.process(item)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
+  |     self.process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
+  |     self.factory.create(root_dir).process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
+  |     self._process_items(root)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
+  |     self._synchronize_tree(root, self.options.root_page)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 138, in _synchronize_tree
+  |     topmost_id = self._get_topmost_id(tree.page_id, root_id.page_id if root_id is not None else None)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 154, in _get_topmost_id
+  |     return self.api.get_page_properties(str(page_id)).parentId
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_v2.py", line 240, in get_page_properties
+  |     return self._get(ConfluenceVersion.VERSION_2, path, ConfluencePageProperties)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 123, in _get
+  |     return self._get_impl(version, path, response_type, query=query)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 136, in _get_impl
+  |     return json_to_object(response_type, response.json())
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\serializer.py", line 53, in json_to_object
+  |     return _converter.structure(data, typ)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\converters.py", line 591, in structure
+  |     return self._structure_func.dispatch(cl)(obj, cl)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 64, in structure_ConfluencePageProperties
+  |     if errors: raise __c_cve('While structuring ' + 'ConfluencePageProperties', errors, __cl)
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  | cattrs.errors.ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 10, in structure_ConfluencePageProperties
+    |     res['status'] = __c_structure_status(o['status'], __c_type_status)
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\enums.py", line 36, in <lambda>
+    |     return lambda v, _: type(v)
+    |                         ^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 751, in __call__
+    |     return cls.__new__(cls, value)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 1170, in __new__
+    |     raise ve_exc
+    | ValueError: 'trashed' is not a valid ConfluenceStatus
+    | Structuring class ConfluencePageProperties @ attribute status
+    +------------------------------------
+ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:22:27,595 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:22:27,905 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:22:28,125 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:22:28,128 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:22:28,128 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:22:28,368 - ERROR - _exception_hook [173] - Exception raised: ClassValidationError
+  + Exception Group Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+  |     main()
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
+  |     publisher.process(item)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
+  |     self.process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
+  |     self.factory.create(root_dir).process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
+  |     self._process_items(root)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
+  |     self._synchronize_tree(root, self.options.root_page)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 138, in _synchronize_tree
+  |     topmost_id = self._get_topmost_id(tree.page_id, root_id.page_id if root_id is not None else None)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 154, in _get_topmost_id
+  |     return self.api.get_page_properties(str(page_id)).parentId
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_v2.py", line 240, in get_page_properties
+  |     return self._get(ConfluenceVersion.VERSION_2, path, ConfluencePageProperties)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 123, in _get
+  |     return self._get_impl(version, path, response_type, query=query)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 136, in _get_impl
+  |     return json_to_object(response_type, response.json())
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\serializer.py", line 53, in json_to_object
+  |     return _converter.structure(data, typ)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\converters.py", line 591, in structure
+  |     return self._structure_func.dispatch(cl)(obj, cl)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 64, in structure_ConfluencePageProperties
+  |     if errors: raise __c_cve('While structuring ' + 'ConfluencePageProperties', errors, __cl)
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  | cattrs.errors.ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 10, in structure_ConfluencePageProperties
+    |     res['status'] = __c_structure_status(o['status'], __c_type_status)
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\enums.py", line 36, in <lambda>
+    |     return lambda v, _: type(v)
+    |                         ^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 751, in __call__
+    |     return cls.__new__(cls, value)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 1170, in __new__
+    |     raise ve_exc
+    | ValueError: 'trashed' is not a valid ConfluenceStatus
+    | Structuring class ConfluencePageProperties @ attribute status
+    +------------------------------------
+ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:22:30,547 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:22:30,860 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:22:31,069 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:22:31,072 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:22:31,072 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:22:31,241 - ERROR - _exception_hook [173] - Exception raised: ClassValidationError
+  + Exception Group Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+  |     main()
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
+  |     publisher.process(item)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
+  |     self.process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
+  |     self.factory.create(root_dir).process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
+  |     self._process_items(root)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
+  |     self._synchronize_tree(root, self.options.root_page)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 138, in _synchronize_tree
+  |     topmost_id = self._get_topmost_id(tree.page_id, root_id.page_id if root_id is not None else None)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 154, in _get_topmost_id
+  |     return self.api.get_page_properties(str(page_id)).parentId
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_v2.py", line 240, in get_page_properties
+  |     return self._get(ConfluenceVersion.VERSION_2, path, ConfluencePageProperties)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 123, in _get
+  |     return self._get_impl(version, path, response_type, query=query)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 136, in _get_impl
+  |     return json_to_object(response_type, response.json())
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\serializer.py", line 53, in json_to_object
+  |     return _converter.structure(data, typ)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\converters.py", line 591, in structure
+  |     return self._structure_func.dispatch(cl)(obj, cl)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 64, in structure_ConfluencePageProperties
+  |     if errors: raise __c_cve('While structuring ' + 'ConfluencePageProperties', errors, __cl)
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  | cattrs.errors.ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 10, in structure_ConfluencePageProperties
+    |     res['status'] = __c_structure_status(o['status'], __c_type_status)
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\enums.py", line 36, in <lambda>
+    |     return lambda v, _: type(v)
+    |                         ^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 751, in __call__
+    |     return cls.__new__(cls, value)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 1170, in __new__
+    |     raise ve_exc
+    | ValueError: 'trashed' is not a valid ConfluenceStatus
+    | Structuring class ConfluencePageProperties @ attribute status
+    +------------------------------------
+ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:22:33,408 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:22:33,703 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:22:33,913 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:22:33,917 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:22:33,917 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:22:34,109 - ERROR - _exception_hook [173] - Exception raised: ClassValidationError
+  + Exception Group Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+  |     main()
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
+  |     publisher.process(item)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
+  |     self.process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
+  |     self.factory.create(root_dir).process_page(path)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
+  |     self._process_items(root)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
+  |     self._synchronize_tree(root, self.options.root_page)
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 138, in _synchronize_tree
+  |     topmost_id = self._get_topmost_id(tree.page_id, root_id.page_id if root_id is not None else None)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 154, in _get_topmost_id
+  |     return self.api.get_page_properties(str(page_id)).parentId
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_v2.py", line 240, in get_page_properties
+  |     return self._get(ConfluenceVersion.VERSION_2, path, ConfluencePageProperties)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 123, in _get
+  |     return self._get_impl(version, path, response_type, query=query)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 136, in _get_impl
+  |     return json_to_object(response_type, response.json())
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\serializer.py", line 53, in json_to_object
+  |     return _converter.structure(data, typ)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\converters.py", line 591, in structure
+  |     return self._structure_func.dispatch(cl)(obj, cl)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 64, in structure_ConfluencePageProperties
+  |     if errors: raise __c_cve('While structuring ' + 'ConfluencePageProperties', errors, __cl)
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  | cattrs.errors.ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<cattrs generated structure md2conf.api_types.ConfluencePageProperties>", line 10, in structure_ConfluencePageProperties
+    |     res['status'] = __c_structure_status(o['status'], __c_type_status)
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\cattrs\enums.py", line 36, in <lambda>
+    |     return lambda v, _: type(v)
+    |                         ^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 751, in __call__
+    |     return cls.__new__(cls, value)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\enum.py", line 1170, in __new__
+    |     raise ve_exc
+    | ValueError: 'trashed' is not a valid ConfluenceStatus
+    | Structuring class ConfluencePageProperties @ attribute status
+    +------------------------------------
+ClassValidationError: While structuring ConfluencePageProperties (1 sub-exception)

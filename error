@@ -1,45 +1,45 @@
-C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide>python -m md2conf --heading-anchors --keep-hierarchy --root-page 30113793 "Work Instructions"
-2026-02-20 10:30:57,969 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 10:30:59,519 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 10:31:00,779 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 10:31:00,781 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions
-2026-02-20 10:31:00,782 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions
-2026-02-20 10:31:00,787 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\index.md
-2026-02-20 10:31:00,812 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\Peer Review.md
-2026-02-20 10:31:00,842 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 10:31:00,864 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\Project Templates.md
-2026-02-20 10:31:00,883 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 10:31:00,904 - INFO - process_directory [128] - Indexed 4 document(s)
-2026-02-20 10:31:01,069 - INFO - page_exists [321] - Checking if page exists with title: index [d680e8a854a7cbad6d49c445cba2eba]
-2026-02-20 10:31:01,193 - INFO - create_page [277] - Creating page: index [d680e8a854a7cbad6d49c445cba2eba]
-2026-02-20 10:31:02,222 - INFO - page_exists [321] - Checking if page exists with title: Peer Review
-2026-02-20 10:31:02,335 - INFO - create_page [277] - Creating page: Peer Review
-2026-02-20 10:31:03,324 - INFO - page_exists [321] - Checking if page exists with title: Project Templates
-2026-02-20 10:31:03,445 - INFO - create_page [277] - Creating page: Project Templates
-2026-02-20 10:31:04,315 - INFO - page_exists [321] - Checking if page exists with title: Teamwork Cloud Administrator
-2026-02-20 10:31:04,449 - INFO - create_page [277] - Creating page: Teamwork Cloud Administrator
-2026-02-20 10:31:05,455 - INFO - _has_changes [324] - Detected page with updated content: 30244865
-2026-02-20 10:31:05,455 - INFO - update_page [262] - Updating page: 30244865
-2026-02-20 10:31:06,311 - ERROR - _exception_hook [173] - Exception raised: ConversionError
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide>python -m md2conf --heading-anchors --keep-hierarchy --root-page 30113793 "docs"
+2026-02-20 10:37:00,287 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 10:37:01,863 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 10:37:03,056 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 10:37:03,057 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs
+2026-02-20 10:37:03,058 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs
+2026-02-20 10:37:03,062 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\index.md
+2026-02-20 10:37:03,088 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img
+2026-02-20 10:37:03,123 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\index.md
+2026-02-20 10:37:03,128 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\MBSE
+2026-02-20 10:37:03,147 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\img\MBSE\index.md
+2026-02-20 10:37:03,152 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions
+2026-02-20 10:37:03,153 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\index.md
+2026-02-20 10:37:03,170 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
+2026-02-20 10:37:03,192 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 10:37:03,218 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Project Templates.md
+2026-02-20 10:37:03,236 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 10:37:03,255 - INFO - process_directory [128] - Indexed 7 document(s)
+2026-02-20 10:37:03,417 - INFO - page_exists [321] - Checking if page exists with title: index [d680e8a854a7cbad6d49c445cba2eba]
+2026-02-20 10:37:04,100 - INFO - page_exists [321] - Checking if page exists with title: index [4c41a4dcf0a43fea4e457121deb93ed]
+2026-02-20 10:37:04,246 - INFO - create_page [277] - Creating page: index [4c41a4dcf0a43fea4e457121deb93ed]
+2026-02-20 10:37:05,175 - INFO - page_exists [321] - Checking if page exists with title: index [579587614aeaf2e845d6f7028584a0]
+2026-02-20 10:37:05,313 - INFO - create_page [277] - Creating page: index [579587614aeaf2e845d6f7028584a0]
+2026-02-20 10:37:07,115 - INFO - _has_changes [304] - Up-to-date page (matching checksum): 30244865
+2026-02-20 10:37:07,410 - INFO - _has_changes [324] - Detected page with updated content: 30408705
+2026-02-20 10:37:07,410 - INFO - update_page [262] - Updating page: 30408705
+2026-02-20 10:37:08,481 - INFO - _has_changes [324] - Detected page with updated content: 30441473
+2026-02-20 10:37:08,481 - INFO - update_page [262] - Updating page: 30441473
+2026-02-20 10:37:09,576 - INFO - _has_changes [304] - Up-to-date page (matching checksum): 30244865
+2026-02-20 10:37:09,651 - ERROR - _exception_hook [173] - Exception raised: ConversionError
 Traceback (most recent call last):
   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1803, in __init__
     converter.visit(self.root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 257, in visit
-    self.visit(source)
   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 252, in visit
     target = self.transform(source)
              ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1635, in transform
-    return self._transform_image(FormattingContext.INLINE, child)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 714, in _transform_image
-    absolute_path = self._verify_image_path(image, path)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 762, in _verify_image_path
-    self._warn_or_raise(image, f"path to image {path} points to outside root path {self.root_dir}")
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 744, in _warn_or_raise
-    raise DocumentError(image, msg)
-md2conf.converter.DocumentError: path to image ..\img\MBSE\peerreviewmetamodel.png points to outside root path C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1576, in transform
+    return self._transform_github_alert(child)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 956, in _transform_github_alert
+    raise DocumentError(blockquote, "not a GitHub alert")
+md2conf.converter.DocumentError: not a GitHub alert
 
 The above exception was the direct cause of the following exception:
 
@@ -66,6 +66,6 @@ Traceback (most recent call last):
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1818, in __init__
     raise ConversionError(f"failed to convert Markdown file: {path}") from ex
-md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\Peer Review.md
-ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions\Peer Review.md
-DocumentError: path to image ..\img\MBSE\peerreviewmetamodel.png points to outside root path C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\Work Instructions
+md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
+ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\docs\Work Instructions\Peer Review.md
+DocumentError: not a GitHub alert

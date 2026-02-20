@@ -1,0 +1,16 @@
+Get-ChildItem ".\confluence" -Recurse -Filter *.md -File | ForEach-Object {
+  if ($_.FullName -like "*\confluence\Work Instructions\index.md") { return }
+
+  $t = Get-Content $_.FullName -Raw
+
+  # remove common md2conf id markers (covers a few variants)
+  $u = $t `
+    -replace '(?im)^\s*<!--\s*confluence[- ]page[- ]id\s*:\s*\d+\s*-->\s*\r?\n?', '' `
+    -replace '(?im)^\s*<!--\s*confluence[- ]page[- ]id\s*=\s*\d+\s*-->\s*\r?\n?', '' `
+    -replace '(?im)^\s*<!--\s*page[- ]id\s*:\s*\d+\s*-->\s*\r?\n?', ''
+
+  if ($u -ne $t) {
+    Set-Content -LiteralPath $_.FullName -Value $u -Encoding utf8
+    Write-Host "Cleaned:" $_.FullName
+  }
+}

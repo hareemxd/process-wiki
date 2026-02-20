@@ -1,0 +1,134 @@
+
+import re
+from pathlib import Path
+
+def slugify(text: str) -> str:
+    s = text.lower().strip()
+    s = re.sub(r"[^\w\s-]", "", s)
+    s = re.sub(r"\s+", "-", s)
+    s = re.sub(r"-{2,}", "-", s)
+    return s
+
+FIG_RE = re.compile(
+    r":::\{figure\}\s+(?P<path>[^\n]+)\n(?P<meta>(?::[^\n]+\n)*)\n?(?P<caption>.*?)\n:::\s*",
+    re.DOTALL
+)
+
+TABLE_RE = re.compile(
+    r"```{\s*list-table\s*}\s*(?P<title>[^\n]*)\n(?P<meta>(?::[^\n]+\n)*)\n(?P<body>.*?)```",
+    re.DOTALL
+)
+
+NAME_RE = re.compile(r":name:\s*(\S+)")
+NUMREF_RE = re.compile(r"\{numref\}`([^`]+)`")
+LINK_RE = re.compile(r"\[([^\]]+)\]\(#([^)]+)\)")
+
+def parse_rows(body):
+    rows = []
+    current = []
+    for line in body.splitlines():
+        line=line.rstrip()
+        if line.startswith("* - "):
+            if current:
+                rows.append(current)
+            current=[line[4:].strip()]
+        elif line.strip().startswith("- "):
+            current.append(line.strip()[2:].strip())
+        else:
+            if current and line.strip():
+                current[-1]+= " "+line.strip()
+    if current:
+        rows.append(current)
+    return rows
+
+def md_table(rows):
+    if not rows: return ""
+    w=max(len(r) for r in rows)
+    rows=[r+[""]*(w-len(r)) for r in rows]
+    out=[]
+    out.append("| "+" | ".join(rows[0])+" |")
+    out.append("|"+"|".join(["---"]*len(rows[0]))+"|")
+    for r in rows[1:]:
+        out.append("| "+" | ".join(r)+" |")
+    return "\n".join(out)
+
+def convert(text):
+    id_to_slug={}
+    id_to_label={}
+
+    def fig(m):
+        path=m.group("path").strip().replace("\\","/")
+        meta=m.group("meta") or ""
+        caption=m.group("caption").strip()
+        name_match=NAME_RE.search(meta)
+
+        num=""
+        if name_match:
+            raw=name_match.group(1)
+            num=re.findall(r'\d+',raw)
+            num=num[0] if num else ""
+        label=f"Figure {num}".strip()
+        title=f"{label} — {caption}" if num else caption
+        slug=slugify(title)
+
+        if name_match:
+            id_to_slug[name_match.group(1)]=slug
+            id_to_label[name_match.group(1)]=label
+
+        return f"\n### {title}\n\n![{caption}]({path})\n"
+
+    text=FIG_RE.sub(fig,text)
+
+    def table(m):
+        title=m.group("title").strip()
+        meta=m.group("meta") or ""
+        body=m.group("body") or ""
+        rows=parse_rows(body)
+
+        name_match=NAME_RE.search(meta)
+        num=""
+        if name_match:
+            raw=name_match.group(1)
+            num=re.findall(r'\d+',raw)
+            num=num[0] if num else ""
+
+        label=f"Table {num}".strip()
+        full=f"{label} — {title}" if num else title
+        slug=slugify(full)
+
+        if name_match:
+            id_to_slug[name_match.group(1)]=slug
+            id_to_label[name_match.group(1)]=label
+
+        return f"\n### {full}\n\n{md_table(rows)}\n"
+
+    text=TABLE_RE.sub(table,text)
+
+    def numref(m):
+        key=m.group(1)
+        if key in id_to_slug:
+            return f"[{id_to_label[key]}](#{id_to_slug[key]})"
+        return m.group(0)
+
+    text=NUMREF_RE.sub(numref,text)
+
+    def link(m):
+        label=m.group(1)
+        key=m.group(2)
+        if key in id_to_slug:
+            return f"[{label}](#{id_to_slug[key]})"
+        return m.group(0)
+
+    text=LINK_RE.sub(link,text)
+    return text
+
+def main():
+    for md in Path(".").rglob("*.md"):
+        original=md.read_text(encoding="utf-8")
+        updated=convert(original)
+        if updated!=original:
+            md.write_text(updated,encoding="utf-8")
+            print("Updated:",md)
+
+if __name__=="__main__":
+    main()

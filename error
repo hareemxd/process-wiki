@@ -1,11 +1,42 @@
-(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> $parent = 30113793; Get-ChildItem -LiteralPath ".\confluence\Work Instructions" -Recurse -Filter *.md -File | ForEach-Object { pyth
-on -m md2conf --heading-anchors --root-page $parent "$($_.FullName)"}
-2026-02-20 12:33:01,808 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:33:02,295 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:33:02,614 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:33:02,621 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:33:02,622 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:33:02,817 - ERROR - _exception_hook [173] - Exception raised: PageError
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> python -m md2conf --heading-anchors --keep-hierarchy ".\confluence\Work Instructions"
+2026-02-20 12:39:08,837 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:39:09,327 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:39:09,658 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:39:09,660 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
+2026-02-20 12:39:09,661 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
+2026-02-20 12:39:09,662 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\index.md
+2026-02-20 12:39:09,664 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:39:09,678 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:39:09,685 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:39:09,692 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:39:09,697 - INFO - process_directory [128] - Indexed 4 document(s)
+2026-02-20 12:39:10,102 - INFO - page_exists [321] - Checking if page exists with title: index [d680e8a854a7cbad6d49c445cba2eba]
+2026-02-20 12:39:10,227 - INFO - create_page [277] - Creating page: index [d680e8a854a7cbad6d49c445cba2eba]
+2026-02-20 12:39:12,125 - INFO - _has_changes [324] - Detected page with updated content: 30474243
+2026-02-20 12:39:12,126 - INFO - update_page [262] - Updating page: 30474243
+2026-02-20 12:39:13,319 - ERROR - _exception_hook [173] - Exception raised: ConversionError
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1803, in __init__
+    converter.visit(self.root)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 257, in visit
+    self.visit(source)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 252, in visit
+    target = self.transform(source)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1635, in transform
+    return self._transform_image(FormattingContext.INLINE, child)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 714, in _transform_image
+    absolute_path = self._verify_image_path(image, path)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 762, in _verify_image_path
+    self._warn_or_raise(image, f"path to image {path} points to outside root path {self.root_dir}")
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 744, in _warn_or_raise
+    raise DocumentError(image, msg)
+md2conf.converter.DocumentError: path to image ..\assets\MBSE\peerreviewmetamodel.png points to outside root path C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -13,90 +44,22 @@ Traceback (most recent call last):
     main()
   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
     publisher.process(item)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
-    self.process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
-    self.factory.create(root_dir).process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 320, in process
+    self.process_directory(path)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 337, in process_directory
+    self.factory.create(root_dir).process_directory(local_dir)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 130, in process_directory
     self._process_items(root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
-    self._synchronize_tree(root, self.options.root_page)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 140, in _synchronize_tree
-    raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
-md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:33:06,112 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:33:06,423 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:33:06,636 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:33:06,639 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:33:06,639 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:33:06,849 - ERROR - _exception_hook [173] - Exception raised: PageError
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
-    main()
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
-    publisher.process(item)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
-    self.process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
-    self.factory.create(root_dir).process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
-    self._process_items(root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
-    self._synchronize_tree(root, self.options.root_page)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 140, in _synchronize_tree
-    raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
-md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:33:10,400 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:33:10,812 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:33:11,075 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:33:11,079 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:33:11,079 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:33:11,311 - ERROR - _exception_hook [173] - Exception raised: PageError
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
-    main()
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
-    publisher.process(item)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
-    self.process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
-    self.factory.create(root_dir).process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
-    self._process_items(root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
-    self._synchronize_tree(root, self.options.root_page)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 140, in _synchronize_tree
-    raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
-md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:33:17,242 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:33:17,643 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:33:17,888 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:33:17,928 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 12:33:18,019 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 12:33:18,278 - ERROR - _exception_hook [173] - Exception raised: PageError
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
-    main()
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
-    publisher.process(item)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 322, in process
-    self.process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 350, in process_page
-    self.factory.create(root_dir).process_page(path)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 140, in process_page
-    self._process_items(root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 164, in _process_items
-    self._synchronize_tree(root, self.options.root_page)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 140, in _synchronize_tree
-    raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
-md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 169, in _process_items
+    self._synchronize_page(path, ConfluencePageID(metadata.page_id))
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 176, in _synchronize_page
+    page_id, document = ConfluenceDocument.create(path, self.options, self.root_dir, self.site, self.page_metadata)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1735, in create
+    return page_id, ConfluenceDocument(path, document, options, root_dir, site_metadata, page_metadata)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1818, in __init__
+    raise ConversionError(f"failed to convert Markdown file: {path}") from ex
+md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+DocumentError: path to image ..\assets\MBSE\peerreviewmetamodel.png points to outside root path C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions

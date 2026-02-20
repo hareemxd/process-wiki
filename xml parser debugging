@@ -1,0 +1,224 @@
+<ac:structured-macro ac:name="info" ac:schema-version="1" ac:macro-id="afb24127-85c5-45bf-a1c2-69491eb5b9e2"><ac:rich-text-body>
+<p>This page has been generated with a tool.</p></ac:rich-text-body></ac:structured-macro>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="082b61a2-d0ce-4cae-b2a1-b43e3a7eede5"><ac:parameter ac:name="">purpose</ac:parameter></ac:structured-macro>Purpose</h1>
+<p>This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create a new SysML project using the Naval Electronics project template and Naval Electronics MBSE styles.</p>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="800b00b6-0a8b-4259-ab8f-1294c76398c1"><ac:parameter ac:name="">company-sysml-meta-model</ac:parameter></ac:structured-macro>Company SysML Meta Model</h1>
+<p>This Work Instruction applies to all spaces of the company Meta Model; see <ac:link ac:anchor="figure-1-company-meta-model"><ac:link-body>Figure 1</ac:link-body></ac:link>.</p>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="b11a5789-ad84-4b59-b42f-00a0966384b4"><ac:parameter ac:name="">figure-1-company-meta-model</ac:parameter></ac:structured-macro>Figure 1  Company Meta Model</h3>
+<p><ac:image ac:alt="Company Meta Model"><ri:attachment ri:filename="PAR_assets_MBSE_peerreviewmetamodel.png" ri:version-at-save="1" /></ac:image> The Modeler should review <ac:link ac:anchor="table-1-work-instruction-inputs"><ac:link-body>Table 1</ac:link-body></ac:link> to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.</p>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="0d874801-b31f-4764-9912-d71ddd2bfd6c"><ac:parameter ac:name="">table-1-work-instruction-inputs</ac:parameter></ac:structured-macro>Table 1  Work Instruction Inputs</h3>
+<table data-layout="default">
+<thead>
+<tr>
+<th>
+<p>Description</p></th>
+<th>
+<p>Reference</p></th></tr></thead>
+<tbody>
+<tr>
+<td>
+<p>The Modeler has access to Cameo Systems Modeler and Teamwork Cloud.</p></td>
+<td>
+<p>Teamwork Cloud Administrator</p></td></tr></tbody></table>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="703cc821-f1c1-4104-9950-caf4334c223e"><ac:parameter ac:name="">roles-and-responsibilities</ac:parameter></ac:structured-macro>Roles and Responsibilities</h1>
+<p>Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in <ac:link ac:anchor="table-2-raci-roles-and-definitions"><ac:link-body>Table 2</ac:link-body></ac:link> and functional areas are assigned roles in <ac:link ac:anchor="table-3-project-templates-raci-chart"><ac:link-body>Table 3</ac:link-body></ac:link>.</p>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="6ab4a5d3-042b-49c6-9e49-657b3d0c87d4"><ac:parameter ac:name="">table-2-raci-roles-and-definitions</ac:parameter></ac:structured-macro>Table 2  <strong>RACI Roles and Definitions</strong></h3>
+<table data-layout="default">
+<thead>
+<tr>
+<th>
+<p>RACI Role</p></th>
+<th>
+<p>Definition</p></th></tr></thead>
+<tbody>
+<tr>
+<td>
+<p>Responsible</p></td>
+<td>
+<p>Stakeholder is the owner of the document.</p></td></tr>
+<tr>
+<td>
+<p>Accountable</p></td>
+<td>
+<p>Stakeholder depends on the document to effectively perform their job duties.</p></td></tr>
+<tr>
+<td>
+<p>Consulted</p></td>
+<td>
+<p>Stakeholder provides input, which may or may not be optional, to the authoring of the document.</p></td></tr>
+<tr>
+<td>
+<p>Informed</p></td>
+<td>
+<p>Stakeholder is made aware of the document.</p></td></tr>
+<tr>
+<td>
+<p>Omitted</p></td>
+<td>
+<p>Not a stakeholder.</p></td></tr></tbody></table>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="3a3c8e68-cd63-4a37-93f8-34202e42ae99"><ac:parameter ac:name="">table-3-project-templates-raci-chart</ac:parameter></ac:structured-macro>Table 3  <strong>Project Templates RACI Chart</strong></h3>
+<table data-layout="default">
+<thead>
+<tr>
+<th>
+<p>Function</p></th>
+<th>
+<p>Role</p></th></tr></thead>
+<tbody>
+<tr>
+<td>
+<p>Systems Engineering</p></td>
+<td>
+<p>R</p></td></tr>
+<tr>
+<td>
+<p>Project Engineering</p></td>
+<td>
+<p>C</p></td></tr>
+<tr>
+<td>
+<p>Configuration Management</p></td>
+<td>
+<p>C</p></td></tr>
+<tr>
+<td>
+<p>Electrical Engineering</p></td>
+<td>
+<p>I</p></td></tr>
+<tr>
+<td>
+<p>Mechanical Engineering</p></td>
+<td>
+<p>I</p></td></tr>
+<tr>
+<td>
+<p>Software Engineering</p></td>
+<td>
+<p>I</p></td></tr>
+<tr>
+<td>
+<p>Test Engineering</p></td>
+<td>
+<p>I</p></td></tr>
+<tr>
+<td>
+<p>Manufacturing</p></td>
+<td>
+<p>I</p></td></tr>
+<tr>
+<td>
+<p>Specialty Engineering</p></td>
+<td>
+<p>I</p></td></tr>
+<tr>
+<td>
+<p>Quality</p></td>
+<td>
+<p>A</p></td></tr>
+<tr>
+<td>
+<p>Training</p></td>
+<td>
+<p>A</p></td></tr>
+<tr>
+<td>
+<p>Business Development</p></td>
+<td>
+<p>I</p></td></tr></tbody></table>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="a14de682-6b1a-4e35-9237-a75c9d3fc8c8"><ac:parameter ac:name="">terms</ac:parameter></ac:structured-macro>Terms</h1>
+<table data-layout="default">
+<thead>
+<tr>
+<th>
+<p>Term</p></th>
+<th>
+<p>Definition</p></th></tr></thead>
+<tbody>
+<tr>
+<td>
+<p>Project Usage</p></td>
+<td>
+<p>a reference to a different project that provides access to that project's model elements</p></td></tr>
+<tr>
+<td>
+<p>Category</p></td>
+<td>
+<p>synonymous with <em>folder</em> in Teamwork Cloud</p></td></tr>
+<tr>
+<td>
+<p>Containment Tree</p></td>
+<td>
+<p>synonymous with <em>file directory</em> in Teamwork Cloud</p></td></tr></tbody></table>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="b90dd39b-b10c-4b3c-a6e3-ed45d5fcfe26"><ac:parameter ac:name="">procedure</ac:parameter></ac:structured-macro>Procedure</h1>
+<h2><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="dbab8009-7bdb-44ef-ac99-35baecf8f9e7"><ac:parameter ac:name="">setup-sysml-project</ac:parameter></ac:structured-macro>Setup SysML project</h2>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="7be3e980-cfbb-4703-8f65-c0c65f23e0ec"><ac:parameter ac:name="">use-the-naval-electronics-project-template</ac:parameter></ac:structured-macro>Use the Naval Electronics Project Template</h3>
+<p>In Cameo Systems Modeler:</p>
+<ol start="1">
+<li>
+<p>Go to <strong>Collaborate &gt; Login</strong>.</p></li>
+<li>
+<p>Select a server, then <strong>OK</strong>, and enter <code>your username</code> and <code>password</code> <strong>&gt; Sign In</strong>.</p></li>
+<li>
+<p>Go to <strong>Collaborate &gt; Open Server Project</strong>, then select <strong>MBSE WG Style Guide Processes &gt; Open</strong>.</p></li></ol>
+<p>After the project opens: </p>
+<ol start="1">
+<li>
+<p>Go to <strong>File &gt; Save Project As</strong>. Select a local destination, enter <code>your project name</code>, then <strong>Save</strong>.</p></li>
+<li>
+<p>Open the local project, then go to <strong>File &gt; Project Properties</strong>.</p></li>
+<li>
+<p>Select <strong>More</strong> and go to <strong>Advanced</strong>.</p></li>
+<li>
+<p>Select <strong>Reset IDs &gt; OK</strong> and <strong>Reset Project ID &gt; OK &gt; OK</strong> to confirm the property updates.</p></li></ol>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="9263a765-475c-454e-9fc1-b0a46aa43b11"><ac:parameter ac:name="">upload-new-project-to-teamwork-cloud</ac:parameter></ac:structured-macro>Upload New Project to Teamwork Cloud</h3>
+<p>In the new project:</p>
+<ol start="1">
+<li>
+<p>Select <strong>Collaborate &gt; Add Project to Server</strong>.</p></li>
+<li>
+<p>Click the ellipses <ac:image ac:alt="ellipses icon"><ri:attachment ri:filename="PAR_assets_MBSE_Ellipses.png" ri:version-at-save="1" /></ac:image> to open the <em>containment tree</em> and select a <em>category</em>.</p></li>
+<li>
+<p>Select <strong>More</strong>, then uncheck <strong>Maintain Mount Points</strong>.</p></li>
+<li>
+<p>Add a comment to the text box (the first commit message of the server project), then select <strong>Add</strong> to upload the project.</p></li></ol>
+<h3><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="397e6663-9da6-4e71-87d7-a011bbae6b3d"><ac:parameter ac:name="">add-the-naval-electronics-styles-project-usage</ac:parameter></ac:structured-macro>Add the Naval Electronics Styles Project Usage</h3>
+<p>In the new project:</p>
+<ol start="1">
+<li>
+<p>Select <strong>Options &gt; Project Usages</strong>.</p></li>
+<li>
+<p>Click the plus <ac:image ac:alt="plus icon"><ri:attachment ri:filename="PAR_assets_MBSE_Plus.png" ri:version-at-save="1" /></ac:image> <strong>&gt; Use Server Project</strong>.</p></li>
+<li>
+<p>Inside the <strong>Naval Electronics</strong> category, select <strong>Naval Electronics Profile</strong>.</p></li>
+<li>
+<p>Select the highest version number, then <strong>OK</strong>.</p></li>
+<li>
+<p>Go to <strong>Collaborate &gt; Commit Changes to Server</strong>. Add a comment to the text box (<code>updated project usages</code>), then <strong>Commit</strong>.</p></li></ol>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="2b90bb5c-9997-486d-b0e3-09031290af6c"><ac:parameter ac:name="">references</ac:parameter></ac:structured-macro>References</h1>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="66ac639d-1669-47f6-9d19-3883929d65c3"><ac:parameter ac:name="">revision-history</ac:parameter></ac:structured-macro>Revision History</h1>
+<table data-layout="default">
+<thead>
+<tr>
+<th>
+<p>Version</p></th>
+<th>
+<p>Revision</p></th>
+<th>
+<p>Date</p></th>
+<th>
+<p>Author</p></th>
+<th>
+<p>Change History</p></th></tr></thead>
+<tbody>
+<tr>
+<td>
+<p>ghp.1</p></td>
+<td>
+<p>-</p></td>
+<td>
+<p>02-10-2026</p></td>
+<td>
+<p>D. Ricart</p></td>
+<td>
+<p>First complete draft deployed to Github Pages using a MyST-powered site generator.</p></td></tr></tbody></table>
+<h1><ac:structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="f46acdf2-9c60-4f12-b65f-29f636802416"><ac:parameter ac:name="">appendix</ac:parameter></ac:structured-macro>Appendix</h1>

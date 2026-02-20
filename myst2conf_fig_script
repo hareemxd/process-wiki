@@ -1,0 +1,49 @@
+import re
+from pathlib import Path
+
+# Converts MyST figure directives:
+# :::{figure} path
+# :align: ...
+# :name: ...
+#
+# Caption text
+# :::
+#
+# into:
+# ![Caption](path)
+#
+# *Figure: Caption*
+FIG_RE = re.compile(
+    r":::\{figure\}\s+(?P<path>[^\n]+)\n"
+    r"(?:(?::[^\n]+\n)*)\n?"
+    r"(?P<caption>.*?)\n"
+    r":::\s*",
+    re.DOTALL
+)
+
+def convert_figures(text: str) -> str:
+    def repl(m: re.Match) -> str:
+        path = m.group("path").strip()
+        caption = m.group("caption").strip()
+        # If caption is empty, fall back to filename
+        if not caption:
+            caption = Path(path).name
+        return f"![{caption}]({path})\n\n*Figure: {caption}*\n"
+    return FIG_RE.sub(repl, text)
+
+def main():
+    root = Path(".")
+    md_files = list(root.rglob("*.md"))
+    changed = 0
+
+    for p in md_files:
+        original = p.read_text(encoding="utf-8")
+        updated = convert_figures(original)
+        if updated != original:
+            p.write_text(updated, encoding="utf-8")
+            changed += 1
+
+    print(f"Updated {changed} markdown file(s).")
+
+if __name__ == "__main__":
+    main()

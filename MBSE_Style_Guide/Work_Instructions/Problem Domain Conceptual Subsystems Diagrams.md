@@ -19,87 +19,59 @@ output:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create structural diagrams to represent the *conceptual subsystems* of the *system of interest* (SoI) in the Problem Domain. The SoI is the primary subject of the modeler's efforts, the system to be designed using the architectural definition realized in the system model.
 # Company SysML Meta Model
 
-This Work Instruction addresses the **Problem Domain White Box - Structure** space of the Company Meta Model; see [Figure 1](#figure1-pdcs).
+This Work Instruction addresses the **Problem Domain White Box - Structure** space of the Company Meta Model; see [Figure 1](#figure-1-company-meta-model).
 
 The modeler defines the subsystems based on the elements defined at the next-higher structural level (system context). This definition removes one layer of abstraction to create a *white box* view of the SoI. Where the *black box* view defines the inputs and outputs of the SoI via external specifications, the white box view defines the top-level architecture of the SoI, each constituent subsystem itself treated as a black box. Over time, the white box and black box views evolve to meet new external specifications/constraints imposed by the Problem Domain.
 
-:::{figure} ../img/MBSE/PDSCDiagramsMetaModel.png
-:align: center
-:name: figure1-pdcs
 
-Company Meta Model
+### Figure 1 — Company Meta Model
 
-:::
+![Company Meta Model](../img/MBSE/PDSCDiagramsMetaModel.png)
+The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-The Modeler should review {numref}`table1-pdcs` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-```{list-table} Work Instruction Inputs
-:header-rows: 1
-:name: table1-pdcs
+### Table 1 — Work Instruction Inputs
 
-* - Description
-  - Reference
-* - The Modeler should be working in a Model using the company MBSE package framework.
-  - Template Work Instruction
+| Description | Reference |
+|---|---|
+| The Modeler should be working in a Model using the company MBSE package framework. | Template Work Instruction |
 
-```
 
 
 # Roles and Responsibilities
 
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`table2-pdcs` and functional areas are assigned roles in {numref}`table3-pdcs`.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#table-2-raci-roles-and-definitions) and functional areas are assigned roles in [Table 3](#table-3-problem-domain-conceptual-subsystems-diagrams-raci-chart).
 
-```{list-table} RACI Roles and Definitions
-:header-rows: 1
-:name: table2-pdcs
 
-* - RACI Role
-  - Definition
-* - Responsible
-  - Stakeholder is the owner of the document.
-* - Accountable
-  - Stakeholder depends on the document to effectively perform their job duties.
-* - Consulted
-  - Stakeholder provides input, which may or may not be optional, to the authoring of the document.
-* - Informed
-  - Stakeholder is made aware of the document.
-* - Omitted
-  - Not a stakeholder.
+### Table 2 — RACI Roles and Definitions
 
-```
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
 
-```{list-table} Problem Domain Conceptual Subsystems Diagrams RACI Chart
-:header-rows: 1
-:name: table3-pdcs
 
-* - Function
-  - Role
-* - Systems Engineering
-  - R
-* - Project Engineering
-  - C
-* - Configuration Management
-  - I
-* - Electrical Engineering
-  - I
-* - Mechanical Engineering
-  - I
-* - Software Engineering
-  - I
-* - Test Engineering
-  - I
-* - Manufacturing
-  - I
-* - Specialty Engineering
-  - I
-* - Quality
-  - A
-* - Training
-  - A
-* - Business Development
-  - A
 
-```
+### Table 3 — Problem Domain Conceptual Subsystems Diagrams RACI Chart
+
+| Function | Role |
+|---|---|
+| Systems Engineering | R |
+| Project Engineering | C |
+| Configuration Management | I |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | A |
+| Training | A |
+| Business Development | A |
+
 
 
 # Terms

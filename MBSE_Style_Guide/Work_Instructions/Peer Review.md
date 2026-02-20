@@ -18,81 +18,53 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures for conducting peer reviews of MBSE artifacts generated in Cameo Systems Modeler (CSM). Adherence to this document ensures that peer reviews conform to company process and quality standards.
 
 # Company SysML Meta Model
-This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure1-mbsepr).
+This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure-1-company-meta-model).
 
-:::{figure} ../img/MBSE/peerreviewmetamodel.png
-:align: center
-:name: figure1-mbsepr
 
-Company Meta Model
+### Figure 1 — Company Meta Model
 
-:::
+![Company Meta Model](../img/MBSE/peerreviewmetamodel.png)
+The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-The Modeler should review {numref}`table1-pr` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-```{list-table} Work Instruction Inputs
-:header-rows: 1
-:name: table1-pr
+### Table 1 — Work Instruction Inputs
 
-* - Description
-  - Reference
-* - The Modeler should be working in a Model using the company MBSE package framework.
-  - Template Work Instruction
+| Description | Reference |
+|---|---|
+| The Modeler should be working in a Model using the company MBSE package framework. | Template Work Instruction |
 
-```
 # Roles and Responsibilities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`table2-pr` and functional areas are assigned roles in {numref}`table3-pr`.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#table-2-raci-roles-and-definitions) and functional areas are assigned roles in [Table 3](#table-3-peer-review-raci-chart).
 
-```{list-table} **RACI Roles and Definitions**
-:header-rows: 1
-:name: table2-pr
 
-* - RACI Role
-  - Definition
-* - Responsible
-  - Stakeholder is the owner of the document.
-* - Accountable
-  - Stakeholder depends on the document to effectively perform their job duties.
-* - Consulted
-  - Stakeholder provides input, which may or may not be optional, to the authoring of the document.
-* - Informed
-  - Stakeholder is made aware of the document.
-* - Omitted
-  - Not a stakeholder.
+### Table 2 — **RACI Roles and Definitions**
 
-```
-```{list-table} **Peer Review RACI Chart**
-:header-rows: 1
-:name: table3-pr
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
 
-* - Function
-  - Role
-* - Systems Engineering
-  - R
-* - Project Engineering
-  - C
-* - Configuration Management
-  - C
-* - Electrical Engineering
-  - I
-* - Mechanical Engineering
-  - I
-* - Software Engineering
-  - I
-* - Test Engineering
-  - I
-* - Manufacturing
-  - I
-* - Specialty Engineering
-  - I
-* - Quality
-  - A
-* - Training
-  - A
-* - Business Development
-  - I
 
-```
+### Table 3 — **Peer Review RACI Chart**
+
+| Function | Role |
+|---|---|
+| Systems Engineering | R |
+| Project Engineering | C |
+| Configuration Management | C |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | A |
+| Training | A |
+| Business Development | I |
+
 
 # Terms
 
@@ -129,14 +101,10 @@ In the Peer Review Project:
 1. Go to **Options > Project Usages**.
 2. On the left, right-click the original project **> Lock**.
 
-:::{figure} ../img/MBSE/peerreviewlockcustomizations.png
-:align: center
-:name: figure2-mbsepr
 
-Lock Project to Update Project Usage
+### Figure 2 — Lock Project to Update Project Usage
 
-:::
-
+![Lock Project to Update Project Usage](../img/MBSE/peerreviewlockcustomizations.png)
 1. Right-click the original project again, then **Change Version > OK > OK**.
 2. Go to **Collaborate > Commit Changes to Server**.
 
@@ -166,31 +134,23 @@ The Peer Review Content Diagram contains instructions for reviewers and model ID
 In the Peer Review Project:
 1. select the search-glass ![search icon](../img/MBSE/Search.png), select **Any Element**, and search `peer review`.
 
-The top result in [Figure 3](#figure3-mbsepr) is the Peer Review Content Diagram Template stored in the Naval Electronics Profile. If you don't see the template, check your project usages.
+The top result in [Figure 3](#figure-3-search-for-peer-review-content-diagram) is the Peer Review Content Diagram Template stored in the Naval Electronics Profile. If you don't see the template, check your project usages.
 
-:::{figure} ../img/MBSE/peerreviewsearch.png
-:align: center
-:name: figure3-mbsepr
 
-Search for Peer Review Content Diagram
+### Figure 3 — Search for Peer Review Content Diagram
 
-:::
-
+![Search for Peer Review Content Diagram](../img/MBSE/peerreviewsearch.png)
 1. Select the template to locate it in the containment tree, then right-click the diagram and **Copy**, then right-click the smart package and **Paste**.
 2. Rename the new copy `smart_package_name CD`.
 3. Update the activity information fields.
 4. Update the diagram's data markings as required.
 5. Drag elements you want to visualize from the smart package into the diagram screen.
-6. Use text headers and hierarchy to organize the content diagram; see [Figure 4](#figure4-mbsepr).
+6. Use text headers and hierarchy to organize the content diagram; see [Figure 4](#figure-4-peer-review-content-diagram).
 
-:::{figure} ../img/MBSE/peerreviewcontentdiagram.png
-:align: center
-:name: figure4-mbsepr
 
-Peer Review Content Diagram
+### Figure 4 — Peer Review Content Diagram
 
-:::
-
+![Peer Review Content Diagram](../img/MBSE/peerreviewcontentdiagram.png)
 ## Initiate Peer Review Activity
 
 This step includes publishing the artifact to Cameo Collaborator, granting permissions to reviewers, and notifying them the activity has started.
@@ -204,17 +164,13 @@ In Cameo:
 3. Open the project category **> Collaborator Files > Peer Reviews > OK**.
 4. Click the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) next to **Scope** to open your project containment tree.
 5. Select the smart package **>** select the plus ![plus icon](../img/MBSE/Plus.png) **> OK**.
-6. Check that your options are configured per [Figure 5](#figure5-mbsepr).
+6. Check that your options are configured per [Figure 5](#figure-5-publish-the-peer-review-artifact).
 7. From **Scope**, copy the smart package name and paste to **Document name > Publish**.
 
-:::{figure} ../img/MBSE/peerreviewpublisher.png
-:align: center
-:name: figure5-mbsepr
 
-Publish the Peer Review Artifact
+### Figure 5 — Publish the Peer Review Artifact
 
-:::
-
+![Publish the Peer Review Artifact](../img/MBSE/peerreviewpublisher.png)
 ### Grant Permissions to Reviewers in Teamwork Cloud
 
 When initiating a review activity, you must confirm that all reviewers have the Review Contributor role for the correct category(s) enabled. Otherwise the reviewers will not be able to access the review artifact. See [Teamwork Cloud Administrator Work Instruction](#references) for more detail.
@@ -230,14 +186,10 @@ Reviewers are tasked with reviewing the artifact and identifying problems with c
 1. Open the artifact in Teamwork Cloud. Review the content diagram notes.
 2. Open an element in the diagram from the main screen or containment tree.
 
-:::{figure} ../img/MBSE/peerreviewcollaboratormenu.png
-:align: center
-:name: figure6-mbsepr
 
-Cameo Collaborator Containment Tree
+### Figure 6 — Cameo Collaborator Containment Tree
 
-:::
-
+![Cameo Collaborator Containment Tree](../img/MBSE/peerreviewcollaboratormenu.png)
 #### Add comment
 
 1. In the element, click the comment tool ![comment icon](../img/MBSE/comment.png) to the bottom right.
@@ -290,31 +242,23 @@ In the peer review content diagram:
 1. Update the review start/close note with the review close version number.
 
 >[!Note]
-The activity documented in [Figure 7](#figure7-mbsepr) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity.
+The activity documented in [Figure 7](#figure-7-peer-review-startclose-note) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity.
   
-:::{figure} ../img/MBSE/peerreviewnote.png
-:align: center
-:name: figure7-mbsepr
 
-Peer Review Start/Close Note
+### Figure 7 — Peer Review Start/Close Note
 
-:::
-
+![Peer Review Start/Close Note](../img/MBSE/peerreviewnote.png)
 1. Go to **Tools > Cameo Collaborator > Publish**.
 2. Select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) by **Category Name** to open the containment tree.
 3. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.
 4. Select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) by **Scope** to open your project containment tree.
 5. Select the peer review artifact, then select the plus ![plus icon](../img/MBSE/Plus.png)**> OK**.
-6. Expand and configure your **Options** per [Figure 8](#figure8-mbsepr), then **Publish**.
+6. Expand and configure your **Options** per [Figure 8](#figure-8-publish-the-completed-peer-review-artifact), then **Publish**.
 
-:::{figure} ../img/MBSE/peerreviewpublisher2.png
-:align: center
-:name: figure8-mbsepr
 
-Publish the Completed Peer Review Artifact
+### Figure 8 — Publish the Completed Peer Review Artifact
 
-:::
-
+![Publish the Completed Peer Review Artifact](../img/MBSE/peerreviewpublisher2.png)
 ### Archive the Peer Review Artifact
 
 In Teamwork Cloud:

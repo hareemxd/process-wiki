@@ -1,42 +1,39 @@
-(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> python -m md2conf --heading-anchors --keep-hierarchy ".\confluence\Work Instructions"
-2026-02-20 12:39:08,837 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:39:09,327 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:39:09,658 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:39:09,660 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
-2026-02-20 12:39:09,661 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
-2026-02-20 12:39:09,662 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\index.md
-2026-02-20 12:39:09,664 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:39:09,678 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:39:09,685 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:39:09,692 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 12:39:09,697 - INFO - process_directory [128] - Indexed 4 document(s)
-2026-02-20 12:39:10,102 - INFO - page_exists [321] - Checking if page exists with title: index [d680e8a854a7cbad6d49c445cba2eba]
-2026-02-20 12:39:10,227 - INFO - create_page [277] - Creating page: index [d680e8a854a7cbad6d49c445cba2eba]
-2026-02-20 12:39:12,125 - INFO - _has_changes [324] - Detected page with updated content: 30474243
-2026-02-20 12:39:12,126 - INFO - update_page [262] - Updating page: 30474243
-2026-02-20 12:39:13,319 - ERROR - _exception_hook [173] - Exception raised: ConversionError
-Traceback (most recent call last):
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1803, in __init__
-    converter.visit(self.root)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 257, in visit
-    self.visit(source)
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 252, in visit
-    target = self.transform(source)
-             ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1635, in transform
-    return self._transform_image(FormattingContext.INLINE, child)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 714, in _transform_image
-    absolute_path = self._verify_image_path(image, path)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 762, in _verify_image_path
-    self._warn_or_raise(image, f"path to image {path} points to outside root path {self.root_dir}")
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 744, in _warn_or_raise
-    raise DocumentError(image, msg)
-md2conf.converter.DocumentError: path to image ..\assets\MBSE\peerreviewmetamodel.png points to outside root path C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
-
-The above exception was the direct cause of the following exception:
-
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> python -m md2conf --heading-anchors --keep-hierarchy ".\confluence"
+2026-02-20 12:43:25,101 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:43:25,418 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:43:25,694 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:43:25,696 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence
+2026-02-20 12:43:25,697 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence
+2026-02-20 12:43:25,697 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\index.md
+2026-02-20 12:43:25,715 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets
+2026-02-20 12:43:25,721 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets\index.md
+2026-02-20 12:43:25,739 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets\MBSE
+2026-02-20 12:43:25,743 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets\MBSE\index.md
+2026-02-20 12:43:25,751 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
+2026-02-20 12:43:25,752 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\index.md
+2026-02-20 12:43:25,768 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:43:25,774 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:43:25,777 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:43:25,781 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:43:25,784 - INFO - process_directory [128] - Indexed 7 document(s)
+2026-02-20 12:43:26,200 - INFO - page_exists [321] - Checking if page exists with title: MBSE Style Guide (Confluence)
+2026-02-20 12:43:26,319 - INFO - create_page [277] - Creating page: MBSE Style Guide (Confluence)
+2026-02-20 12:43:27,298 - INFO - page_exists [321] - Checking if page exists with title: index [2a4b5ba26b5388bfc7ca3e56e86ddd6]
+2026-02-20 12:43:27,425 - INFO - create_page [277] - Creating page: index [2a4b5ba26b5388bfc7ca3e56e86ddd6]
+2026-02-20 12:43:28,285 - INFO - page_exists [321] - Checking if page exists with title: index [a7d17fd982b163b5c2f0adff8e1f7d59]
+2026-02-20 12:43:28,412 - INFO - create_page [277] - Creating page: index [a7d17fd982b163b5c2f0adff8e1f7d59]
+2026-02-20 12:43:30,058 - INFO - _has_changes [324] - Detected page with updated content: 29786114
+2026-02-20 12:43:30,059 - INFO - update_page [262] - Updating page: 29786114
+2026-02-20 12:43:31,189 - INFO - _has_changes [324] - Detected page with updated content: 30507018
+2026-02-20 12:43:31,189 - INFO - update_page [262] - Updating page: 30507018
+2026-02-20 12:43:32,401 - INFO - _has_changes [324] - Detected page with updated content: 30638085
+2026-02-20 12:43:32,402 - INFO - update_page [262] - Updating page: 30638085
+2026-02-20 12:43:33,198 - INFO - page_exists [321] - Checking if page exists with title: Work Instructions
+2026-02-20 12:43:33,462 - INFO - _get_unique_title [357] - Unrelated Confluence page with ID 31064065 has the same inferred title as the Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\index.md
+2026-02-20 12:43:33,750 - INFO - _has_changes [324] - Detected page with updated content: 30113793
+2026-02-20 12:43:33,751 - INFO - update_page [262] - Updating page: 30113793
+2026-02-20 12:43:36,580 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewmetamodel.png
+2026-02-20 12:43:36,813 - ERROR - _exception_hook [173] - Exception raised: HTTPError
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -52,14 +49,14 @@ Traceback (most recent call last):
     self._process_items(root)
   File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 169, in _process_items
     self._synchronize_page(path, ConfluencePageID(metadata.page_id))
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 176, in _synchronize_page
-    page_id, document = ConfluenceDocument.create(path, self.options, self.root_dir, self.site, self.page_metadata)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1735, in create
-    return page_id, ConfluenceDocument(path, document, options, root_dir, site_metadata, page_metadata)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1818, in __init__
-    raise ConversionError(f"failed to convert Markdown file: {path}") from ex
-md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-DocumentError: path to image ..\assets\MBSE\peerreviewmetamodel.png points to outside root path C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 177, in _synchronize_page
+    self._update_page(page_id, document, path)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\publisher.py", line 220, in _update_page
+    self.api.upload_attachment(
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\api_base.py", line 375, in upload_attachment
+    response.raise_for_status()
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/rest/api/content/30277633/child/attachment
+HTTPError: 404 Client Error: Not Found for url: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/rest/api/content/30277633/child/attachment
+2026-02-20 12:43:36,882 - ERROR - _exception_hook [182] - {'statusCode': 404, 'data': {'authorized': True, 'valid': True, 'errors': [], 'successful': True}, 'message': 'com.atlassian.confluence.api.service.exceptions.api.NotFoundException: No content found with id : ContentId{id=30277633} and status [current], there is a content object with status : trashed'}

@@ -1,156 +1,134 @@
+
 import re
 from pathlib import Path
 
-def slugify_heading(text: str) -> str:
-    # GitHub-style-ish slug (good enough for md2conf --heading-anchors)
-    s = text.strip().lower()
-    s = re.sub(r"[^\w\s-]", "", s)      # drop punctuation except hyphen/underscore
-    s = re.sub(r"\s+", "-", s)          # spaces -> hyphen
-    s = re.sub(r"-{2,}", "-", s)        # collapse
+def slugify(text: str) -> str:
+    s = text.lower().strip()
+    s = re.sub(r"[^\w\s-]", "", s)
+    s = re.sub(r"\s+", "-", s)
+    s = re.sub(r"-{2,}", "-", s)
     return s
 
 FIG_RE = re.compile(
-    r":::\{figure\}\s+(?P<path>[^\n]+)\n"
-    r"(?P<meta>(?::[^\n]+\n)*)\n?"
-    r"(?P<caption>.*?)\n"
-    r":::\s*",
+    r":::\{figure\}\s+(?P<path>[^\n]+)\n(?P<meta>(?::[^\n]+\n)*)\n?(?P<caption>.*?)\n:::\s*",
     re.DOTALL
 )
 
-LIST_TABLE_RE = re.compile(
-    r"```{\s*list-table\s*}\s*(?P<title>[^\n]*)\n"
-    r"(?P<meta>(?::[^\n]+\n)*)\n"
-    r"(?P<body>.*?)(?:\n```)\s*",
+TABLE_RE = re.compile(
+    r"```{\s*list-table\s*}\s*(?P<title>[^\n]*)\n(?P<meta>(?::[^\n]+\n)*)\n(?P<body>.*?)```",
     re.DOTALL
 )
 
-NAME_RE = re.compile(r"^:name:\s*(\S+)\s*$", re.MULTILINE)
+NAME_RE = re.compile(r":name:\s*(\S+)")
+NUMREF_RE = re.compile(r"\{numref\}`([^`]+)`")
+LINK_RE = re.compile(r"\[([^\]]+)\]\(#([^)]+)\)")
 
-def parse_list_table_rows(body: str):
-    # Handles simple rows like:
-    # * - A
-    #   - B
-    lines = [ln.rstrip() for ln in body.splitlines() if ln.strip() != ""]
+def parse_rows(body):
     rows = []
     current = []
-    for ln in lines:
-        if ln.startswith("* - "):
+    for line in body.splitlines():
+        line=line.rstrip()
+        if line.startswith("* - "):
             if current:
                 rows.append(current)
-            current = [ln[len("* - "):].strip()]
-        elif ln.strip().startswith("- "):
-            current.append(ln.strip()[len("- "):].strip())
+            current=[line[4:].strip()]
+        elif line.strip().startswith("- "):
+            current.append(line.strip()[2:].strip())
         else:
-            # continuation line -> append to last cell
-            if current:
-                current[-1] += " " + ln.strip()
+            if current and line.strip():
+                current[-1]+= " "+line.strip()
     if current:
         rows.append(current)
     return rows
 
 def md_table(rows):
-    if not rows:
-        return ""
-    # normalize row widths
-    w = max(len(r) for r in rows)
-    rows = [r + [""] * (w - len(r)) for r in rows]
-    header = rows[0]
-    body = rows[1:]
-    out = []
-    out.append("| " + " | ".join(header) + " |")
-    out.append("|" + "|".join(["---"] * len(header)) + "|")
-    for r in body:
-        out.append("| " + " | ".join(r) + " |")
+    if not rows: return ""
+    w=max(len(r) for r in rows)
+    rows=[r+[""]*(w-len(r)) for r in rows]
+    out=[]
+    out.append("| "+" | ".join(rows[0])+" |")
+    out.append("|"+"|".join(["---"]*len(rows[0]))+"|")
+    for r in rows[1:]:
+        out.append("| "+" | ".join(r)+" |")
     return "\n".join(out)
 
-def convert_file(text: str):
-    # Map old myst :name: ids -> new heading slugs
-    name_to_slug = {}
-    name_to_num = {}   # for {numref}
-    fig_counter = 0
-    tbl_counter = 0
+def convert(text):
+    id_to_slug={}
+    id_to_label={}
 
-    # Convert figures
-    def fig_repl(m: re.Match) -> str:
-        nonlocal fig_counter
-        path = m.group("path").strip().replace("\\", "/")
-        meta = m.group("meta") or ""
-        caption = (m.group("caption") or "").strip() or Path(path).name
+    def fig(m):
+        path=m.group("path").strip().replace("\\","/")
+        meta=m.group("meta") or ""
+        caption=m.group("caption").strip()
+        name_match=NAME_RE.search(meta)
 
-        fig_counter += 1
-        heading = f"Figure {fig_counter} — {caption}"
-        slug = slugify_heading(heading)
+        num=""
+        if name_match:
+            raw=name_match.group(1)
+            num=re.findall(r'\d+',raw)
+            num=num[0] if num else ""
+        label=f"Figure {num}".strip()
+        title=f"{label} — {caption}" if num else caption
+        slug=slugify(title)
 
-        nm = NAME_RE.search(meta)
-        if nm:
-            old = nm.group(1).strip()
-            name_to_slug[old] = slug
-            name_to_num[old] = fig_counter
+        if name_match:
+            id_to_slug[name_match.group(1)]=slug
+            id_to_label[name_match.group(1)]=label
 
-        return f"### {heading}\n\n![{caption}]({path})\n"
+        return f"\n### {title}\n\n![{caption}]({path})\n"
 
-    text = FIG_RE.sub(fig_repl, text)
+    text=FIG_RE.sub(fig,text)
 
-    # Convert list-tables
-    def table_repl(m: re.Match) -> str:
-        nonlocal tbl_counter
-        title = (m.group("title") or "").strip() or "Table"
-        meta = m.group("meta") or ""
-        body = m.group("body") or ""
+    def table(m):
+        title=m.group("title").strip()
+        meta=m.group("meta") or ""
+        body=m.group("body") or ""
+        rows=parse_rows(body)
 
-        rows = parse_list_table_rows(body)
-        tbl_counter += 1
-        heading = f"Table {tbl_counter} — {title}"
-        slug = slugify_heading(heading)
+        name_match=NAME_RE.search(meta)
+        num=""
+        if name_match:
+            raw=name_match.group(1)
+            num=re.findall(r'\d+',raw)
+            num=num[0] if num else ""
 
-        nm = NAME_RE.search(meta)
-        if nm:
-            old = nm.group(1).strip()
-            name_to_slug[old] = slug
-            name_to_num[old] = tbl_counter
+        label=f"Table {num}".strip()
+        full=f"{label} — {title}" if num else title
+        slug=slugify(full)
 
-        return f"### {heading}\n\n{md_table(rows)}\n"
+        if name_match:
+            id_to_slug[name_match.group(1)]=slug
+            id_to_label[name_match.group(1)]=label
 
-    text = LIST_TABLE_RE.sub(table_repl, text)
+        return f"\n### {full}\n\n{md_table(rows)}\n"
 
-    # Rewrite [Figure 1](#figure1-pdsc) style links
-    def link_repl(m: re.Match) -> str:
-        label = m.group(1)
-        old_anchor = m.group(2)
-        old_id = old_anchor.lstrip("#")
-        new_slug = name_to_slug.get(old_id)
-        if not new_slug:
-            return m.group(0)
-        return f"[{label}](#{new_slug})"
+    text=TABLE_RE.sub(table,text)
 
-    text = re.sub(r"\[([^\]]+)\]\((#\S+)\)", link_repl, text)
+    def numref(m):
+        key=m.group(1)
+        if key in id_to_slug:
+            return f"[{id_to_label[key]}](#{id_to_slug[key]})"
+        return m.group(0)
 
-    # Rewrite {numref}`table1-pdsc` (and figure ids too)
-    def numref_repl(m: re.Match) -> str:
-        old = m.group(1).strip()
-        new_slug = name_to_slug.get(old)
-        num = name_to_num.get(old)
-        if not new_slug or not num:
-            return m.group(0)
-        # guess type from old id prefix
-        kind = "Table" if old.lower().startswith("table") else "Figure"
-        return f"[{kind} {num}](#{new_slug})"
+    text=NUMREF_RE.sub(numref,text)
 
-    text = re.sub(r"\{numref\}`([^`]+)`", numref_repl, text)
+    def link(m):
+        label=m.group(1)
+        key=m.group(2)
+        if key in id_to_slug:
+            return f"[{label}](#{id_to_slug[key]})"
+        return m.group(0)
 
+    text=LINK_RE.sub(link,text)
     return text
 
 def main():
-    root = Path(".")
-    md_files = list(root.rglob("*.md"))
-    changed = 0
-    for p in md_files:
-        original = p.read_text(encoding="utf-8")
-        updated = convert_file(original)
-        if updated != original:
-            p.write_text(updated, encoding="utf-8")
-            changed += 1
-    print(f"Converted {changed} file(s).")
+    for md in Path(".").rglob("*.md"):
+        original=md.read_text(encoding="utf-8")
+        updated=convert(original)
+        if updated!=original:
+            md.write_text(updated,encoding="utf-8")
+            print("Updated:",md)
 
-if __name__ == "__main__":
+if __name__=="__main__":
     main()

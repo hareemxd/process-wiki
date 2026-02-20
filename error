@@ -1,0 +1,161 @@
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> python -m md2conf --heading-anchors --keep-hierarchy ".\confluence"        
+2026-02-20 12:48:32,025 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:48:32,350 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:48:32,621 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:48:32,622 - INFO - process_directory [124] - Processing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence
+2026-02-20 12:48:32,623 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence
+2026-02-20 12:48:32,623 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\index.md
+2026-02-20 12:48:32,625 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets
+2026-02-20 12:48:32,626 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets\index.md
+2026-02-20 12:48:32,627 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets\MBSE
+2026-02-20 12:48:32,628 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\assets\MBSE\index.md
+2026-02-20 12:48:32,629 - INFO - _index_directory [202] - Indexing directory: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions
+2026-02-20 12:48:32,630 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\index.md
+2026-02-20 12:48:32,658 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:48:32,680 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:48:32,689 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:48:32,694 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:48:32,698 - INFO - process_directory [128] - Indexed 7 document(s)
+2026-02-20 12:48:33,180 - INFO - page_exists [321] - Checking if page exists with title: MBSE Style Guide (Confluence)
+2026-02-20 12:48:33,753 - INFO - page_exists [321] - Checking if page exists with title: index [2a4b5ba26b5388bfc7ca3e56e86ddd6]
+2026-02-20 12:48:34,177 - INFO - page_exists [321] - Checking if page exists with title: index [a7d17fd982b163b5c2f0adff8e1f7d59]
+2026-02-20 12:48:34,736 - INFO - page_exists [321] - Checking if page exists with title: Peer Review [bc59655ac314d18eb06e1e379ed79371]
+2026-02-20 12:48:34,819 - INFO - create_page [277] - Creating page: Peer Review [bc59655ac314d18eb06e1e379ed79371]
+2026-02-20 12:48:35,686 - INFO - page_exists [321] - Checking if page exists with title: Problem Domain System Context Diagrams [1dfdbc4c81dd26ac20253b6b2e98bf8e]
+2026-02-20 12:48:35,813 - INFO - create_page [277] - Creating page: Problem Domain System Context Diagrams [1dfdbc4c81dd26ac20253b6b2e98bf8e]
+2026-02-20 12:48:36,665 - INFO - page_exists [321] - Checking if page exists with title: Project Templates [9da8a086f348c62281e093f6c20734f]
+2026-02-20 12:48:36,798 - INFO - create_page [277] - Creating page: Project Templates [9da8a086f348c62281e093f6c20734f]
+2026-02-20 12:48:37,680 - INFO - page_exists [321] - Checking if page exists with title: Teamwork Cloud Administrator [a0957ef07d2dfff4fabb4ace8ed0be12]
+2026-02-20 12:48:37,803 - INFO - create_page [277] - Creating page: Teamwork Cloud Administrator [a0957ef07d2dfff4fabb4ace8ed0be12]
+2026-02-20 12:48:38,910 - INFO - _has_changes [324] - Detected page with updated content: 29786114
+2026-02-20 12:48:38,913 - INFO - update_page [262] - Updating page: 29786114
+2026-02-20 12:48:40,070 - INFO - _has_changes [324] - Detected page with updated content: 30507018
+2026-02-20 12:48:40,070 - INFO - update_page [262] - Updating page: 30507018
+2026-02-20 12:48:41,375 - INFO - _has_changes [324] - Detected page with updated content: 30638085
+2026-02-20 12:48:41,375 - INFO - update_page [262] - Updating page: 30638085
+2026-02-20 12:48:42,107 - INFO - page_exists [321] - Checking if page exists with title: Work Instructions
+2026-02-20 12:48:42,240 - INFO - _get_unique_title [357] - Unrelated Confluence page with ID 31064065 has the same inferred title as the Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\index.md
+2026-02-20 12:48:42,482 - INFO - _has_changes [304] - Up-to-date page (matching checksum): 30113793
+2026-02-20 12:48:42,774 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewmetamodel.png
+2026-02-20 12:48:43,830 - INFO - _update_attachment [400] - Updating attachment: att30801944
+2026-02-20 12:48:44,329 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_Plus.png
+2026-02-20 12:48:45,208 - INFO - _update_attachment [400] - Updating attachment: att30441491
+2026-02-20 12:48:45,758 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewlockcustomizations.png
+2026-02-20 12:48:46,595 - INFO - _update_attachment [400] - Updating attachment: att31457290
+2026-02-20 12:48:46,992 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:48:47,813 - INFO - _update_attachment [400] - Updating attachment: att30507036
+2026-02-20 12:48:48,247 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Plus.png
+2026-02-20 12:48:48,392 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_Search.png
+2026-02-20 12:48:49,197 - INFO - _update_attachment [400] - Updating attachment: att31555585
+2026-02-20 12:48:49,568 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewsearch.png
+2026-02-20 12:48:50,511 - INFO - _update_attachment [400] - Updating attachment: att30736387
+2026-02-20 12:48:50,964 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewcontentdiagram.png
+2026-02-20 12:48:51,760 - INFO - _update_attachment [400] - Updating attachment: att31424546
+2026-02-20 12:48:52,130 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:48:52,267 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:48:52,399 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Plus.png
+2026-02-20 12:48:52,536 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewpublisher.png
+2026-02-20 12:48:53,358 - INFO - _update_attachment [400] - Updating attachment: att30539802
+2026-02-20 12:48:53,841 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewcollaboratormenu.png
+2026-02-20 12:48:54,618 - INFO - _update_attachment [400] - Updating attachment: att31457299
+2026-02-20 12:48:55,056 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_comment.png
+2026-02-20 12:48:55,858 - INFO - _update_attachment [400] - Updating attachment: att31064079
+2026-02-20 12:48:56,193 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_rectangletool.png
+2026-02-20 12:48:57,037 - INFO - _update_attachment [400] - Updating attachment: att31588353
+2026-02-20 12:48:57,350 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_comment.png
+2026-02-20 12:48:57,477 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_comment.png
+2026-02-20 12:48:57,625 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_reply1.png
+2026-02-20 12:48:58,468 - INFO - _update_attachment [400] - Updating attachment: att30113802
+2026-02-20 12:48:58,814 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_reply1.png
+2026-02-20 12:48:58,948 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewnote.png
+2026-02-20 12:48:59,742 - INFO - _update_attachment [400] - Updating attachment: att29851672
+2026-02-20 12:49:00,085 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:49:00,210 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:49:00,387 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Plus.png
+2026-02-20 12:49:00,525 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewpublisher2.png
+2026-02-20 12:49:01,363 - INFO - _update_attachment [400] - Updating attachment: att30343181
+2026-02-20 12:49:01,810 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:49:02,078 - INFO - _has_changes [324] - Detected page with updated content: 30539783
+2026-02-20 12:49:02,079 - INFO - update_page [262] - Updating page: 30539783
+2026-02-20 12:49:04,125 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_PDSCDiagramsMetaModel.png
+2026-02-20 12:49:05,075 - INFO - _update_attachment [400] - Updating attachment: att31457305
+2026-02-20 12:49:05,524 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_PDSCcustomizations.png
+2026-02-20 12:49:06,339 - INFO - _update_attachment [400] - Updating attachment: att30965774
+2026-02-20 12:49:06,766 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_Anchor.png
+2026-02-20 12:49:07,577 - INFO - _update_attachment [400] - Updating attachment: att31129612
+2026-02-20 12:49:08,047 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_PDSCSOIContainmentTree.png
+2026-02-20 12:49:08,844 - INFO - _update_attachment [400] - Updating attachment: att31653889
+2026-02-20 12:49:09,246 - INFO - upload_attachment [301] - Up-to-date attachment: PAR_assets_MBSE_Anchor.png
+2026-02-20 12:49:09,386 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_PDSCBDD.png
+2026-02-20 12:49:10,374 - INFO - _update_attachment [400] - Updating attachment: att30507042
+2026-02-20 12:49:10,865 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_PDSCPortStyle.png
+2026-02-20 12:49:11,644 - INFO - _update_attachment [400] - Updating attachment: att30605334
+2026-02-20 12:49:12,074 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_PDSCIBD.png
+2026-02-20 12:49:12,967 - INFO - _update_attachment [400] - Updating attachment: att29786132
+2026-02-20 12:49:13,389 - INFO - _has_changes [324] - Detected page with updated content: 30932996
+2026-02-20 12:49:13,390 - INFO - update_page [262] - Updating page: 30932996
+2026-02-20 12:49:15,154 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_peerreviewmetamodel.png
+2026-02-20 12:49:16,082 - INFO - _update_attachment [400] - Updating attachment: att31195138
+2026-02-20 12:49:16,489 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_Ellipses.png
+2026-02-20 12:49:17,273 - INFO - _update_attachment [400] - Updating attachment: att31424552
+2026-02-20 12:49:17,665 - INFO - upload_attachment [334] - Uploading attachment: PAR_assets_MBSE_Plus.png
+2026-02-20 12:49:18,436 - INFO - _update_attachment [400] - Updating attachment: att30015505
+2026-02-20 12:49:19,027 - INFO - _has_changes [324] - Detected page with updated content: 30605316
+2026-02-20 12:49:19,028 - INFO - update_page [262] - Updating page: 30605316
+2026-02-20 12:49:19,921 - ERROR - _exception_hook [173] - Exception raised: ConversionError
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\csf.py", line 90, in _elements_from_strings
+    return ET.fromstringlist(data, parser=parser)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/lxml/etree.pyx", line 3452, in lxml.etree.fromstringlist
+  File "src/lxml/parser.pxi", line 1485, in lxml.etree._FeedParser.close
+  File "src/lxml/parser.pxi", line 1516, in lxml.etree._FeedParser.close
+  File "src/lxml/parser.pxi", line 638, in lxml.etree._ParserContext._handleParseResult
+  File "src/lxml/parser.pxi", line 647, in lxml.etree._ParserContext._handleParseResultDoc
+  File "src/lxml/parser.pxi", line 765, in lxml.etree._handleParseResult
+  File "src/lxml/parser.pxi", line 689, in lxml.etree._raiseParseError
+  File "<string>", line 192
+lxml.etree.XMLSyntaxError: Entity 'larr' not defined, line 192, column 49
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1791, in __init__
+    self.root = elements_from_strings(content)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\csf.py", line 106, in elements_from_strings
+    return _elements_from_strings(dtd_path, items)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\csf.py", line 92, in _elements_from_strings
+    raise ParseError() from ex
+md2conf.csf.ParseError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+    main()
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 243, in main
+    publisher.process(item)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 320, in process
+    self.process_directory(path)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 337, in process_directory
+    self.factory.create(root_dir).process_directory(local_dir)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 130, in process_directory
+    self._process_items(root)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 169, in _process_items
+    self._synchronize_page(path, ConfluencePageID(metadata.page_id))
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 176, in _synchronize_page
+    page_id, document = ConfluenceDocument.create(path, self.options, self.root_dir, self.site, self.page_metadata)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1735, in create
+    return page_id, ConfluenceDocument(path, document, options, root_dir, site_metadata, page_metadata)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1793, in __init__
+    raise ConversionError(f"failed to convert Markdown file: {path}") from ex
+md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+ParseError:
+XMLSyntaxError: Entity 'larr' not defined, line 192, column 49 (<string>, line 192)

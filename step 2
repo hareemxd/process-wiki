@@ -1,1 +1,0 @@
-setx CONDA_SSL_VERIFY truststore & setx SSL_CERT_FILE "" & setx REQUESTS_CA_BUNDLE "" & setx CURL_CA_BUNDLE ""

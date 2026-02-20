@@ -1,1 +1,0 @@
-& "C:\ProgramData\anaconda3\condabin\conda.bat" create -n test python=3.11 -y

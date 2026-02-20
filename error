@@ -1,10 +1,11 @@
-Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:27:16,079 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:27:16,593 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:27:16,930 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:27:16,932 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:27:16,933 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-2026-02-20 12:27:17,090 - ERROR - _exception_hook [173] - Exception raised: PageError
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda) PS C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide> $parent = 30113793; Get-ChildItem -LiteralPath ".\confluence\Work Instructions" -Recurse -Filter *.md -File | ForEach-Object { pyth
+on -m md2conf --heading-anchors --root-page $parent "$($_.FullName)"}
+2026-02-20 12:33:01,808 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:33:02,295 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:33:02,614 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:33:02,621 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:33:02,622 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
+2026-02-20 12:33:02,817 - ERROR - _exception_hook [173] - Exception raised: PageError
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -24,13 +25,12 @@ Traceback (most recent call last):
     raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
 md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
 PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Peer Review.md
-Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:27:20,691 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:27:20,977 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:27:21,248 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:27:21,250 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:27:21,250 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-2026-02-20 12:27:21,397 - ERROR - _exception_hook [173] - Exception raised: PageError
+2026-02-20 12:33:06,112 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:33:06,423 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:33:06,636 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:33:06,639 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:33:06,639 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
+2026-02-20 12:33:06,849 - ERROR - _exception_hook [173] - Exception raised: PageError
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -50,13 +50,12 @@ Traceback (most recent call last):
     raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
 md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
 PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain System Context Diagrams.md
-Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:27:25,026 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:27:25,299 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:27:25,576 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:27:25,578 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:27:25,578 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-2026-02-20 12:27:25,736 - ERROR - _exception_hook [173] - Exception raised: PageError
+2026-02-20 12:33:10,400 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:33:10,812 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:33:11,075 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:33:11,079 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:33:11,079 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
+2026-02-20 12:33:11,311 - ERROR - _exception_hook [173] - Exception raised: PageError
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -76,13 +75,12 @@ Traceback (most recent call last):
     raise PageError(f"expected: root page ID in options, or explicit page ID in {tree.absolute_path}")
 md2conf.environment.PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
 PageError: expected: root page ID in options, or explicit page ID in C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Project Templates.md
-Publishing: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 12:27:28,211 - INFO - __init__ [88] - Discovering Confluence REST API URL
-2026-02-20 12:27:28,509 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
-2026-02-20 12:27:28,728 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
-2026-02-20 12:27:28,730 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 12:27:28,731 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
-2026-02-20 12:27:28,887 - ERROR - _exception_hook [173] - Exception raised: PageError
+2026-02-20 12:33:17,242 - INFO - __init__ [88] - Discovering Confluence REST API URL
+2026-02-20 12:33:17,643 - INFO - __init__ [98] - Probing scoped Confluence REST API URL
+2026-02-20 12:33:17,888 - INFO - __init__ [106] - Configured scoped Confluence REST API URL: https://api.atlassian.com/ex/confluence/2342e0d1-b7dd-4948-a279-6a43e5baa814/
+2026-02-20 12:33:17,928 - INFO - process_page [137] - Processing page: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:33:18,019 - INFO - _index_file [263] - Indexing file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Teamwork Cloud Administrator.md
+2026-02-20 12:33:18,278 - ERROR - _exception_hook [173] - Exception raised: PageError
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code

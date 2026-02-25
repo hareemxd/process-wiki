@@ -17,81 +17,53 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create a new SysML project using the Naval Electronics project template and Naval Electronics MBSE styles.
 
 # Company SysML Meta Model
-This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure1-mbsepr).
+This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure-1-company-meta-model).
 
-:::{figure} ../img/MBSE/peerreviewmetamodel.png
-:align: center
-:name: figure1-mbsepr
 
-Company Meta Model
+### Figure 1 — Company Meta Model
 
-:::
+![Company Meta Model](../img/MBSE/peerreviewmetamodel.png)
+The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-The Modeler should review {numref}`table1-pr` to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
-```{list-table} Work Instruction Inputs
-:header-rows: 1
-:name: table1-pr
+### Table 1 — Work Instruction Inputs
 
-* - Description
-  - Reference
-* - The Modeler has access to Cameo Systems Modeler and Teamwork Cloud.
-  - Teamwork Cloud Administrator
+| Description | Reference |
+|---|---|
+| The Modeler has access to Cameo Systems Modeler and Teamwork Cloud. | Teamwork Cloud Administrator |
 
-```
 # Roles and Responsibilities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`table2-pr` and functional areas are assigned roles in {numref}`table3-pr`.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#table-2-raci-roles-and-definitions) and functional areas are assigned roles in [Table 3](#table-3-project-templates-raci-chart).
 
-```{list-table} **RACI Roles and Definitions**
-:header-rows: 1
-:name: table2-pr
 
-* - RACI Role
-  - Definition
-* - Responsible
-  - Stakeholder is the owner of the document.
-* - Accountable
-  - Stakeholder depends on the document to effectively perform their job duties.
-* - Consulted
-  - Stakeholder provides input, which may or may not be optional, to the authoring of the document.
-* - Informed
-  - Stakeholder is made aware of the document.
-* - Omitted
-  - Not a stakeholder.
+### Table 2 — **RACI Roles and Definitions**
 
-```
-```{list-table} **Project Templates RACI Chart**
-:header-rows: 1
-:name: table3-pr
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
 
-* - Function
-  - Role
-* - Systems Engineering
-  - R
-* - Project Engineering
-  - C
-* - Configuration Management
-  - C
-* - Electrical Engineering
-  - I
-* - Mechanical Engineering
-  - I
-* - Software Engineering
-  - I
-* - Test Engineering
-  - I
-* - Manufacturing
-  - I
-* - Specialty Engineering
-  - I
-* - Quality
-  - A
-* - Training
-  - A
-* - Business Development
-  - I
 
-```
+### Table 3 — **Project Templates RACI Chart**
+
+| Function | Role |
+|---|---|
+| Systems Engineering | R |
+| Project Engineering | C |
+| Configuration Management | C |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | A |
+| Training | A |
+| Business Development | I |
+
 
 # Terms
 

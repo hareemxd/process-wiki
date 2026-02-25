@@ -17,69 +17,44 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction describes Teamwork Cloud administrative roles and responsibilities.
 # Company SysML Meta Model
 
-This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure1-twca).
+This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure-1-company-meta-model).
 
-:::{figure} ../img/MBSE/peerreviewmetamodel.png
-:align: center
-:name: figure1-twca
 
-Company Meta Model
+### Figure 1 — Company Meta Model
 
-:::
-
+![Company Meta Model](../img/MBSE/peerreviewmetamodel.png)
 # Roles and Responsiblities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in {numref}`table1-twca` and functional areas are assigned roles in {numref}`table2-twca`.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 1](#table-1-raci-roles-and-definitions) and functional areas are assigned roles in [Table 2](#table-2-teamwork-cloud-administrator-raci-chart).
 
-```{list-table} **RACI Roles and Definitions**
-:header-rows: 1
-:name: table1-twca
 
-* - RACI Role
-  - Definition
-* - Responsible
-  - Stakeholder is the owner of the document.
-* - Accountable
-  - Stakeholder depends on the document to effectively perform their job duties.
-* - Consulted
-  - Stakeholder provides input, which may or may not be optional, to the authoring of the document.
-* - Informed
-  - Stakeholder is made aware of the document.
-* - Omitted
-  - Not a stakeholder.
+### Table 1 — **RACI Roles and Definitions**
 
-```
-```{list-table} **Teamwork Cloud Administrator RACI Chart**
-:header-rows: 1
-:name: table2-twca
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
 
-* - Function
-  - Role
-* - Systems Engineering
-  - A
-* - Project Engineering
-  - C
-* - Configuration Management
-  - R
-* - Electrical Engineering
-  - I
-* - Mechanical Engineering
-  - I
-* - Software Engineering
-  - I
-* - Test Engineering
-  - I
-* - Manufacturing
-  - I
-* - Specialty Engineering
-  - I
-* - Quality
-  - C
-* - Training
-  - C
-* - Business Development
-  - I
 
-```
+### Table 2 — **Teamwork Cloud Administrator RACI Chart**
+
+| Function | Role |
+|---|---|
+| Systems Engineering | A |
+| Project Engineering | C |
+| Configuration Management | R |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | C |
+| Training | C |
+| Business Development | I |
+
 
 # Terms
 
@@ -133,16 +108,12 @@ See the [Appendix](#appendix) for a complete list of permissions.
 
 On the Teamwork Cloud homepage:
 1. Open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) to the right.
-2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure2-twca).
+2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure-2-add-role-to-user-in-teamwork-cloud).
 
-:::{figure} ../img/MBSE/twcaddrolesgeneral.png
-:align: center
-:name: figure2-twca
 
-Add Role to User in Teamwork Cloud
+### Figure 2 — Add Role to User in Teamwork Cloud
 
-:::
-
+![Add Role to User in Teamwork Cloud](../img/MBSE/twcaddrolesgeneral.png)
 For each added role:
 
 1. Select **Assignments** to open the containment tree.

@@ -1,0 +1,9 @@
+Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
+    (Get-Content $_.FullName) `
+    -replace '&iuml;','ï' `
+    -replace '&eacute;','é' `
+    -replace '&larr;','←' `
+    -replace '&rarr;','→' `
+    -replace '&mdash;','—' `
+    | Set-Content $_.FullName -Encoding utf8
+}

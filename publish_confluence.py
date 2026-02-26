@@ -16,8 +16,9 @@ Key behaviors:
   3) filename stem
 - Honors pinned Confluence page IDs via: <!-- confluence-page-id: 123456 -->
 - Attachments/images:
-  - md2conf CSF often references images as <ri:attachment ri:filename="SOME_RENAMED_NAME.png"/>
-  - Therefore we upload/update attachments using the *exact filenames referenced in CSF*.
+  - md2conf CSF often references images as <ri:attachment ri:filename="PAR_assets_..._image.png"/>
+  - Some Confluence DC instances ignore multipart filenames and use the on-disk filename.
+  - Therefore we upsert attachments using a TEMP FILE whose *disk name* matches the CSF ri:filename.
   - Attachments are upserted by filename on each page: if exists -> upload new version; else create.
 
 Required env vars:
@@ -36,6 +37,8 @@ import re
 import mimetypes
 import subprocess
 import urllib.parse
+import tempfile
+import shutil
 from pathlib import Path
 from typing import Optional, List, Dict
 
@@ -169,7 +172,7 @@ def extract_local_images(md_path: Path, docs_root: Path) -> List[Path]:
 
         candidate = (md_path.parent / rel_norm).resolve()
 
-        # only allow images inside docs root
+        # Only allow images inside docs root
         try:
             candidate.relative_to(root_resolved)
         except Exception:
@@ -230,16 +233,12 @@ def csf_attachment_filename_map(storage_html: str) -> Dict[str, str]:
     Returns mapping: local_basename -> csf_filename
 
     Example:
-      local file: peerreviewmetamodel.png
-      CSF ref:    PAR_assets_MBSE_peerreviewmetamodel.png
-      => { "peerreviewmetamodel.png": "PAR_assets_MBSE_peerreviewmetamodel.png" }
-
-    If CSF ref is already just a basename, it maps to itself.
+      local: peerreviewmetamodel.png
+      CSF:   PAR_assets_MBSE_peerreviewmetamodel.png
+      => {"peerreviewmetamodel.png": "PAR_assets_MBSE_peerreviewmetamodel.png"}
     """
     out: Dict[str, str] = {}
     for _, fname in RI_ATTACH_RE.findall(storage_html):
-        # local basename is best guess: if CSF prefixes/sanitizes, it often preserves basename at end.
-        # We'll map by basename so we can select the CSF filename when uploading.
         base = Path(fname.replace("\\", "/")).name
         out[base] = fname
     return out
@@ -271,11 +270,16 @@ def list_attachments_by_filename(page_id: str) -> Dict[str, str]:
 
     return out
 
-def upload_new_attachment(page_id: str, file_path: Path, remote_filename: str):
+def upload_new_attachment(page_id: str, file_path: Path):
+    """
+    Upload new attachment. The filename Confluence sees is often taken from the on-disk name,
+    so ensure file_path.name is what you want Confluence to store.
+    """
     url = f"{API}/content/{page_id}/child/attachment"
+    fname = file_path.name
     ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
 
-    files = {"file": (remote_filename, file_path.read_bytes(), ctype)}
+    files = {"file": (fname, file_path.read_bytes(), ctype)}
     headers = dict(HEADERS_BIN)
     headers["X-Atlassian-Token"] = "no-check"
 
@@ -286,11 +290,15 @@ def upload_new_attachment(page_id: str, file_path: Path, remote_filename: str):
         raise RuntimeError(f"Attachment upload failed {r.status_code}: {r.text[:1500]}")
     return r.json()
 
-def update_existing_attachment(page_id: str, attachment_id: str, file_path: Path, remote_filename: str):
+def update_existing_attachment(page_id: str, attachment_id: str, file_path: Path):
+    """
+    Upload new version of existing attachment.
+    """
     url = f"{API}/content/{page_id}/child/attachment/{attachment_id}/data"
+    fname = file_path.name
     ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
 
-    files = {"file": (remote_filename, file_path.read_bytes(), ctype)}
+    files = {"file": (fname, file_path.read_bytes(), ctype)}
     headers = dict(HEADERS_BIN)
     headers["X-Atlassian-Token"] = "no-check"
 
@@ -301,25 +309,36 @@ def update_existing_attachment(page_id: str, attachment_id: str, file_path: Path
         raise RuntimeError(f"Attachment update failed {r.status_code}: {r.text[:1500]}")
     return r.json()
 
-def upsert_attachment(page_id: str, file_path: Path, remote_filename: str, existing: Dict[str, str]):
+def upsert_attachment_with_csf_name(
+    page_id: str,
+    source_file: Path,
+    csf_filename: str,
+    existing: Dict[str, str],
+):
     """
-    Upsert attachment using the name referenced by CSF (remote_filename).
+    Ensure the page has an attachment named exactly csf_filename that matches source_file's content.
+    Uses a temp file whose disk name equals csf_filename, to handle Confluence instances that ignore
+    multipart filenames and use the on-disk file name.
     """
-    if remote_filename in existing:
-        update_existing_attachment(page_id, existing[remote_filename], file_path, remote_filename)
-    else:
-        resp = upload_new_attachment(page_id, file_path, remote_filename)
-        # best-effort to capture id for subsequent updates in same run
-        try:
-            new_id = resp["results"][0]["id"]
-            existing[remote_filename] = new_id
-        except Exception:
-            existing.update(list_attachments_by_filename(page_id))
+    with tempfile.TemporaryDirectory() as td:
+        temp_path = Path(td) / csf_filename
+        shutil.copyfile(source_file, temp_path)
+
+        if csf_filename in existing:
+            update_existing_attachment(page_id, existing[csf_filename], temp_path)
+        else:
+            resp = upload_new_attachment(page_id, temp_path)
+            # Try to capture id for subsequent updates in same run; otherwise refresh mapping.
+            try:
+                new_id = resp["results"][0]["id"]
+                existing[csf_filename] = new_id
+            except Exception:
+                existing.update(list_attachments_by_filename(page_id))
 
 def ensure_csf_attachments_present(page_id: str, md_path: Path, storage_html: str) -> None:
     """
-    Upload/update attachments referenced by CSF, using CSF filenames.
-    We do NOT rewrite the CSF; it already references ri:attachment with CSF filenames.
+    Upload/update attachments referenced by CSF using the exact CSF ri:filename values.
+    We do NOT rewrite CSF; we make Confluence match what CSF references.
     """
     imgs = extract_local_images(md_path, DOCS_DIR)
     if not imgs:
@@ -329,9 +348,8 @@ def ensure_csf_attachments_present(page_id: str, md_path: Path, storage_html: st
     existing = list_attachments_by_filename(page_id)
 
     for fp in imgs:
-        # If CSF expects a renamed filename for this basename, upload with that name.
-        remote_name = csf_map.get(fp.name, fp.name)
-        upsert_attachment(page_id, fp, remote_name, existing)
+        csf_name = csf_map.get(fp.name, fp.name)
+        upsert_attachment_with_csf_name(page_id, fp, csf_name, existing)
 
 # -----------------------
 # Publish logic
@@ -348,7 +366,6 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
         page_id = existing_page["id"]
         current_version = int(existing_page["version"]["number"])
 
-        # Ensure attachments exist/updated BEFORE updating body (either order works, but this is tidy)
         ensure_csf_attachments_present(page_id, md_path, storage)
         update_page(page_id, title, current_version + 1, storage)
 
@@ -370,7 +387,7 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
     created = create_page(title, parent_page_id, storage)
     page_id = created["id"]
 
-    # Create then ensure attachments, then bump version once (keeps history clean and ensures attachments are present)
+    # Ensure attachments, then bump version once (keeps history consistent)
     ensure_csf_attachments_present(page_id, md_path, storage)
     existing_page = get_page(page_id, expand="version")
     current_version = int(existing_page["version"]["number"])

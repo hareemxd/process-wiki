@@ -5,26 +5,27 @@ publish_confluence.py
 Publishes a Markdown directory tree to Confluence Data Center.
 
 Key behaviors:
-- Runs md2conf once on the docs root in --local mode to generate .csf files (Confluence Storage Format XHTML).
-- Folder -> Confluence page tree:
-  - index.md / README.md in a folder becomes that folder's Confluence page
-  - other .md files become child pages under the folder page
-  - assets/ folder is ignored as pages
+- Runs md2conf once on the docs root in --local mode to generate .csf files.
+- Folder -> Confluence page tree using index.md / README.md as folder pages.
 - Page title resolution:
   1) YAML front matter: title:
   2) first H1 (# ...)
   3) filename stem
 - Honors pinned Confluence page IDs via: <!-- confluence-page-id: 123456 -->
-- Attachments/images:
-  - md2conf CSF often references images as <ri:attachment ri:filename="PAR_assets_..._image.png"/>
-  - Some Confluence DC instances ignore multipart filenames and use the on-disk filename.
-  - Therefore we upsert attachments using a TEMP FILE whose *disk name* matches the CSF ri:filename.
-  - Attachments are upserted by filename on each page: if exists -> upload new version; else create.
+
+Images/attachments:
+- md2conf CSF may reference images as:
+    <ri:attachment ri:filename="PAR_assets_MBSE_peerreviewmetamodel.png"/>
+  but your Confluence stores attachments with the original filename:
+    peerreviewmetamodel.png
+- Therefore this script:
+  1) uploads/updates attachments using the REAL basename (peerreviewmetamodel.png)
+  2) rewrites CSF so ri:filename values become basenames (strips PAR_ prefixes and any path)
 
 Required env vars:
   CONF_BASE_URL        e.g. http://dal1vacon01p:8090
   CONF_SPACE_KEY       e.g. GEP
-  CONF_PAT             Confluence PAT
+  CONF_PAT             Confluence PAT (Bearer)
   CONF_ROOT_PAGE_ID    e.g. 119668755
 
 Optional env vars:
@@ -37,8 +38,6 @@ import re
 import mimetypes
 import subprocess
 import urllib.parse
-import tempfile
-import shutil
 from pathlib import Path
 from typing import Optional, List, Dict
 
@@ -80,7 +79,13 @@ MD_IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 
 # CSF attachment references: <ri:attachment ri:filename="...">
 RI_ATTACH_RE = re.compile(
-    r"""<ri:attachment\b[^>]*\bri:filename\s*=\s*(['"])(.*?)\1""",
+    r"""(<ri:attachment\b[^>]*\bri:filename\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""",
+    re.IGNORECASE,
+)
+
+# Some CSFs may also use <ri:url ri:value="..."> inside <ac:image>
+RI_URL_RE = re.compile(
+    r"""(<ri:url\b[^>]*\bri:value\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""",
     re.IGNORECASE,
 )
 
@@ -226,27 +231,35 @@ def md_file_to_storage(md_path: Path) -> str:
     return csf_path.read_text(encoding="utf-8", errors="replace")
 
 # -----------------------
-# Attachments (upsert by CSF filename)
+# CSF normalization (strip PAR_ / paths to basenames)
 # -----------------------
-def csf_attachment_filename_map(storage_html: str) -> Dict[str, str]:
-    """
-    Returns mapping: local_basename -> csf_filename
+def _basename(s: str) -> str:
+    # strip query/fragment, normalize slashes
+    s = s.split("?", 1)[0].split("#", 1)[0].replace("\\", "/")
+    return Path(s).name
 
-    Example:
-      local: peerreviewmetamodel.png
-      CSF:   PAR_assets_MBSE_peerreviewmetamodel.png
-      => {"peerreviewmetamodel.png": "PAR_assets_MBSE_peerreviewmetamodel.png"}
+def normalize_csf_image_refs_to_basenames(storage_html: str) -> str:
     """
-    out: Dict[str, str] = {}
-    for _, fname in RI_ATTACH_RE.findall(storage_html):
-        base = Path(fname.replace("\\", "/")).name
-        out[base] = fname
+    Rewrite CSF so any ri:attachment or ri:url filename/value becomes basename-only.
+    This fixes "unknown attachment" when Confluence stores attachments under the real filename.
+    """
+
+    def repl_attach(m: re.Match) -> str:
+        prefix, val, suffix = m.group(1), m.group(2), m.group(3)
+        return f"{prefix}{_basename(val)}{suffix}"
+
+    def repl_url(m: re.Match) -> str:
+        prefix, val, suffix = m.group(1), m.group(2), m.group(3)
+        return f"{prefix}{_basename(val)}{suffix}"
+
+    out = RI_ATTACH_RE.sub(repl_attach, storage_html)
+    out = RI_URL_RE.sub(repl_url, out)
     return out
 
+# -----------------------
+# Attachments (upsert by REAL basename)
+# -----------------------
 def list_attachments_by_filename(page_id: str) -> Dict[str, str]:
-    """
-    Returns filename -> attachmentId for attachments under this page.
-    """
     out: Dict[str, str] = {}
     start = 0
     limit = 200
@@ -271,10 +284,6 @@ def list_attachments_by_filename(page_id: str) -> Dict[str, str]:
     return out
 
 def upload_new_attachment(page_id: str, file_path: Path):
-    """
-    Upload new attachment. The filename Confluence sees is often taken from the on-disk name,
-    so ensure file_path.name is what you want Confluence to store.
-    """
     url = f"{API}/content/{page_id}/child/attachment"
     fname = file_path.name
     ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
@@ -291,9 +300,6 @@ def upload_new_attachment(page_id: str, file_path: Path):
     return r.json()
 
 def update_existing_attachment(page_id: str, attachment_id: str, file_path: Path):
-    """
-    Upload new version of existing attachment.
-    """
     url = f"{API}/content/{page_id}/child/attachment/{attachment_id}/data"
     fname = file_path.name
     ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
@@ -309,47 +315,25 @@ def update_existing_attachment(page_id: str, attachment_id: str, file_path: Path
         raise RuntimeError(f"Attachment update failed {r.status_code}: {r.text[:1500]}")
     return r.json()
 
-def upsert_attachment_with_csf_name(
-    page_id: str,
-    source_file: Path,
-    csf_filename: str,
-    existing: Dict[str, str],
-):
-    """
-    Ensure the page has an attachment named exactly csf_filename that matches source_file's content.
-    Uses a temp file whose disk name equals csf_filename, to handle Confluence instances that ignore
-    multipart filenames and use the on-disk file name.
-    """
-    with tempfile.TemporaryDirectory() as td:
-        temp_path = Path(td) / csf_filename
-        shutil.copyfile(source_file, temp_path)
+def upsert_attachment(page_id: str, file_path: Path, existing: Dict[str, str]):
+    fname = file_path.name
+    if fname in existing:
+        update_existing_attachment(page_id, existing[fname], file_path)
+    else:
+        resp = upload_new_attachment(page_id, file_path)
+        try:
+            new_id = resp["results"][0]["id"]
+            existing[fname] = new_id
+        except Exception:
+            existing.update(list_attachments_by_filename(page_id))
 
-        if csf_filename in existing:
-            update_existing_attachment(page_id, existing[csf_filename], temp_path)
-        else:
-            resp = upload_new_attachment(page_id, temp_path)
-            # Try to capture id for subsequent updates in same run; otherwise refresh mapping.
-            try:
-                new_id = resp["results"][0]["id"]
-                existing[csf_filename] = new_id
-            except Exception:
-                existing.update(list_attachments_by_filename(page_id))
-
-def ensure_csf_attachments_present(page_id: str, md_path: Path, storage_html: str) -> None:
-    """
-    Upload/update attachments referenced by CSF using the exact CSF ri:filename values.
-    We do NOT rewrite CSF; we make Confluence match what CSF references.
-    """
+def ensure_attachments_present(page_id: str, md_path: Path):
     imgs = extract_local_images(md_path, DOCS_DIR)
     if not imgs:
         return
-
-    csf_map = csf_attachment_filename_map(storage_html)  # basename -> csf filename
     existing = list_attachments_by_filename(page_id)
-
     for fp in imgs:
-        csf_name = csf_map.get(fp.name, fp.name)
-        upsert_attachment_with_csf_name(page_id, fp, csf_name, existing)
+        upsert_attachment(page_id, fp, existing)
 
 # -----------------------
 # Publish logic
@@ -360,15 +344,17 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
     pinned_id = extract_page_id(md_text)
 
     storage = md_file_to_storage(md_path)
+    storage = normalize_csf_image_refs_to_basenames(storage)
 
     if pinned_id:
         existing_page = get_page(pinned_id, expand="version")
         page_id = existing_page["id"]
         current_version = int(existing_page["version"]["number"])
 
-        ensure_csf_attachments_present(page_id, md_path, storage)
-        update_page(page_id, title, current_version + 1, storage)
+        # Upload/update attachments by real basename
+        ensure_attachments_present(page_id, md_path)
 
+        update_page(page_id, title, current_version + 1, storage)
         print(f"Updated (pinned): {title} -> {page_id}")
         return page_id
 
@@ -378,7 +364,7 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
         existing_page = get_page(page_id, expand="version")
         current_version = int(existing_page["version"]["number"])
 
-        ensure_csf_attachments_present(page_id, md_path, storage)
+        ensure_attachments_present(page_id, md_path)
         update_page(page_id, title, current_version + 1, storage)
 
         print(f"Updated: {title} -> {page_id}")
@@ -387,8 +373,9 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
     created = create_page(title, parent_page_id, storage)
     page_id = created["id"]
 
-    # Ensure attachments, then bump version once (keeps history consistent)
-    ensure_csf_attachments_present(page_id, md_path, storage)
+    ensure_attachments_present(page_id, md_path)
+
+    # bump version once (keeps consistent history)
     existing_page = get_page(page_id, expand="version")
     current_version = int(existing_page["version"]["number"])
     update_page(page_id, title, current_version + 1, storage)
@@ -422,13 +409,8 @@ def main():
     if not DOCS_DIR.exists():
         raise SystemExit(f"Docs dir not found: {DOCS_DIR}")
 
-    # Ensure root page exists / accessible
     get_page(ROOT_PAGE_ID, expand="version")
-
-    # Convert everything to CSF once
     preconvert_all_to_csf(DOCS_DIR)
-
-    # Publish the tree
     walk_tree(DOCS_DIR, ROOT_PAGE_ID)
     print("Done.")
 

@@ -339,60 +339,107 @@ def ensure_attachments_present(page_id: str, md_path: Path):
 # -----------------------
 # Publish logic
 # -----------------------
+
+RI_FILENAME_VALUE_RE = re.compile(r'ri:filename\s*=\s*(["\'])([^"\']+)\1', re.IGNORECASE)
+
+def normalize_storage_attachment_filenames(storage_html: str, local_basenames: set[str]) -> str:
+    """
+    Convert CSF attachment references like:
+      PAR_assets_MBSE_peerreviewmetamodel.png
+    into:
+      peerreviewmetamodel.png
+
+    Uses suffix matching against the basenames we actually upload.
+    """
+    out = storage_html
+    values = {m.group(2) for m in RI_FILENAME_VALUE_RE.finditer(storage_html)}
+
+    for v in values:
+        v_norm = v.replace("\\", "/")
+        candidate = v_norm.split("/")[-1]  # strip any path
+
+        mapped = None
+        # Map PAR_* -> real basename if it ends with one of the basenames we have locally
+        if candidate.lower().startswith("par_"):
+            for b in local_basenames:
+                if candidate.lower().endswith(b.lower()):
+                    mapped = b
+                    break
+
+        new_val = mapped or candidate
+
+        if new_val != v:
+            out = out.replace(f'ri:filename="{v}"', f'ri:filename="{new_val}"')
+            out = out.replace(f"ri:filename='{v}'", f"ri:filename='{new_val}'")
+
+    return out
+  
 def publish_md(md_path: Path, parent_page_id: str) -> str:
     md_text = md_path.read_text(encoding="utf-8", errors="replace")
     title = title_from_yaml_or_h1_or_filename(md_path)
     pinned_id = extract_page_id(md_text)
 
+    # Load CSF
     storage = md_file_to_storage(md_path)
     debug_sample_storage(storage, "RAW CSF (before normalization)")
-    storage = normalize_csf_image_refs_to_basenames(storage)
+
+    # Compute local image basenames and normalize CSF to match what Confluence actually stores
+    imgs = extract_local_images(md_path, DOCS_DIR)
+    local_basenames = {p.name for p in imgs}
+    storage = normalize_storage_attachment_filenames(storage, local_basenames)
+
     debug_sample_storage(storage, "OUTGOING STORAGE (after normalization)")
 
-    #terminate publication if PAR found
+    # Hard stop if PAR remains
     if "PAR_" in storage:
-        raise RuntimeError(f"Normalization failed: PAR_ still present in published content for {md_path}")
+        raise RuntimeError(
+            f"Normalization failed: PAR_ still present in outgoing storage for {md_path}"
+        )
 
+    def upsert_body_and_verify(page_id: str, current_version: int) -> None:
+        # Upload/update attachments by real basename
+        ensure_attachments_present(page_id, md_path)
+
+        # Update body
+        update_page(page_id, title, current_version + 1, storage)
+
+        # Optional: read back what Confluence stored (keep while debugging)
+        updated = get_page(page_id, expand="body.storage,version")
+        stored = updated.get("body", {}).get("storage", {}).get("value", "")
+        debug_sample_storage(stored, "STORED STORAGE (read back from Confluence)")
+
+        if "PAR_" in stored:
+            raise RuntimeError(
+                f"Confluence stored PAR_ after update for page {page_id}. "
+                f"That means Confluence is rewriting the XHTML on save."
+            )
+
+    # Pinned page: update that specific page
     if pinned_id:
         existing_page = get_page(pinned_id, expand="version")
         page_id = existing_page["id"]
         current_version = int(existing_page["version"]["number"])
-
-        # Upload/update attachments by real basename
-        ensure_attachments_present(page_id, md_path)
-
-        update_page(page_id, title, current_version + 1, storage)
+        upsert_body_and_verify(page_id, current_version)
         print(f"Updated (pinned): {title} -> {page_id}")
         return page_id
-    updated = get_page(page_id, expand="body.storage,version")
-    stored = updated.get("body", {}).get("storage", {}).get("value", "")
-    debug_sample_storage(stored, "STORED STORAGE (read back from Confluence)")
 
-    if "PAR_" in stored:
-        raise RuntimeError(
-            f"Confluence rewrote storage back to PAR_ for page {page_id}."
-                    )
+    # Otherwise: find child by title under parent, or create
     found = find_child_by_title(parent_page_id, title)
     if found:
         page_id = found["id"]
         existing_page = get_page(page_id, expand="version")
         current_version = int(existing_page["version"]["number"])
-
-        ensure_attachments_present(page_id, md_path)
-        update_page(page_id, title, current_version + 1, storage)
-
+        upsert_body_and_verify(page_id, current_version)
         print(f"Updated: {title} -> {page_id}")
         return page_id
 
     created = create_page(title, parent_page_id, storage)
     page_id = created["id"]
 
-    ensure_attachments_present(page_id, md_path)
-
-    # bump version once (keeps consistent history)
+    # After create, bump once so attachments/body are consistent
     existing_page = get_page(page_id, expand="version")
     current_version = int(existing_page["version"]["number"])
-    update_page(page_id, title, current_version + 1, storage)
+    upsert_body_and_verify(page_id, current_version)
 
     print(f"Created: {title} -> {page_id}")
     return page_id

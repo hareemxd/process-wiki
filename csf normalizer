@@ -1,28 +1,17 @@
-python - <<'PY'
-from pathlib import Path
 import re
+from pathlib import Path
 
-csf = Path("confluence/Work Instructions/Peer Review.csf").read_text(encoding="utf-8", errors="replace")
-
-RI_ATTACH_RE = re.compile(r"""(<ri:attachment\b[^>]*\bri:filename\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""", re.IGNORECASE)
+RI_FILENAME_ATTR_RE = re.compile(r"""(\bri:filename\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
+RI_VALUE_ATTR_RE    = re.compile(r"""(\bri:value\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
 
 def _basename(s: str) -> str:
-    s = s.split("?",1)[0].split("#",1)[0].replace("\\","/")
+    s = s.split("?", 1)[0].split("#", 1)[0].replace("\\", "/")
     return Path(s).name
 
-def normalize(storage_html: str) -> str:
-    def repl(m): return f"{m.group(1)}{_basename(m.group(2))}{m.group(3)}"
-    return RI_ATTACH_RE.sub(repl, storage_html)
+def normalize_csf_image_refs_to_basenames(storage_html: str) -> str:
+    def repl_filename(m: re.Match) -> str:
+        return f"{m.group(1)}{_basename(m.group(2))}{m.group(3)}"
 
-print("Before:", "PAR_" in csf)
-out = normalize(csf)
-print("After :", "PAR_" in out)
-
-# show one example replacement if present
-m = RI_ATTACH_RE.search(csf)
-if m:
-    print("Example original:", m.group(2))
-m2 = RI_ATTACH_RE.search(out)
-if m2:
-    print("Example new     :", m2.group(2))
-PY
+    out = RI_FILENAME_ATTR_RE.sub(repl_filename, storage_html)
+    out = RI_VALUE_ATTR_RE.sub(repl_filename, out)  # same logic
+    return out

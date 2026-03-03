@@ -2,7 +2,7 @@ python - <<'PY'
 from pathlib import Path
 import re
 
-csf = Path("PATH/TO/YOUR/FILE.csf").read_text(encoding="utf-8", errors="replace")
+csf = Path("confluence/Work Instructions/Peer Review.csf").read_text(encoding="utf-8", errors="replace")
 
 RI_ATTACH_RE = re.compile(r"""(<ri:attachment\b[^>]*\bri:filename\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""", re.IGNORECASE)
 

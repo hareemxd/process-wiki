@@ -1,0 +1,9 @@
+def debug_sample_storage(storage: str, label: str):
+    print(f"\n--- {label} ---")
+    print("PAR_ present?", "PAR_" in storage)
+    # Show a few ri:filename occurrences (first 5)
+    matches = re.findall(r'ri:filename\s*=\s*["\']([^"\']+)["\']', storage, flags=re.IGNORECASE)
+    print("ri:filename count:", len(matches))
+    for s in matches[:5]:
+        print("  ri:filename:", s)
+    print("--- end ---\n")

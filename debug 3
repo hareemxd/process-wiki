@@ -1,9 +1,0 @@
-storage = md_file_to_storage(md_path)
-debug_sample_storage(storage, "RAW CSF (before normalize)")
-
-storage = normalize_csf_image_refs_to_basenames(storage)
-debug_sample_storage(storage, "OUTGOING STORAGE (after normalize)")
-
-# Hard stop if PAR_ still exists in outgoing
-if "PAR_" in storage:
-    raise RuntimeError(f"Normalization failed: PAR_ still present in outgoing storage for {md_path}")

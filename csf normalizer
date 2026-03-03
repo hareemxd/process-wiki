@@ -1,0 +1,28 @@
+python - <<'PY'
+from pathlib import Path
+import re
+
+csf = Path("PATH/TO/YOUR/FILE.csf").read_text(encoding="utf-8", errors="replace")
+
+RI_ATTACH_RE = re.compile(r"""(<ri:attachment\b[^>]*\bri:filename\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""", re.IGNORECASE)
+
+def _basename(s: str) -> str:
+    s = s.split("?",1)[0].split("#",1)[0].replace("\\","/")
+    return Path(s).name
+
+def normalize(storage_html: str) -> str:
+    def repl(m): return f"{m.group(1)}{_basename(m.group(2))}{m.group(3)}"
+    return RI_ATTACH_RE.sub(repl, storage_html)
+
+print("Before:", "PAR_" in csf)
+out = normalize(csf)
+print("After :", "PAR_" in out)
+
+# show one example replacement if present
+m = RI_ATTACH_RE.search(csf)
+if m:
+    print("Example original:", m.group(2))
+m2 = RI_ATTACH_RE.search(out)
+if m2:
+    print("Example new     :", m2.group(2))
+PY

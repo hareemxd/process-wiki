@@ -1,0 +1,9 @@
+updated = get_page(page_id, expand="body.storage,version")
+stored = updated.get("body", {}).get("storage", {}).get("value", "")
+debug_sample_storage(stored, "STORED STORAGE (read back from Confluence)")
+
+if "PAR_" in stored:
+    raise RuntimeError(
+        f"Confluence rewrote storage back to PAR_ for page {page_id}. "
+        "We must switch strategies (rewrite entire <ac:image> blocks)."
+    )

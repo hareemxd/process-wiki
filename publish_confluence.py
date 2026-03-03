@@ -4,14 +4,14 @@ publish_confluence.py
 
 Publishes a Markdown directory tree to Confluence Data Center.
 
-Key behaviors:
+Functions:
 - Runs md2conf once on the docs root in --local mode to generate .csf files.
-- Folder -> Confluence page tree using index.md / README.md as folder pages.
+- Folder -> Confluence page tree using index.md as folder pages.
 - Page title resolution:
   1) YAML front matter: title:
   2) first H1 (# ...)
   3) filename stem
-- Honors pinned Confluence page IDs via: <!-- confluence-page-id: 123456 -->
+- Enforces pinned Confluence page IDs via: <!-- confluence-page-id: 123456 -->
 
 Images/attachments:
 - md2conf CSF may reference images as:
@@ -23,10 +23,10 @@ Images/attachments:
   2) rewrites CSF so ri:filename values become basenames (strips PAR_ prefixes and any path)
 
 Required env vars:
-  CONF_BASE_URL        e.g. http://dal1vacon01p:8090
-  CONF_SPACE_KEY       e.g. GEP
-  CONF_PAT             Confluence PAT (Bearer)
-  CONF_ROOT_PAGE_ID    e.g. 119668755
+  CONF_BASE_URL
+  CONF_SPACE_KEY    
+  CONF_PAT   
+  CONF_ROOT_PAGE_ID
 
 Optional env vars:
   CONF_DOCS_DIR        default: confluence
@@ -230,32 +230,33 @@ def md_file_to_storage(md_path: Path) -> str:
         )
     return csf_path.read_text(encoding="utf-8", errors="replace")
 
+def debug_sample_storage(storage: str, label: str):
+    print(f"\n--- {label} ---")
+    print("PAR_ present?", "PAR_" in storage)
+    # Show a few ri:filename occurrences (first 5)
+    matches = re.findall(r'ri:filename\s*=\s*["\']([^"\']+)["\']', storage, flags=re.IGNORECASE)
+    print("ri:filename count:", len(matches))
+    for s in matches[:5]:
+        print("  ri:filename:", s)
+    print("--- end ---\n")
 # -----------------------
 # CSF normalization (strip PAR_ / paths to basenames)
 # -----------------------
+
+RI_FILENAME_ATTR_RE = re.compile(r"""(\bri:filename\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
+RI_VALUE_ATTR_RE    = re.compile(r"""(\bri:value\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
+
 def _basename(s: str) -> str:
-    # strip query/fragment, normalize slashes
     s = s.split("?", 1)[0].split("#", 1)[0].replace("\\", "/")
     return Path(s).name
 
 def normalize_csf_image_refs_to_basenames(storage_html: str) -> str:
-    """
-    Rewrite CSF so any ri:attachment or ri:url filename/value becomes basename-only.
-    This fixes "unknown attachment" when Confluence stores attachments under the real filename.
-    """
+    def repl(m: re.Match) -> str:
+        return f"{m.group(1)}{_basename(m.group(2))}{m.group(3)}"
 
-    def repl_attach(m: re.Match) -> str:
-        prefix, val, suffix = m.group(1), m.group(2), m.group(3)
-        return f"{prefix}{_basename(val)}{suffix}"
-
-    def repl_url(m: re.Match) -> str:
-        prefix, val, suffix = m.group(1), m.group(2), m.group(3)
-        return f"{prefix}{_basename(val)}{suffix}"
-
-    out = RI_ATTACH_RE.sub(repl_attach, storage_html)
-    out = RI_URL_RE.sub(repl_url, out)
+    out = RI_FILENAME_ATTR_RE.sub(repl, storage_html)
+    out = RI_VALUE_ATTR_RE.sub(repl, out)
     return out
-
 # -----------------------
 # Attachments (upsert by REAL basename)
 # -----------------------
@@ -344,7 +345,13 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
     pinned_id = extract_page_id(md_text)
 
     storage = md_file_to_storage(md_path)
+    debug_sample_storage(storage, "RAW CSF (before normalization)")
     storage = normalize_csf_image_refs_to_basenames(storage)
+    debug_sample_storage(storage, "OUTGOING STORAGE (after normalization)")
+
+    #terminate publication if PAR found
+    if "PAR_" in storage:
+        raise RuntimeError(f"Normalization failed: PAR_ still present in published content for {md_path}")
 
     if pinned_id:
         existing_page = get_page(pinned_id, expand="version")
@@ -357,7 +364,14 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
         update_page(page_id, title, current_version + 1, storage)
         print(f"Updated (pinned): {title} -> {page_id}")
         return page_id
+    updated = get_page(page_id, expand="body.storage,version")
+    stored = updated.get("body", {}).get("storage", {}).get("value", "")
+    debug_sample_storage(stored, "STORED STORAGE (read back from Confluence)")
 
+    if "PAR_" in stored:
+        raise RuntimeError(
+            f"Confluence rewrote storage back to PAR_ for page {page_id}."
+                    )
     found = find_child_by_title(parent_page_id, title)
     if found:
         page_id = found["id"]

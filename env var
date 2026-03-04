@@ -1,6 +1,23 @@
-CONF_ROOT_PAGE_ID_PROD=119668755
-CONF_ROOT_PAGE_ID_STAGING=119669197
-CONF_SPACE_KEY="GEP"
+# Confluence connection (HTTP)
 CONF_BASE_URL=http://dal1vacon01p:8090
-CONFLUENCE_USER="david.ricart@drs.com"
 
+# Auth (add your PAT back in)
+CONF_PAT=
+
+# PROD target (existing tree stays here)
+CONF_SPACE_KEY_PROD=GEP
+CONF_ROOT_PAGE_ID_PROD=119668755
+
+# STAGING target (your personal Confluence space)
+CONF_SPACE_KEY_STAGING=~David.Ricart
+CONF_ROOT_PAGE_ID_STAGING=119669197
+
+# Docs folder (relative to repo root)
+CONF_DOCS_DIR=confluence
+
+# Optional toggles
+CONF_CLEAN_CSF=0
+CONF_ENABLE_PINNED=0
+
+# Optional: some tools like having an explicit user around
+CONFLUENCE_USER=david.ricart@drs.com

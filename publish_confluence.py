@@ -1,22 +1,21 @@
 #!/usr/bin/env python3
 """
-publish_confluence_http.py
+publish_confluence.py
 
-Publishes a Markdown directory tree to Confluence Data Center over HTTP using REST,
-while still leveraging md2conf --local to generate CSF storage XHTML.
-
-Key behaviors:
-- Preconvert markdown -> .csf using: python -m md2conf <docs> --local -d <host[:port]>
-- Folder -> Confluence page tree using index.md (or README.md) as folder pages.
-- Page matching strategy: match by TITLE under the given parent page.
-- Attachments: upsert by REAL basename, and normalize CSF <ri:attachment ri:filename="..."> to basenames
-  (strips PAR_ prefixes and any path/query).
+Unified publisher:
+- Uses md2conf once in --local mode to generate .csf files (no HTTPS publishing).
+- Publishes pages via Confluence REST API over HTTP.
+- Supports TWO spaces: PROD (e.g., GEP) and STAGING (personal space key ~David.Ricart).
+- Matches pages by title under parent.
+- Uploads/updates attachments by REAL basename.
+- Normalizes CSF so ri:filename / ri:value are basenames (strips PAR_ prefixes and any path/query).
 
 Required env vars:
-  CONF_BASE_URL        e.g. http://dal1vacon01p:8090
-  CONF_SPACE_KEY       e.g. GEP
-  CONF_PAT             Confluence PAT (Bearer)
+  CONF_BASE_URL
+  CONF_PAT
+  CONF_SPACE_KEY_PROD
   CONF_ROOT_PAGE_ID_PROD
+  CONF_SPACE_KEY_STAGING
   CONF_ROOT_PAGE_ID_STAGING
 
 Optional env vars:
@@ -33,7 +32,7 @@ import mimetypes
 import subprocess
 import urllib.parse
 from pathlib import Path
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 
 import requests
 import frontmatter
@@ -42,20 +41,23 @@ import frontmatter
 # Config / Environment
 # -----------------------
 BASE_URL = os.environ.get("CONF_BASE_URL", "").rstrip("/")
-SPACE_KEY = os.environ.get("CONF_SPACE_KEY", "")
 PAT = os.environ.get("CONF_PAT", "")
 
-ROOT_PROD = os.environ.get("CONF_ROOT_PAGE_ID_PROD", "")
-ROOT_STAGING = os.environ.get("CONF_ROOT_PAGE_ID_STAGING", "")
+SPACE_KEY_PROD = os.environ.get("CONF_SPACE_KEY_PROD", "")
+ROOT_PAGE_ID_PROD = os.environ.get("CONF_ROOT_PAGE_ID_PROD", "")
+
+SPACE_KEY_STAGING = os.environ.get("CONF_SPACE_KEY_STAGING", "")
+ROOT_PAGE_ID_STAGING = os.environ.get("CONF_ROOT_PAGE_ID_STAGING", "")
 
 DOCS_DIR = Path(os.environ.get("CONF_DOCS_DIR", "confluence"))
 CLEAN_CSF = os.environ.get("CONF_CLEAN_CSF", "0") == "1"
 ENABLE_PINNED = os.environ.get("CONF_ENABLE_PINNED", "0") == "1"
 
-if not (BASE_URL and SPACE_KEY and PAT and ROOT_PROD and ROOT_STAGING):
+if not (BASE_URL and PAT and SPACE_KEY_PROD and ROOT_PAGE_ID_PROD and SPACE_KEY_STAGING and ROOT_PAGE_ID_STAGING):
     raise SystemExit(
-        "Missing required env vars: CONF_BASE_URL, CONF_SPACE_KEY, CONF_PAT, "
-        "CONF_ROOT_PAGE_ID_PROD, CONF_ROOT_PAGE_ID_STAGING"
+        "Missing required env vars: CONF_BASE_URL, CONF_PAT, "
+        "CONF_SPACE_KEY_PROD, CONF_ROOT_PAGE_ID_PROD, "
+        "CONF_SPACE_KEY_STAGING, CONF_ROOT_PAGE_ID_STAGING"
     )
 
 API = f"{BASE_URL}/rest/api"
@@ -80,14 +82,36 @@ MD_IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 RI_FILENAME_ATTR_RE = re.compile(r"""(\bri:filename\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
 RI_VALUE_ATTR_RE    = re.compile(r"""(\bri:value\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
 
+
 # -----------------------
-# HTTP helpers
+# Branch -> target resolution
+# -----------------------
+def detect_branch() -> str:
+    branch = os.environ.get("BRANCH", "").strip()
+    if branch:
+        return branch
+    try:
+        import subprocess as sp
+        return sp.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], text=True).strip()
+    except Exception:
+        return "staging"
+
+def resolve_target(branch: str) -> Tuple[str, str]:
+    if branch == "main":
+        return SPACE_KEY_PROD, ROOT_PAGE_ID_PROD
+    if branch == "staging":
+        return SPACE_KEY_STAGING, ROOT_PAGE_ID_STAGING
+    raise SystemExit(f"Refusing to publish from branch '{branch}'. Only 'staging' and 'main' are allowed.")
+
+
+# -----------------------
+# HTTP helpers (space-aware)
 # -----------------------
 def request_json(method: str, url: str, **kwargs):
     r = requests.request(method, url, headers=HEADERS_JSON, timeout=60, **kwargs)
     if r.status_code == 401:
         raise RuntimeError(
-            f"401 Unauthorized for {url}. Your PAT may be invalid/expired or missing permissions."
+            f"401 Unauthorized for {url}. PAT invalid/expired or missing permissions."
         )
     if not r.ok:
         raise RuntimeError(f"{r.status_code} {r.reason} for {url}: {r.text[:1500]}")
@@ -96,11 +120,11 @@ def request_json(method: str, url: str, **kwargs):
 def get_page(page_id: str, expand: str = "version,ancestors"):
     return request_json("GET", f"{API}/content/{page_id}", params={"expand": expand})
 
-def create_page(title: str, parent_id: str, storage_value: str):
+def create_page(space_key: str, title: str, parent_id: str, storage_value: str):
     payload = {
         "type": "page",
         "title": title,
-        "space": {"key": SPACE_KEY},
+        "space": {"key": space_key},
         "ancestors": [{"id": str(parent_id)}],
         "body": {"storage": {"value": storage_value, "representation": "storage"}},
     }
@@ -117,7 +141,6 @@ def update_page(page_id: str, title: str, next_version: int, storage_value: str)
     return request_json("PUT", f"{API}/content/{page_id}", json=payload)
 
 def find_child_by_title(parent_id: str, title: str) -> Optional[Dict]:
-    # Paginate because some parents get large
     start = 0
     limit = 200
     while True:
@@ -133,6 +156,7 @@ def find_child_by_title(parent_id: str, title: str) -> Optional[Dict]:
         if len(results) < limit:
             return None
         start += limit
+
 
 # -----------------------
 # Markdown parsing
@@ -192,11 +216,11 @@ def extract_local_images(md_path: Path, docs_root: Path) -> List[Path]:
             seen.add(p)
     return uniq
 
+
 # -----------------------
 # md2conf local conversion
 # -----------------------
 def parse_domain_for_md2conf() -> str:
-    # md2conf expects host[:port] only
     parsed = urllib.parse.urlparse(BASE_URL)
     return parsed.netloc or parsed.path  # host[:port]
 
@@ -213,7 +237,6 @@ def preconvert_all_to_csf(docs_dir: Path):
 
     domain = parse_domain_for_md2conf()
     cmd = ["python", "-m", "md2conf", str(docs_dir), "--local", "-d", domain]
-
     print("Preconverting markdown to .csf via:", " ".join(cmd))
     subprocess.run(cmd, check=True)
 
@@ -224,7 +247,8 @@ def md_file_to_storage(md_path: Path) -> str:
             f"Missing CSF for {md_path}. Expected {csf_path}. "
             "Ensure preconvert step ran successfully."
         )
-    return csf_path.read_text(encoding="utf-8", errors="replace")
+    return csf_path.read_text(encoding="utf-8", errors="replace)
+
 
 # -----------------------
 # CSF normalization (strip PAR_ / paths to basenames)
@@ -240,6 +264,7 @@ def normalize_csf_image_refs_to_basenames(storage_html: str) -> str:
     out = RI_FILENAME_ATTR_RE.sub(repl, storage_html)
     out = RI_VALUE_ATTR_RE.sub(repl, out)
     return out
+
 
 # -----------------------
 # Attachments (upsert by REAL basename)
@@ -306,7 +331,6 @@ def upsert_attachment(page_id: str, file_path: Path, existing: Dict[str, str]):
         update_existing_attachment(page_id, existing[fname], file_path)
     else:
         resp = upload_new_attachment(page_id, file_path)
-        # Confluence sometimes returns different shapes; safest is refresh on failure
         try:
             new_id = resp["results"][0]["id"]
             existing[fname] = new_id
@@ -321,28 +345,26 @@ def ensure_attachments_present(page_id: str, md_path: Path):
     for fp in imgs:
         upsert_attachment(page_id, fp, existing)
 
+
 # -----------------------
 # Publish logic
 # -----------------------
-def publish_md(md_path: Path, parent_page_id: str) -> str:
+def publish_md(space_key: str, md_path: Path, parent_page_id: str) -> str:
     md_text = md_path.read_text(encoding="utf-8", errors="replace")
     title = title_from_yaml_or_h1_or_filename(md_path)
     pinned_id = extract_page_id(md_text) if ENABLE_PINNED else None
 
     storage = md_file_to_storage(md_path)
-
-    # Normalize attachment refs to basenames (strip PAR_ and any paths)
     storage = normalize_csf_image_refs_to_basenames(storage)
 
     if "PAR_" in storage:
-        # This should not happen after basename normalization; fail hard so you notice
         raise RuntimeError(f"Normalization failed: PAR_ still present in outgoing storage for {md_path}")
 
     def upsert_body(page_id: str, current_version: int) -> None:
         ensure_attachments_present(page_id, md_path)
         update_page(page_id, title, current_version + 1, storage)
 
-    # Optional pinned page: update that specific page id
+    # Optional pinned update (off by default)
     if pinned_id:
         existing_page = get_page(pinned_id, expand="version")
         page_id = existing_page["id"]
@@ -351,7 +373,6 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
         print(f"Updated (pinned): {title} -> {page_id}")
         return page_id
 
-    # Match by title under parent (your chosen strategy)
     found = find_child_by_title(parent_page_id, title)
     if found:
         page_id = found["id"]
@@ -361,8 +382,7 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
         print(f"Updated: {title} -> {page_id}")
         return page_id
 
-    # Create then update once more after attachments
-    created = create_page(title, parent_page_id, storage)
+    created = create_page(space_key, title, parent_page_id, storage)
     page_id = created["id"]
 
     existing_page = get_page(page_id, expand="version")
@@ -372,7 +392,7 @@ def publish_md(md_path: Path, parent_page_id: str) -> str:
     print(f"Created: {title} -> {page_id}")
     return page_id
 
-def walk_tree(folder: Path, parent_page_id: str):
+def walk_tree(space_key: str, folder: Path, parent_page_id: str):
     index = None
     for name in ("index.md", "README.md"):
         p = folder / name
@@ -382,45 +402,30 @@ def walk_tree(folder: Path, parent_page_id: str):
 
     folder_page_id = parent_page_id
     if index:
-        folder_page_id = publish_md(index, parent_page_id)
+        folder_page_id = publish_md(space_key, index, parent_page_id)
 
     for md in sorted(folder.glob("*.md")):
         if md.name.lower() in ("index.md", "readme.md"):
             continue
-        publish_md(md, folder_page_id)
+        publish_md(space_key, md, folder_page_id)
 
     for sub in sorted([p for p in folder.iterdir() if p.is_dir()]):
         if sub.name.lower() == "assets":
             continue
-        walk_tree(sub, folder_page_id)
-
-def resolve_root_page_id(branch: str) -> str:
-    if branch == "main":
-        return ROOT_PROD
-    if branch == "staging":
-        return ROOT_STAGING
-    raise SystemExit(f"Refusing to publish from branch '{branch}'. Only 'staging' and 'main' are allowed.")
+        walk_tree(space_key, sub, folder_page_id)
 
 def main():
     if not DOCS_DIR.exists():
         raise SystemExit(f"Docs dir not found: {DOCS_DIR}")
 
-    # Determine branch
-    branch = os.environ.get("BRANCH", "").strip()
-    if not branch:
-        try:
-            import subprocess as sp
-            branch = sp.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], text=True).strip()
-        except Exception:
-            branch = "staging"
+    branch = detect_branch()
+    space_key, root_page_id = resolve_target(branch)
 
-    root_page_id = resolve_root_page_id(branch)
-
-    # Sanity check root exists
+    # Sanity check root exists and is readable
     get_page(root_page_id, expand="version")
 
     preconvert_all_to_csf(DOCS_DIR)
-    walk_tree(DOCS_DIR, root_page_id)
+    walk_tree(space_key, DOCS_DIR, root_page_id)
     print("Done.")
 
 if __name__ == "__main__":

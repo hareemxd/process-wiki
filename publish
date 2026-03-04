@@ -1,25 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# load env variables
+if [[ -f ".env.local" ]]; then
+  echo "Loading environment from .env.local"
+  set -a
+  source .env.local
+  set +a
+fi
+
 # Detect branch (works locally + in CI)
 BRANCH="${1:-$(git rev-parse --abbrev-ref HEAD)}"
 
-echo "Publishing branch: $BRANCH"
+export BRANCH
 
-# Decide parent page based on branch
-if [[ "$BRANCH" == "main" ]]; then
-  PARENT_ID="${CONFLUENCE_PARENT_PAGE_ID_PROD:-119668755}"
-elif [[ "$BRANCH" == "staging" ]]; then
-  PARENT_ID="${CONFLUENCE_PARENT_PAGE_ID_STAGING:-123456789}" # <-- replace with staging root page ID
-else
-  echo "Not publishing from branch '$BRANCH'"
-  exit 0
-fi
-
-echo "Using parent page ID: $PARENT_ID"
-
-python -m md2conf "MBSE_Style_Guide/confluence" \
-  -d "http://dal1vacon01p:8090" \
-  --space "GEP" \
-  -r "$PARENT_ID" \
-  --api-version v1
+python tools/publish_confluence.py

@@ -1,479 +1,385 @@
 #!/usr/bin/env python3
 """
-publish_confluence.py
+Publish Markdown tree to Confluence over HTTP (no TLS), matching pages by title under a parent.
 
-Publishes a Markdown directory tree to Confluence Data Center.
+- Walks a content root directory (e.g., MBSE_Style_Guide/confluence)
+- Each folder becomes a Confluence page (using folder/index.md as the folder page)
+- Each markdown file becomes a Confluence child page
+- Updates pages by title lookup within the space (scoped by parent via hierarchy)
+- Uploads local images as attachments and rewrites Markdown image refs to Confluence attachment images
 
-Functions:
-- Runs md2conf once on the docs root in --local mode to generate .csf files.
-- Folder -> Confluence page tree using index.md as folder pages.
-- Page title resolution:
-  1) YAML front matter: title:
-  2) first H1 (# ...)
-  3) filename stem
-- Enforces pinned Confluence page IDs via: <!-- confluence-page-id: 123456 -->
-
-Images/attachments:
-- md2conf CSF may reference images as:
-    <ri:attachment ri:filename="PAR_assets_MBSE_peerreviewmetamodel.png"/>
-  but your Confluence stores attachments with the original filename:
-    peerreviewmetamodel.png
-- Therefore this script:
-  1) uploads/updates attachments using the REAL basename (peerreviewmetamodel.png)
-  2) rewrites CSF so ri:filename values become basenames (strips PAR_ prefixes and any path)
-
-Required env vars:
-  CONF_BASE_URL
-  CONF_SPACE_KEY    
-  CONF_PAT   
-  CONF_ROOT_PAGE_ID
-
-Optional env vars:
-  CONF_DOCS_DIR        default: confluence
-  CONF_CLEAN_CSF       if "1", deletes existing .csf files under docs root before conversion
+Limitations:
+- Markdown->HTML is not full Confluence "storage" fidelity but works well for common formatting.
+- If you rely heavily on Confluence-specific macros, you’ll need custom handling.
 """
+
+from __future__ import annotations
 
 import os
 import re
+import sys
 import mimetypes
-import subprocess
-import urllib.parse
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, List, Dict
+from typing import Dict, List, Optional, Tuple
 
 import requests
-import frontmatter
+from bs4 import BeautifulSoup
+import markdown as md
+from dotenv import load_dotenv
 
-# -----------------------
-# Config / Environment
-# -----------------------
-BASE_URL = os.environ.get("CONF_BASE_URL", "").rstrip("/")
-SPACE_KEY = os.environ.get("CONF_SPACE_KEY", "")
-PAT = os.environ.get("CONF_PAT", "")
-ROOT_PAGE_ID = os.environ.get("CONF_ROOT_PAGE_ID", "")
-DOCS_DIR = Path(os.environ.get("CONF_DOCS_DIR", "confluence"))
-CLEAN_CSF = os.environ.get("CONF_CLEAN_CSF", "0") == "1"
 
-if not (BASE_URL and SPACE_KEY and PAT and ROOT_PAGE_ID):
-    raise SystemExit(
-        "Missing required env vars: CONF_BASE_URL, CONF_SPACE_KEY, CONF_PAT, CONF_ROOT_PAGE_ID"
-    )
+# ----------------------------
+# Config + helpers
+# ----------------------------
 
-API = f"{BASE_URL}/rest/api"
+IMG_MD_PATTERN = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 
-HEADERS_JSON = {
-    "Authorization": f"Bearer {PAT}",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
+def die(msg: str, code: int = 1) -> None:
+    print(f"ERROR: {msg}", file=sys.stderr)
+    raise SystemExit(code)
 
-HEADERS_BIN = {
-    "Authorization": f"Bearer {PAT}",
-    "Accept": "application/json",
-}
+def env(name: str, default: Optional[str] = None, required: bool = False) -> str:
+    v = os.getenv(name, default)
+    if required and (v is None or v.strip() == ""):
+        die(f"Missing required env var: {name}")
+    return v or ""
 
-PAGE_ID_RE = re.compile(r"<!--\s*confluence-page-id:\s*(\d+)\s*-->")
+def md_title(md_text: str, fallback: str) -> str:
+    # First Markdown H1 (# Title)
+    for line in md_text.splitlines():
+        if line.startswith("# "):
+            return line[2:].strip()
+    return fallback
 
-# Markdown image: ![alt](path "optional title")
-MD_IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+def safe_filename(p: Path) -> str:
+    return p.name
 
-# CSF attachment references: <ri:attachment ri:filename="...">
-RI_ATTACH_RE = re.compile(
-    r"""(<ri:attachment\b[^>]*\bri:filename\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""",
-    re.IGNORECASE,
-)
 
-# Some CSFs may also use <ri:url ri:value="..."> inside <ac:image>
-RI_URL_RE = re.compile(
-    r"""(<ri:url\b[^>]*\bri:value\s*=\s*['"])([^'"]+)(['"][^>]*/?>)""",
-    re.IGNORECASE,
-)
+@dataclass
+class PageRef:
+    id: str
+    title: str
 
-# -----------------------
-# HTTP helpers
-# -----------------------
-def request_json(method: str, url: str, **kwargs):
-    r = requests.request(method, url, headers=HEADERS_JSON, timeout=60, **kwargs)
-    if r.status_code == 401:
-        raise RuntimeError(
-            f"401 Unauthorized for {url}. Your PAT may be invalid/expired or missing permissions."
+
+class ConfluenceClient:
+    def __init__(self, base_url: str, user: str, token: str, space: str, verify: bool = True):
+        self.base_url = base_url.rstrip("/")
+        self.space = space
+        self.session = requests.Session()
+        self.session.auth = (user, token)
+        self.session.headers.update({"Accept": "application/json"})
+        self.verify = verify
+
+    def _url(self, path: str) -> str:
+        return f"{self.base_url}{path}"
+
+    def get_page_by_title(self, title: str) -> Optional[Dict]:
+        # Confluence Server/DC REST v1: /rest/api/content?spaceKey=...&title=...
+        r = self.session.get(
+            self._url("/rest/api/content"),
+            params={"spaceKey": self.space, "title": title, "expand": "version,ancestors"},
+            verify=self.verify,
+            timeout=60,
         )
-    if not r.ok:
-        raise RuntimeError(f"{r.status_code} {r.reason} for {url}: {r.text[:1500]}")
-    return r.json()
+        r.raise_for_status()
+        data = r.json()
+        results = data.get("results", [])
+        return results[0] if results else None
 
-def get_page(page_id: str, expand: str = "version,ancestors"):
-    return request_json("GET", f"{API}/content/{page_id}", params={"expand": expand})
-
-def create_page(title: str, parent_id: str, storage_value: str):
-    payload = {
-        "type": "page",
-        "title": title,
-        "space": {"key": SPACE_KEY},
-        "ancestors": [{"id": str(parent_id)}],
-        "body": {"storage": {"value": storage_value, "representation": "storage"}},
-    }
-    return request_json("POST", f"{API}/content", json=payload)
-
-def update_page(page_id: str, title: str, next_version: int, storage_value: str):
-    payload = {
-        "id": str(page_id),
-        "type": "page",
-        "title": title,
-        "version": {"number": next_version},
-        "body": {"storage": {"value": storage_value, "representation": "storage"}},
-    }
-    return request_json("PUT", f"{API}/content/{page_id}", json=payload)
-
-def find_child_by_title(parent_id: str, title: str):
-    data = request_json(
-        "GET",
-        f"{API}/content/{parent_id}/child/page",
-        params={"limit": 200},
-    )
-    for p in data.get("results", []):
-        if p.get("title") == title:
-            return p
-    return None
-
-# -----------------------
-# Markdown parsing
-# -----------------------
-def extract_page_id(md_text: str) -> Optional[str]:
-    m = PAGE_ID_RE.search(md_text)
-    return m.group(1) if m else None
-
-def title_from_yaml_or_h1_or_filename(md_path: Path) -> str:
-    raw = md_path.read_text(encoding="utf-8", errors="replace")
-    post = frontmatter.loads(raw)
-
-    t = post.metadata.get("title")
-    if isinstance(t, str) and t.strip():
-        return t.strip()
-
-    for line in post.content.splitlines():
-        if line.strip().startswith("# "):
-            return line.strip()[2:].strip()
-
-    return md_path.stem
-
-def normalize_rel_path(rel: str) -> str:
-    rel = rel.strip().strip('"').strip("'")
-    if re.match(r"^[a-zA-Z]+://", rel) or rel.startswith("#") or rel.startswith("data:"):
-        return ""
-    return rel
-
-def extract_local_images(md_path: Path, docs_root: Path) -> List[Path]:
-    raw = md_path.read_text(encoding="utf-8", errors="replace")
-    rels = MD_IMAGE_RE.findall(raw)
-
-    found: List[Path] = []
-    root_resolved = docs_root.resolve()
-
-    for rel in rels:
-        rel_norm = normalize_rel_path(rel)
-        if not rel_norm:
-            continue
-
-        candidate = (md_path.parent / rel_norm).resolve()
-
-        # Only allow images inside docs root
-        try:
-            candidate.relative_to(root_resolved)
-        except Exception:
-            continue
-
-        if candidate.exists() and candidate.is_file():
-            found.append(candidate)
-
-    # dedupe
-    uniq, seen = [], set()
-    for p in found:
-        if p not in seen:
-            uniq.append(p)
-            seen.add(p)
-    return uniq
-
-# -----------------------
-# md2conf local conversion
-# -----------------------
-def parse_domain_for_md2conf() -> str:
-    parsed = urllib.parse.urlparse(BASE_URL)
-    return parsed.netloc or parsed.path  # host[:port]
-
-def clean_csf_files(root: Path):
-    for csf in root.rglob("*.csf"):
-        try:
-            csf.unlink()
-        except Exception:
-            pass
-
-def preconvert_all_to_csf(docs_dir: Path):
-    if CLEAN_CSF:
-        clean_csf_files(docs_dir)
-
-    domain = parse_domain_for_md2conf()
-    cmd = ["python", "-m", "md2conf", str(docs_dir), "--local", "-d", domain]
-
-    # If your md2conf build complains that space isn't specified even in local mode:
-    # cmd += ["-s", SPACE_KEY]
-
-    print("Preconverting markdown to .csf via:", " ".join(cmd))
-    subprocess.run(cmd, check=True)
-
-def md_file_to_storage(md_path: Path) -> str:
-    csf_path = md_path.with_suffix(".csf")
-    if not csf_path.exists():
-        raise RuntimeError(
-            f"Missing CSF for {md_path}. Expected {csf_path}. "
-            "Ensure preconvert step ran successfully."
+    def read_page(self, page_id: str) -> Dict:
+        r = self.session.get(
+            self._url(f"/rest/api/content/{page_id}"),
+            params={"expand": "version,ancestors"},
+            verify=self.verify,
+            timeout=60,
         )
-    return csf_path.read_text(encoding="utf-8", errors="replace")
+        r.raise_for_status()
+        return r.json()
 
-def debug_sample_storage(storage: str, label: str):
-    print(f"\n--- {label} ---")
-    print("PAR_ present?", "PAR_" in storage)
-    # Show a few ri:filename occurrences (first 5)
-    matches = re.findall(r'ri:filename\s*=\s*["\']([^"\']+)["\']', storage, flags=re.IGNORECASE)
-    print("ri:filename count:", len(matches))
-    for s in matches[:5]:
-        print("  ri:filename:", s)
-    print("--- end ---\n")
-# -----------------------
-# CSF normalization (strip PAR_ / paths to basenames)
-# -----------------------
-
-RI_FILENAME_ATTR_RE = re.compile(r"""(\bri:filename\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
-RI_VALUE_ATTR_RE    = re.compile(r"""(\bri:value\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
-
-def _basename(s: str) -> str:
-    s = s.split("?", 1)[0].split("#", 1)[0].replace("\\", "/")
-    return Path(s).name
-
-def normalize_csf_image_refs_to_basenames(storage_html: str) -> str:
-    def repl(m: re.Match) -> str:
-        return f"{m.group(1)}{_basename(m.group(2))}{m.group(3)}"
-
-    out = RI_FILENAME_ATTR_RE.sub(repl, storage_html)
-    out = RI_VALUE_ATTR_RE.sub(repl, out)
-    return out
-# -----------------------
-# Attachments (upsert by REAL basename)
-# -----------------------
-def list_attachments_by_filename(page_id: str) -> Dict[str, str]:
-    out: Dict[str, str] = {}
-    start = 0
-    limit = 200
-
-    while True:
-        data = request_json(
-            "GET",
-            f"{API}/content/{page_id}/child/attachment",
-            params={"limit": limit, "start": start},
+    def create_page(self, title: str, parent_id: str, storage_value: str) -> PageRef:
+        payload = {
+            "type": "page",
+            "title": title,
+            "space": {"key": self.space},
+            "ancestors": [{"id": parent_id}],
+            "body": {"storage": {"value": storage_value, "representation": "storage"}},
+        }
+        r = self.session.post(
+            self._url("/rest/api/content"),
+            json=payload,
+            verify=self.verify,
+            timeout=60,
         )
-        for a in data.get("results", []):
-            title = a.get("title")
-            aid = a.get("id")
-            if title and aid:
-                out[title] = aid
+        r.raise_for_status()
+        data = r.json()
+        return PageRef(id=data["id"], title=data["title"])
 
-        size = data.get("size", 0)
-        if size < limit:
-            break
-        start += limit
-
-    return out
-
-def upload_new_attachment(page_id: str, file_path: Path):
-    url = f"{API}/content/{page_id}/child/attachment"
-    fname = file_path.name
-    ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
-
-    files = {"file": (fname, file_path.read_bytes(), ctype)}
-    headers = dict(HEADERS_BIN)
-    headers["X-Atlassian-Token"] = "no-check"
-
-    r = requests.post(url, headers=headers, files=files, timeout=120)
-    if r.status_code == 401:
-        raise RuntimeError(f"401 Unauthorized uploading attachment to page {page_id}.")
-    if not r.ok:
-        raise RuntimeError(f"Attachment upload failed {r.status_code}: {r.text[:1500]}")
-    return r.json()
-
-def update_existing_attachment(page_id: str, attachment_id: str, file_path: Path):
-    url = f"{API}/content/{page_id}/child/attachment/{attachment_id}/data"
-    fname = file_path.name
-    ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
-
-    files = {"file": (fname, file_path.read_bytes(), ctype)}
-    headers = dict(HEADERS_BIN)
-    headers["X-Atlassian-Token"] = "no-check"
-
-    r = requests.post(url, headers=headers, files=files, timeout=120)
-    if r.status_code == 401:
-        raise RuntimeError(f"401 Unauthorized updating attachment on page {page_id}.")
-    if not r.ok:
-        raise RuntimeError(f"Attachment update failed {r.status_code}: {r.text[:1500]}")
-    return r.json()
-
-def upsert_attachment(page_id: str, file_path: Path, existing: Dict[str, str]):
-    fname = file_path.name
-    if fname in existing:
-        update_existing_attachment(page_id, existing[fname], file_path)
-    else:
-        resp = upload_new_attachment(page_id, file_path)
-        try:
-            new_id = resp["results"][0]["id"]
-            existing[fname] = new_id
-        except Exception:
-            existing.update(list_attachments_by_filename(page_id))
-
-def ensure_attachments_present(page_id: str, md_path: Path):
-    imgs = extract_local_images(md_path, DOCS_DIR)
-    if not imgs:
-        return
-    existing = list_attachments_by_filename(page_id)
-    for fp in imgs:
-        upsert_attachment(page_id, fp, existing)
-
-# -----------------------
-# Publish logic
-# -----------------------
-
-RI_FILENAME_VALUE_RE = re.compile(r'ri:filename\s*=\s*(["\'])([^"\']+)\1', re.IGNORECASE)
-
-def normalize_storage_attachment_filenames(storage_html: str, local_basenames: set[str]) -> str:
-    """
-    Convert CSF attachment references like:
-      PAR_assets_MBSE_peerreviewmetamodel.png
-    into:
-      peerreviewmetamodel.png
-
-    Uses suffix matching against the basenames we actually upload.
-    """
-    out = storage_html
-    values = {m.group(2) for m in RI_FILENAME_VALUE_RE.finditer(storage_html)}
-
-    for v in values:
-        v_norm = v.replace("\\", "/")
-        candidate = v_norm.split("/")[-1]  # strip any path
-
-        mapped = None
-        # Map PAR_* -> real basename if it ends with one of the basenames we have locally
-        if candidate.lower().startswith("par_"):
-            for b in local_basenames:
-                if candidate.lower().endswith(b.lower()):
-                    mapped = b
-                    break
-
-        new_val = mapped or candidate
-
-        if new_val != v:
-            out = out.replace(f'ri:filename="{v}"', f'ri:filename="{new_val}"')
-            out = out.replace(f"ri:filename='{v}'", f"ri:filename='{new_val}'")
-
-    return out
-  
-def publish_md(md_path: Path, parent_page_id: str) -> str:
-    md_text = md_path.read_text(encoding="utf-8", errors="replace")
-    title = title_from_yaml_or_h1_or_filename(md_path)
-    pinned_id = extract_page_id(md_text)
-
-    # Load CSF
-    storage = md_file_to_storage(md_path)
-    debug_sample_storage(storage, "RAW CSF (before normalization)")
-
-    # Compute local image basenames and normalize CSF to match what Confluence actually stores
-    imgs = extract_local_images(md_path, DOCS_DIR)
-    local_basenames = {p.name for p in imgs}
-    storage = normalize_storage_attachment_filenames(storage, local_basenames)
-
-    debug_sample_storage(storage, "OUTGOING STORAGE (after normalization)")
-
-    # Hard stop if PAR remains
-    if "PAR_" in storage:
-        raise RuntimeError(
-            f"Normalization failed: PAR_ still present in outgoing storage for {md_path}"
+    def update_page(self, page_id: str, title: str, storage_value: str) -> PageRef:
+        existing = self.read_page(page_id)
+        ver = int(existing["version"]["number"]) + 1
+        payload = {
+            "id": page_id,
+            "type": "page",
+            "title": title,
+            "version": {"number": ver},
+            "body": {"storage": {"value": storage_value, "representation": "storage"}},
+        }
+        r = self.session.put(
+            self._url(f"/rest/api/content/{page_id}"),
+            json=payload,
+            verify=self.verify,
+            timeout=60,
         )
+        r.raise_for_status()
+        data = r.json()
+        return PageRef(id=data["id"], title=data["title"])
 
-    def upsert_body_and_verify(page_id: str, current_version: int) -> None:
-        # Upload/update attachments by real basename
-        ensure_attachments_present(page_id, md_path)
+    def list_attachments(self, page_id: str) -> List[Dict]:
+        r = self.session.get(
+            self._url(f"/rest/api/content/{page_id}/child/attachment"),
+            params={"limit": 200},
+            verify=self.verify,
+            timeout=60,
+        )
+        r.raise_for_status()
+        return r.json().get("results", [])
 
-        # Update body
-        update_page(page_id, title, current_version + 1, storage)
+    def upload_attachment(self, page_id: str, file_path: Path) -> None:
+        # If attachment exists, Confluence will create a new version if we POST with same filename.
+        # Must send X-Atlassian-Token: no-check for multipart.
+        filename = safe_filename(file_path)
+        mime, _ = mimetypes.guess_type(str(file_path))
+        mime = mime or "application/octet-stream"
 
-        # Optional: read back what Confluence stored (keep while debugging)
-        updated = get_page(page_id, expand="body.storage,version")
-        stored = updated.get("body", {}).get("storage", {}).get("value", "")
-        debug_sample_storage(stored, "STORED STORAGE (read back from Confluence)")
-
-        if "PAR_" in stored:
-            raise RuntimeError(
-                f"Confluence stored PAR_ after update for page {page_id}. "
-                f"That means Confluence is rewriting the XHTML on save."
+        with file_path.open("rb") as f:
+            files = {"file": (filename, f, mime)}
+            headers = {"X-Atlassian-Token": "no-check"}
+            r = self.session.post(
+                self._url(f"/rest/api/content/{page_id}/child/attachment"),
+                files=files,
+                headers=headers,
+                verify=self.verify,
+                timeout=120,
             )
+            r.raise_for_status()
 
-    # Pinned page: update that specific page
-    if pinned_id:
-        existing_page = get_page(pinned_id, expand="version")
-        page_id = existing_page["id"]
-        current_version = int(existing_page["version"]["number"])
-        upsert_body_and_verify(page_id, current_version)
-        print(f"Updated (pinned): {title} -> {page_id}")
-        return page_id
 
-    # Otherwise: find child by title under parent, or create
-    found = find_child_by_title(parent_page_id, title)
-    if found:
-        page_id = found["id"]
-        existing_page = get_page(page_id, expand="version")
-        current_version = int(existing_page["version"]["number"])
-        upsert_body_and_verify(page_id, current_version)
-        print(f"Updated: {title} -> {page_id}")
-        return page_id
+# ----------------------------
+# Markdown -> Confluence storage (simple)
+# ----------------------------
 
-    created = create_page(title, parent_page_id, storage)
-    page_id = created["id"]
+def md_to_html(md_text: str) -> str:
+    # CommonMark-ish conversion
+    return md.markdown(
+        md_text,
+        extensions=[
+            "tables",
+            "fenced_code",
+            "codehilite",
+            "toc",
+            "sane_lists",
+        ],
+        output_format="html5",
+    )
 
-    # After create, bump once so attachments/body are consistent
-    existing_page = get_page(page_id, expand="version")
-    current_version = int(existing_page["version"]["number"])
-    upsert_body_and_verify(page_id, current_version)
+def rewrite_images_to_attachments(md_text: str, md_file: Path, attachments: List[Path]) -> str:
+    """
+    Find markdown image refs, collect local files, and rewrite them to a token we can convert later.
+    We'll convert tokens into Confluence <ac:image> blocks after Markdown->HTML.
+    """
+    def repl(m: re.Match) -> str:
+        alt = (m.group(1) or "").strip()
+        raw = (m.group(2) or "").strip()
 
-    print(f"Created: {title} -> {page_id}")
-    return page_id
+        # Ignore web images
+        if raw.startswith("http://") or raw.startswith("https://"):
+            return m.group(0)
 
-def walk_tree(folder: Path, parent_page_id: str):
-    index = None
-    for name in ("index.md", "README.md"):
-        p = folder / name
-        if p.exists():
-            index = p
-            break
+        # Resolve local path relative to md file
+        img_path = (md_file.parent / raw).resolve()
+        if not img_path.exists():
+            print(f"WARN: image not found: {raw} referenced by {md_file}")
+            return m.group(0)
 
-    folder_page_id = parent_page_id
-    if index:
-        folder_page_id = publish_md(index, parent_page_id)
+        attachments.append(img_path)
 
-    for md in sorted(folder.glob("*.md")):
-        if md.name.lower() in ("index.md", "readme.md"):
+        # Replace with a marker that survives markdown conversion
+        # e.g. [[CONFLUENCE_IMAGE:filename.png|alt text]]
+        return f"[[CONFLUENCE_IMAGE:{img_path.name}|{alt}]]"
+
+    return IMG_MD_PATTERN.sub(repl, md_text)
+
+def html_markers_to_confluence_storage(html: str) -> str:
+    """
+    Convert [[CONFLUENCE_IMAGE:filename|alt]] markers into Confluence storage image tags.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    full = str(soup)
+
+    marker_pat = re.compile(r"\[\[CONFLUENCE_IMAGE:([^|\]]+)\|([^\]]*)\]\]")
+
+    def repl(m: re.Match) -> str:
+        filename = m.group(1).strip()
+        alt = m.group(2).strip()
+        # Confluence storage: <ac:image><ri:attachment ri:filename="..."/></ac:image>
+        # Add alt via ac:alt if desired
+        alt_attr = f' ac:alt="{alt}"' if alt else ""
+        return f'<ac:image{alt_attr}><ri:attachment ri:filename="{filename}"/></ac:image>'
+
+    return marker_pat.sub(repl, full)
+
+def build_storage_from_md(md_text: str) -> str:
+    html = md_to_html(md_text)
+    storage = html_markers_to_confluence_storage(html)
+    return storage
+
+
+# ----------------------------
+# Tree publish
+# ----------------------------
+
+def collect_pages(content_root: Path) -> Tuple[Path, List[Path]]:
+    if not content_root.exists():
+        die(f"Content root not found: {content_root}")
+    md_files = sorted([p for p in content_root.rglob("*.md") if p.is_file()])
+    return content_root, md_files
+
+def parent_chain_ids(page: Dict) -> List[str]:
+    # ancestors from root->...->parent
+    return [a["id"] for a in page.get("ancestors", [])]
+
+def is_under_parent(found_page: Dict, target_parent_id: str) -> bool:
+    # A page is considered under parent if its ancestor chain contains that parent id
+    return target_parent_id in parent_chain_ids(found_page)
+
+def ensure_page_by_title_under_parent(
+    cf: ConfluenceClient,
+    title: str,
+    parent_id: str,
+    storage_value: str
+) -> PageRef:
+    existing = cf.get_page_by_title(title)
+    if existing and is_under_parent(existing, parent_id):
+        return cf.update_page(existing["id"], title, storage_value)
+    return cf.create_page(title, parent_id, storage_value)
+
+def publish_file(
+    cf: ConfluenceClient,
+    md_file: Path,
+    parent_page_id: str
+) -> PageRef:
+    md_text = md_file.read_text(encoding="utf-8", errors="replace")
+    title = md_title(md_text, md_file.stem)
+
+    attachments: List[Path] = []
+    md_text = rewrite_images_to_attachments(md_text, md_file, attachments)
+    storage = build_storage_from_md(md_text)
+
+    page_ref = ensure_page_by_title_under_parent(cf, title, parent_page_id, storage)
+
+    # Upload attachments (dedupe by name)
+    if attachments:
+        existing_atts = {a["title"] for a in cf.list_attachments(page_ref.id)}
+        for img_path in attachments:
+            if img_path.name in existing_atts:
+                # still upload to create new version? usually safe to skip for speed
+                continue
+            cf.upload_attachment(page_ref.id, img_path)
+
+    print(f"OK: {title} -> pageId={page_ref.id}")
+    return page_ref
+
+def publish_tree(cf: ConfluenceClient, content_root: Path, root_parent_id: str) -> None:
+    """
+    Folder structure rule:
+    - A folder's 'index.md' is the page for that folder.
+    - Other md files in that folder become children of the folder page.
+    - Subfolders become children of the folder page (via their index.md).
+
+    If a folder has no index.md, we create a folder page with the folder name.
+    """
+    # Build a map folder -> pageId
+    folder_page_ids: Dict[Path, str] = {}
+
+    # Ensure root folder page exists based on content_root/index.md if present,
+    # otherwise publish children directly under provided parent.
+    root_index = content_root / "index.md"
+    if root_index.exists():
+        root_page = publish_file(cf, root_index, root_parent_id)
+        folder_page_ids[content_root] = root_page.id
+    else:
+        folder_page_ids[content_root] = root_parent_id
+
+    # Walk folders top-down
+    for folder in sorted([p for p in content_root.rglob("*") if p.is_dir()]):
+        if folder == content_root:
             continue
-        publish_md(md, folder_page_id)
 
-    for sub in sorted([p for p in folder.iterdir() if p.is_dir()]):
-        if sub.name.lower() == "assets":
-            continue
-        walk_tree(sub, folder_page_id)
+        parent_folder = folder.parent
+        parent_page_id = folder_page_ids.get(parent_folder, root_parent_id)
 
-def main():
-    if not DOCS_DIR.exists():
-        raise SystemExit(f"Docs dir not found: {DOCS_DIR}")
+        index_md = folder / "index.md"
+        if index_md.exists():
+            folder_page = publish_file(cf, index_md, parent_page_id)
+            folder_page_ids[folder] = folder_page.id
+        else:
+            # Create a stub page for folder
+            title = folder.name
+            storage = f"<p><em>Auto-generated folder page for {title}</em></p>"
+            folder_page = ensure_page_by_title_under_parent(cf, title, parent_page_id, storage)
+            folder_page_ids[folder] = folder_page.id
+            print(f"OK: {title} (folder) -> pageId={folder_page.id}")
 
-    get_page(ROOT_PAGE_ID, expand="version")
-    preconvert_all_to_csf(DOCS_DIR)
-    walk_tree(DOCS_DIR, ROOT_PAGE_ID)
-    print("Done.")
+        # Publish other md files in this folder
+        for md_file in sorted(folder.glob("*.md")):
+            if md_file.name.lower() == "index.md":
+                continue
+            publish_file(cf, md_file, folder_page_ids[folder])
+
+
+def main() -> None:
+    load_dotenv(".env.local")
+
+    base_url = env("CONFLUENCE_BASE_URL", required=True)
+    space = env("CONFLUENCE_SPACE", required=True)
+    user = env("CONFLUENCE_USER", required=True)
+    token = env("CONFLUENCE_TOKEN", required=True)
+
+    branch = os.getenv("BRANCH", "") or os.getenv("GIT_BRANCH", "")
+    if not branch:
+        # Try local git
+        try:
+            import subprocess
+            branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], text=True).strip()
+        except Exception:
+            branch = "staging"
+
+    if branch == "main":
+        parent_id = env("CONFLUENCE_PARENT_PAGE_ID_PROD", required=True)
+    elif branch == "staging":
+        parent_id = env("CONFLUENCE_PARENT_PAGE_ID_STAGING", required=True)
+    else:
+        print(f"Skipping publish for branch '{branch}'")
+        return
+
+    content_root = Path("MBSE_Style_Guide/confluence").resolve()
+    if not content_root.exists():
+        # allow running from repo root too
+        alt = Path("confluence").resolve()
+        if alt.exists():
+            content_root = alt
+        else:
+            die("Could not find confluence content folder. Expected MBSE_Style_Guide/confluence or ./confluence")
+
+    cf = ConfluenceClient(base_url=base_url, user=user, token=token, space=space, verify=True)
+
+    print(f"Publishing from: {content_root}")
+    print(f"Confluence: {base_url}  space={space}  branch={branch}  parentPageId={parent_id}")
+
+    publish_tree(cf, content_root, parent_id)
+    print("DONE")
+
 
 if __name__ == "__main__":
     main()

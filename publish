@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Run from repo root.
+
 # load env variables
 if [[ -f ".env.local" ]]; then
   echo "Loading environment from .env.local"
@@ -11,7 +13,6 @@ fi
 
 # Detect branch (works locally + in CI)
 BRANCH="${1:-$(git rev-parse --abbrev-ref HEAD)}"
-
 export BRANCH
 
 python tools/publish_confluence.py

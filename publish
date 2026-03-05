@@ -11,6 +11,13 @@ if [[ -f "${ENV_FILE}" ]]; then
   echo "Loading environment from ${ENV_FILE}"
   set -a
   source "${ENV_FILE}"
+  echo "CONF_BASE_URL=${CONF_BASE_URL:-<empty>}"
+  echo "CONF_PAT length=${#CONF_PAT:-0}"
+  echo "CONF_SPACE_KEY_PROD=${CONF_SPACE_KEY_PROD:-<empty>}"
+  echo "CONF_ROOT_PAGE_ID_PROD=${CONF_ROOT_PAGE_ID_PROD:-<empty>}"
+  echo "CONF_SPACE_KEY_STAGING=${CONF_SPACE_KEY_STAGING:-<empty>}"
+  echo "CONF_ROOT_PAGE_ID_STAGING=${CONF_ROOT_PAGE_ID_STAGING:-<empty>}"
+  echo "CONF_DOCS_DIR=${CONF_DOCS_DIR:-confluence}"
   set +a
 else
   echo "WARN: ${ENV_FILE} not found. Environment variables missing."

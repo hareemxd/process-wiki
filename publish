@@ -5,7 +5,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 ENV_FILE="${REPO_ROOT}/.env.local"
-
 if [[ -f "${ENV_FILE}" ]]; then
   echo "Loading environment from ${ENV_FILE}"
   set -a
@@ -15,22 +14,8 @@ else
   echo "WARN: ${ENV_FILE} not found. Environment variables missing."
 fi
 
-
-# Detect branch (works locally + in CI)
 BRANCH="${1:-$(git -C "${REPO_ROOT}" rev-parse --abbrev-ref HEAD)}"
 export BRANCH
 
-
-# Decide parent page based on branch
-if [[ "$BRANCH" == "master" ]]; then
-  PARENT_ID="${CONFLUENCE_PARENT_PAGE_ID_PROD:-119668755}"
-elif [[ "$BRANCH" == "staging" ]]; then
-  PARENT_ID="${CONFLUENCE_PARENT_PAGE_ID_STAGING:-119669185}" # <-- replace with staging root page ID
-else
-  echo "Not publishing from branch '$BRANCH'"
-  exit 0
-fi
-
-echo "Using parent page ID: $PARENT_ID"
-
+echo "Publishing branch: ${BRANCH}"
 python "${REPO_ROOT}/tools/publish_confluence.py"

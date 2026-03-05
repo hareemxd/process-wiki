@@ -12,7 +12,13 @@ if [[ -f "${ENV_FILE}" ]]; then
   set -a
   source "${ENV_FILE}"
   echo "CONF_BASE_URL=${CONF_BASE_URL:-<empty>}"
-  echo "CONF_PAT length=${#CONF_PAT:-0}"
+
+if [[ -n "${CONF_PAT:-}" ]]; then
+  echo "CONF_PAT length=${#CONF_PAT}"
+else
+  echo "CONF_PAT length=0"
+fi
+
   echo "CONF_SPACE_KEY_PROD=${CONF_SPACE_KEY_PROD:-<empty>}"
   echo "CONF_ROOT_PAGE_ID_PROD=${CONF_ROOT_PAGE_ID_PROD:-<empty>}"
   echo "CONF_SPACE_KEY_STAGING=${CONF_SPACE_KEY_STAGING:-<empty>}"

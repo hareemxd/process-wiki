@@ -37,6 +37,8 @@ from typing import Optional, List, Dict, Tuple
 import requests
 import frontmatter
 
+print("RUNNING:", __file__)
+
 # -----------------------
 # Config / Environment
 # -----------------------
@@ -97,11 +99,11 @@ def detect_branch() -> str:
         return "staging"
 
 def resolve_target(branch: str) -> Tuple[str, str]:
-    if branch == "main":
+    if branch == "master":
         return SPACE_KEY_PROD, ROOT_PAGE_ID_PROD
     if branch == "staging":
         return SPACE_KEY_STAGING, ROOT_PAGE_ID_STAGING
-    raise SystemExit(f"Refusing to publish from branch '{branch}'. Only 'staging' and 'main' are allowed.")
+    raise SystemExit(f"Refusing to publish from branch '{branch}'. Only 'staging' and 'master' are allowed.")
 
 
 # -----------------------
@@ -247,7 +249,7 @@ def md_file_to_storage(md_path: Path) -> str:
             f"Missing CSF for {md_path}. Expected {csf_path}. "
             "Ensure preconvert step ran successfully."
         )
-    return csf_path.read_text(encoding="utf-8", errors="replace)
+    return csf_path.read_text(encoding="utf-8", errors="replace")
 
 
 # -----------------------
@@ -420,6 +422,11 @@ def main():
 
     branch = detect_branch()
     space_key, root_page_id = resolve_target(branch)
+
+    print(f"BRANCH={branch}")
+    print(f"SPACE={space_key}")
+    print(f"ROOT_PAGE_ID={root_page_id}")
+    print(f"DOCS_DIR={DOCS_DIR.resolve()}")
 
     # Sanity check root exists and is readable
     get_page(root_page_id, expand="version")

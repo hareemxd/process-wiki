@@ -6,7 +6,8 @@ Unified publisher:
 - Uses md2conf once in --local mode to generate .csf files (no HTTPS publishing).
 - Publishes pages via Confluence REST API over HTTP.
 - Supports TWO spaces: PROD (e.g., GEP) and STAGING (personal space key ~David.Ricart).
-- Matches pages by title under parent.
+- Matches pages by title under parent, with a fallback to match-by-title anywhere in the SAME SPACE
+  to avoid Confluence "page with same title already exists" (400) failures.
 - Uploads/updates attachments by REAL basename.
 - Normalizes CSF so ri:filename / ri:value are basenames (strips PAR_ prefixes and any path/query).
 
@@ -158,6 +159,16 @@ def find_child_by_title(parent_id: str, title: str) -> Optional[Dict]:
         if len(results) < limit:
             return None
         start += limit
+
+# STEP 1: space-wide lookup by title (fallback for Confluence 400 duplicate-title errors)
+def find_page_in_space_by_title(space_key: str, title: str) -> Optional[Dict]:
+    data = request_json(
+        "GET",
+        f"{API}/content",
+        params={"spaceKey": space_key, "title": title, "expand": "version,ancestors"},
+    )
+    results = data.get("results", [])
+    return results[0] if results else None
 
 
 # -----------------------
@@ -375,6 +386,7 @@ def publish_md(space_key: str, md_path: Path, parent_page_id: str) -> str:
         print(f"Updated (pinned): {title} -> {page_id}")
         return page_id
 
+    # STEP 2: prefer child-by-title under parent; fallback to space-wide match-by-title
     found = find_child_by_title(parent_page_id, title)
     if found:
         page_id = found["id"]
@@ -382,6 +394,14 @@ def publish_md(space_key: str, md_path: Path, parent_page_id: str) -> str:
         current_version = int(existing_page["version"]["number"])
         upsert_body(page_id, current_version)
         print(f"Updated: {title} -> {page_id}")
+        return page_id
+
+    existing_anywhere = find_page_in_space_by_title(space_key, title)
+    if existing_anywhere:
+        page_id = existing_anywhere["id"]
+        current_version = int(existing_anywhere["version"]["number"])
+        upsert_body(page_id, current_version)
+        print(f"Updated (space-wide match): {title} -> {page_id}")
         return page_id
 
     created = create_page(space_key, title, parent_page_id, storage)

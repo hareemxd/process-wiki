@@ -9,7 +9,8 @@ Unified publisher:
 - Matches pages by title under parent, with a fallback to match-by-title anywhere in the SAME SPACE
   to avoid Confluence "page with same title already exists" (400) failures.
 - Uploads/updates attachments by REAL basename.
-- Normalizes CSF so ri:filename / ri:value are basenames (strips PAR_ prefixes and any path/query).
+- Normalizes CSF so ri:filename / ri:value match the real uploaded basenames, including md2conf
+  PAR_ synthesized names like PAR_assets_MBSE_peerreviewmetamodel.png.
 
 Required env vars:
   CONF_BASE_URL
@@ -81,9 +82,9 @@ PAGE_ID_RE = re.compile(r"<!--\s*confluence-page-id:\s*(\d+)\s*-->")
 # Markdown image: ![alt](path "optional title")
 MD_IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 
-# Normalize storage refs to basenames
-RI_FILENAME_ATTR_RE = re.compile(r"""(\bri:filename\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
-RI_VALUE_ATTR_RE    = re.compile(r"""(\bri:value\s*=\s*["'])([^"']+)(["'])""", re.IGNORECASE)
+# ri:filename / ri:value refs inside storage XHTML
+RI_FILENAME_VALUE_RE = re.compile(r'ri:filename\s*=\s*(["\'])([^"\']+)\1', re.IGNORECASE)
+RI_VALUE_VALUE_RE = re.compile(r'ri:value\s*=\s*(["\'])([^"\']+)\1', re.IGNORECASE)
 
 
 # -----------------------
@@ -100,11 +101,11 @@ def detect_branch() -> str:
         return "staging"
 
 def resolve_target(branch: str) -> Tuple[str, str]:
-    if branch == "master":
+    if branch in ("master", "main"):
         return SPACE_KEY_PROD, ROOT_PAGE_ID_PROD
     if branch == "staging":
         return SPACE_KEY_STAGING, ROOT_PAGE_ID_STAGING
-    raise SystemExit(f"Refusing to publish from branch '{branch}'. Only 'staging' and 'master' are allowed.")
+    raise SystemExit(f"Refusing to publish from branch '{branch}'. Only 'staging' and 'master/main' are allowed.")
 
 
 # -----------------------
@@ -143,6 +144,16 @@ def update_page(page_id: str, title: str, next_version: int, storage_value: str)
     }
     return request_json("PUT", f"{API}/content/{page_id}", json=payload)
 
+def move_page(page_id: str, title: str, next_version: int, new_parent_id: str):
+    payload = {
+        "id": str(page_id),
+        "type": "page",
+        "title": title,
+        "version": {"number": next_version},
+        "ancestors": [{"id": str(new_parent_id)}],
+    }
+    return request_json("PUT", f"{API}/content/{page_id}", json=payload)
+
 def find_child_by_title(parent_id: str, title: str) -> Optional[Dict]:
     start = 0
     limit = 200
@@ -160,7 +171,6 @@ def find_child_by_title(parent_id: str, title: str) -> Optional[Dict]:
             return None
         start += limit
 
-# STEP 1: space-wide lookup by title (fallback for Confluence 400 duplicate-title errors)
 def find_page_in_space_by_title(space_key: str, title: str) -> Optional[Dict]:
     data = request_json(
         "GET",
@@ -221,7 +231,6 @@ def extract_local_images(md_path: Path, docs_root: Path) -> List[Path]:
         if candidate.exists() and candidate.is_file():
             found.append(candidate)
 
-    # dedupe
     uniq, seen = [], set()
     for p in found:
         if p not in seen:
@@ -264,18 +273,71 @@ def md_file_to_storage(md_path: Path) -> str:
 
 
 # -----------------------
-# CSF normalization (strip PAR_ / paths to basenames)
+# CSF normalization / debug
 # -----------------------
-def _basename(s: str) -> str:
-    s = s.split("?", 1)[0].split("#", 1)[0].replace("\\", "/")
-    return Path(s).name
+def debug_sample_storage(storage: str, label: str):
+    print(f"\n--- {label} ---")
+    print("PAR_ present?", "PAR_" in storage)
+    matches = re.findall(
+        r'ri:(?:filename|value)\s*=\s*["\']([^"\']+)["\']',
+        storage,
+        flags=re.IGNORECASE,
+    )
+    print("attachment ref count:", len(matches))
+    for s in matches[:10]:
+        print("  ref:", s)
+    print("--- end ---\n")
 
-def normalize_csf_image_refs_to_basenames(storage_html: str) -> str:
-    def repl(m: re.Match) -> str:
-        return f"{m.group(1)}{_basename(m.group(2))}{m.group(3)}"
+def normalize_storage_attachment_filenames(storage_html: str, local_basenames: set[str]) -> str:
+    """
+    Convert CSF attachment references like:
+      PAR_assets_MBSE_peerreviewmetamodel.png
+    into:
+      peerreviewmetamodel.png
 
-    out = RI_FILENAME_ATTR_RE.sub(repl, storage_html)
-    out = RI_VALUE_ATTR_RE.sub(repl, out)
+    Uses suffix matching against the basenames we actually upload.
+    Also normalizes ri:value attributes if md2conf emitted those.
+    """
+    out = storage_html
+
+    # Normalize ri:filename="..."
+    filename_values = {m.group(2) for m in RI_FILENAME_VALUE_RE.finditer(storage_html)}
+    for v in filename_values:
+        v_norm = v.replace("\\", "/")
+        candidate = v_norm.split("/")[-1]
+
+        mapped = None
+        if candidate.lower().startswith("par_"):
+            for b in local_basenames:
+                if candidate.lower().endswith(b.lower()):
+                    mapped = b
+                    break
+
+        new_val = mapped or candidate
+
+        if new_val != v:
+            out = out.replace(f'ri:filename="{v}"', f'ri:filename="{new_val}"')
+            out = out.replace(f"ri:filename='{v}'", f"ri:filename='{new_val}'")
+
+    # Normalize ri:value="..."
+    value_values = {m.group(2) for m in RI_VALUE_VALUE_RE.finditer(out)}
+    for v in value_values:
+        v_norm = v.replace("\\", "/")
+        candidate = v_norm.split("/")[-1]
+
+        mapped = None
+        if candidate.lower().startswith("par_"):
+            for b in local_basenames:
+                if candidate.lower().endswith(b.lower()):
+                    mapped = b
+                    break
+
+        new_val = mapped or candidate
+
+        if new_val != v:
+            out = out.replace(f'ri:value="{v}"', f'ri:value="{new_val}"')
+            out = out.replace(f"ri:value='{v}'", f"ri:value='{new_val}'")
+
     return out
 
 
@@ -368,31 +430,47 @@ def publish_md(space_key: str, md_path: Path, parent_page_id: str) -> str:
     pinned_id = extract_page_id(md_text) if ENABLE_PINNED else None
 
     storage = md_file_to_storage(md_path)
-    storage = normalize_csf_image_refs_to_basenames(storage)
+    debug_sample_storage(storage, "RAW CSF (before normalization)")
+
+    imgs = extract_local_images(md_path, DOCS_DIR)
+    local_basenames = {p.name for p in imgs}
+    storage = normalize_storage_attachment_filenames(storage, local_basenames)
+
+    debug_sample_storage(storage, "OUTGOING STORAGE (after normalization)")
 
     if "PAR_" in storage:
-        raise RuntimeError(f"Normalization failed: PAR_ still present in outgoing storage for {md_path}")
+        raise RuntimeError(
+            f"Normalization failed: PAR_ still present in outgoing storage for {md_path}"
+        )
 
-    def upsert_body(page_id: str, current_version: int) -> None:
+    def upsert_body_and_verify(page_id: str, current_version: int) -> None:
         ensure_attachments_present(page_id, md_path)
         update_page(page_id, title, current_version + 1, storage)
 
-    # Optional pinned update (off by default)
+        updated = get_page(page_id, expand="body.storage,version")
+        stored = updated.get("body", {}).get("storage", {}).get("value", "")
+        debug_sample_storage(stored, "STORED STORAGE (read back from Confluence)")
+
+        if "PAR_" in stored:
+            raise RuntimeError(
+                f"Confluence stored PAR_ after update for page {page_id}. "
+                f"That means Confluence is rewriting the XHTML on save."
+            )
+
     if pinned_id:
         existing_page = get_page(pinned_id, expand="version")
         page_id = existing_page["id"]
         current_version = int(existing_page["version"]["number"])
-        upsert_body(page_id, current_version)
+        upsert_body_and_verify(page_id, current_version)
         print(f"Updated (pinned): {title} -> {page_id}")
         return page_id
 
-    # STEP 2: prefer child-by-title under parent; fallback to space-wide match-by-title
     found = find_child_by_title(parent_page_id, title)
     if found:
         page_id = found["id"]
         existing_page = get_page(page_id, expand="version")
         current_version = int(existing_page["version"]["number"])
-        upsert_body(page_id, current_version)
+        upsert_body_and_verify(page_id, current_version)
         print(f"Updated: {title} -> {page_id}")
         return page_id
 
@@ -400,7 +478,14 @@ def publish_md(space_key: str, md_path: Path, parent_page_id: str) -> str:
     if existing_anywhere:
         page_id = existing_anywhere["id"]
         current_version = int(existing_anywhere["version"]["number"])
-        upsert_body(page_id, current_version)
+
+        ancestors = existing_anywhere.get("ancestors", [])
+        current_parent_id = ancestors[-1]["id"] if ancestors else None
+        if str(current_parent_id) != str(parent_page_id):
+            move_page(page_id, title, current_version + 1, parent_page_id)
+            existing_page = get_page(page_id, expand="version")
+            current_version = int(existing_page["version"]["number"])
+        upsert_body_and_verify(page_id, current_version)
         print(f"Updated (space-wide match): {title} -> {page_id}")
         return page_id
 
@@ -409,7 +494,7 @@ def publish_md(space_key: str, md_path: Path, parent_page_id: str) -> str:
 
     existing_page = get_page(page_id, expand="version")
     current_version = int(existing_page["version"]["number"])
-    upsert_body(page_id, current_version)
+    upsert_body_and_verify(page_id, current_version)
 
     print(f"Created: {title} -> {page_id}")
     return page_id
@@ -448,7 +533,6 @@ def main():
     print(f"ROOT_PAGE_ID={root_page_id}")
     print(f"DOCS_DIR={DOCS_DIR.resolve()}")
 
-    # Sanity check root exists and is readable
     get_page(root_page_id, expand="version")
 
     preconvert_all_to_csf(DOCS_DIR)

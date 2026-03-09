@@ -4,7 +4,7 @@
 
 1. Identify System of Interest use cases.  
 
-For each identified use case:  
+For each identified use case:
 
 2. Navigate to the **DRS Naval Electronics Profile > Templates**, then expand **Use Case, UCD, AD**.  
 3. Right-click **Template UC > Copy**,right-click the **1 Use Cases** package in your model and **Paste**.  

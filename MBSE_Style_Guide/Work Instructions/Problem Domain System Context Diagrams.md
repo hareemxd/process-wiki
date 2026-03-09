@@ -13,30 +13,32 @@ output:
     - Internal Block Diagram
 ---
 
-<!-- confluence-page-id:28573697 -->
+
+
 
 # Purpose
 
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create structural diagrams in the *problem domain system context* (PDSC), the environment containing and surrounding the *system of interest* (SoI) during key activities. The SoI is the primary subject of the modeler's efforts, the system to be designed using the architectural definition realized in the system model.
-# Company SysML Meta Model
+# DRS Naval Electronics SysML Meta Model
 
-This Work Instruction addresses the **Problem Domain Black Box - Structure** space of the Company Meta Model; see [Figure 1](#figure-1-company-meta-model).
+This Work Instruction addresses the **Problem Domain Black Box - Structure** space of the DRS Naval Electronics Meta Model; see [Figure 1](#figure-1-drsne-meta-model).
 
 In the Problem Domain, the SoI is modeled as a *black box*; only the external boundaries and connections are defined. The black box perspective helps the modeler identify the most fundamental SoI specifications: external interfaces, and the states, behaviors, and functions inferred from its inputs and outputs. Allocating these specifications to discrete objects within the SoI gives rise to structure in the system model.
 
 
-### Figure 1 — Company Meta Model
+### Figure 1 DRS Naval Electronics Meta Model
 
-![Company Meta Model](../img/MBSE/PDSCDiagramsMetaModel.png)
+![DRS Naval Electronics Meta Model](../assets/MBSE/PDSCDiagramsMetaModel.png)
+
 The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
 
-### Table 1 — Work Instruction Inputs
+### Table 1  Work Instruction Inputs
 
 | Description | Reference |
 |---|---|
-| The Modeler should be working in a Model using the company MBSE package framework. | Template Work Instruction |
-
+| The Modeler should have access to the required work elements in Teamwork Cloud. | MBSE-WI-001 Teamwork Cloud Administrator |
+| The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. | MBSE-WI-002 Project Templates |
 
 
 # Roles and Responsibilities
@@ -44,7 +46,7 @@ The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure 
 Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#table-2-raci-roles-and-definitions) and functional areas are assigned roles in [Table 3](#table-3-problem-domain-system-context-diagrams-raci-chart).
 
 
-### Table 2 — RACI Roles and Definitions
+### Table 2  RACI Roles and Definitions
 
 | RACI Role | Definition |
 |---|---|
@@ -55,8 +57,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Omitted | Not a stakeholder. |
 
 
-
-### Table 3 — Problem Domain System Context Diagrams RACI Chart
+### Table 3  Problem Domain System Context Diagrams RACI Chart
 
 | Function | Role |
 |---|---|
@@ -72,7 +73,6 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Quality | A |
 | Training | A |
 | Business Development | A |
-
 
 
 # Terms
@@ -92,13 +92,14 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 Create elements by right-clicking in the containment tree.
 
 
->[!NOTE]
-Customizations are located under **Other Blocks**; see [Figure 2](#figure-2-element-customizations).
+| Note |
+|---|
+| Customizations are located under **Other Blocks**; see [Figure 2](#figure-2-element-customizations). |
 
 
-### Figure 2 — Element Customizations
+### Figure 2  Element Customizations
 
-![Element Customizations](../img/MBSE/PDSCcustomizations.png)
+![Element Customizations](../assets/MBSE/PDSCcustomizations.png)
 ---
 
 ### Create Problem Domain System Context Block
@@ -131,11 +132,10 @@ Customizations are located under **Other Blocks**; see [Figure 2](#figure-2-elem
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.
 
- 1. Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**, and enter `[project/system name] Problem Domain System Context`. 
+Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**, and enter `[project/system name] Problem Domain System Context`. 
 
 ### Layout the Diagram
-
-In the diagram:  
+ 
  1. Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram**, and enter `[project/system name] Problem Domain System Context`.  
  2. Drag the PDSC block into the middle of the diagram and lengthen it to extend to the bottom of the screen.  
  3. Update the title to match the element name.  
@@ -143,32 +143,32 @@ In the diagram:
  5. Drag the **Actor Descriptions** table into the top-left region and  the **External System Descriptions** table into the top-right region.  
  6. Use the **Align** tool in the top toolbar to organize, resize, and reposition elements to give the diagram a uniform style.  
 
->[!NOTE]
-All external system and actor blocks should be the same size.
+| Note |
+|---|
+| All external system and actor blocks should be the same size. |
 
 
 ### Create Design Comments
 
-
-1. Select the element to attach a comment to, then select the anchor ![anchor](../img/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
+1. Select the element to attach a comment to, then select the anchor ![anchor](../assets/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
 2. Right-click the note, then **Refactor > Convert To > Comment**.
 3. Right-click again, and under **Stereotype**, select a comment stereotype.
 4. Enter the comment in the text field.
 
->[!NOTE]
-All design comments should have an applied stereotype.
+| Note |
+|---|
+| All design comments should have an applied stereotype. |
 
 ### Create System of Interest Documentation Comment
 
 
 1. Right-click the SoI **> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
+2. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
+3. Mouse over the comment and select the anchor ![anchor](../assets/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
+### Figure 3  Display System of Interest Documentation
 
-### Figure 3 — Display System of Interest Documentation
-
-![Display System of Interest Documentation](../img/MBSE/PDSCSOIContainmentTree.png)
-1. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
-2. Mouse over the comment and select the anchor ![anchor](../img/MBSE/Anchor.png), then select the PDSC block and connect the elements.
+![Display System of Interest Documentation](../assets/MBSE/PDSCSOIContainmentTree.png)
 
 ### Create Relationships
 
@@ -177,23 +177,24 @@ All design comments should have an applied stereotype.
 
 3. Right-click each new connector **> Specification > Multiplicity**, and set the correct value.
 
->[!NOTE]
-The primary user should be assigned a multiplicity of **[1..*]**.
+| Note |
+|---|
+| The primary user should be assigned a multiplicity of **[1..*]**. |
 
 ### Output
 
 [Figure 4](#figure-4-problem-domain-system-context-block-definition-diagram) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see [Table 4](#table-4-block-definition-diagram-review-checklist-items).
 
 
-### Figure 4 — Problem Domain System Context Block Definition Diagram
+### Figure 4  Problem Domain System Context Block Definition Diagram
 
-![Problem Domain System Context Block Definition Diagram](../img/MBSE/PDSCBDD.png)
+![Problem Domain System Context Block Definition Diagram](../assets/MBSE/PDSCBDD.png)
 
-### Table 4 — Block Definition Diagram Review Checklist Items
+### Table 4  Block Definition Diagram Review Checklist Items
 
 | Review Checklist Item | Description |
 |---|---|
-| Item 1 Comments | All design comments have a company custom stereotype applied. |
+| Item 1 Comments | All design comments have a DRS Naval Electronics custom stereotype applied. |
 | Item 2 Structure | PDSC block is in the middle, actors are on the left, systems are on the right, and blocks are organized and uniform. |
 | Item 3 Documentation | Actor and external system description tables are located above their blocks and the SoI documentation is displayed in the top-left region. |
 | Item 4 Relationships | The PDSC block has a directed composition relationship to the SoI block and directed aggregation relationships to all actor and external system blocks. |
@@ -219,48 +220,49 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 1. Select a property (element) in the diagram, then select the **Proxy Port**. Create a new port on the inner side (close to the SoI).
 2. Select the SoI and create another port that will connect the SoI with the property port.
 3.  Select each port on the SoI, select the **Connector**, then create a connection between the SoI and property ports.
-
->[!NOTE]
-Connected ports should be horizontally aligned to the greatest possible extent. Use the **Align** tool.
-
 4. Right-click each port **> Legend Item**, then assign the appropriate **Legend Item**.
 5. Position all port labels next to their ports and inside the owning block.
 
+| Note |
+|---|
+| Connected ports should be horizontally aligned to the greatest possible extent. Use the **Align** tool. |
 
-### Figure 5 — Figure 5 Port Style
+### Figure 5 Port Style
 
-![Figure 5 Port Style](../img/MBSE/PDSCPortStyle.png)
+![Figure 5 Port Style](../assets/MBSE/PDSCPortStyle.png)
 ### Create Flows and Interfaces
 1. Identify and create elements to represent all types of information flowing between the SoI and external systems.
 2. Right-click **Logical Information Flows > Create Element > Flow Specification**.
 3. Drag the Flow Specification block onto the appropriate connector in the diagram.
-4. Check the flow's direction to confirm it is correct, then select **Finish**.
-
->[!NOTE]
-All connected ports must be typed by the same Interface Block.
-
+4. Check the flow's direction to confirm it is correct, then select **Finish**.  
 5. Identify all types of interfaces through which information is transferred between all PDSC elements of definition.
 6. Right-click **Logical Interface Types > Create Element > Interface Block**.
-7. Drag the Interface Block onto the appropriate port in the diagram.
+7. Drag the Interface Block onto the appropriate port in the diagram.  
+
+| Note |
+|---|
+| All connected ports must be typed by the same Interface Block. |
 
 ### Output
 
 [Figure 6](#figure-6-problem-domain-system-context-internal-block-diagram) provides an example of a properly styled PDSC IBD. 
 
 
-### Figure 6 — Problem Domain System Context Internal Block Diagram
+### Figure 6  Problem Domain System Context Internal Block Diagram
 
-![Problem Domain System Context Internal Block Diagram](../img/MBSE/PDSCIBD.png)
+![Problem Domain System Context Internal Block Diagram](../assets/MBSE/PDSCIBD.png)
 # References
 
+| Document Number | Name|
+| ---| ---|
+|MBSE-WI-001| Teamwork Cloud Administrator|
+|MBSE-WI-002| Project Templates|
 
 # Revision History
 
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
-|ghp.1| - |01-28-2026| D. Ricart| First complete draft deployed to Github Pages using a MyST-powered site generator.|
-|ghp.2| - |02-10-2026| D. Ricart| Updates to metadata (doc number, output) and figure directives to improve PDF export quality.|
-
+|conf.1| - |03-02-2026| D. Ricart| Draft uploaded to General Engineering Practices Confluence space.|
 # Appendix
 
 
@@ -268,7 +270,7 @@ All connected ports must be typed by the same Interface Block.
 Actors represent humans or human groups who interact with the SoI in the Problem Domain System Context. A common approach to designating actors is to consider them in terms of their *behaviors* and *needs* and how these characteristics may influence and/or interact with the SoI.
 
 
-
 ## External Systems Supplement
 
 External Systems are the systems that interact with the SoI in the Problem Domain. Common examples include power, networking, and thermal control systems, and structural systems such as mounts and cable harnesses. Identifying all external systems is critical to the definition of the SoI from a black box perspective.
+

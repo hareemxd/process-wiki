@@ -13,21 +13,24 @@ outputs:
     - Naval Electronics Teamwork Cloud User Roles and Permissions
 ---
 
+
+
+
 # Purpose
 This Model Based Systems Engineering (MBSE) Work Instruction describes Teamwork Cloud administrative roles and responsibilities.
-# Company SysML Meta Model
+# DRS Naval Electronics SysML Meta Model
 
-This Work Instruction applies to all spaces of the company Meta Model; see [Figure 1](#figure-1-company-meta-model).
+This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#figure-1-drsne-meta-model).
 
 
-### Figure 1 — Company Meta Model
+### Figure 1 DRS Naval Electronics Meta Model
 
-![Company Meta Model](../img/MBSE/peerreviewmetamodel.png)
+![DRS Naval Electronics Meta Model](../assets/MBSE/peerreviewmetamodel.png)
 # Roles and Responsiblities
 Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 1](#table-1-raci-roles-and-definitions) and functional areas are assigned roles in [Table 2](#table-2-teamwork-cloud-administrator-raci-chart).
 
 
-### Table 1 — **RACI Roles and Definitions**
+### Table 1 **RACI Roles and Definitions**
 
 | RACI Role | Definition |
 |---|---|
@@ -38,7 +41,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Omitted | Not a stakeholder. |
 
 
-### Table 2 — **Teamwork Cloud Administrator RACI Chart**
+### Table 2 **Teamwork Cloud Administrator RACI Chart**
 
 | Function | Role |
 |---|---|
@@ -72,8 +75,9 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ## Setup the Work Environment
 
->[!NOTE]
-This section mostly applies to non-administrative users.
+| Note |
+|---|
+| This section mostly applies to non-administrative users. |
 
 
 ### Access Cameo Systems Modeler
@@ -82,19 +86,16 @@ Submit an IT request for a Cameo Systems Modeler license.
 
 ### Access Teamwork Cloud
 
-Contact a Teamwork Cloud Administrator (TCA).
+Contact a Teamwork Cloud Administrator (TCA) to gain access to Teamwork Cloud.
 
 ## Setup New Program Category in Teamwork Cloud
 
 1. Open **Resources > Naval Electronics**.
-2. To the bottom-right, select the **Create Category** plus ![plus icon](../img/MBSE/Plus.png) .
-3. Enter the `program name` **> Enter**.
-4. Open the new category and create two sub-categories called `Cameo Files` and `Collaborator Files`.
-5. Open **Collaborator Files** and create two sub-categories called `1. Peer Reviews`, `2. Archived Peer Reviews`, and `3. Other Collaborator Files`.
+2. To the bottom-right, select the **Create Category** plus ![plus icon](../assets/MBSE/Plus.png).  
+3. Enter the `program name` **> Enter**.  
+4. Open the new category and create two sub-categories called `Cameo Files` and `Collaborator Files`.  
+5. Open **Collaborator Files** and create two sub-categories called `1. Peer Reviews`, `2. Archived Peer Reviews`, and `3. Other Collaborator Files`.  
 
-### Output
-
-You have set up a category with the correct structure for MBSE projects.
 
 ## Manage Roles in Teamwork Cloud
 
@@ -106,37 +107,32 @@ See the [Appendix](#appendix) for a complete list of permissions.
 
 ### Add Roles
 
-On the Teamwork Cloud homepage:
-1. Open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](../img/MBSE/Ellipses.png) to the right.
-2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure-2-add-role-to-user-in-teamwork-cloud).
+1. In Teamwork Cloud, open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) to the right.  
+2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure-2-add-role-to-user-in-teamwork-cloud).  
+3. Select **Assignments** to open the containment tree.
+4. Expand the tree, then apply permissions to specific categories or resources using the checkboxes.
+5. In the top left, click the back arrow, then click the arrow in the top right to confirm.
 
+### Figure 2 Add Role to User in Teamwork Cloud
 
-### Figure 2 — Add Role to User in Teamwork Cloud
-
-![Add Role to User in Teamwork Cloud](../img/MBSE/twcaddrolesgeneral.png)
-For each added role:
-
-1. Select **Assignments** to open the containment tree.
-2. Expand the tree, then apply permissions to specific categories or resources using the checkboxes.
-3. In the top left, click the back arrow &larr; , then click the arrow &rarr; in the top right to confirm.
-
+![Add Role to User in Teamwork Cloud](../assets/MBSE/twcaddrolesgeneral.png)
 
 #### Program Admin Roles
 
-The Company Admin must grant permissions to staff designated as Program Admins to perform their assigned responsibilities, such as **Archive the Peer Review Artifact**; see [**Peer Review**](#references).
+The DRS Naval Electronics Admin must grant permissions to staff designated as Program Admins to perform their assigned responsibilities, such as **Archive the Peer Review Artifact**; see [**Peer Review**](#references).
 
-1. Add these roles to Program Admin users:
-    * Resource Manager
-    * Resource Synchronization Manager
-    * Locks Administrator
-2. Set the scope for these roles at the top-level project category.
+1. Add these roles to Program Admin users:  
+    * Resource Manager  
+    * Resource Synchronization Manager  
+    * Locks Administrator  
+2. Set the scope for these roles at the top-level project category.  
 
 #### Modeler Roles
 
 Modelers need read/write access to their project's original model.
 
-1. Add **Resource Contributor** to Modeler users.
-2. Set the scope for this role to these categories under the user's project category:
+1. Add **Resource Contributor** to Modeler users.  
+2. Set the scope for this role to these categories under the user's project category:  
     *  **Cameo Files** 
     * **Peer Reviews** and **Other Collaborator Files** (under **Collaborator Files**).
 
@@ -144,22 +140,21 @@ Modelers need read/write access to their project's original model.
 
 Reviewers need read/write access to their project's **Peer Reviews** category.
 
-1. Add **Resource Contributor** to Reviewer users.
-2. Set the scope for this role to these categories under the user's project category:
+1. Add **Resource Contributor** to Reviewer users.  
+2. Set the scope for this role to these categories under the user's project category:  
     * **Peer Reviews** and **Other Collaborator Files** (under **Collaborator Files**).
 
 # References
 
-| Document Number| Document Title|
-|---|---|
-|MBSE-WI-002| Peer Review|
+| Document Number | Name|
+| ---| ---|
+|MBSE-WI-001| Peer Review|
 
 # Revision History
 
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
-|ghp.1| - |01-28-2026| D. Ricart| First complete draft deployed to Github Pages using a MyST-powered site generator.|
-|ghp.2| - |02-10-2026| D. Ricart| Updates to metadata (doc number, output) and figure directives to improve PDF export quality.|
+|conf.1| - |03-02-2026| D. Ricart| Draft uploaded to General Engineering Practices Confluence space.|
 
 # Appendix
 
@@ -188,3 +183,4 @@ Reviewers need read/write access to their project's **Peer Reviews** category.
 |Release Resource Locks|Release all locks on a resource.|
 |Remove Resource|Delete a resource.|
 |Remove User|Delete a user.|
+

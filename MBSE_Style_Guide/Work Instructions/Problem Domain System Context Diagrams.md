@@ -129,9 +129,11 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 Create elements by right-clicking in the containment tree.
 
 
-| Note |
-|---|
-| Customizations are located under **Other Blocks**; see [Figure 2](#fig-element-customizations). |
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>Customizations are located under **Other Blocks**; see [Figure 2](#fig-element-customizations).</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 ---
 
@@ -195,6 +197,8 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 <ac:Structured-macro ac:name="info">
 <ac:rich-text-body>
 <p>All external system and actor blocks should be roughly the same size.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 ### Create Design Comments
 
@@ -206,6 +210,8 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 <ac:Structured-macro ac:name="info">
 <ac:rich-text-body>
 <p>All design comments should have an applied stereotype.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 ### Create System of Interest Documentation Comment
 
@@ -242,6 +248,8 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 <ac:Structured-macro ac:name="info">
 <ac:rich-text-body>
 <p>The primary user should be assigned a multiciplity of **[1..*]**</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 ### Output
 
@@ -309,6 +317,8 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 <ac:Structured-macro ac:name="info">
 <ac:rich-text-body>
 <p>Connected ports should be horizontally aligned to the greatest possible extent. Use the **Align** tool.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 --
 
@@ -340,6 +350,8 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 <ac:Structured-macro ac:name="note">
 <ac:rich-text-body>
 <p>All connected ports must be typed by the same Interface Block.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 
 The resulting IBD should look similar to [Figure 6](#fig-pdsc-ibd).

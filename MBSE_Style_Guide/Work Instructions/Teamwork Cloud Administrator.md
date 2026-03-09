@@ -108,6 +108,8 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 <ac:Structured-macro ac:name="info">
 <ac:rich-text-body>
 <p>This section applies primarily to non-administrative users.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 
 

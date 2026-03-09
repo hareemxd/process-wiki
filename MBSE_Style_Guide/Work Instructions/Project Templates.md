@@ -19,27 +19,56 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create a new SysML project using the Naval Electronics project template and Naval Electronics MBSE styles.
 
 # DRS Naval Electronics SysML Meta Model
-This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#figure-1-drsne-meta-model).
+This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig-drsne-meta-model).
+
+---
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-drsne-meta-model</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 1.</strong> DRS Naval Electronics Meta Model</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewmetamodel.png"/>
+</ac:image>
+
+---
+
+The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
 
-### Figure 1  DRS Naval Electronics Meta Model
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
+</ac:structured-macro>
 
-![DRS Naval Electronics Meta Model](../assets/MBSE/peerreviewmetamodel.png)
-
-The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
-
-
-### Table 1  Work Instruction Inputs
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 1.</strong> Work Instruction Inputs</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Description | Reference |
 |---|---|
 | The Modeler should have access to the required work elements in Teamwork Cloud. | MBSE-WI-001 Teamwork Cloud Administrator |
 
 # Roles and Responsibilities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#table-2-raci-roles-and-definitions) and functional areas are assigned roles in [Table 3](#table-3-project-templates-raci-chart).
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-roles-definitions) and functional areas are assigned roles in [Table 3](#tab-project-templates-raci-chart).
 
 
-### Table 2  **RACI Roles and Definitions**
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p><strong>Table 2.</strong> RACI Roles and Definitions</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | RACI Role | Definition |
 |---|---|
@@ -50,7 +79,15 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Omitted | Not a stakeholder. |
 
 
-### Table 3  **Project Templates RACI Chart**
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-project-templates-raci-chart</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p><strong>Table 3.</strong> Project Templates RACI Chart</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Function | Role |
 |---|---|

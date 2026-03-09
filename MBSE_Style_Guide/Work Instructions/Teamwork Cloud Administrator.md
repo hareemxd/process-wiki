@@ -20,17 +20,39 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction describes Teamwork Cloud administrative roles and responsibilities.
 # DRS Naval Electronics SysML Meta Model
 
-This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#figure-1-drsne-meta-model).
+This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig-drsne-meta-model).
 
+---
 
-### Figure 1 DRS Naval Electronics Meta Model
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-drsne-meta-model</ac:parameter>
+</ac:structured-macro>
 
-![DRS Naval Electronics Meta Model](../assets/MBSE/peerreviewmetamodel.png)
-# Roles and Responsiblities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 1](#table-1-raci-roles-and-definitions) and functional areas are assigned roles in [Table 2](#table-2-teamwork-cloud-administrator-raci-chart).
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 1.</strong> DRS Naval Electronics Meta Model</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewmetamodel.png"/>
+</ac:image>
 
-### Table 1 **RACI Roles and Definitions**
+---
+
+# Roles and Responsibilities
+
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 1](#tab-raci-roles-definitions) and functional areas are assigned in [Table 2](#tab-twc-admin-raci-chart).
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 1.</strong> RACI Roles and Definitions</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | RACI Role | Definition |
 |---|---|
@@ -41,7 +63,15 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Omitted | Not a stakeholder. |
 
 
-### Table 2 **Teamwork Cloud Administrator RACI Chart**
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-twc-admin-raci-chart</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 2.</strong> Teamwork Cloud Administrator RACI Chart</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Function | Role |
 |---|---|
@@ -75,9 +105,10 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 ## Setup the Work Environment
 
-| Note |
-|---|
-| This section mostly applies to non-administrative users. |
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>This section applies primarily to non-administrative users.</p>
+
 
 
 ### Access Cameo Systems Modeler
@@ -108,14 +139,28 @@ See the [Appendix](#appendix) for a complete list of permissions.
 ### Add Roles
 
 1. In Teamwork Cloud, open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) to the right.  
-2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#figure-2-add-role-to-user-in-teamwork-cloud).  
+2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#fig-add-role-user-twc).  
 3. Select **Assignments** to open the containment tree.
 4. Expand the tree, then apply permissions to specific categories or resources using the checkboxes.
 5. In the top left, click the back arrow, then click the arrow in the top right to confirm.
 
-### Figure 2 Add Role to User in Teamwork Cloud
+---
 
-![Add Role to User in Teamwork Cloud](../assets/MBSE/twcaddrolesgeneral.png)
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-add-role-user-twc</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 2.</strong> Add Role to User in Teamwork Cloud</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="twcaddrolesgeneral.png"/>
+</ac:image>
+
+---
 
 #### Program Admin Roles
 

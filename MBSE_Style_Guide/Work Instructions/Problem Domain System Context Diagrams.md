@@ -21,19 +21,40 @@ output:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures to create structural diagrams in the *problem domain system context* (PDSC), the environment containing and surrounding the *system of interest* (SoI) during key activities. The SoI is the primary subject of the modeler's efforts, the system to be designed using the architectural definition realized in the system model.
 # DRS Naval Electronics SysML Meta Model
 
-This Work Instruction addresses the **Problem Domain Black Box - Structure** space of the DRS Naval Electronics Meta Model; see [Figure 1](#figure-1-drsne-meta-model).
+This Work Instruction addresses the **Problem Domain Black Box - Structure** space of the DRS Naval Electronics Meta Model; see [Figure 1](#fig-drsne-meta-model).
 
 In the Problem Domain, the SoI is modeled as a *black box*; only the external boundaries and connections are defined. The black box perspective helps the modeler identify the most fundamental SoI specifications: external interfaces, and the states, behaviors, and functions inferred from its inputs and outputs. Allocating these specifications to discrete objects within the SoI gives rise to structure in the system model.
 
+---
 
-### Figure 1 DRS Naval Electronics Meta Model
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-drsne-meta-model</ac:parameter>
+</ac:structured-macro>
 
-![DRS Naval Electronics Meta Model](../assets/MBSE/PDSCDiagramsMetaModel.png)
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 1.</strong> DRS Naval Electronics Meta Model</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
-The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="PDSCDiagramsMetaModel.png"/>
+</ac:image>
+
+---
+
+The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
 
-### Table 1  Work Instruction Inputs
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 1.</strong> Work Instruction Inputs</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Description | Reference |
 |---|---|
@@ -43,10 +64,18 @@ The Modeler should review [Table 1](#table-1-work-instruction-inputs) to ensure 
 
 # Roles and Responsibilities
 
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#table-2-raci-roles-and-definitions) and functional areas are assigned roles in [Table 3](#table-3-problem-domain-system-context-diagrams-raci-chart).
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-roles-definitions) and functional areas are assigned roles in [Table 3](#tab-pdsc-raci-chart).
 
 
-### Table 2  RACI Roles and Definitions
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 2.</strong> RACI Roles and Definitions</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | RACI Role | Definition |
 |---|---|
@@ -57,7 +86,15 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Omitted | Not a stakeholder. |
 
 
-### Table 3  Problem Domain System Context Diagrams RACI Chart
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-pdsc-raci-chart</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 3.</strong> Problem Domain System Context Diagrams RACI Chart</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Function | Role |
 |---|---|
@@ -94,12 +131,24 @@ Create elements by right-clicking in the containment tree.
 
 | Note |
 |---|
-| Customizations are located under **Other Blocks**; see [Figure 2](#figure-2-element-customizations). |
+| Customizations are located under **Other Blocks**; see [Figure 2](#fig-element-customizations). |
 
+---
 
-### Figure 2  Element Customizations
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-element-customizations</ac:parameter>
+</ac:structured-macro>
 
-![Element Customizations](../assets/MBSE/PDSCcustomizations.png)
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 2.</strong> Element Customizations</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="PDSCcustomizations.png"/>
+</ac:image>
+
 ---
 
 ### Create Problem Domain System Context Block
@@ -143,10 +192,9 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
  5. Drag the **Actor Descriptions** table into the top-left region and  the **External System Descriptions** table into the top-right region.  
  6. Use the **Align** tool in the top toolbar to organize, resize, and reposition elements to give the diagram a uniform style.  
 
-| Note |
-|---|
-| All external system and actor blocks should be the same size. |
-
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>All external system and actor blocks should be roughly the same size.</p>
 
 ### Create Design Comments
 
@@ -155,9 +203,9 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 3. Right-click again, and under **Stereotype**, select a comment stereotype.
 4. Enter the comment in the text field.
 
-| Note |
-|---|
-| All design comments should have an applied stereotype. |
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>All design comments should have an applied stereotype.</p>
 
 ### Create System of Interest Documentation Comment
 
@@ -166,9 +214,23 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 2. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
 3. Mouse over the comment and select the anchor ![anchor](../assets/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
-### Figure 3  Display System of Interest Documentation
+---
 
-![Display System of Interest Documentation](../assets/MBSE/PDSCSOIContainmentTree.png)
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-display-soi-documentation</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 3.</strong> Display System of Interest Documentation</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="PDSCSOIContainmentTree.png"/>
+</ac:image>
+
+---
 
 ### Create Relationships
 
@@ -177,20 +239,41 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 
 3. Right-click each new connector **> Specification > Multiplicity**, and set the correct value.
 
-| Note |
-|---|
-| The primary user should be assigned a multiplicity of **[1..*]**. |
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>The primary user should be assigned a multiciplity of **[1..*]**</p>
 
 ### Output
 
-[Figure 4](#figure-4-problem-domain-system-context-block-definition-diagram) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see [Table 4](#table-4-block-definition-diagram-review-checklist-items).
+[Figure 4](#fig-pdsc-bdd) provides an example of a properly styled PDSC BDD. The red labels indicate the location of style elements captured as Review Checklist items; see [Table 4](#tab-bdd-review-checklist).
 
+---
 
-### Figure 4  Problem Domain System Context Block Definition Diagram
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-pdsc-bdd</ac:parameter>
+</ac:structured-macro>
 
-![Problem Domain System Context Block Definition Diagram](../assets/MBSE/PDSCBDD.png)
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 4.</strong> Problem Domain System Context Block Definition Diagram</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
-### Table 4  Block Definition Diagram Review Checklist Items
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="PDSCBDD.png"/>
+</ac:image>
+
+---
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-bdd-review-checklist</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p><strong>Table 4.</strong> Block Definition Diagram Review Checklist Items</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Review Checklist Item | Description |
 |---|---|
@@ -223,13 +306,28 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 4. Right-click each port **> Legend Item**, then assign the appropriate **Legend Item**.
 5. Position all port labels next to their ports and inside the owning block.
 
-| Note |
-|---|
-| Connected ports should be horizontally aligned to the greatest possible extent. Use the **Align** tool. |
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>Connected ports should be horizontally aligned to the greatest possible extent. Use the **Align** tool.</p>
 
-### Figure 5 Port Style
+--
 
-![Figure 5 Port Style](../assets/MBSE/PDSCPortStyle.png)
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-port-style</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 5.</strong> Port Style</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="PDSCPortStyle.png"/>
+</ac:image>
+
+---
+
 ### Create Flows and Interfaces
 1. Identify and create elements to represent all types of information flowing between the SoI and external systems.
 2. Right-click **Logical Information Flows > Create Element > Flow Specification**.
@@ -239,18 +337,31 @@ Add elements to diagrams by dragging them from the containment tree. Create rela
 6. Right-click **Logical Interface Types > Create Element > Interface Block**.
 7. Drag the Interface Block onto the appropriate port in the diagram.  
 
-| Note |
-|---|
-| All connected ports must be typed by the same Interface Block. |
-
-### Output
-
-[Figure 6](#figure-6-problem-domain-system-context-internal-block-diagram) provides an example of a properly styled PDSC IBD. 
+<ac:Structured-macro ac:name="note">
+<ac:rich-text-body>
+<p>All connected ports must be typed by the same Interface Block.</p>
 
 
-### Figure 6  Problem Domain System Context Internal Block Diagram
+The resulting IBD should look similar to [Figure 6](#fig-pdsc-ibd).
 
-![Problem Domain System Context Internal Block Diagram](../assets/MBSE/PDSCIBD.png)
+---
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-pdsc-ibd</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 6.</strong> Problem Domain System Context Internal Block Diagram</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="PDSCIBD.png"/>
+</ac:image>
+
+---
+
 # References
 
 | Document Number | Name|

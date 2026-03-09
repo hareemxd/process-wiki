@@ -1,5 +1,5 @@
 ---
-title: MBSE Style Guide
+title: MBSE Style Guide Home Page
 subtitle: Model-Based Systems Engineering
 ---
 
@@ -33,13 +33,16 @@ The importance of the systems problem concept becomes clear when thinking about 
 
 A single aircraft is a system, which itself is comprised of *hundreds* of subsystems. Instead of a single cable between computer and monitor, aircraft rely on countless interactions between physical components, software logic, human operators, maintenance actions, and operating environments. Failures rarely come from one part breaking in isolation; they emerge from **misunderstood, poorly controlled, or undocumented interactions**. 
 
-:::{figure} ../img/MBSE/aircraftsystems.png
-:align: center
-:name: figure1-mbsesghp
 
-Aircraft Systems
+---
+![Aircraft Systems](../assets/aircraftsystems.png)
 
-:::
+
+<div style="text=align: center;">
+<i>Aircraft Systems</i>
+</div>
+---
+
 
 
 ### Systems Engineering
@@ -68,21 +71,20 @@ A system model captures:
 - How parts interact (interfaces)
 - Requirements (structure, performance, behavior)
 
-:::{figure} ../img/MBSE/car_bdd.png
-:align: center
-:name: figure2-mbsesghp
+---
+![Block Definition Diagram of a Vehicle](..assets/MBSE/car_bdd.png)
 
-Block Definition Diagrams define the *composition* of a system. A vehicle is composed of the blocks Transmission, Engine, and Wheel (itself composed of Brake and Tire).
+<div style="text=align: center;">
+<i>Block Defition Diagrams define the system composition. A vehicle is composed of the Enginge, Wheel, and Transmission. The wheel can also be decomposed into smaller parts.</i>
 
-:::
+---
 
-:::{figure} ../img/MBSE/acpower_ibd.png
-:align: center
-:name: figure3-mbsesghp
+![Internal Block Diagram of a System](..assets/MBSE/acpower_ibd.png)
 
-Internal Block Diagrams define the *relationships* between elements within a system. Models can impose design requirements through *specifications*. The diagram will throw an error if the modeler attempts to connect the blocks with a DC power cord.
+<div style="text-align: center;">
+<i>Internal Block Diagrams define the relationships between elements within a system. Models can impose design requirements through <b>specifications</b>. The diagram will throw an error if the modeler attempts to connect the blocks with a DC power cord.</i></div>
 
-:::
+---
 
 ### Value Provided by System Modeling
 
@@ -135,37 +137,4 @@ Rather than treating modeling as a one-time design activity, the process treats 
 
 ### What to Read Next
 
-Start with **Work Instructions** in the left sidebar. If you prefer a jump list, use the cards below.
-
-:::{grid} 2
-:gutter: 2
-
-:::{card} Problem Domain System Context Diagrams
-:link: ./Work Instructions/Problem Domain System Context Diagrams
-:link-type: doc
-
-Procedures to create structural diagrams representing a system's problem domain.
-:::
-
-:::{card} Peer Review
-:link: ./Work Instructions/Peer Review
-:link-type: doc
-
-Procedure to conduct peer review activities in Cameo Collaborator.
-:::
-
-:::{card} Teamwork Cloud Administrator
-:link: ./Work Instructions/Teamwork Cloud Administrator
-:link-type: doc
-
-Administration procedures for Teamwork Cloud.
-:::
-
-:::{card} Project Templates
-:link: ./Work Instructions/Project Templates
-:link-type: doc
-
-Templates for setting up and configuring SysML projects.
-:::
-
-:::
+Work in progress.

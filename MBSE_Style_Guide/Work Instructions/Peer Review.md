@@ -20,27 +20,42 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures for conducting peer reviews of MBSE artifacts. Adherence to this document ensures that peer reviews conform to DRS Naval Electronics process and quality standards.
 
 # DRS Naval Electronics SysML Meta Model
-This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see **Figure 1**.  
+This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig1-peer-review-metamodel).  
 
 ---
-![DRS Naval Electronics Meta Model](../assets/MBSE/peerreviewmetamodel.png)
 
-<div style="text-align: center;">
-<i>Figure 1 DRS Naval Electronics Meta Model</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-peer-review-metamodel</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 3.</strong> Peer Review Meta Model</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewmetamodel.png"/>
+</ac:image>
+
 ---
 
-The Modeler should review **Table 1** to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p><strong>Table 1.</strong> Work Instruction Inputs</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Description | Reference |
 |---|---|
 | The Modeler should have access to the required work elements in Teamwork Cloud. | MBSE-WI-001 Teamwork Cloud Administrator |
 | The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. | MBSE-WI-002 Project Templates |
-
-<div style="text-align: left;">
-<i>Table 1 Work Instruction Inputs</i>
-</div>
 
 # Roles and Responsibilities
 Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in **Table 2** and functional areas are assigned roles in **Table 3**.

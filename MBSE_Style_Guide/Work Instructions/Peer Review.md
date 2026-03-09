@@ -20,7 +20,7 @@ outputs:
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures for conducting peer reviews of MBSE artifacts. Adherence to this document ensures that peer reviews conform to DRS Naval Electronics process and quality standards.
 
 # DRS Naval Electronics SysML Meta Model
-This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig1-peer-review-metamodel).  
+This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig-peer-review-metamodel).  
 
 ---
 
@@ -30,7 +30,7 @@ This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Mo
 
 <ac:structured-macro ac:name="info">
   <ac:rich-text-body>
-    <p><strong>Figure 3.</strong> Peer Review Meta Model</p>
+    <p><strong>Figure 1.</strong> Peer Review Meta Model</p>
   </ac:rich-text-body>
 </ac:structured-macro>
 
@@ -46,7 +46,7 @@ The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they
   <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="note">
+<ac:structured-macro ac:name="tip">
   <ac:rich-text-body>
     <p><strong>Table 1.</strong> Work Instruction Inputs</p>
   </ac:rich-text-body>
@@ -58,7 +58,17 @@ The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they
 | The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. | MBSE-WI-002 Project Templates |
 
 # Roles and Responsibilities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in **Table 2** and functional areas are assigned roles in **Table 3**.
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-definitions) and functional areas are assigned roles in [Table 3](#tab-raci--peer-review-chart).
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-definitions</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 2.</strong> RACI Roles and Definitions</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | RACI Role | Definition |
 |---|---|
@@ -68,9 +78,15 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Informed | Stakeholder is made aware of the document. |
 | Omitted | Not a stakeholder. |
 
-<div style="text-align: left;">
-<i>Table 2 RACI Roles and Definitions</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-peer-review-chart</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:rich-text-body>
+    <p><strong>Table 3.</strong> Peer Review RACI Chart</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 | Function | Role |
 |---|---|
@@ -86,10 +102,6 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Quality | A |
 | Training | A |
 | Business Development | I |
-
-<div style="text-align: left;">
-<i>Table 3 Peer Review RACI Chart</i>
-</div>
 
 # Terms
 
@@ -128,11 +140,21 @@ Before creating the artifact, you must update the *project usages* of your Peer 
 4. Go to **Collaborate > Commit Changes to Server**.  
 
 ---
-![Lock Project to Update Project Usage](../assets/MBSE/peerreviewlockcustomizations.png)
 
-<div style="text-align: center;">
-<i>Figure 2 Lock Project to Update Project Usage</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-lock-project-usage</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 2.</strong> Lock Project to Update Project Usage</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewlockcustomizations.png"/>
+</ac:image>
+
 ---
 
 ### Create Smart Package
@@ -145,9 +167,11 @@ Right-click the main model **> Create Element > Smart Package**, and enter `yyyy
 
 Add review elements to the smart package by editing its **Specification**.  
 
-| Note |
-|---|
-| You can drag and drop elements directly into the package, but this is not recommended for projects with extensive containment trees. |
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p>You can drag and drop elements directly into the package, but this is not recommended for projects with extensive containment trees.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 1. Right-click the smart package **> Specification**.  
 2. Under **Content**, select the cell next to **Additional Elements**, then click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png).  
@@ -161,14 +185,25 @@ The Peer Review Content Diagram contains instructions for reviewers and model ID
 
 In the Peer Review Project, select the search-glass ![search icon](../assets/MBSE/Search.png), select **Any Element**, and search `peer review`.  
 
-The top result in **Figure 3** is the Peer Review Content Diagram Template stored in the DRS Naval Electronics Profile. If you don't see the template, check your project usages.  
+The top result in [Figure 3](#fig-search-peer-review-diagram) is the Peer Review Content Diagram Template stored in the DRS Naval Electronics Profile. If you don't see the template, check your project usages.  
 
 ---
-![Search for Peer Review Content Diagram](../assets/MBSE/peerreviewfind.png)
 
-<div style="text-align: center;">
-<i>Figure 3 Search for Peer Review Content Diagram</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-search-peer-review-diagram</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 3.</strong> Search for Peer Review Content Diagram</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewfind.png"/>
+</ac:image>
+
+
 ---
 
 1. Select the template to locate it in the containment tree, then right-click the diagram and **Copy**, then right-click the smart package and **Paste**.  
@@ -176,14 +211,24 @@ The top result in **Figure 3** is the Peer Review Content Diagram Template store
 3. Update the activity information fields.  
 4. Update the diagram's data markings as required.  
 5. Drag elements you want to visualize from the smart package into the diagram screen.  
-6. Use text headers and hierarchy to organize the content diagram; see **Figure 4**.  
+6. Use text headers and hierarchy to organize the content diagram; see [Figure 4](#fig-peer-review-content-diagram).  
 
 ---
-![Peer Review Content Diagram](../assets/MBSE/peerreviewcontentdiagram.png)
 
-<div style="text-align: center;">
-<i>Figure 4 Peer Review Content Diagram</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-peer-review-content-diagram</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 4.</strong> Peer Review Content Diagram</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewcontentdiagram.png"/>
+</ac:image>
+
 ---
 
 ## Initiate Peer Review Activity
@@ -197,15 +242,25 @@ This step includes publishing the artifact to Cameo Collaborator, granting permi
 3. Open the project category **> Collaborator Files > Peer Reviews > OK**.  
 4. Click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) next to **Scope**.  
 5. Select the smart package **>** select the plus ![plus icon](../assets/MBSE/Plus.png) **> OK**.  
-6. Check that your options are identical to **Figure 5**.  
+6. Check that your options are identical to [Figure 5](#fig-peer-review-publish-one).  
 7. From **Scope**, copy the smart package name and paste to **Document name > Publish**.  
 
 ---
-![Publish the Peer Review Artifact](../assets/MBSE/peerreviewpublisher.png)
 
-<div style="text-align: center;">
-<i>Figure 5 Publish the Peer Review Artifact</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-peer-review-publish-one</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 5.</strong> Publish the Peer Review Artifact</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewpublisher.png"/>
+</ac:image>
+
 ---
 
 ### Grant Permissions to Reviewers in Teamwork Cloud
@@ -224,11 +279,21 @@ Reviewers are tasked with reviewing the artifact and identifying problems with c
 2. Open an element in the diagram from the main screen or containment tree.  
 
 ---
-![Cameo Collaborator Containment Tree](../assets/MBSE/peerreviewcollaboratormenu.png)  
 
-<div style="text-align: center;">
-<i>Figure 6 Cameo Collaborator Containment Tree</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-peer-review-collab-tree</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 6.</strong> Cameo Collaborator Containment Tree</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewcollaboratormenu.png"/>
+</ac:image>
+
 ---
 
 #### Add comment
@@ -257,9 +322,12 @@ The author closes a comment when the identified problem has been corrected, or i
 5. For invalid comments, locate the comment and select the reply tool ![reply icon](../assets/MBSE/reply1.png).  
 6. Enter `your reply` in **Comment** explaining why the comment should be closed with no action taken.  
 
-| Note |
-|---|
-| Do not resolve comments by making changes to the peer review project or the original project in Cameo Collaborator. |
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p>Do not resolve comments by making changes to the peer review project or the original project in Cameo Collaborator.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
 
 ## Close Peer Review Activity
 The final step is to close the peer review activity.  
@@ -277,14 +345,25 @@ The final step is to close the peer review activity.
 
 | Note |
 |---|
-| The activity documented in **Figure 7** began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity. |
+| The activity documented in [Figure 7](#fig-peer-review-start-close-note) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity. |
 
 ---
-![Peer Review Start/Close Note](../assets/MBSE/peerreviewnote.png)
 
-<div style="text-align: center;">
-<i>Figure 7 Peer Review Start/Close Note</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-peer-review-start-close-note</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 7.</strong> Peer Review Start/Close Note</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewnote.png"/>
+</ac:image>
+
+
 ---
 
 1. Go to **Tools > Cameo Collaborator > Publish**.  
@@ -292,14 +371,25 @@ The final step is to close the peer review activity.
 3. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.  
 4. Select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) by **Scope**.  
 5. Select the peer review artifact, then select the plus ![plus icon](../assets/MBSE/Plus.png)**> OK**.  
-6. Expand and configure your **Options** per **Figure 8**, then **Publish**.  
+6. Expand and configure your **Options** per [Figure 8](#fig-peer-review-publish-two), then **Publish**.  
 
 ---
-![Publish the Completed Peer Review Artifact](../assets/MBSE/peerreviewpublisher2.png)  
 
-<div style="text-align: center;">
-<i>Figure 8 Publish the Completed Peer Review Artifact</i>
-</div>
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-peer-review-publish-two</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 8.</strong> Publish the Completed Peer Review Artifact</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="peerreviewpublisher2.png"/>
+</ac:image>
+
+
 ---
 
 ### Archive the Peer Review Artifact

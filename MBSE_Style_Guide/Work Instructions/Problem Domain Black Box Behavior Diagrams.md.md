@@ -191,6 +191,24 @@ A Decision Node receives and outputs a single flow into one of two distinct path
 
 A Merge Node is the counterpart to a Decision Node. The Merge Node ensures that the dual pathing routes to the same location. Merge Nodes may also be used in isolation to resolve alternate/exceptional flow paths.
 
+---
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-decision-merge</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 2.</strong> Decision and Merge Nodes</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="decision_merge.png"/>
+</ac:image>
+
+---
+
 #### Create Decision and Merge Node
 
 1. Create a **Decision Node**.
@@ -204,6 +222,24 @@ Fork Horizontals create multiple concurrent flows within an Activity, used when 
 The Fork Horizontal receives a single flow as input and outputs multiple flows. Each flow proceeds through its own set of actions. In this sense, the input flow into a Fork Horizontal may be considered a "trigger" for the multiple outputted flows.
 
 The Join Horizontal receives multiple flows (created by its counterpart Fork) as input and outputs a single flow. The activity does not progress beyond the Join Horizontal until all inputs are received.
+
+---
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-join-fork</ac:parameter>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p><strong>Figure 3.</strong> Join and Fork Horizontals</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="decision_merge.png"/>
+</ac:image>
+
+---
 
 #### Create Fork and Join Horizontal
 

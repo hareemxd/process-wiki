@@ -3,7 +3,7 @@ title: Problem Domain Black Box Behavior Diagrams
 subtitle: MBSE Work Instruction
 project: MBSE Style Guide  
 genre: Work Instruction  
-document_number: MBSE-WI-004
+document_number: MBSE-WI-005
 metamodel_domain: Problem Domain Black Box  
 metamodel_pillar: Behavior
 domains:  

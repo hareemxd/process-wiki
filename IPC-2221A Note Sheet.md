@@ -2,7 +2,7 @@
 title: Generic Standard on Printed Board Design
 subtitle: Note Sheet
 project: n/a
-genre: Work Instruction  
+genre: Industry Standard Reference Sheet  
 document_number: IPC-2221A
 domains:  
     - Electrical Engineering  
@@ -241,17 +241,53 @@ The boundary scan standard for integrated circuits (IEEE 1149.1 [blank]) provide
 
 In many applications, adding scan registers to the inputs and outputs of an assembly allows the board to be tested while installed. For more complex circuits, additional scan registers can be added in the design to capture intermediate results and apply test vectors to exercise certain portions.
 
+Boundary Scan testing can be conducted using a low cost PC-based tester which requires access to the printed board assembly under test through the edge connector or an existing functiona, in-circuit, or hybrid test that may be adapted to perform boundary scan testing.
+
 ### Functional Test Concern for Printed Board Assemblies
+
+The use of test connectors, problems with initialization and synchronization, long counter chains, self diagnostics, and physical testing are topics which are discussed in detail in the following subsections.
 
 #### Test Connectors
 
+Fault isolation on conformal coating boards or most SMT and mixed technology designs can be difficult due to lack of access to the circuitry. Fault isolation can be improved by placing strategic signals, brought out to a test connector or an area on the board where the signals can be probed (test points). This lowers the cost of detection, isolation, and correction.
+
+The circuit can also be designed so that a test connector stimulates the circuit, such as taking over a data bus, or disables functions on the assembly.
+
 #### Initialization and Synchronization
+
+Some designs do not need initialization circuitry because the circuit quickly cycles into its intended function. In this case, it is difficult to synchronize the tester because it would need programming to stimulate the circuit until a predetermined signature is found on the outputs.
+
+Initialization capability can usually be designed into the circuitry so the assembly can quickly initialize and the circuit and tester can follow the expected outputs.
+
+Free running oscillators also present problems because of synchronization issues with test equipment. Solutions include:  
+* adding test circuitry to select a clock instead of the oscillator
+* removing the oscillator for test and injecting a test clock
+* overriding the signal
+* designing the clock system so clocking can be controlled via test connector or test points
 
 #### Long Counter Chains
 
+Long counter chains with signals used from many stages present another testing problem, especially if there is no means to preset the counter chain to different values to enable testing of the logic that is driven from the high order stages.
+
+The counter chain can be broken into smaller chains (no more than 10 stages) or the chain can be loaded via test software, which can then verify the logic operation that is driven from the counter stages without wasting the simulation and test time of completing the entire chain.
+
 #### Self Diagnostics
 
+Self diagnostics are sometimes a contractual or derived requirement. Often an assembly does not contain the functions needed to run self diagnostics, but a set of assemblies can be used for this purpose. A Fast Fourier Transform (FFT) function can be spread across multiple assemblies. The level of self diagnostics required is usually driven by the line replaceable unit (LRU), which depends on requirements.
+
+At the assembly level, there is a test mode to which the assembly applies a known set of test inputs and compares the results with expected responses stored in memory. If the results differ, the assembly signals a test failure.
+
 #### Physical Test Concerns
+
+Assembly test equipment is typically expensive and requires skilled personnel to operate. If testability is poor, testing becomes expensive. Physical considerations can make debugging easier and bring down cost.
+
+Polarized part orientation should be consistent so the operator does not get confused. Nonpolarized parts need to idenity pin #1 so the operator knows which end to probe.
+
+Test connectors are preferable to test points which require test clips or hook-up wires. If using riser leads, for example, to determine a select-by-test resistor, the risers should remain after installation of the selected component to enable verification of the item without any re-fixturing.
+
+Signals which cannot be probed worsen testability and fault isolation. If not using scan registers, every signal should have a land/test point somewhere on the assembly for probing purposes. Lands should be located on grid and positioned such that probing can be done from the secondary side. If probing cannot be afforded to every signal, test vectors need to be increased or other techniques need to be leveraged to assign fault isolation.
+
+
 
 ### In-Circuit Test Concerns for Printed Board Assemblies
 
@@ -781,9 +817,25 @@ In many applications, adding scan registers to the inputs and outputs of an asse
 
 ### Registration Coupon
 
+#### Coupon F, Conformance Testing (Option 1)
+
 #### Coupon F, Conformance Testing (Option 2)
 
 #### Coupon R, Conformance Testing
+
+### Coupon G (Solder Resist Adhesion)
+
+### Coupon M (Surface Mount Solderability - Optional)
+
+### Coupon N (Peel Strength, Surface Mount Bond Strength - Optional for SMT)
+
+### Coupon S (Hole Solderability - Optional)
+
+### Process Control Test Coupon
+
+### Coupon X (Bending Flexibility and Endurance, Flexible Printed Wiring)
+
+# Appendix A
 
 
 

@@ -64,7 +64,7 @@ The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they
 
 # Roles and Responsibilities
 
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-roles-definitions) and functional areas are assigned roles in [Table 3](#tab-pdsc-raci-chart).
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-roles-definitions) and functional areas are assigned roles in [Table 3](#tab-raci-chart).
 
 
 <ac:structured-macro ac:name="anchor">
@@ -87,7 +87,7 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 
 <ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-pdsc-raci-chart</ac:parameter>
+  <ac:parameter ac:name="">tab-raci-chart</ac:parameter>
 </ac:structured-macro>
 
 <ac:structured-macro ac:name="tip">

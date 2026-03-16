@@ -253,3 +253,17 @@ The Join Horizontal receives multiple flows (created by its counterpart Fork) as
 ### Activity Diagram Objects
 
 #### Object Flow
+
+# References
+
+| Document Number | Name|
+| ---| ---|
+|MBSE-WI-001| Teamwork Cloud Administrator|
+|MBSE-WI-002| Project Templates|
+|MBSE-WI-004 | MBSE-WI-004 Problem Domain System Context Diagrams |
+# Revision History
+
+| Version|Revision|Date|Author|Change History|
+| ---|---|---|---|---|
+|| - |-| D. Ricart| Draft uploaded to personal space.|
+# Appendix

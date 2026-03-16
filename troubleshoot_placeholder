@@ -1,0 +1,84 @@
+2026-03-16 13:49:45,942 - ERROR - _exception_hook [173] - Exception raised: ConversionError
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\csf.py", line 90, in _elements_from_strings
+    return ET.fromstringlist(data, parser=parser)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/lxml/etree.pyx", line 3451, in lxml.etree.fromstringlist
+  File "src/lxml/parser.pxi", line 1361, in lxml.etree._FeedParser.feed
+  File "src/lxml/parser.pxi", line 1481, in lxml.etree._FeedParser.feed
+  File "src/lxml/parser.pxi", line 638, in lxml.etree._ParserContext._handleParseResult
+  File "src/lxml/parser.pxi", line 647, in lxml.etree._ParserContext._handleParseResultDoc
+  File "src/lxml/parser.pxi", line 765, in lxml.etree._handleParseResult
+  File "src/lxml/parser.pxi", line 689, in lxml.etree._raiseParseError
+  File "<string>", line 187
+lxml.etree.XMLSyntaxError: Opening and ending tag mismatch: rich-text-body line 187 and p, line 187, column 24
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1791, in __init__
+    self.root = elements_from_strings(content)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\csf.py", line 106, in elements_from_strings
+    return _elements_from_strings(dtd_path, items)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\csf.py", line 92, in _elements_from_strings
+    raise ParseError() from ex
+md2conf.csf.ParseError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 247, in <module>
+    main()
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\__main__.py", line 222, in main
+    converter.process(item)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 320, in process
+    self.process_directory(path)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 337, in process_directory
+    self.factory.create(root_dir).process_directory(local_dir)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 130, in process_directory
+    self._process_items(root)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 169, in _process_items
+    self._synchronize_page(path, ConfluencePageID(metadata.page_id))
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\processor.py", line 176, in _synchronize_page
+    page_id, document = ConfluenceDocument.create(path, self.options, self.root_dir, self.site, self.page_metadata)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1735, in create
+    return page_id, ConfluenceDocument(path, document, options, root_dir, site_metadata, page_metadata)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\site-packages\md2conf\converter.py", line 1793, in __init__
+    raise ConversionError(f"failed to convert Markdown file: {path}") from ex
+md2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSmd2conf.converter.ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain Black Box Behavior Diagrams.md
+ConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confConversionError: failed to convert Markdown file: C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\confluence\Work Instructions\Problem Domain Black Box Behavior Diagrams.md
+ParseError:
+XMLSyntaxError: Opening and ending tag mismatch: rich-text-body line 187 and p, line 187, column 24 (<string>, line 187)     
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 543, in <module>
+    main()
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 538, in main
+    preconvert_all_to_csf(DOCS_DIR)
+Traceback (most recent call last):
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 543, in <module>
+    main()
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 538, in main
+    preconvert_all_to_csf(DOCS_DIR)
+dule>
+    main()
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 538, in main
+    preconvert_all_to_csf(DOCS_DIR)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 538, in main
+    preconvert_all_to_csf(DOCS_DIR)
+    preconvert_all_to_csf(DOCS_DIR)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\tools\publish_confluence.py", line 263, in preconvert_all_to_csf
+    subprocess.run(cmd, check=True)
+    subprocess.run(cmd, check=True)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\subprocess.py", line 571, in run   
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'md2conf', 'confluence', '--local', '-d', 'dal1vacon01p:8090']' returned non-zero exit status 1.
+(C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda)
+  File "C:\Users\David.Ricart\OneDrive - Leonardo DRS\Desktop\MBSE_Style_Guide\.conda\Lib\subprocess.py", line 571, in run   
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'md2conf', 'confluence', '--local', '-d', 'dal1vacon01p:8090']' returned non-zero exit status 1.

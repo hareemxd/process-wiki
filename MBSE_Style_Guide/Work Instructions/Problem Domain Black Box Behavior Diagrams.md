@@ -157,7 +157,7 @@ Use this procedure for each identified use case.
 ## Create Activity Diagram
 
 1. Open `Use Case Name AD`, delete all placeholder content, and enter `Use Case Name AD` into the title text box.  
-2. Confirm the UCD's pre-conditions are displayed in the Pre-Conditions Comment.
+2. Confirm the UCD's pre-conditions are displayed in the Pre-Conditions Comment.  
 
 ### Create Swimlanes
 
@@ -169,17 +169,17 @@ Swimlanes should be ordered so the general flow of the activity diagram proceeds
 
 Each entity included in the UCD should have an allocated swimlane in the associated AD.  
 
-1. Right-click a placeholder swimlane, then **Insert Swimlane** and choose the position (left or right) for the new swimlane.
-2. Drag entities from **1 System Context (Structure)** into the swimlane headers to allocate swimlanes to entities.
+1. Right-click a placeholder swimlane, then **Insert Swimlane** and choose the position (left or right) for the new swimlane.  
+2. Drag entities from **1 System Context (Structure)** into the swimlane headers to allocate swimlanes to entities.  
 
 ### Create Successful Flow
 
 The successful flow defined in the UCD describes the system's operation to execute the **Main Operational Concept** from start to finish.
 
-1. Create the **Initial Node**. Name the element to match the **Trigger** of the Use Case Description.  
-2. Create the **Call Behavior Actions** which outline the successful flow and place them into the appropriate swimlanes.
-3. Create the **Control Flows** to connect actions occurring in sequence. 
-4. Create the **Final Node**. Name the element `Success` and connect the final action to it with a **Control Flow**.
+1. Select **Initial Node** ![initial-node](../assets/MBSE/initialnode.png). Place the element on the diagram and name it to match the **Trigger** of the Use Case Description.  
+2. Create **Call Behavior Actions** to model the successful flow and place them into the appropriate swimlanes.  
+3. Select **Control Flow** ![control-flow](../assets/MBSE/controlflow.png) to connect actions occurring in sequence.  
+4. Select **Final Node** ![final-node](../assets/MBSE/finalnode.png). Place the element on the diagram, name it `Success`, and connect the final action to it with a **Control Flow**.  
 
 These steps produce a basic outline of an Activity Diagram. Most Activity Diagrams will require additional types of elements to be considered complete. Refer to [Decision and Merge Nodes](#decision-and-merge-nodes), [Fork and Join Horizontals](#fork-and-join-horizontals), and [Activity Diagram Objects](#activity-diagram-objects), and integrate the described elements into the outline to complete the Activity Diagram.
 
@@ -211,8 +211,8 @@ A Merge Node is the counterpart to a Decision Node. The Merge Node ensures that 
 
 #### Create Decision and Merge Node
 
-1. Create a **Decision Node**.
-2. Create two **Control Flows** emerging from the node.
+1. Select **Decision Node** ![decision-node](../assets/MBSE/decisionnode.png).  
+2. Create two **Control Flows** emerging from the node.  
 3. Open the flow **Specification** and edit the **Guard** to be a true/false statement. 
 
 ### Fork and Join Horizontals
@@ -243,16 +243,52 @@ The Join Horizontal receives multiple flows (created by its counterpart Fork) as
 
 #### Create Fork and Join Horizontal
 
-1. Create a **Fork Horizontal** and lengthen it to output multiple flows.  
-2. Create a **Control Flow** from the previous action/node to the Fork Horizontal.  
+1. Select **Fork Horizontal** ![fork](../assets/MBSE/fork.png), place the element on the diagram, and lengthen it to output multiple flows.  
+2. Create a **Control Flow** to connect the previous action/node to the Fork Horizontal.  
 3. Create multiple **Control Flows** from the Fork Horizontal to the subsequent actions/nodes.  
-4. Create a **Join Horizontal** and lengthen it to receive multiple flows.  
-5. Create multiple **Control Flow** from the previous actions/nodes to the Join Horizontal.  
+4. Select **Join Horizontal** ![join](../assets/MBSE/join.png) and lengthen it to receive multiple flows.  
+5. Create multiple **Control Flows** from the previous actions/nodes to the Join Horizontal.  
 6. Create a **Control Flow** from the Join Horizontal to the subsequent action/node.  
 
 ### Activity Diagram Objects
 
-#### Object Flow
+#### Activity Parameter Nodes
+
+Activity Parameter Nodes are elements which provide inputs to or receive outputs from an activity. The values passed as inputs/outputs are called *parameters*, typed by exchange items and used to control activity logic (e.g. a **Guard** property determines a flow based on the parameter value).
+
+Activity Parameter Nodes are connected to actions with Object Flows via Pins.
+
+To create an Activity Parameter Node:  
+
+1. Select **Activity Parameter Node** ![activity-parameter-node](../assets/MBSE/activityparameternode.png) from the left menu and click on the Activity Diagram border to place the element.    
+2. Enter a name for the node and Type it with an exchange item.
+
+#### Activity Pins
+
+Object Pins are input/output nodes for data to interact with actions. Each pin is owned by an action and connected to a different action, similar to how a port is owned by a block and connected to a different block.
+
+The Input Pin receives data from the connected action and passes it to the owner action for processing. The Output Pin passes data from the owner action to the connected action.
+
+To create Activity Pins:
+
+1. Select an Action; in the sidebar popup, select the **Input Pin** ![input-pin](../assets/MBSE/inputpin.png) or **Output Pin** ![output-pin](../assets/MBSE/outputpin.png) and click on the desired location for the new pin.  
+2. Enter a name for the pin and Type it with a logical interface.  
+
+#### Object Flows
+
+Object Flows are connections between actions (via Pins) to represent the passage of data including energy, information, or matter. Object flows can connect actions to other actions, or actions to Activity Parameter Nodes.
+
+To create Object Flows:
+
+1. Select **Object Flow** ![object-flow](../assets/MBSE/objectflow.png), then select an Activity Parameter Node or Pin.  
+2. Select a different Pin to connect the elements with a new Object Flow.  
+3. Enter a name for the flow and Type it with an exchange item.  
+
+<ac:Structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>Connected pins must be typed identically.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
 
 # References
 
@@ -261,9 +297,13 @@ The Join Horizontal receives multiple flows (created by its counterpart Fork) as
 |MBSE-WI-001| Teamwork Cloud Administrator|
 |MBSE-WI-002| Project Templates|
 |MBSE-WI-004 | MBSE-WI-004 Problem Domain System Context Diagrams |
+
+
 # Revision History
 
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
 || - |-| D. Ricart| Draft uploaded to personal space.|
+
+
 # Appendix

@@ -148,10 +148,10 @@ Use this procedure for each identified use case.
 5. Create **Associations** between the UC and the SoI, actors, and external systems.  
 6. Use the **Align** tool in the top toolbar to resize and reposition the diagram elements to look organized and uniform.  
 
-<ac:Structured-macro ac:name="info">
-<ac:rich-text-body>
-<p>The description fields must be valid as they will be re-used in the Activity Diagram.</p>
-</ac:rich-text-body>
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p>The description fields must be valid as they will be re-used in the Activity Diagram.</p>
+  </ac:rich-text-body>
 </ac:structured-macro>
 
 ## Create Activity Diagram
@@ -284,7 +284,7 @@ To create Object Flows:
 2. Select a different Pin to connect the elements with a new Object Flow.  
 3. Enter a name for the flow and Type it with an exchange item.  
 
-<ac:Structured-macro ac:name="info">
+<ac:structured-macro ac:name="info">
 <ac:rich-text-body>
 <p>Connected pins must be typed identically.</p>
 </ac:rich-text-body>

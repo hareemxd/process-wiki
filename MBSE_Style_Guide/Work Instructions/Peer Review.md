@@ -17,39 +17,17 @@ outputs:
 
 # Purpose
 
-This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures for conducting peer reviews of MBSE artifacts. Adherence to this document ensures that peer reviews conform to DRS Naval Electronics process and quality standards.
+This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures for conducting peer reviews of MBSE artifacts. Adherence to this document ensures that peer reviews conform to DRS Naval Electronics process and quality standards. Review activities should be conducted regularly to:  
 
-# DRS Naval Electronics SysML Meta Model
-This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig-peer-review-metamodel).  
+- keep pace with work updates, and
+- limit each review activity to a reasonable scope.
 
----
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">fig-peer-review-metamodel</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 1.</strong> Peer Review Meta Model</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-<ac:image ac:align="center">
-  <ri:attachment ri:filename="peerreviewmetamodel.png"/>
-</ac:image>
-
----
+# References
 
 The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
 
 <ac:structured-macro ac:name="anchor">
   <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 1.</strong> Work Instruction Inputs</p>
-  </ac:rich-text-body>
 </ac:structured-macro>
 
 | Description | Reference |
@@ -64,12 +42,6 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
   <ac:parameter ac:name="">tab-raci-definitions</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 2.</strong> RACI Roles and Definitions</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
 | RACI Role | Definition |
 |---|---|
 | Responsible | Stakeholder is the owner of the document. |
@@ -80,12 +52,6 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 
 <ac:structured-macro ac:name="anchor">
   <ac:parameter ac:name="">tab-raci-peer-review-chart</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 3.</strong> Peer Review RACI Chart</p>
-  </ac:rich-text-body>
 </ac:structured-macro>
 
 | Function | Role |
@@ -114,23 +80,41 @@ Roles and responsibilities for the MBSE Style Guide are assigned with a RACI cha
 | Containment Tree| synonymous with *file directory* in Teamwork Cloud|
 
 # Procedure
-## Create Peer Review Project
 
-All peer reviews for a given program are contained in a separate project file so review comments do not clutter the system model.
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p>Before conducting a review, confirm that all changes to the system model(s) are complete and committed to the SysML server project.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
-In Cameo:  
-1. Go to **File > New Project**, then enter `Peer Reviews - Project Name`. Open the new project.  
-2. Go to **Options > Project Usages**.  
-3. Select the plus ![plus icon](../assets/MBSE/Plus.png) **> Use Server Project**.  
-4. Locate and select the original project **> Next**.  
-5. Select the most recent version **> Finish**.  
-6. Close the window, then go to **Collaborate > Commit Changes to Server**.  
+<ac:structured-macro ac:name="toc">
+  <ac:parameter ac:name="minLevel">2</ac:parameter>
+  <ac:parameter ac:name="maxLevel">7</ac:parameter>
+  <ac:parameter ac:name="type">list</ac:parameter>
+  <ac:parameter ac:name="outline">true</ac:parameter>
+</ac:structured-macro>
 
-## Create Peer Review Artifact
 
-This procedure describes the steps to create a peer review artifact that will be subject to the peer review activity. The author is responsible for choosing the artifact contents, including elements to be reviewed directly and elements which provide reviewers with useful background information.
 
-### Update Project Usage Reference for Review Start
+## Open the Peer Review Project
+
+All peer reviews for a given program are contained in a separate project file so review comments do not clutter the system model.  
+
+1. In Cameo, go to **Collaborate > Open Server Project**.
+2. Locate the main project and select the ellipses ![ellipses](../assets/MBSE/Ellipses.png). Write down the *trunk number* displayed in the new window.
+3. In the previous window, select the Peer Review Project under ![folder icon](../assets/MBSE/cameofolder.png)**Cameo Files > Open**.
+
+---
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">fig-open-collab-project</ac:parameter>
+</ac:structured-macro>
+
+<ac:image ac:align="center">
+  <ri:attachment ri:filename="opencollabproject.png"/>
+</ac:image>
+---
+
+## Update Project Usages
 
 Before creating the artifact, you must update the *project usages* of your Peer Review Project to reference the correct version of the original project.
  
@@ -139,90 +123,30 @@ Before creating the artifact, you must update the *project usages* of your Peer 
 3. Right-click the original project again, then **Change Version > OK > OK**.  
 4. Go to **Collaborate > Commit Changes to Server**.  
 
----
 
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">fig-lock-project-usage</ac:parameter>
-</ac:structured-macro>
+## Create Peer Review Artifact
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 2.</strong> Lock Project to Update Project Usage</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
+The Peer Review Artifact is the subject of the review: a *smart package* created by the author that contains all elements to be reviewed.
+ 
 
-<ac:image ac:align="center">
-  <ri:attachment ri:filename="peerreviewlockcustomizations.png"/>
-</ac:image>
-
----
-
-### Create Smart Package
-
-The Peer Review artifact consists of a *smart package*, a set of project elements created by the author, in the Peer Review Project.  
-
-Right-click the main model **> Create Element > Smart Package**, and enter `yyyy-mm-dd review-artifact-name`.  
-
-### Add Elements to Smart Package
-
-Add review elements to the smart package by editing its **Specification**.  
+1. In the Peer Review Project, identify the **Reviews** package in the containment tree to contain the review artifact.
+2. Right-click the package and **> Create Element > Smart Package**, and enter `YYYYMMDD - xxx` (the current date and a descriptive name for the review activity).
+3. Above the containment tree, select the search icon, select **Any Element**, and search `peer review`. The top result is the Peer Review Content Diagram Template.
+4. Copy the template into the new smart package, and rename the template `smart_package_name_CD`.
+5. In the template, update the activity information fields and data markings.
+6. Drag the model elements to be reviewed from the containment tree into the diagram (or select them in the smart package **Specification**).
+7. Use **Align** ![align icon](../assets/MBSE/align.png) to organize the elements visually and use text headers to separate different element types; see [Figure 4](#fig-peer-review-content-diagram).
 
 <ac:structured-macro ac:name="info">
   <ac:rich-text-body>
-    <p>You can drag and drop elements directly into the package, but this is not recommended for projects with extensive containment trees.</p>
+    <p>If you don't see the template in search results, check your project usages.</p>
   </ac:rich-text-body>
 </ac:structured-macro>
-
-1. Right-click the smart package **> Specification**.  
-2. Under **Content**, select the cell next to **Additional Elements**, then click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png).  
-3. Expand **Project Usages** to view the original project containment tree.  
-4. Select the elements to include in the review activity, then click the plus ![plus icon](../assets/MBSE/Plus.png).  
-5. Select **OK > Close**.  
-
-### Create Peer Review Content Diagram
-
-The Peer Review Content Diagram contains instructions for reviewers and model IDs to ensure traceability between the review activity and the main model.  
-
-In the Peer Review Project, select the search-glass ![search icon](../assets/MBSE/Search.png), select **Any Element**, and search `peer review`.  
-
-The top result in [Figure 3](#fig-search-peer-review-diagram) is the Peer Review Content Diagram Template stored in the DRS Naval Electronics Profile. If you don't see the template, check your project usages.  
-
----
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">fig-search-peer-review-diagram</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 3.</strong> Search for Peer Review Content Diagram</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-<ac:image ac:align="center">
-  <ri:attachment ri:filename="peerreviewfind.png"/>
-</ac:image>
-
-
----
-
-1. Select the template to locate it in the containment tree, then right-click the diagram and **Copy**, then right-click the smart package and **Paste**.  
-2. Rename the new copy `smart_package_name CD`.  
-3. Update the activity information fields.  
-4. Update the diagram's data markings as required.  
-5. Drag elements you want to visualize from the smart package into the diagram screen.  
-6. Use text headers and hierarchy to organize the content diagram; see [Figure 4](#fig-peer-review-content-diagram).  
 
 ---
 
 <ac:structured-macro ac:name="anchor">
   <ac:parameter ac:name="">fig-peer-review-content-diagram</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 4.</strong> Peer Review Content Diagram</p>
-  </ac:rich-text-body>
 </ac:structured-macro>
 
 <ac:image ac:align="center">
@@ -231,72 +155,45 @@ The top result in [Figure 3](#fig-search-peer-review-diagram) is the Peer Review
 
 ---
 
-## Initiate Peer Review Activity
 
-This step includes publishing the artifact to Cameo Collaborator, granting permissions to reviewers, and notifying them the activity has started.  
+## Publish Peer Review Artifact
 
-### Publish Artifact to Collaborator
+The author publishes the smart package to Cameo Collaborator where teammates can review it and provide comments.
 
-1. In Cameo Systems Modeler, go to **Tools > Cameo Collaborator > Publish**.  
-2. Click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) next to **Category Name** to open the containment tree.  
-3. Open the project category **> Collaborator Files > Peer Reviews > OK**.  
-4. Click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) next to **Scope**.  
-5. Select the smart package **>** select the plus ![plus icon](../assets/MBSE/Plus.png) **> OK**.  
-6. Check that your options are identical to [Figure 5](#fig-peer-review-publish-one).  
-7. From **Scope**, copy the smart package name and paste to **Document name > Publish**.  
+1. Go to **Tools > Cameo Collaborator > Publish**, and configure the publish fields/options per [Figure 5](#fig-publish-peer-review-package):  
+   a.  **Document Name** matches the Smart Package name.  
+   b.  **Category Name** is `Peer Reviews`.    
+   c.  **Scope** is set to the package containing the Smart Package.  
+   d. **Template** is set to `Diagrams`.  
+   e. **Enable Commenting** and **Update Previously Published Document** are checked.  
+2. Select **Publish**.
 
 ---
 
 <ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">fig-peer-review-publish-one</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 5.</strong> Publish the Peer Review Artifact</p>
-  </ac:rich-text-body>
+  <ac:parameter ac:name="">fig-publish-peer-review-package</ac:parameter>
 </ac:structured-macro>
 
 <ac:image ac:align="center">
-  <ri:attachment ri:filename="peerreviewpublisher.png"/>
+  <ri:attachment ri:filename="publishpeerreviewpackage.png"/>
 </ac:image>
 
 ---
 
-### Grant Permissions to Reviewers in Teamwork Cloud
-
-When initiating a review activity, you must confirm that all reviewers have the Review Contributor role for the correct category(s) enabled. Otherwise, the reviewers will not be able to access the review artifact. See [MBSE-WI-001 Teamwork Cloud Administrator Work Instruction](#references) for more detail.  
 
 ## Perform Peer Review in Cameo Collaborator
 
-This procedure describes the review, comment, and resolve portion of the review activity.  
+### Review the Artifact
 
-### Review the Artifact in Cameo Collaborator
-
-Reviewers are tasked with reviewing the artifact and identifying problems with comments.  
+Reviewers are tasked with reviewing the Peer Review Artifact and identifying problems that are in-scope. 
 
 1. Open the artifact in Teamwork Cloud. Review the content diagram notes.  
 2. Open an element in the diagram from the main screen or containment tree.  
 
----
 
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">fig-peer-review-collab-tree</ac:parameter>
-</ac:structured-macro>
+### Add Comments
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 6.</strong> Cameo Collaborator Containment Tree</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-<ac:image ac:align="center">
-  <ri:attachment ri:filename="peerreviewcollaboratormenu.png"/>
-</ac:image>
-
----
-
-#### Add comment
+Comments identify problems in the Peer Review Artifact and will be resolved by the author.
 
 1. In the element, click the comment tool ![comment icon](../assets/MBSE/comment.png) to the bottom right.  
 2. Click anywhere in the diagram to open **Graphical Comment** and the top-left toolbar.  
@@ -305,15 +202,21 @@ Reviewers are tasked with reviewing the artifact and identifying problems with c
 5. Select the shape, then select the comment tool ![comment icon](../assets/MBSE/comment.png) from the main toolbar.  
 6. Enter `your name` in **Title** and `your comment` in **Comment > Done**.  
 
-### Review Comments in Cameo Collaborator
+### Review Comments
 
-1. Open Teamwork Cloud **> Resources**. Navigate to and open the peer review artifact.  
+1. Open Teamwork Cloud **> Resources**. Navigate to and open the Peer Review Artifact.  
 2. Select the comment tool ![comment icon](../assets/MBSE/comment.png) in the top right. All comments on this artifact are displayed to the right.  
 3. Select a comment to open the respective element.  
 
-### Close Comments during the Peer Review Activity
+### Resolve Comments
 
-The author closes a comment when the identified problem has been corrected, or if they deem the comment invalid or out-of-scope for the activity. The moderator closes a comment once they verify the author has corrected the problem as described in the review comments.  
+<ac:structured-macro ac:name="note">
+  <ac:rich-text-body>
+    <p>Do not resolve comments by making changes to the Peer Review Project or the original project in Cameo Collaborator.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+The author resolves a comment when the identified problem has been corrected, or if they deem the comment invalid or out-of-scope for the activity.  
 
 1. For valid comments, update the model in the **original project** to correct the problem.  
 2. In Cameo Collaborator, locate the comment and select the reply tool ![reply icon](../assets/MBSE/reply1.png).  
@@ -322,30 +225,23 @@ The author closes a comment when the identified problem has been corrected, or i
 5. For invalid comments, locate the comment and select the reply tool ![reply icon](../assets/MBSE/reply1.png).  
 6. Enter `your reply` in **Comment** explaining why the comment should be closed with no action taken.  
 
+
+## Close the Peer Review Activity
+
 <ac:structured-macro ac:name="note">
   <ac:rich-text-body>
-    <p>Do not resolve comments by making changes to the peer review project or the original project in Cameo Collaborator.</p>
+    <p>Make sure all comment-driven changes are complete before closing the activity.</p>
   </ac:rich-text-body>
 </ac:structured-macro>
 
-
-## Close Peer Review Activity
 The final step is to close the peer review activity.  
-
-### Update Project Usage Reference for Review Close
 
   1. In the Peer Review Project in Cameo, go to **Options > Project Usages**.  
   2. Right-click the original model **> Lock**, then right-click again and **Change Version**.  
   3. Select the correct version of the original model **> OK > OK**.  
   4. Go to **Collaborate > Commit Changes to Server**.  
+  5. In the Peer Review Content Diagram, update the review start/close note with the review close version number.  
 
-### Publish Peer Review Artifact to Cameo Collaborator for Review Close
-
-1. In the Peer Review Content Diagram, update the review start/close note with the review close version number.  
-
-| Note |
-|---|
-| The activity documented in [Figure 7](#fig-peer-review-start-close-note) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity. |
 
 ---
 
@@ -353,25 +249,26 @@ The final step is to close the peer review activity.
   <ac:parameter ac:name="">fig-peer-review-start-close-note</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 7.</strong> Peer Review Start/Close Note</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
 <ac:image ac:align="center">
   <ri:attachment ri:filename="peerreviewnote.png"/>
 </ac:image>
 
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p>The activity documented in [Figure 7](#fig-peer-review-start-close-note) began with Version 1 of the original model and ended with Version 4. The note provides traceability to all changes resulting from the review activity.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
 
 ---
+
+## Publish the Peer Review Artifact
 
 1. Go to **Tools > Cameo Collaborator > Publish**.  
 2. Select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) by **Category Name**.  
 3. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.  
 4. Select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) by **Scope**.  
 5. Select the peer review artifact, then select the plus ![plus icon](../assets/MBSE/Plus.png)**> OK**.  
-6. Expand and configure your **Options** per [Figure 8](#fig-peer-review-publish-two), then **Publish**.  
+6. Expand and configure your **Options** per [Figure 8](#fig-peer-review-publish-two) (uncheck **Enable Commenting**), then **Publish**.  
 
 ---
 
@@ -379,31 +276,18 @@ The final step is to close the peer review activity.
   <ac:parameter ac:name="">fig-peer-review-publish-two</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 8.</strong> Publish the Completed Peer Review Artifact</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
 <ac:image ac:align="center">
   <ri:attachment ri:filename="peerreviewpublisher2.png"/>
 </ac:image>
 
-
 ---
 
-### Archive the Peer Review Artifact
+## Archive the Peer Review Artifact
 
 1. In Teamwork Cloud, open your project category, then open **Collaborator Files > Peer Reviews**.  
 2. To the right, select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) **> Move Resource**.  
 3. Under the project containment tree, select **Archived Peer Reviews > Move**.  
 
-# References
-
-| Document Number | Name|
-| ---| ---|
-|MBSE-WI-001| Teamwork Cloud Administrator|
-|MBSE-WI-002| Project Templates|
 
 # Revision History
 
@@ -412,4 +296,3 @@ The final step is to close the peer review activity.
 |conf.1| - |03-02-2026| D. Ricart| Draft uploaded to General Engineering Practices Confluence space.|
 
 # Appendix
-

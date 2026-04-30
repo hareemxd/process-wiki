@@ -1,0 +1,633 @@
+ 
+
+Standard Operating Practice 
+
+DRS Naval Electronics 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+System Level Requirements Development Work Instruction 
+
+ 
+
+ 
+
+ 
+
+Revision: - 								Revision Date:  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NOTE 
+
+ 
+
+The only controlled version of this document is the one being viewed online. Any printed copy becomes an uncontrolled copy and is for reference only. Verify revision prior to use of this document. 
+
+ 
+
+​​Table of Contents 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​ 
+
+​​ 
+
+ 
+
+ 
+
+PURPOSE / SUMMARY 
+
+The purpose of this document is to describe the instructions and criteria involved in the development of system level requirements with the Model Based Systems Engineering (MBSE) methodology. This process is used when establishing the MBSE baseline of a pre-existing system. 
+
+RESPONSIBILITY / STAKEHOLDERS 
+
+Responsibility 
+
+Process Owner 
+
+Lead Systems Engineer:  Dirk Hall 
+
+Stakeholders 
+
+Project Engineer:  Mike Mukka 
+
+Systems Engineers 
+
+ACRONYMS / DEFINITIONS 
+
+MBSE – Model Based Systems Engineering 
+
+ 
+
+PROCEDURE / PROCESS 
+
+As with all DRS MBSE processes it is assumed the executing engineer is trained in basic MBSE concepts and utilities including SysML, at least at the OCSMP Model User level, and implementation of SysML using Cameo Systems Modeler. This process focuses on developing the system level requirements and relationships comprising the Requirements Pillar of Solution Domain at the System Level as shown in Figure 1. 
+
+ 
+
+Figure 1: DRS Meta Model Framework 
+
+ 
+
+Within this work scope MBSE Engineers develop specific configurations of Requirements Tables, Requirements Derivation Tables, Relationship Map Diagrams, and Dependency Tables shown in Figure 2. 
+
+A picture containing text
+
+Description automatically generated 
+
+Figure 2: System Level Solution Structure Landing Page 
+
+The following sections present an example for how these specific diagrams are developed and the pieces of information required to consider a diagram complete. 
+
+Package Setup 
+
+Requirements in Cameo Systems Modeler are heavily affected by the containment relationship, therefore the package structure which contains the model’s requirements is highly prescriptive. In general, it is recommended to follow the package structure shown in Figure 3 which separate Functional, Non-Function, and Verification Requirements. 
+
+Text
+
+Description automatically generated 
+
+Figure 3: Example System Level Requirements Package Structure 
+
+Each requirement type package can be refined further by adding categories as shown in Figure 4. 
+
+ 
+
+Figure 4: Requirements Categories 
+
+Requirements Tables 
+
+Requirements in this process are developed via interaction with the requirements table diagram, which allows the user to create, manage, and change requirements. A requirements table for this framework is made for each of the three requirement types under their package created in 4.1 as shown in Figure 5. 
+
+ 
+
+Figure 5: Requirements Table Location 
+
+ 
+
+The scope for the requirements table shall be the requirements type package under which it was created as shown in Figure 6. 
+
+ 
+
+Figure 6: Requirements Table Context Selection 
+
+Next the MBSE engineer needs to setup attribute columns to show the standard attributes of a DRS Naval Electronics Requirement. This is done through the “Columns” tool at the top of the requirements diagram pane as shown in Figure 7. Appendix A defines the required and optional attributes for a  requirement. 
+
+ 
+
+ 
+
+Figure 7: Requirements Table Attributes 
+
+Each of the three standard types of DRS Naval Electronics Requirements has a specific set of attributes as shown in Figure 8, Figure 9, and Figure 10. 
+
+ 
+
+Figure 8: System Functional Requirements Table 
+
+ 
+
+Figure 9: System Non-Functional Requirements Table 
+
+ 
+
+Figure 10: System Verification Requirements Table 
+
+At this point the MBSE engineer can begin creating requirements through the “Add New” tool shown in Figure 11. The DRS Naval Electronics division uses a customized requirements profile, so ensure the correct ne_ requirement type is used for the package. For example, a Non-Functional_Rqmt type shall be used in a non-functional requirement package.   
+
+ 
+
+Figure 11: How to Create a New Requirement 
+
+Only the custom requirements stereotypes used in the Naval Electronics Profile, listed above in Figure 11 shall be used, otherwise the velocity script for exporting the requirements to a MS Word document will not work.  For a more detailed understanding of the custom requirement stereotypes 
+
+ 
+
+Specific Instructions on how to write requirements and the information that goes in each field of the table can be found in the “DRS Naval Electronics Requirements Writing Guide” document. Finally update the requirement’s state IAW Appendix B. 
+
+ 
+
+Requirements Derivation Tables 
+
+Requirements Derivation Tables are a review tool to ensure total traceability between the parent specifications/documentation of the systems requirement model. A derivation diagram shall be created for each requirement type under the corresponding package as shown in Figure 12. 
+
+ 
+
+Figure 12: Location of Requirements Derivation Diagram 
+
+To setup the diagram set the row and column element types to “AbstractRequirement”, Dependency Criteria to “DeriveReqt”, the row scope to the system level requirement type package of choice, and the column scope to the customer requirements/documentation being traced to as shown in Figure 13. 
+
+ 
+
+Figure 13: Requirements Derivation Table Setup 
+
+ If correctly executed the diagram should look similar to Figure 14. 
+
+ 
+
+Figure 14: Requirements Derivation Table Example 
+
+The MBSE engineer shall now inspect traceability between requirements to ensure full traceability, creating the appropriate relationship where necessary. 
+
+Relationship Map Diagrams 
+
+The relationship map diagram is a requirements review tool which visually shows the relationships between requirements. It is used in the requirements review to understand the full traceability of a requirement. To start, a Relationship Map Diagram is created per Functional Requirement under the requirement type package as shown in Figure 15. 
+
+ 
+
+Figure 15: Location of Relationship Map Diagram 
+
+Next, set the relationship criteria to the values shown in Figure 16. 
+
+ 
+
+Figure 16: Relationship Map Criteria 
+
+Finally drag and drop the requirement for which this diagram is being made onto the context input as shown in Figure 16. 
+
+As there are a large number of relationship maps created a generic table is used to list all of the diagrams. The generic table is created under the functional requirements package as shown in Figure 17. 
+
+ 
+
+Figure 17: Relationship Map Generic Table Location 
+
+The table shall be configured by setting the Element Type to Diagram and Scope to the functional requirements package under which the diagram was created as shown in Figure 18. 
+
+ 
+
+Figure 18: Relationship Map Generic Table Setup 
+
+Dependency Matrix 
+
+Dependency Matrices are used to review the traceability of non-functional and verification requirements to functional requirements. To start, create Dependency Matrices corresponding to non-functional and verification requirements in the corresponding requirement type packages as shown in Figure 19. 
+
+ 
+
+Figure 19: Location of Dependency Matrices 
+
+Next, setup the criteria for the non-functional requirements as shown in Figure 20. Note Row Scope is the non-functional requirements package and column scope is the functional requirements package. 
+
+ 
+
+Figure 20: Non-Functional Requirements Criteria 
+
+Next, setup the criteria for the verification requirements as shown in Figure 21. Note Row Scope is the verification requirements package and column scope is the functional requirements package. 
+
+ 
+
+Figure 21: Verification Requirements Criteria 
+
+If successfully executed, the resulting diagram should look similar to Figure 22.  
+
+ 
+
+Figure 22: Example Dependency Matrix 
+
+ 
+
+Reference Documents 
+
+DRS Naval Electronics Requirements Writing Guide 
+
+Opportunities and Risks 
+
+Revision History 
+
+Revision 
+
+Summary of Change 
+
+Approval 
+
+Date 
+
+- 
+
+Initial Release 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Appendix A: Requirement Completion Instructions 
+
+ 
+
+Functional Requirements 
+
+Each line entry represents a requirement object and its associated data of interest: 
+
+Attribute 
+
+Title 
+
+Required / 
+
+Optional 
+
+Description 
+
+# 
+
+NA 
+
+A dynamic line number generated by the tool used to keep track of your place in a requirements table, this number is not directly linked to a requirement object and will change based off of how requirements in the table are filtered and sorted. 
+
+ID 
+
+Required 
+
+The unique ID of the requirement, this string shall be used to reference the requirement in all cases. The string is specifically coded to inform the reader of its requirement type, where CON refers to “Console”. 
+
+Name 
+
+Required 
+
+The unique descriptive name of the requirement. 
+
+Text 
+
+Required 
+
+The formal requirement sentence body. 
+
+Rationale 
+
+Optional 
+
+Describes the originating systems engineer’s intent with the creation of the requirement and its text.  It should be a statement as to WHY the requirement is needed. 
+
+Supporting Text 
+
+Optional 
+
+Describes concepts introduced in the “Text” field which require further elaboration to substantiate or understand the requirement. 
+
+Verification Method 
+
+Required 
+
+Describes the intended method by which the requirement will be verified. Method is available in a drop down list of 4 options. 
+
+Derived From 
+
+Required (before Approval State) 
+
+Lists the higher order PSPEC, standard, or doctrinal source from which this requirement is derived 
+
+Refined By 
+
+Optional 
+
+Lists the non-functional requirements which constrain the functional requirement. 
+
+Verified By 
+
+Required (before Approval State) 
+
+Lists the verification requirements which constrain the verification method of the functional requirement. 
+
+State 
+
+Required 
+
+Describes the current state of the requirement. State is available in a drop-down list of multiple options. 
+
+Documentation 
+
+Optional 
+
+Contains links or embedded documents that are referenced in the Text, Rationale, or Supporting Text fields.  Can also contain issues/comments that need to be resolved while the requirement is the in NewDraft/InChange state. 
+
+ 
+
+ 
+
+Non-Functional Requirements 
+
+Each line entry represents a requirement object and its associated data of interest: 
+
+Attribute 
+
+Title 
+
+Required / 
+
+Optional 
+
+Description 
+
+# 
+
+NA 
+
+A dynamic line number generated by the tool used to keep track of your place in a requirements table, this number is not directly linked to a requirement object and will change based off of how requirements in the table are filtered and sorted. 
+
+ID 
+
+Required 
+
+The unique ID of the requirement, this string shall be used to reference the requirement in all cases. The string is specifically coded to inform the reader of its requirement type, where CON refers to “Console”. 
+
+Name 
+
+Required 
+
+The unique descriptive name of the requirement. 
+
+Text 
+
+Required 
+
+The formal requirement sentence body. 
+
+Rationale 
+
+Optional 
+
+Describes the originating systems engineer’s intent with the creation of the requirement and its text.  It should be a statement as to WHY the requirement is needed. 
+
+Supporting Text 
+
+Optional 
+
+Describes concepts introduced in the “Text” field which require further elaboration to substantiate or understand the requirement. 
+
+Verification Method 
+
+Required 
+
+Describes the intended method by which the requirement will be verified. Method is available in a drop-down list of 4 options. 
+
+Derived From 
+
+Required (before Approval State) 
+
+Lists the higher order PSPEC, standard, or doctrinal source from which this requirement is derived 
+
+Refines 
+
+Optional 
+
+Lists the functional requirements which this non-functional requirement constrains. 
+
+Verified By 
+
+Required (before Approval State) 
+
+Lists the verification requirements which constrain the verification method of the functional requirement. 
+
+State 
+
+Required 
+
+Describes the current state of the requirement. State is available in a drop down list of multiple options. 
+
+Documentation 
+
+Optional 
+
+Contains links or embedded documents that are referenced in the Text, Rationale, or Supporting Text fields.  Can also contain issues/comments that need to be resolved while the requirement is the in NewDraft/InChange state. 
+
+ 
+
+ 
+
+Verification Requirements 
+
+Each line entry represents a requirement object and its associated data of interest: 
+
+Attribute 
+
+Title 
+
+Required / 
+
+Optional 
+
+Description 
+
+# 
+
+NA 
+
+A dynamic line number generated by the tool used to keep track of your place in a requirements table, this number is not directly linked to a requirement object and will change based off of how requirements in the table are filtered and sorted. 
+
+ID 
+
+Required 
+
+The unique ID of the requirement, this string shall be used to reference the requirement in all cases. The string is specifically coded to inform the reader of its requirement type, where CON refers to “Console”. 
+
+Stereotype 
+
+Required 
+
+Non-Functional_Reqt, Functional Req’t, Verification_Req’t 
+
+Name 
+
+Required 
+
+The unique descriptive name of the requirement and ID. 
+
+Text 
+
+Required 
+
+The formal requirement sentence body. 
+
+Rationale 
+
+Optional 
+
+Describes the originating systems engineer’s intent with the creation of the requirement and its text.  It should be a statement as to WHY the requirement is needed. 
+
+Supporting Text 
+
+Optional 
+
+Describes concepts introduced in the “Text” field which require further elaboration to substantiate or understand the requirement. 
+
+Verification Method 
+
+Required 
+
+Describes the intended method by which the requirement will be verified. Method is available in a drop down list of 4 options. 
+
+Derived From 
+
+Required (before Approval State) 
+
+Lists the higher order PSPEC, standard, or doctrinal source from which this requirement is derived 
+
+Verifies 
+
+Required (before Approval State) 
+
+Lists the functional requirements which this verification requirement constrains the Verification Method of. 
+
+State 
+
+Required 
+
+Describes the current state of the requirement. State is available in a drop down list of multiple options. 
+
+Documentation 
+
+Optional 
+
+Contains links or embedded documents that are referenced in the Text, Rationale, or Supporting Text fields.  Can also contain issues/comments that need to be resolved while the requirement is the in NewDraft/InChange state. 
+
+ 
+
+ 
+
+Appendix B: Requirement States 
+
+Requirement States 
+
+NewDraft 
+
+The requirement is a newly authored, draft requirement. 
+
+InChange 
+
+A previously Approved requirement is in the process of being changed, either being reworded or deleted. 
+
+InReview 
+
+The requirement is in the requirements peer review process. 
+
+Rejected 
+
+A NewDraft requirement has been rejected in the requirements peer review process for implementation in the program baseline. 
+
+Deleted 
+
+A previously Approved requirement has been deleted from the program baseline through a requirements peer review or change control board. 
+
+Approved 
+
+A requirements peer review has approved a NewDraft or InChange requirement for implementation in the program baseline. 
+
+Allocated 
+
+An Approved requirement has been allocated in the program baseline and is awaiting implementation in a specified future release. 
+
+Deferred 
+
+Implementation of an Approved requirement has been deferred to a to be determined (TBD) future program release. 
+
+Implemented 
+
+An Approved requirement has been implemented in a specified program release. 
+
+ 

@@ -1,0 +1,387 @@
+Purpose 
+
+This document provides guidance on writing requirements. It can be used as-is or tailored to accommodate company or project needs. 
+
+Definitions 
+
+Below is an abbreviated (and modified for clarification) subset of definitions from the INCOSE Requirements Working Group Summary Sheet (2023, INCOSE-TP-2010-006-04): 
+
+A requirement pattern … is represented by a series of building blocks … [it includes] all the elements envisioned to represent a well-formed, singular, and complete requirement… 
+
+A requirement expression includes a requirement statement and … associated attributes. 
+
+A requirement statement is … an agreed-to obligation for an entity to perform some function or possess some quality within specified constraints… 
+
+An entity is a single item to which a … requirement applies… 
+
+An attribute is additional information associated with an entity … used to aid in its definition, understanding, and management. 
+
+A requirement set is a structured set of … requirement expressions for [an] entity (… system/subsystem/system element/process) and its external interfaces. …  
+
+General Rules 
+
+Entities should have requirement sets, a collection of requirement statements which apply to the subject entity – i.e., system, subsystem, or component specifications. 
+
+To facilitate writing and interpretation a requirement statement should follow a requirement pattern. 
+
+A requirement statement should have a single entity to which it applies. 
+
+A requirement statement should be testable. 
+
+To aid in definition, understanding or management, a requirement statement may be supported by attributes. 
+
+Requirement Patterns 
+
+The Easy Approach to Requirements Syntax (EARS) is a simple requirements pattern that can help ensure relevant properties of well written requirements are captured in a repeatable, easy to write, and interpret manner.  
+
+EARS Requirement Patterns 
+
+Below is an abbreviated (and modified for clarification and consistency with INCOSE definitions, above) subset of Easy Approach to Requirements Syntax (EARS) patterns developed by Alistair Mavin, et. al. (2022, https://alistairmavin.com/ears). These may be used as-is or tailored to accommodate company or project needs: 
+
+Generic EARS syntax 
+
+The clauses of a requirement written in EARS always appear in the same order. The basic structure of an EARS requirement is: 
+
+While <optional pre-condition>, when <optional trigger>, the [entity] shall [entity function / quality] 
+
+The EARS ruleset states that a requirement must have:  
+
+Zero or [more] preconditions  
+
+Zero or [more] trigger[s]  
+
+[Exactly one entity]  
+
+One or [more entity functions / qualities] 
+
+The application of the EARS notation produces requirements in a small number of patterns, depending on the clauses that are used. The patterns are illustrated below. 
+
+Ubiquitous Requirements 
+
+Ubiquitous requirements are always active (so there is no EARS keyword) [, pre-conditions, or triggers] 
+
+The [entity] shall [entity function / quality] 
+
+Example: The mobile phone shall have a mass of less than XX grams. 
+
+State Driven Requirements 
+
+State driven requirements are active as long as the specified state remains true [requirements] are denoted by the keyword While. 
+
+While <precondition(s)>, the [entity] shall [entity function / quality] 
+
+Example: While there is no card in the ATM, the ATM shall display “insert card to begin”. 
+
+Event Driven Requirements 
+
+Event driven requirements specify how a system must respond when a triggering event occurs [requirements] are denoted by the keyword When. 
+
+When <trigger>, the [entity] shall [entity function / quality] 
+
+Example: When “mute” is selected, the laptop shall suppress all audio output. 
+
+Optional Feature Requirements 
+
+Optional feature requirements apply in products or systems that include the specified feature [requirements] are denoted by the keyword Where. 
+
+Where <feature is included>, the [entity] shall [entity function / quality] 
+
+Example: Where the car has a sunroof, the car shall have a sunroof control panel on the driver door. 
+
+Unwanted [Function] Requirements 
+
+Unwanted [function] requirements are used to specify the required system response to undesired situations and are denoted by the keywords If and Then. 
+
+If <trigger>, then the [entity] shall [entity function / quality] 
+
+Example: If an invalid credit card number is entered, then the website shall display “please re-enter credit card details”. 
+
+Complex Requirements 
+
+The simple building blocks of the EARS patterns described above can be combined to specify requirements for richer system [functions]. Requirements that include more than one EARS keyword are called Complex requirements. 
+
+While <precondition(s)>, When <trigger>, the [entity] shall [entity function / quality] 
+
+Example: While the aircraft is on ground, when reverse thrust is commanded, the engine control system shall enable reverse thrust. 
+
+Complex requirements for unwanted [functions] also include the If-Then keywords. 
+
+[Note that any or all the building blocks of EARS patterns can be combined. It is unusual for a complex requirement to need all the above patterns. If it is unclear, consider revising it or decomposing into two or more requirements. A comprehensive complex requirement pattern, including all simple patterns would be:  
+
+Where feature is included, while precondition(s), when event, if trigger, the entity shall entity function / quality.] 
+
+Examples 
+
+Ubiquitous Requirements 
+
+Pattern 
+
+The entity shall entity function / quality. 
+
+Example(s) 
+
+The Water Filter (entity) shall filter water (entity function). 
+
+The Car’s (entity) color shall be black (entity quality). 
+
+The Console (entity) shall be at least 95% reliable (entity quality). 
+
+SysML  
+
+Ubiquitous requirements are usually satisfied by a block’s value property (i.e., an entity’s quality), or an owned behavior or operation (i.e., an entity’s function). 
+
+Diagram
+
+Description automatically generated 
+
+ 
+
+ 
+
+ 
+
+State Driven Requirements 
+
+Pattern 
+
+While precondition, the entity shall entity function / quality. 
+
+Examples 
+
+While battery level is less than 20% (precondition), the cell phone (entity) shall dim the screen (function). 
+
+While updating firmware (precondition), the server (entity) shall ignore non-essential commands (function), as defined in TBD (attribute). 
+
+While fuel level is below minimumFuelLevel (precondition), the car shall set isFuelLow to “true” (function). 
+
+SysML 
+
+A state driven requirement may be satisfied by a SysML event or behavior. Despite being a state driven requirement, they can be satisfied by elements besides states. 
+
+ 
+
+Diagram
+
+Description automatically generated 
+
+ 
+
+Event Driven Requirements 
+
+Pattern 
+
+When event, the entity shall entity function / quality. 
+
+Examples 
+
+When a user signs on (event), the server shall log the event (function). 
+
+When the server receives a status request message (event), the server shall respond with a status message (function), as defined in TBD (attribute). 
+
+SysML 
+
+An event driven requirement may be satisfied by any kind of SysML event, i.e., CallEvent, ChangeEvent, SignalEvent, or TimeEvent. 
+
+ 
+
+ 
+
+Optional Feature Requirements 
+
+Pattern 
+
+Where feature is included, the entity shall entity function / quality. 
+
+Examples 
+
+Where the server is a submarine model (optional feature), the server (entity) shall withstand vibration schedule, per ITOP TBD (entity quality). 
+
+Where the cell phone has an extended battery (optional feature), the cell phone (entity) weight shall not exceed 250 grams (entity quality). 
+
+If there are several requirements that apply to a particular optional feature, e.g., there are several requirements that apply to a submarine model server, consider collecting these into a requirement set. 
+
+SysML 
+
+Optional feature requirements should be modeled and satisfied like other non-optional requirements. However, the variants to which they apply can be modeled in several ways. The exact approach used on a project is beyond the scope of this document.  
+
+ 
+
+Diagram
+
+Description automatically generated 
+
+Unwanted [Function] Requirements 
+
+Pattern 
+
+If trigger, then the entity shall entity function / quality. 
+
+Examples 
+
+If free fail is detected (trigger), the mechanical hard drive (entity) shall park the hard drive head (entity function), to avoid damage to the hard drive platter (attribute). 
+
+If cell phone temperature exceeds 40 degrees Celsius, the cell phone shall shut down, to avoid damaging electronic components (attribute). 
+
+SysML 
+
+Unwanted function requirements should be modeled and satisfied like state or event driven requirements, the only difference is that these states or events are unwanted or unnormal, e.g., sudden shock, overheating, corrupt message, etc. 
+
+ 
+
+ 
+
+ 
+
+Complex Requirements 
+
+Patterns 
+
+Where feature is included, while precondition(s), when event, if trigger, the entity shall entity function / quality. 
+
+Examples 
+
+Where the car is an XLE model (optional feature), when driving (state), if a crash is detected (unwanted behavior), the car shall notify the local authorities (entity behavior) and provide information as defined in TBD (attribute). 
+
+While connected to a DC high-voltage charger, when charging, if power is interrupted, the car shall immediately discontinue charging. 
+
+RULES FOR REQUIREMENTS STATEMENTS 
+
+INCOSE has published a guide on writing good requirements.1   They state the basic attributes of a good requirement are that they are: 
+
+Necessary 
+
+Appropriate 
+
+Unambiguous 
+
+Complete 
+
+Singular 
+
+Feasible 
+
+Verifiable 
+
+Correct 
+
+Conforming 
+
+Based on the above attributes, INCOSE has established the folling rules for writing good requirements.  During a peer review of requirements, reviewers can site one or more of the following rules as to why a requirement is defective. 
+
+Accuracy 
+
+R1 - Use a structured, complete sentence: subject, verb, object. 
+
+R2 - Use the active voice in the main sentence structure of the need or requirement statement with the responsible entity clearly identified as the subject of the sentence. 
+
+R3 - Ensure the subject and verb of the need or requirement statement are appropriate to the entity to which the need or requirement refers. 
+
+R4 - Define terms in a glossary, data dictionary, etc. 
+
+R5 - Use definite article “the” rather than the indefinite article “a.” 
+
+R6 - Use appropriate units when stating quantities. All numbers should have units of measure explicitly stated. 
+
+R7 - Avoid the use of vague terms such as “some”, “any”, “allowable”, “several”, “many”, “a lot of”, “a few”, “almost always”, “very nearly”, “nearly”, “about”, “close to”, “almost”, and “approximate”. 
+
+R8 - Avoid escape clauses such as such as “so far as is possible”, “as little as possible”, “where possible”, “as much as possible”, “if it should prove necessary”, “if necessary”, “to the extent necessary”, “as appropriate”, “as required”,  “to the extent practical”, and “if practicable.. 
+
+R9- Avoid open-ended clauses such as “including but not limited to”, “etc.” and “and so on.”.  
+
+Concision 
+
+R10 - Avoid superfluous infinitives such as “.. be designed to …”, “…be able to …..”, “…be capable of…”. 
+
+R11 - Use a separate clause for each condition or qualification. 
+
+Non-ambiguity 
+
+R12, 13, 14 - Use correct grammar, spelling, punctuation. 
+
+R15 - Use a defined convention to express logical expressions such as “[X AND Y]”, “[X OR Y]”, [X XOR Y]”, “NOT[X OR Y]”. 
+
+R16 - Avoid the use of “not.” 
+
+R17 - Avoid the use of the oblique ("/") symbol except in units, i.e. Km/hr  
+
+Completeness 
+
+R24 - Avoid the use of pronouns and indefinite pronouns.  
+
+R25 - Avoid relying on headings to support explanation or understanding of the requirement.  
+
+Realism 
+
+R26 - Avoid using unachievable absolutes such as 100% reliability, 100% availability, all, every, always, never, etc. 
+
+Conditions  
+
+R27 - State applicability conditions explicitly. 
+
+R28 - Express the propositional nature of a condition explicitly for a single action instead of giving lists of actions for a specific condition. 
+
+Uniqueness 
+
+R29 - Classify the needs and requirements according to the aspects of the problem or system it addresses. 
+
+R30 - Express each need and requirement once and only once. 
+
+Abstraction 
+
+R31 – When defining design inputs avoid stating a solution unless there is rationale for constraining the design. Focus on the problem “what” rather than the solution “how.” 
+
+Quantifiers 
+
+R32 - Use “each” instead of “all”, “any'’ or “both' when universal quantification is intended 
+
+Tolerance  
+
+R33 - Define quantities with a range of values appropriate to the entity to which the apply and to which the entity will be verified or validated against. 
+
+Quantification 
+
+R34 - Provide specific measurable performance targets appropriate to the entity to which the need or requirement is stated and against which the entity will be verified to meet. 
+
+R35 - Define temporal dependencies explicitly instead of using indefinite temporal keywords such as “eventually”, “until”, “before”, “after”, “as”, “once”, “earliest”, “latest”, “instantaneous”, “simultaneous”, “at last”. 
+
+Uniformity of Language 
+
+R36 - Use each term consistently throughout need and requirement sets. 
+
+R37 - Use a consistent set of acronyms. 
+
+R38 - Avoid the use of abbreviations. 
+
+R39 - Use a project-wide style guide for individual needs and requirements and for sets of needs and requirements statements.  
+
+Singularity 
+
+R18 - Write a single sentence that contains a single thought conditioned and qualified by relevant sub-clauses. 
+
+R19 - Avoid combinators that join clauses, such as “and”, “or”, ”then”, ”unless”, ”but”, ”as well as”, ”but also”, ”however”, ”whether”, ”meanwhile”, ”whereas”, ”on the other hand”, or ”otherwise.”  
+
+R20 - Avoid phrases that indicate the purpose of the need or requirement. 
+
+R21 - Avoid parentheses and brackets containing subordinate text. 
+
+R22 - Enumerate sets explicitly instead of using a group noun to name the set. 
+
+R23 - When a need or requirement is related to complex behavior, refer to the supporting diagram or model.  
+
+Modularity 
+
+R40 - Group related requirements together. 
+
+R41 – Conform to a defined structure or template for sets of needs and requirements   
+
+ 
+
+ 
+
+REQUIREMENT PROPERTIES 
+
+ 
+
+ 
+
+See the requirements writing work instructions for a description of the requirement properties. 

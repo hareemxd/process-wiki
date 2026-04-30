@@ -1,0 +1,185 @@
+ 
+
+Standard Operating Practice 
+
+DRS Naval Electronics 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Stakeholder Requirements Development Work Instruction 
+
+ 
+
+ 
+
+ 
+
+Revision: DRAFT Revision Date: 19 March 2024 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NOTE 
+
+ 
+
+The only controlled version of this document is the one being viewed online. Any printed copy becomes an uncontrolled copy and is for reference only. Verify revision prior to use of this document. 
+
+ 
+
+​​TABLE OF CONTENTS 
+
+​1. PURPOSE / SUMMARY 3 
+
+​2. RESPONSIBILITY / STAKEHOLDERS 3 
+
+​2.1. Responsibility 3 
+
+​2.1.1. Process Owner 3 
+
+​2.2. Stakeholders 3 
+
+​3. ACRONYMS / DEFINITIONS 3 
+
+​4. PROCEDURE / PROCESS 3 
+
+​4.1. Importing PSPEC Model 5 
+
+​4.2. Establishing Project Usage 5 
+
+​4.3. Requirements Table 5 
+
+​5. Reference Documents 5 
+
+​6. Opportunities and Risks 5 
+
+​7. Revision History 5 
+
+​​ 
+
+ 
+
+ 
+
+PURPOSE / SUMMARY 
+
+The purpose of this document is to describe the instructions and criteria involved in the import of Stakeholder requirements, also known as Performance Specification (PSPEC) requirements with the Model Based Systems Engineering (MBSE) methodology. This process is used when establishing the MBSE baseline of a pre-existing system where a PSPEC has been provided in Cameo Systems Modeler (CSM) .mdzip format. 
+
+RESPONSIBILITY / STAKEHOLDERS 
+
+Responsibility 
+
+Process Owner 
+
+Lead Systems Engineer:  Dirk Hall 
+
+Stakeholders 
+
+Project Engineer:  Mike Mukka 
+
+Systems Engineers 
+
+ACRONYMS / DEFINITIONS 
+
+MBSE – Model Based Systems Engineering 
+
+TWC – Teamwork Cloud 
+
+CSM – Cameo Systems Modeler 
+
+PROCEDURE / PROCESS 
+
+As with all DRS MBSE processes it is assumed the executing engineer is trained in basic MBSE concepts and utilities including SysML, at least at the OCSMP Model User level, and implementation of SysML using Cameo Systems Modeler. This process focuses on developing the component level requirements and relationships comprising the Requirements Pillar of Solution Domain at the Component Level as shown in Figure 1. MBSE Engineers will derive these component level requirements directly from system level requirements, and as such this process is a successor of the DRS MBSE System Level Requirements Wok Instruction. 
+
+ 
+
+Figure 1: DRS Meta Model Framework 
+
+ 
+
+Within this work scope MBSE Engineers develop specific configurations of Requirements Tables and shown in Figure 2. 
+
+Graphical user interface
+
+Description automatically generated with medium confidence 
+
+Figure 2: Component Level Solution Requirements Landing Page 
+
+ 
+
+The following sections present an example for how these specific diagrams are developed and the pieces of information required to consider a diagram complete. 
+
+Importing PSPEC Model 
+
+This section shall only be performed if the PSPEC model is not housed within the same teamwork cloud (TWC) environment as the MK6 MODX model. Further, initiation of this section is predicated on the MBSE engineer having possession of the PSPEC model on their local workstation. 
+
+The MBSE engineer begins this section by opening CSM and logging into teamwork cloud through the CSM user interface. Next the MBSE engineer will open the PSPEC model locally in CSM, making sure that all supporting models are present. Next use the “Collaborate” drop down ribbon to reveal the “Add Project to Server” option and select it. Once the prompted steps are completed the PSPEC project will now be stored in TWC. 
+
+Establishing Project Usage 
+
+This section shall only be performed if the PSPEC model is housed within the same TWC environment as the MK6MODX model. Further, initiation of this section is predicated on the “MK6MODX” model having been created in TWC. 
+
+The MBSE engineer begins this section by opening CSM and logging into teamwork cloud through the CSM user interface. Next the MBSE engineer will open the MK6 MODX Console project and select the Collaborate ribbon to access the Project Usages > Use Server Project option. In the window that pops up select the PSPEC model in the TWC server select settings as required, and then click “OK”. The MBSE engineer should now see the PSPEC model at the bottom of the containment tree under “Used Projects”. 
+
+Requirements Table 
+
+As PSPEC requirements are contained in a read-only package a requirements table must be created in the MK6 MODX Console model to create any customized views of the requirements. To setup the table set the scope for the requirements table to be the highest order package containing all PSPEC requirements. The resulting table will display the requirement ID/Name and the textual description of the requirement. Further queries on the underlying requirements data can be created by using the “Columns” tool in the requirements diagram tool bar to expose requirement element data and meta chains. 
+
+Reference Documents 
+
+Opportunities and Risks 
+
+Revision History 
+
+Revision 
+
+Summary of Change 
+
+Approval 
+
+Date 
+
+- 
+
+Initial Release 
+
+ 
+
+ 
+
+ 
+
+ 

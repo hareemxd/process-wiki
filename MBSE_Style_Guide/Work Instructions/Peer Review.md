@@ -13,71 +13,12 @@ outputs:
     - SysML Peer Review Artifact
 ---
 
-
-
 # Purpose
 
 This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the procedures for conducting peer reviews of MBSE artifacts. Adherence to this document ensures that peer reviews conform to DRS Naval Electronics process and quality standards. Review activities should be conducted regularly to:  
 
 - keep pace with work updates, and
 - limit each review activity to a reasonable scope.
-
-# References
-
-The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
-</ac:structured-macro>
-
-| Description | Reference |
-|---|---|
-| The Modeler should have access to the required work elements in Teamwork Cloud. | MBSE-WI-001 Teamwork Cloud Administrator |
-| The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. | MBSE-WI-002 Project Templates |
-
-# Roles and Responsibilities
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-definitions) and functional areas are assigned roles in [Table 3](#tab-raci--peer-review-chart).
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-raci-definitions</ac:parameter>
-</ac:structured-macro>
-
-| RACI Role | Definition |
-|---|---|
-| Responsible | Stakeholder is the owner of the document. |
-| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
-| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
-| Informed | Stakeholder is made aware of the document. |
-| Omitted | Not a stakeholder. |
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-raci-peer-review-chart</ac:parameter>
-</ac:structured-macro>
-
-| Function | Role |
-|---|---|
-| Systems Engineering | R |
-| Project Engineering | C |
-| Configuration Management | C |
-| Electrical Engineering | I |
-| Mechanical Engineering | I |
-| Software Engineering | I |
-| Test Engineering | I |
-| Manufacturing | I |
-| Specialty Engineering | I |
-| Quality | A |
-| Training | A |
-| Business Development | I |
-
-# Terms
-
-| Term | Definition |
-|---|---|
-|Smart Package| a special collection of model elements|
-|Project Usage| a reference to a different project that provides access to that project's model elements|
-|Category| synonymous with *folder* in Teamwork Cloud|
-| Resource| synonymous with *file* in Teamwork Cloud|
-| Containment Tree| synonymous with *file directory* in Teamwork Cloud|
 
 # Procedure
 
@@ -294,5 +235,63 @@ The final step is to close the peer review activity.
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
 |conf.1| - |03-02-2026| D. Ricart| Draft uploaded to General Engineering Practices Confluence space.|
+
+
+# References
+
+The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
+</ac:structured-macro>
+
+| Document | Description |
+|---|---|
+| MBSE-WI-001|The Modeler should have access to the required work elements in Teamwork Cloud. |
+| MBSE-WI-002|The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. |
+
+# Roles and Responsibilities
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-definitions) and functional areas are assigned roles in [Table 3](#tab-raci--peer-review-chart).
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-definitions</ac:parameter>
+</ac:structured-macro>
+
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-peer-review-chart</ac:parameter>
+</ac:structured-macro>
+
+| Function | Role |
+|---|---|
+| Systems Engineering | R |
+| Project Engineering | C |
+| Configuration Management | C |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | A |
+| Training | A |
+| Business Development | I |
+
+# Terms
+
+| Term | Definition |
+|---|---|
+|Smart Package| a special collection of model elements|
+|Project Usage| a reference to a different project that provides access to that project's model elements|
+|Category| synonymous with *folder* in Teamwork Cloud|
+| Resource| synonymous with *file* in Teamwork Cloud|
+| Containment Tree| synonymous with *file directory* in Teamwork Cloud|
 
 # Appendix

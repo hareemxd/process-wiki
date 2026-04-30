@@ -41,9 +41,9 @@ This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the pr
 
 All peer reviews for a given program are contained in a separate project file so review comments do not clutter the system model.  
 
-1. In Cameo, go to **Collaborate > Open Server Project**.
+1. In Cameo, go to **Collaborate >> Open Server Project**.
 2. Locate the main project and select the ellipses ![ellipses](../assets/MBSE/Ellipses.png). Write down the *trunk number* displayed in the new window.
-3. In the previous window, select the Peer Review Project under ![folder icon](../assets/MBSE/cameofolder.png)**Cameo Files > Open**.
+3. In the previous window, select the Peer Review Project under ![folder icon](../assets/MBSE/cameofolder.png)**Cameo Files >> Open**.
 
 ---
 <ac:structured-macro ac:name="anchor">
@@ -57,25 +57,25 @@ All peer reviews for a given program are contained in a separate project file so
 
 ## Update Project Usages
 
-Before creating the artifact, you must update the *project usages* of your Peer Review Project to reference the correct version of the original project.
+Before creating the artifact, you must update the *[project usages](#terms)* of your Peer Review Project to reference the correct version of the original project.
  
-1. In the Peer Review Project, go to **Options > Project Usages**.  
-2. On the left, right-click the original project **> Lock**.  
-3. Right-click the original project again, then **Change Version > OK > OK**.  
-4. Go to **Collaborate > Commit Changes to Server**.  
+1. In the Peer Review Project, go to **Options >> Project Usages**.  
+2. On the left, right-click the original project **>> Lock**.  
+3. Right-click the original project again, then **Change Version >> OK >> OK**.  
+4. Go to **Collaborate >> Commit Changes to Server**.  
 
 
 ## Create Peer Review Artifact
 
-The Peer Review Artifact is the subject of the review: a *smart package* created by the author that contains all elements to be reviewed.
+The Peer Review Artifact is the subject of the review: a *[smart package](#terms)* created by the author that contains all elements to be reviewed.
  
 
-1. In the Peer Review Project, identify the **Reviews** package in the containment tree to contain the review artifact.
-2. Right-click the package and **> Create Element > Smart Package**, and enter `YYYYMMDD - xxx` (the current date and a descriptive name for the review activity).
+1. In the Peer Review Project, identify the ***Reviews*** package in the *[containment tree](#terms)* to contain the review artifact.
+2. Right-click the package and **>> Create Element >> Smart Package**, and enter `{YYYYMMDD} - {description}` (the current date and a descriptive name for the review activity).
 3. Above the containment tree, select the search icon, select **Any Element**, and search `peer review`. The top result is the Peer Review Content Diagram Template.
-4. Copy the template into the new smart package, and rename the template `smart_package_name_CD`.
+4. Copy the template into the new smart package, and rename the template `{smart_package_name}_CD`.
 5. In the template, update the activity information fields and data markings.
-6. Drag the model elements to be reviewed from the containment tree into the diagram (or select them in the smart package **Specification**).
+6. Drag the model elements to be reviewed from the containment tree into the diagram (or select them in the smart package ***Specification***).
 7. Use **Align** ![align icon](../assets/MBSE/align.png) to organize the elements visually and use text headers to separate different element types; see [Figure 4](#fig-peer-review-content-diagram).
 
 <ac:structured-macro ac:name="info">
@@ -101,7 +101,7 @@ The Peer Review Artifact is the subject of the review: a *smart package* created
 
 The author publishes the smart package to Cameo Collaborator where teammates can review it and provide comments.
 
-1. Go to **Tools > Cameo Collaborator > Publish**, and configure the publish fields/options per [Figure 5](#fig-publish-peer-review-package):  
+1. Go to **Tools >> Cameo Collaborator >> Publish**, and configure the publish fields/options per [Figure 5](#fig-publish-peer-review-package):  
    a.  **Document Name** matches the Smart Package name.  
    b.  **Category Name** is `Peer Reviews`.    
    c.  **Scope** is set to the package containing the Smart Package.  
@@ -137,15 +137,15 @@ Reviewers are tasked with reviewing the Peer Review Artifact and identifying pro
 Comments identify problems in the Peer Review Artifact and will be resolved by the author.
 
 1. In the element, click the comment tool ![comment icon](../assets/MBSE/comment.png) to the bottom right.  
-2. Click anywhere in the diagram to open **Graphical Comment** and the top-left toolbar.  
+2. Click anywhere in the diagram to open ***Graphical Comment*** and the top-left toolbar.  
 3. Select the rectangle tool ![rectangle tool icon](../assets/MBSE/rectangletool.png) from the main toolbar. Click and drag to create a comment shape.  
 4. Locate it on or near whichever element(s) your comment is addressing.  
 5. Select the shape, then select the comment tool ![comment icon](../assets/MBSE/comment.png) from the main toolbar.  
-6. Enter `your name` in **Title** and `your comment` in **Comment > Done**.  
+6. Enter `{your name}` in **Title** and `{your comment}` in **Comment >> Done**.  
 
 ### Review Comments
 
-1. Open Teamwork Cloud **> Resources**. Navigate to and open the Peer Review Artifact.  
+1. Open Teamwork Cloud **>> Resources**. Navigate to and open the Peer Review Artifact.  
 2. Select the comment tool ![comment icon](../assets/MBSE/comment.png) in the top right. All comments on this artifact are displayed to the right.  
 3. Select a comment to open the respective element.  
 
@@ -161,10 +161,10 @@ The author resolves a comment when the identified problem has been corrected, or
 
 1. For valid comments, update the model in the **original project** to correct the problem.  
 2. In Cameo Collaborator, locate the comment and select the reply tool ![reply icon](../assets/MBSE/reply1.png).  
-3. Enter `your reply` in **Comment** explaining the work you completed to address the problem, then **Enter**.  
+3. Enter `{your reply}` in **Comment** explaining the work you completed to address the problem, then **Enter**.  
 4. Click the checkbox next to the original comment (*not* the comment you just made) to close the comment.  
 5. For invalid comments, locate the comment and select the reply tool ![reply icon](../assets/MBSE/reply1.png).  
-6. Enter `your reply` in **Comment** explaining why the comment should be closed with no action taken.  
+6. Enter `{your reply}` in **Comment** explaining why the comment should be closed with no action taken.  
 
 
 ## Close the Peer Review Activity
@@ -177,10 +177,10 @@ The author resolves a comment when the identified problem has been corrected, or
 
 The final step is to close the peer review activity.  
 
-  1. In the Peer Review Project in Cameo, go to **Options > Project Usages**.  
-  2. Right-click the original model **> Lock**, then right-click again and **Change Version**.  
-  3. Select the correct version of the original model **> OK > OK**.  
-  4. Go to **Collaborate > Commit Changes to Server**.  
+  1. In the Peer Review Project in Cameo, go to **Options >> Project Usages**.  
+  2. Right-click the original model **>> Lock**, then right-click again and **Change Version**.  
+  3. Select the correct version of the original model **>> OK >> OK**.  
+  4. Go to **Collaborate >> Commit Changes to Server**.  
   5. In the Peer Review Content Diagram, update the review start/close note with the review close version number.  
 
 
@@ -204,11 +204,11 @@ The final step is to close the peer review activity.
 
 ## Publish the Peer Review Artifact
 
-1. Go to **Tools > Cameo Collaborator > Publish**.  
+1. Go to **Tools >> Cameo Collaborator >> Publish**.  
 2. Select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) by **Category Name**.  
-3. Go to the original project **> Collaborator Files > 1 - Peer Reviews > OK**.  
+3. Go to the original project **>> Collaborator Files >> 1 - Peer Reviews >> OK**.  
 4. Select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) by **Scope**.  
-5. Select the peer review artifact, then select the plus ![plus icon](../assets/MBSE/Plus.png)**> OK**.  
+5. Select the peer review artifact, then select the plus ![plus icon](../assets/MBSE/Plus.png)**>> OK**.  
 6. Expand and configure your **Options** per [Figure 8](#fig-peer-review-publish-two) (uncheck **Enable Commenting**), then **Publish**.  
 
 ---
@@ -225,9 +225,9 @@ The final step is to close the peer review activity.
 
 ## Archive the Peer Review Artifact
 
-1. In Teamwork Cloud, open your project category, then open **Collaborator Files > Peer Reviews**.  
-2. To the right, select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) **> Move Resource**.  
-3. Under the project containment tree, select **Archived Peer Reviews > Move**.  
+1. In Teamwork Cloud, open your project category, then open **Collaborator Files >> Peer Reviews**.  
+2. To the right, select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) **>> Move Resource**.  
+3. Under the project containment tree, select **Archived Peer Reviews >> Move**.  
 
 
 # Revision History

@@ -53,27 +53,27 @@ Contact a Teamwork Cloud Administrator (TCA) to gain access to Teamwork Cloud.
 
 ## Setup New Program Category in Teamwork Cloud
 
-1. Open **Resources > Naval Electronics**.
+1. Open **Resources >> Naval Electronics**.
 2. To the bottom-right, select the **Create Category** plus ![plus icon](../assets/MBSE/Plus.png).  
-3. Enter the `program name` **> Enter**.  
-4. Open the new category and create two sub-categories called `Cameo Files` and `Collaborator Files`.  
+3. Enter the `{program name}` **>> Enter**.  
+4. Open the new *[category](#terms)* and create two sub-categories called `Cameo Files` and `Collaborator Files`.  
 5. Open **Collaborator Files** and create two sub-categories called `1. Peer Reviews`, `2. Archived Peer Reviews`, and `3. Other Collaborator Files`.  
 
 ---
 
 ## Manage Roles in Teamwork Cloud
 
-In Teamwork Cloud, a *role* is a set of *permissions* which are added to users or user groups. Permissions, in turn, are user functions in Teamwork Cloud, such as opening, editing, or moving a *resource*, creating or moving categories, and creating users or user groups. Proper control of permissions in Teamwork Cloud allows users to complete assigned tasks and, critically, minimizes the risk of incidental data hazards. 
+In Teamwork Cloud, a *[role](#terms)* is a set of *[permissions](#terms)* which are added to users or user groups. Permissions, in turn, are user functions in Teamwork Cloud, such as opening, editing, or moving a *[resource](#terms)*, creating or moving categories, and creating users or user groups. Proper control of permissions in Teamwork Cloud allows users to complete assigned tasks and, critically, minimizes the risk of incidental data hazards. 
 
-When a user is assigned a role, they must also be given a *scope* for the role: the resource/category in which their role's permissions are enabled. Scope may be applied at any level of the Teamwork Cloud server, from a single resource to the top-level category (which would apply the user's permissions to all server contents).
+When a user is assigned a role, they must also be given a *[scope](#terms)* for the role: the resource/category in which their role's permissions are enabled. Scope may be applied at any level of the Teamwork Cloud server, from a single resource to the top-level category (which would apply the user's permissions to all server contents).
 
 See the [Appendix](#appendix) for a complete list of permissions.
 
 ### Add Roles
 
 1. In Teamwork Cloud, open **Users** and locate the user to be assigned a role, then select the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) to the right.  
-2. Select **Change Roles > Add Roles**, then click the search field and select one of the options shown in [Figure 2](#fig-add-role-user-twc).  
-3. Select **Assignments** to open the containment tree.
+2. Select **Change Roles >> Add Roles**, then click the search field and select one of the options shown in [Figure 2](#fig-add-role-user-twc).  
+3. Select **Assignments** to open the *[containment tree](#terms)*.
 4. Expand the tree, then apply permissions to specific categories or resources using the checkboxes.
 5. In the top left, click the back arrow, then click the arrow in the top right to confirm.
 
@@ -103,18 +103,18 @@ The DRS Naval Electronics Admin must grant permissions to staff designated as Pr
 
 Modelers need read/write access to their project's original model.
 
-1. Add **Resource Contributor** to Modeler users.  
+1. Add ***Resource Contributor*** to Modeler users.  
 2. Set the scope for this role to these categories under the user's project category:  
-    *  **Cameo Files** 
-    * **Peer Reviews** and **Other Collaborator Files** (under **Collaborator Files**).
+    *  ***Cameo Files*** 
+    * ***Peer Reviews*** and ***Other Collaborator Files*** (under ***Collaborator Files***).
 
 #### Reviewer Roles
 
-Reviewers need read/write access to their project's **Peer Reviews** category.
+Reviewers need read/write access to their project's ***Peer Reviews*** category.
 
-1. Add **Resource Contributor** to Reviewer users.  
+1. Add ***Resource Contributor*** to Reviewer users.  
 2. Set the scope for this role to these categories under the user's project category:  
-    * **Peer Reviews** and **Other Collaborator Files** (under **Collaborator Files**).
+    * ***Peer Reviews*** and ***Other Collaborator Files*** (under ***Collaborator Files***).
 
 
 

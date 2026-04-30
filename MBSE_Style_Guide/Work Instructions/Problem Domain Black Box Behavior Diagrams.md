@@ -60,15 +60,15 @@ For more information on identifying and defining use cases, see [blank].
 
 Use this procedure for each identified use case.
  
-1. Navigate to the **DRS Naval Electronics Profile > Templates**, then expand **Use Case, UCD, AD**.  
-2. Right-click **Template UC > Copy**, right-click the **1 Use Cases** package in your model and **Paste**.  
-3. Rename the Use Case `Use Case Name UC`, the nested diagram `Use Case Name UCD`, the nested activity `Use Case Name AD`, and the lower nested diagram `Use Case Name AD`.  
+1. Navigate to the **DRS Naval Electronics Profile >> Templates**, then expand ***Use Case, UCD, AD***.  
+2. Right-click **Template UC >> Copy**, right-click the ***1 Use Cases*** package in your model and **Paste**.  
+3. Rename the Use Case `{Use Case Name} UC`, the nested diagram `{Use Case Name} UCD`, the nested activity `{Use Case Name} AD`, and the lower nested diagram `{Use Case Name} AD`.  
 
 ---
 
 ## Create Use Case Diagram
 
-1. Open the Use Case Diagram, delete all placeholder content, and enter `Use Case Name UCD` into the title text box.  
+1. Open the Use Case Diagram, delete all placeholder content, and enter `{Use Case Name} UCD` into the title text box.  
 2. Write the pre-conditions that are required for the use case to begin.  
 3. Write the Use Case Description.  
    a. Architecture Level: the domain of the diagram (Problem Domain Black Box)  
@@ -79,8 +79,8 @@ Use this procedure for each identified use case.
    f. Main Success Behavioral Flow: a detailed description of the successful use case 
    g. Alternate Flow: a description of the failed use case  
    h. Exceptional Flow  
-4. From the **System Context (Structure)** package, drag the SoI (top center) and the appropriate actors (left) and the external systems (right) onto the diagram.  
-5. Create **Associations** between the UC and the SoI, actors, and external systems.  
+4. From the ***System Context (Structure)*** package, drag the SoI (top center) and the appropriate actors (left) and the external systems (right) onto the diagram.  
+5. Create ***Associations*** between the UC and the SoI, actors, and external systems.  
 6. Use the **Align** tool in the top toolbar to resize and reposition the diagram elements to look organized and uniform.  
 
 <ac:structured-macro ac:name="info">
@@ -93,7 +93,7 @@ Use this procedure for each identified use case.
 
 ## Create Activity Diagram
 
-1. Open `Use Case Name AD`, delete all placeholder content, and enter `Use Case Name AD` into the title text box.  
+1. Open `{Use Case Name} AD`, delete all placeholder content, and enter `{Use Case Name} AD` into the title text box.  
 2. Confirm the UCD's pre-conditions are displayed in the Pre-Conditions Comment.  
 
 ### Create Swimlanes
@@ -107,16 +107,16 @@ Swimlanes should be ordered so the general flow of the activity diagram proceeds
 Each entity included in the UCD should have an allocated swimlane in the associated AD.  
 
 1. Right-click a placeholder swimlane, then **Insert Swimlane** and choose the position (left or right) for the new swimlane.  
-2. Drag entities from **1 System Context (Structure)** into the swimlane headers to allocate swimlanes to entities.  
+2. Drag entities from ***1 System Context (Structure)*** into the swimlane headers to allocate swimlanes to entities.  
 
 ### Create Successful Flow
 
-The successful flow defined in the UCD describes the system's operation to execute the **Main Operational Concept** from start to finish.
+The successful flow defined in the UCD describes the system's operation to execute the ***Main Operational Concept*** from start to finish.
 
-1. Select **Initial Node** ![initial-node](../assets/MBSE/initialnode.png). Place the element on the diagram and name it to match the **Trigger** of the Use Case Description.  
-2. Create **Call Behavior Actions** to model the successful flow and place them into the appropriate swimlanes.  
+1. Select **Initial Node** ![initial-node](../assets/MBSE/initialnode.png). Place the element on the diagram and name it to match the ***Trigger*** of the Use Case Description.  
+2. Create ***Call Behavior Actions*** to model the successful flow and place them into the appropriate swimlanes.  
 3. Select **Control Flow** ![control-flow](../assets/MBSE/controlflow.png) to connect actions occurring in sequence.  
-4. Select **Final Node** ![final-node](../assets/MBSE/finalnode.png). Place the element on the diagram, name it `Success`, and connect the final action to it with a **Control Flow**.  
+4. Select **Final Node** ![final-node](../assets/MBSE/finalnode.png). Place the element on the diagram, name it `Success`, and connect the final action to it with a ***Control Flow***.  
 
 These steps produce a basic outline of an Activity Diagram. Most Activity Diagrams will require additional types of elements to be considered complete. Refer to [Decision and Merge Nodes](#decision-and-merge-nodes), [Fork and Join Horizontals](#fork-and-join-horizontals), and [Activity Diagram Objects](#activity-diagram-objects), and integrate the described elements into the outline to complete the Activity Diagram.
 
@@ -124,7 +124,7 @@ These steps produce a basic outline of an Activity Diagram. Most Activity Diagra
 
 Decision Nodes determine the *route* of the Activity using if/else logic.
 
-A Decision Node receives and outputs a single flow into one of two distinct paths. The paths are defined by a **Guard**, a true/false statement, and the Activity Diagram chooses the true-value path to route the flow.  
+A Decision Node receives and outputs a single flow into one of two distinct paths. The paths are defined by a ***Guard***, a true/false statement, and the Activity Diagram chooses the true-value path to route the flow.  
 
 A Merge Node is the counterpart to a Decision Node. The Merge Node ensures that the dual pathing routes to the same location. Merge Nodes may also be used in isolation to resolve alternate/exceptional flow paths.
 
@@ -144,8 +144,8 @@ A Merge Node is the counterpart to a Decision Node. The Merge Node ensures that 
 #### Create Decision and Merge Node
 
 1. Select **Decision Node** ![decision-node](../assets/MBSE/decisionnode.png).  
-2. Create two **Control Flows** emerging from the node.  
-3. Open the flow **Specification** and edit the **Guard** to be a true/false statement. 
+2. Create two ***Control Flows*** emerging from the node.  
+3. Open the flow ***Specification*** and edit the ***Guard*** to be a true/false statement. 
 
 ### Fork and Join Horizontals
 
@@ -170,17 +170,17 @@ The Join Horizontal receives multiple flows (created by its counterpart Fork) as
 #### Create Fork and Join Horizontal
 
 1. Select **Fork Horizontal** ![fork](../assets/MBSE/fork.png), place the element on the diagram, and lengthen it to output multiple flows.  
-2. Create a **Control Flow** to connect the previous action/node to the Fork Horizontal.  
-3. Create multiple **Control Flows** from the Fork Horizontal to the subsequent actions/nodes.  
+2. Create a ***Control Flow*** to connect the previous action/node to the Fork Horizontal.  
+3. Create multiple ***Control Flows*** from the Fork Horizontal to the subsequent actions/nodes.  
 4. Select **Join Horizontal** ![join](../assets/MBSE/join.png) and lengthen it to receive multiple flows.  
-5. Create multiple **Control Flows** from the previous actions/nodes to the Join Horizontal.  
-6. Create a **Control Flow** from the Join Horizontal to the subsequent action/node.  
+5. Create multiple ***Control Flows*** from the previous actions/nodes to the Join Horizontal.  
+6. Create a ***Control Flow*** from the Join Horizontal to the subsequent action/node.  
 
 ### Activity Diagram Objects
 
 #### Activity Parameter Nodes
 
-Activity Parameter Nodes are elements which provide inputs to or receive outputs from an activity. The values passed as inputs/outputs are called *parameters*, typed by exchange items and used to control activity logic (e.g. a **Guard** property determines a flow based on the parameter value).
+Activity Parameter Nodes are elements which provide inputs to or receive outputs from an activity. The values passed as inputs/outputs are called *parameters*, typed by exchange items and used to control activity logic (e.g. a ***Guard*** property determines a flow based on the parameter value).
 
 Activity Parameter Nodes are connected to actions with Object Flows via Pins.
 

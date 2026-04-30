@@ -31,28 +31,28 @@ This Model Based Systems Engineering (MBSE) Work Instruction demonstrates the pr
 ## Setup SysML project
 ### Use the Naval Electronics Project Template
 
-1. In Cameo Systems Modeler, go to **Collaborate > Login**. 
-2. Select a server, then **OK**, and enter `your username` and `password` **> Sign In**.
-3. Go to **Collaborate > Open Server Project**, then select **MBSE WG Style Guide Processes > Open**.
-4. In the project, go to **File > Save Project As**. Select a local destination, enter `your project name`, then **Save**.  
-5. Open the local project, then go to **File > Project Properties**.  
+1. In Cameo Systems Modeler, go to **Collaborate >> Login**. 
+2. Select a server, then **OK**, and enter `{your username}` and `{password}` **>> Sign In**.
+3. Go to **Collaborate >> Open Server Project**, then select **MBSE WG Style Guide Processes >> Open**.
+4. In the project, go to **File >> Save Project As**. Select a local destination, enter `{your project name}`, then **Save**.  
+5. Open the local project, then go to **File >> Project Properties**.  
 6. Select **More** and go to **Advanced**.  
-7. Select **Reset IDs > OK** and **Reset Project ID > OK > OK** to confirm the property updates.  
+7. Select **Reset IDs >> OK** and **Reset Project ID >> OK >> OK** to confirm the property updates.  
 
 ### Upload New Project to Teamwork Cloud
 
-1. In the new project, go to **Collaborate > Add Project to Server**.
-2. Click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) to open the *containment tree* and select a *category*.
+1. In the new project, go to **Collaborate >> Add Project to Server**.
+2. Click the ellipses ![ellipses icon](../assets/MBSE/Ellipses.png) to open the *[containment tree](#terms)* and select a *[category](#terms)*.
 3. Select **More**, then uncheck **Maintain Mount Points**.
 4. Add a comment to the text box (the first commit message of the server project), then select **Add** to upload the project.
 
 ### Add the Naval Electronics Styles Project Usage
 
-1. Go to **Options > Project Usages**.
-2. Click the plus ![plus icon](../assets/MBSE/Plus.png) **> Use Server Project**.
+1. Go to **Options >> Project Usages**.
+2. Click the plus ![plus icon](../assets/MBSE/Plus.png) **>> Use Server Project**.
 3. Inside the **Naval Electronics** category, select **Naval Electronics Profile**.
 4. Select the highest version number, then **OK**.
-5. Go to **Collaborate > Commit Changes to Server**. Add a comment to the text box (`updated project usages`), then **Commit**. 
+5. Go to **Collaborate >> Commit Changes to Server**. Add a comment to the text box (`updated project usages`), then **Commit**. 
 
 
 

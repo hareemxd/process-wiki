@@ -29,11 +29,6 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
   <ac:parameter ac:name="">fig-drsne-meta-model</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 1.</strong> DRS Naval Electronics Meta Model</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
 
 <ac:image ac:align="center">
   <ri:attachment ri:filename="PDBBBDiagramsMetaModel.png"/>
@@ -41,79 +36,15 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 ---
 
-The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
-
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 1.</strong> Work Instruction Inputs</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-| Description | Reference |
-|---|---|
-| The Modeler should have access to the required work elements in Teamwork Cloud. | MBSE-WI-001 Teamwork Cloud Administrator |
-| The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. | MBSE-WI-002 Project Templates |
-| The Modeler should be working in a Model with a defined System Context (Structure) in the Problem Domain. | MBSE-WI-004 Problem Domain System Context Diagrams |
-
-
-# Roles and Responsibilities
-
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-roles-definitions) and functional areas are assigned roles in [Table 3](#tab-raci-chart).
-
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 2.</strong> RACI Roles and Definitions</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-| RACI Role | Definition |
-|---|---|
-| Responsible | Stakeholder is the owner of the document. |
-| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
-| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
-| Informed | Stakeholder is made aware of the document. |
-| Omitted | Not a stakeholder. |
-
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-raci-chart</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 3.</strong> Problem Domain Black Box Behavior Diagrams RACI Chart</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-| Function | Role |
-|---|---|
-| Systems Engineering | R |
-| Project Engineering | C |
-| Configuration Management | I |
-| Electrical Engineering | I |
-| Mechanical Engineering | I |
-| Software Engineering | I |
-| Test Engineering | I |
-| Manufacturing | I |
-| Specialty Engineering | I |
-| Quality | A |
-| Training | A |
-| Business Development | A |
-
-
-# Terms
 
 # Procedure
+
+<ac:structured-macro ac:name="toc">
+  <ac:parameter ac:name="minLevel">2</ac:parameter>
+  <ac:parameter ac:name="maxLevel">7</ac:parameter>
+  <ac:parameter ac:name="type">list</ac:parameter>
+  <ac:parameter ac:name="outline">true</ac:parameter>
+</ac:structured-macro>
 
 ## Identify and Define Use Cases
 
@@ -123,6 +54,8 @@ The Use Case Diagram (UCD) is the highest level behavior diagram. Accordingly, b
 
 For more information on identifying and defining use cases, see [blank].  
 
+---
+
 ## Import Behavioral Diagram Template
 
 Use this procedure for each identified use case.
@@ -130,6 +63,8 @@ Use this procedure for each identified use case.
 1. Navigate to the **DRS Naval Electronics Profile > Templates**, then expand **Use Case, UCD, AD**.  
 2. Right-click **Template UC > Copy**, right-click the **1 Use Cases** package in your model and **Paste**.  
 3. Rename the Use Case `Use Case Name UC`, the nested diagram `Use Case Name UCD`, the nested activity `Use Case Name AD`, and the lower nested diagram `Use Case Name AD`.  
+
+---
 
 ## Create Use Case Diagram
 
@@ -153,6 +88,8 @@ Use this procedure for each identified use case.
     <p>The description fields must be valid as they will be re-used in the Activity Diagram.</p>
   </ac:rich-text-body>
 </ac:structured-macro>
+
+---
 
 ## Create Activity Diagram
 
@@ -197,11 +134,6 @@ A Merge Node is the counterpart to a Decision Node. The Merge Node ensures that 
   <ac:parameter ac:name="">fig-decision-merge</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 2.</strong> Decision and Merge Nodes</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
 
 <ac:image ac:align="center">
   <ri:attachment ri:filename="decision_merge.png"/>
@@ -229,14 +161,8 @@ The Join Horizontal receives multiple flows (created by its counterpart Fork) as
   <ac:parameter ac:name="">fig-join-fork</ac:parameter>
 </ac:structured-macro>
 
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 3.</strong> Join and Fork Horizontals</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
 <ac:image ac:align="center">
-  <ri:attachment ri:filename="decision_merge.png"/>
+  <ri:attachment ri:filename="join_fork.png"/>
 </ac:image>
 
 ---
@@ -285,9 +211,9 @@ To create Object Flows:
 3. Enter a name for the flow and Type it with an exchange item.  
 
 <ac:structured-macro ac:name="info">
-<ac:rich-text-body>
-<p>Connected pins must be typed identically.</p>
-</ac:rich-text-body>
+  <ac:rich-text-body>
+    <p>Connected pins must be typed identically.</p>
+  </ac:rich-text-body>
 </ac:structured-macro>
 
 # References
@@ -305,5 +231,62 @@ To create Object Flows:
 | ---|---|---|---|---|
 || - |-| D. Ricart| Draft uploaded to personal space.|
 
+
+# References
+
+The Modeler should review [Table 1](#tab-work-instruction-inputs) to ensure they have the required process inputs for the work activities described in this MBSE Work Instruction.
+
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-work-instruction-inputs</ac:parameter>
+</ac:structured-macro>
+
+| Document | Description |
+|---|---|
+| MBSE-WI-001 Teamwork Cloud Administrator|The Modeler should have access to the required work elements in Teamwork Cloud. |
+| MBSE-WI-002 Project Templates|The Modeler should be working in a Model using the DRS Naval Electronics MBSE package framework. |
+| MBSE-WI-003| The Modeler should be working in a Model with a defined System Context (Structure) in the Problem Domain. |
+
+
+# Roles and Responsibilities
+
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 2](#tab-raci-roles-definitions) and functional areas are assigned roles in [Table 3](#tab-raci-chart).
+
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
+</ac:structured-macro>
+
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
+
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-chart</ac:parameter>
+</ac:structured-macro>
+
+
+| Function | Role |
+|---|---|
+| Systems Engineering | R |
+| Project Engineering | C |
+| Configuration Management | I |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | A |
+| Training | A |
+| Business Development | A |
+
+
+# Terms
 
 # Appendix

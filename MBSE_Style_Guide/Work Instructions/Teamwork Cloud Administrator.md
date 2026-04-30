@@ -18,97 +18,25 @@ outputs:
 
 # Purpose
 This Model Based Systems Engineering (MBSE) Work Instruction describes Teamwork Cloud administrative roles and responsibilities.
-# DRS Naval Electronics SysML Meta Model
-
-This Work Instruction applies to all spaces of the DRS Naval Electronics Meta Model; see [Figure 1](#fig-drsne-meta-model).
-
----
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">fig-drsne-meta-model</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 1.</strong> DRS Naval Electronics Meta Model</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-<ac:image ac:align="center">
-  <ri:attachment ri:filename="peerreviewmetamodel.png"/>
-</ac:image>
-
----
-
-# Roles and Responsibilities
-
-Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 1](#tab-raci-roles-definitions) and functional areas are assigned in [Table 2](#tab-twc-admin-raci-chart).
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 1.</strong> RACI Roles and Definitions</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-| RACI Role | Definition |
-|---|---|
-| Responsible | Stakeholder is the owner of the document. |
-| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
-| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
-| Informed | Stakeholder is made aware of the document. |
-| Omitted | Not a stakeholder. |
-
-
-<ac:structured-macro ac:name="anchor">
-  <ac:parameter ac:name="">tab-twc-admin-raci-chart</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="tip">
-  <ac:rich-text-body>
-    <p><strong>Table 2.</strong> Teamwork Cloud Administrator RACI Chart</p>
-  </ac:rich-text-body>
-</ac:structured-macro>
-
-| Function | Role |
-|---|---|
-| Systems Engineering | A |
-| Project Engineering | C |
-| Configuration Management | R |
-| Electrical Engineering | I |
-| Mechanical Engineering | I |
-| Software Engineering | I |
-| Test Engineering | I |
-| Manufacturing | I |
-| Specialty Engineering | I |
-| Quality | C |
-| Training | C |
-| Business Development | I |
-
-
-# Terms
-
-| Term | Definition |
-|---|---|
-|Category| synonymous with *folder* in Teamwork Cloud|
-| Resource| synonymous with *file* in Teamwork Cloud|
-| Containment Tree| synonymous with *file directory* in Teamwork Cloud|
-| Role| a set of permissions with a name (e.g. **Resource Contributor**)|
-|Permission| a function in Teamwork Cloud|
-| Scope| the resources and/or categories to which a user's permissions apply|
 
 
 # Procedure
 
+<ac:structured-macro ac:name="toc">
+  <ac:parameter ac:name="minLevel">2</ac:parameter>
+  <ac:parameter ac:name="maxLevel">7</ac:parameter>
+  <ac:parameter ac:name="type">list</ac:parameter>
+  <ac:parameter ac:name="outline">true</ac:parameter>
+</ac:structured-macro>
+
+---
+
 ## Setup the Work Environment
 
-<ac:Structured-macro ac:name="info">
-<ac:rich-text-body>
-<p>This section applies primarily to non-administrative users.</p>
-</ac:rich-text-body>
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p>This section applies primarily to non-administrative users.</p>
+  </ac:rich-text-body>
 </ac:structured-macro>
 
 
@@ -121,6 +49,8 @@ Submit an IT request for a Cameo Systems Modeler license.
 
 Contact a Teamwork Cloud Administrator (TCA) to gain access to Teamwork Cloud.
 
+---
+
 ## Setup New Program Category in Teamwork Cloud
 
 1. Open **Resources > Naval Electronics**.
@@ -129,6 +59,7 @@ Contact a Teamwork Cloud Administrator (TCA) to gain access to Teamwork Cloud.
 4. Open the new category and create two sub-categories called `Cameo Files` and `Collaborator Files`.  
 5. Open **Collaborator Files** and create two sub-categories called `1. Peer Reviews`, `2. Archived Peer Reviews`, and `3. Other Collaborator Files`.  
 
+---
 
 ## Manage Roles in Teamwork Cloud
 
@@ -150,12 +81,6 @@ See the [Appendix](#appendix) for a complete list of permissions.
 
 <ac:structured-macro ac:name="anchor">
   <ac:parameter ac:name="">fig-add-role-user-twc</ac:parameter>
-</ac:structured-macro>
-
-<ac:structured-macro ac:name="info">
-  <ac:rich-text-body>
-    <p><strong>Figure 2.</strong> Add Role to User in Teamwork Cloud</p>
-  </ac:rich-text-body>
 </ac:structured-macro>
 
 <ac:image ac:align="center">
@@ -191,17 +116,68 @@ Reviewers need read/write access to their project's **Peer Reviews** category.
 2. Set the scope for this role to these categories under the user's project category:  
     * **Peer Reviews** and **Other Collaborator Files** (under **Collaborator Files**).
 
-# References
 
-| Document Number | Name|
-| ---| ---|
-|MBSE-WI-001| Peer Review|
 
 # Revision History
 
 | Version|Revision|Date|Author|Change History|
 | ---|---|---|---|---|
 |conf.1| - |03-02-2026| D. Ricart| Draft uploaded to General Engineering Practices Confluence space.|
+
+
+# References
+
+| Document| Description|
+| ---| ---|
+|MBSE-WI-001| Peer Review|
+
+# Roles and Responsibilities
+
+Roles and responsibilities for the MBSE Style Guide are assigned with a RACI chart. Roles are defined in [Table 1](#tab-raci-roles-definitions) and functional areas are assigned in [Table 2](#tab-twc-admin-raci-chart).
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-raci-roles-definitions</ac:parameter>
+</ac:structured-macro>
+
+| RACI Role | Definition |
+|---|---|
+| Responsible | Stakeholder is the owner of the document. |
+| Accountable | Stakeholder depends on the document to effectively perform their job duties. |
+| Consulted | Stakeholder provides input, which may or may not be optional, to the authoring of the document. |
+| Informed | Stakeholder is made aware of the document. |
+| Omitted | Not a stakeholder. |
+
+
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">tab-twc-admin-raci-chart</ac:parameter>
+</ac:structured-macro>
+
+| Function | Role |
+|---|---|
+| Systems Engineering | A |
+| Project Engineering | C |
+| Configuration Management | R |
+| Electrical Engineering | I |
+| Mechanical Engineering | I |
+| Software Engineering | I |
+| Test Engineering | I |
+| Manufacturing | I |
+| Specialty Engineering | I |
+| Quality | C |
+| Training | C |
+| Business Development | I |
+
+
+# Terms
+
+| Term | Definition |
+|---|---|
+|Category| synonymous with *folder* in Teamwork Cloud|
+| Resource| synonymous with *file* in Teamwork Cloud|
+| Containment Tree| synonymous with *file directory* in Teamwork Cloud|
+| Role| a set of permissions with a name (e.g. **Resource Contributor**)|
+|Permission| a function in Teamwork Cloud|
+| Scope| the resources and/or categories to which a user's permissions apply|
 
 # Appendix
 
@@ -230,4 +206,3 @@ Reviewers need read/write access to their project's **Peer Reviews** category.
 |Release Resource Locks|Release all locks on a resource.|
 |Remove Resource|Delete a resource.|
 |Remove User|Delete a user.|
-

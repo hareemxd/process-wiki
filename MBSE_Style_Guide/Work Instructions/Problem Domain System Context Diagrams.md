@@ -49,7 +49,7 @@ In the Problem Domain, the SoI is modeled as a *black box*; only the external bo
 
 ## Create Elements of Definition
 
-Create elements by right-clicking in the containment tree.
+Create elements by right-clicking in the *[containment tree](#terms)*.
 
 
 <ac:structured-macro ac:name="info">
@@ -71,29 +71,29 @@ Create elements by right-clicking in the containment tree.
 ---
 
 ### Create Problem Domain System Context Block
-1. Right-click **System Context (Structure) > Create Element > Domain**.
-2. Open the element **Specification** and edit the **Documentation**. Write a brief description of the PDSC.
+1. Right-click **System Context (Structure) >> Create Element >> Domain**.
+2. Open the element ***Specification*** and edit the ***Documentation***. Write a brief description of the PDSC.
 
 ### Create System of Interest
 
-1. Right-click **System Context (Structure) > Create Element > System of Interest** ![System of Interest](../assets/MBSE/systemofinterest.png).
-2. Open the element **Specification** and edit the **Documentation**. Write a brief description of the SoI.
+1. Right-click **System Context (Structure) >> Create Element >> System of Interest** ![System of Interest](../assets/MBSE/systemofinterest.png).
+2. Open the element ***Specification*** and edit the ***Documentation***. Write a brief description of the SoI.
 
 ### Create Actors
 
 
-1. Right-click **Actors > Create Element > Actor** ![actor](../assets/MBSE/actor.png).
-2. Open the actor **Specification** and edit the **Documentation**. Write a brief description of each element.
-3. Open the **Actor Descriptions** table and drag all actors into the table.
-4. In the top toolbar, select **Columns > Documentation**. A new column displaying the **Documentation** field is added to the table.
+1. Right-click **Actors >> Create Element >> Actor** ![actor](../assets/MBSE/actor.png).
+2. Open the actor ***Specification*** and edit the ***Documentation***. Write a brief description of each element.
+3. Open the ***Actor Descriptions*** table and drag all actors into the table.
+4. In the top toolbar, select **Columns >> Documentation**. A new column displaying the ***Documentation*** field is added to the table.
 
 ### Create External Systems
  
 
-1. Under **Structure**, right-click **External Systems > Create Element > External System** ![anchor](../assets/MBSE/externalsystem.png).
-2.   Open the External System **Specification** and edit the **Documentation**. Write a brief description of each element.
-3.  Open the **External System Descriptions** table and drag all external systems into the table.
-4.  In the top toolbar, select **Columns > Documentation**. A new column displaying the **Documentation** field is added to the table.
+1. Under **Structure**, right-click **External Systems >> Create Element >> External System** ![anchor](../assets/MBSE/externalsystem.png).
+2.   Open the External System ***Specification*** and edit the ***Documentation***. Write a brief description of each element.
+3.  Open the ***External System Descriptions*** table and drag all external systems into the table.
+4.  In the top toolbar, select **Columns >> Documentation**. A new column displaying the ***Documentation*** field is added to the table.
 
 ---
 
@@ -101,14 +101,14 @@ Create elements by right-clicking in the containment tree.
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.
 
-Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagram** ![block definition diagram](../assets/MBSE/bdd.png), and enter {{[project/system name] Problem Domain System Context}}. 
+Right-click the ***PDSC block*** **>> Create Diagram >> SysML Block Definition Diagram** ![block definition diagram](../assets/MBSE/bdd.png), and enter `{project/system name} Problem Domain System Context`. 
 
 ### Layout the Diagram
  
  1. Drag the PDSC block into the middle of the diagram and lengthen it to extend to the bottom of the screen.  
  2. Update the title to match the element name.  
  3. Drag the SoI block onto the diagram above the PDSC block, all actors to the left, and all external systems to the right.  
- 4. Drag the **Actor Descriptions** table into the top-left region and  the **External System Descriptions** table into the top-right region.  
+ 4. Drag the ***Actor Descriptions*** table into the top-left region and the ***External System Descriptions*** table into the top-right region.  
  5. Use the **Align** tool ![Align](../assets/MBSE/align.png) in the top toolbar to organize, resize, and reposition elements to give the diagram a uniform style.  
 
 <ac:structured-macro ac:name="info">
@@ -120,7 +120,7 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 ### Create Design Comments
 
 1. Select the element to attach a comment to, then select the anchor ![anchor](../assets/MBSE/Anchor.png). Move the mouse to nearby whitespace and click to create a note.
-2. Right-click the note, then **Refactor > Convert To > Comment**.
+2. Right-click the note, then **Refactor >> Convert To >> Comment**.
 3. Right-click again, and under **Stereotype**, select a comment stereotype.
 4. Enter the comment in the text field.
 
@@ -133,8 +133,8 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 ### Create System of Interest Documentation Comment
 
 
-1. Right-click the SoI **> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
-2. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a **Comment**.
+1. Right-click the SoI **>> Specification**. Expand the **Documentation/Comments** category in the left navigation menu.
+2. Click and drag the comment nested under **Documentation/Comments** into the top-left region to create a ***Comment***.
 3. Mouse over the comment and select the anchor ![anchor](../assets/MBSE/Anchor.png), then select the PDSC block and connect the elements.
 
 ---
@@ -151,10 +151,10 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 
 ### Create Relationships
 
-1. Create **Directed Aggregation** relationships from the PDSC block to each of the actors and external systems.
-2. Create a **Directed Composition** relationship from the PDSC block to the SoI block.
+1. Create ***Directed Aggregation*** relationships from the PDSC block to each of the actors and external systems.
+2. Create a ***Directed Composition*** relationship from the PDSC block to the SoI block.
 
-3. Right-click each new connector **> Specification > Multiplicity**, and set the correct value.
+3. Right-click each new connector **>> Specification >> Multiplicity**, and set the correct value.
 
 <ac:structured-macro ac:name="info">
   <ac:rich-text-body>
@@ -183,24 +183,24 @@ Right-click the **PDSC block** **> Create Diagram > SysML Block Definition Diagr
 
 Add elements to diagrams by dragging them from the containment tree. Create relationships by drawing connections in the diagram.  
 
-In the containment tree, right-click the PDSC block **> Create Diagram > SysML Internal Block Diagram** ![internal block diagram](../assets/MBSE/ibd.png) **> OK**. Cameo automatically adds all elements of definition to the new diagram.
+In the containment tree, right-click the PDSC block **>> Create Diagram >> SysML Internal Block Diagram** ![internal block diagram](../assets/MBSE/ibd.png) **>> OK**. Cameo automatically adds all elements of definition to the new diagram.
 
 ### Layout the Diagram
 
 1. Drag the SoI block into the middle of the diagram and lengthen it to extend to the bottom of the screen.
 2. Update the title in the text box so it matches the file name.
 3. Drag all actors to the left and all external systems to the right.
-4. Drag the **Actor Descriptions** table into the top-left region and the **External System Descriptions** table into the top-right region.
+4. Drag the ***Actor Descriptions*** table into the top-left region and the ***External System Descriptions*** table into the top-right region.
 5. Use the **Align** tool ![Align](../assets/MBSE/align.png) in the top toolbar to organize, resize, and reposition elements to give the diagram a uniform style.
 
-6. Drag the **Interface Types** legend into the top-left region.
+6. Drag the ***Interface Types*** legend into the top-left region.
 
 ### Create Connections and Ports
 
 1. Select a property (element) in the diagram, then select the **Proxy Port** ![Port](../assets/MBSE/Port.png). Create a new port on the inner side (close to the SoI).
 2. Select the SoI and create another port that will connect the SoI with the property port.
 3.  Select each port on the SoI, select the **Connector** ![Connector](../assets/MBSE/Connector.png), then create a connection between the SoI and property ports.
-4. Right-click each port **> Legend Item**, then assign the appropriate **Legend Item**.
+4. Right-click each port **>> Legend Item**, then assign the appropriate ***Legend Item***.
 5. Position all port labels next to their ports and inside the owning block.
 
 <ac:structured-macro ac:name="info">
@@ -223,12 +223,12 @@ In the containment tree, right-click the PDSC block **> Create Diagram > SysML I
 
 ### Create Flows and Interfaces
 1. Identify and create elements to represent all types of information flowing between the SoI and external systems.
-2. Right-click **Logical Information Flows > Create Element > Flow Specification**.
-3. Drag the Flow Specification block onto the appropriate connector in the diagram.
+2. Right-click **Logical Information Flows >> Create Element >> Flow Specification**.
+3. Drag the ***Flow Specification*** block onto the appropriate connector in the diagram.
 4. Check the flow's direction to confirm it is correct, then select **Finish**.  
 5. Identify all types of interfaces through which information is transferred between all PDSC elements of definition.
-6. Right-click **Logical Interface Types > Create Element > Interface Block**.
-7. Drag the Interface Block onto the appropriate port in the diagram.  
+6. Right-click **Logical Interface Types >> Create Element >> Interface Block**.
+7. Drag the ***Interface Block*** onto the appropriate port in the diagram.  
 
 <ac:structured-macro ac:name="note">
   <ac:rich-text-body>
